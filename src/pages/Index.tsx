@@ -1,16 +1,18 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Anchor, BookOpen, Beaker, Calculator, Atom, ChevronRight, Star, Trophy, Target } from "lucide-react";
+import { Anchor, BookOpen, Beaker, Calculator, Atom, ChevronRight, Star, Trophy, Target, Brain, Globe } from "lucide-react";
 import { chemistryChapters, chemistryExperienceMCQs } from "@/data/chemistryData";
 import { physicsChapters, physicsExperienceMCQs } from "@/data/physicsData";
 import { mathChapters, mathExperienceMCQs } from "@/data/mathData";
+import { intelligenceChapters, intelligenceExperienceMCQs } from "@/data/intelligenceData";
+import { gkChapters, gkExperienceMCQs } from "@/data/generalKnowledgeData";
 import SubjectCard from "@/components/SubjectCard";
 import ChapterList from "@/components/ChapterList";
 import QuizScreen from "@/components/QuizScreen";
 import ExperienceQuiz from "@/components/ExperienceQuiz";
 
 type Screen = "home" | "subject" | "chapters" | "quiz" | "experience";
-type Subject = "chemistry" | "physics" | "math";
+type Subject = "chemistry" | "physics" | "math" | "intelligence" | "gk";
 
 const Index = () => {
   const [screen, setScreen] = useState<Screen>("home");
@@ -22,6 +24,8 @@ const Index = () => {
       case "chemistry": return chemistryChapters;
       case "physics": return physicsChapters;
       case "math": return mathChapters;
+      case "intelligence": return intelligenceChapters;
+      case "gk": return gkChapters;
       default: return [];
     }
   };
@@ -31,6 +35,8 @@ const Index = () => {
       case "chemistry": return chemistryExperienceMCQs;
       case "physics": return physicsExperienceMCQs;
       case "math": return mathExperienceMCQs;
+      case "intelligence": return intelligenceExperienceMCQs;
+      case "gk": return gkExperienceMCQs;
       default: return [];
     }
   };
@@ -99,6 +105,8 @@ const Index = () => {
               {/* Subject Cards */}
               <h3 className="font-display text-xl font-semibold mb-4 text-foreground">Choose Subject</h3>
               <div className="grid gap-4">
+                <SubjectCard icon={Brain} title="Intelligence" subtitle="10 Chapters • 250+ MCQs" color="from-amber-500 to-orange-600" onClick={() => handleSubjectSelect("intelligence")} />
+                <SubjectCard icon={Globe} title="General Knowledge" subtitle="7 Chapters • 175+ MCQs" color="from-rose-500 to-red-600" onClick={() => handleSubjectSelect("gk")} />
                 <SubjectCard icon={Beaker} title="Chemistry" subtitle="16 Chapters • 400+ MCQs" color="from-emerald-500 to-teal-600" onClick={() => handleSubjectSelect("chemistry")} />
                 <SubjectCard icon={Atom} title="Physics" subtitle="10 Chapters • 250+ MCQs" color="from-blue-500 to-cyan-600" onClick={() => handleSubjectSelect("physics")} />
                 <SubjectCard icon={Calculator} title="Mathematics" subtitle="10 Chapters • 250+ MCQs" color="from-purple-500 to-pink-600" onClick={() => handleSubjectSelect("math")} />
