@@ -62,8 +62,8 @@ const Index = () => {
               <Anchor className="w-6 h-6 text-primary-foreground" />
             </div>
             <div className="cursor-pointer">
-              <h1 className="font-display text-xl font-bold text-gradient-gold">NAVY TEST PREP</h1>
-              <p className="text-xs text-muted-foreground">2025 Pattern</p>
+              <h1 className="font-display text-xl font-bold text-gradient-gold">M Abbas Study App</h1>
+              <p className="text-xs text-muted-foreground">Navy Test Prep 2025</p>
             </div>
           </div>
           {screen !== "home" && (

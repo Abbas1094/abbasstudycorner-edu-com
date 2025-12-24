@@ -1,11 +1,18 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Chapter } from "@/data/chemistryData";
-import { CheckCircle2, XCircle, ChevronRight } from "lucide-react";
+import { CheckCircle2, XCircle, ChevronRight, RotateCcw } from "lucide-react";
 
 interface QuizScreenProps {
   chapter: Chapter;
   onBack: () => void;
+}
+
+interface Answer {
+  questionIndex: number;
+  selectedAnswer: number;
+  correctAnswer: number;
+  isCorrect: boolean;
 }
 
 const QuizScreen = ({ chapter }: QuizScreenProps) => {
@@ -13,6 +20,7 @@ const QuizScreen = ({ chapter }: QuizScreenProps) => {
   const [selected, setSelected] = useState<number | null>(null);
   const [score, setScore] = useState(0);
   const [showResult, setShowResult] = useState(false);
+  const [answers, setAnswers] = useState<Answer[]>([]);
 
   const mcq = chapter.mcqs[current];
   const isCorrect = selected === mcq.correctAnswer;
@@ -21,7 +29,15 @@ const QuizScreen = ({ chapter }: QuizScreenProps) => {
   const handleSelect = (idx: number) => {
     if (isAnswered) return;
     setSelected(idx);
-    if (idx === mcq.correctAnswer) setScore(s => s + 1);
+    const correct = idx === mcq.correctAnswer;
+    if (correct) setScore(s => s + 1);
+    
+    setAnswers(prev => [...prev, {
+      questionIndex: current,
+      selectedAnswer: idx,
+      correctAnswer: mcq.correctAnswer,
+      isCorrect: correct
+    }]);
   };
 
   const handleNext = () => {
@@ -33,16 +49,86 @@ const QuizScreen = ({ chapter }: QuizScreenProps) => {
     }
   };
 
+  const handleReset = () => {
+    setCurrent(0);
+    setSelected(null);
+    setScore(0);
+    setShowResult(false);
+    setAnswers([]);
+  };
+
+  const mistakes = answers.filter(a => !a.isCorrect);
+
   if (showResult) {
     const percentage = Math.round((score / chapter.mcqs.length) * 100);
     return (
-      <motion.div initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }} className="text-center py-10">
-        <div className="w-24 h-24 rounded-full bg-gradient-gold mx-auto mb-6 flex items-center justify-center shadow-gold">
-          <span className="text-3xl font-bold text-primary-foreground">{percentage}%</span>
+      <motion.div initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }} className="py-6">
+        <div className="text-center mb-8">
+          <div className="w-24 h-24 rounded-full bg-gradient-gold mx-auto mb-6 flex items-center justify-center shadow-gold">
+            <span className="text-3xl font-bold text-primary-foreground">{percentage}%</span>
+          </div>
+          <h2 className="font-display text-2xl font-bold text-foreground mb-2">Quiz Complete!</h2>
+          <p className="text-muted-foreground mb-4">You scored {score} out of {chapter.mcqs.length}</p>
+          
+          <div className="flex gap-2 justify-center mb-2">
+            <span className="px-3 py-1 rounded-full bg-success/20 text-success text-sm font-medium">
+              ✓ {score} Correct
+            </span>
+            <span className="px-3 py-1 rounded-full bg-destructive/20 text-destructive text-sm font-medium">
+              ✗ {mistakes.length} Wrong
+            </span>
+          </div>
         </div>
-        <h2 className="font-display text-2xl font-bold text-foreground mb-2">Quiz Complete!</h2>
-        <p className="text-muted-foreground mb-6">You scored {score} out of {chapter.mcqs.length}</p>
-        <button onClick={() => { setCurrent(0); setSelected(null); setScore(0); setShowResult(false); }} className="bg-gradient-gold text-primary-foreground px-6 py-3 rounded-xl font-semibold shadow-gold">
+
+        {mistakes.length > 0 && (
+          <div className="mb-8">
+            <h3 className="font-display text-lg font-semibold text-foreground mb-4 flex items-center gap-2">
+              <XCircle className="w-5 h-5 text-destructive" />
+              Review Your Mistakes
+            </h3>
+            <div className="space-y-4">
+              {mistakes.map((mistake, idx) => {
+                const q = chapter.mcqs[mistake.questionIndex];
+                return (
+                  <motion.div 
+                    key={idx} 
+                    initial={{ opacity: 0, y: 10 }} 
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: idx * 0.1 }}
+                    className="bg-card p-4 rounded-xl border border-border"
+                  >
+                    <p className="text-sm text-muted-foreground mb-2">Question {mistake.questionIndex + 1}</p>
+                    <p className="font-medium text-foreground mb-3">{q.question}</p>
+                    
+                    <div className="space-y-2">
+                      <div className="flex items-start gap-2 p-2 rounded-lg bg-destructive/10 border border-destructive/30">
+                        <XCircle className="w-4 h-4 text-destructive mt-0.5 flex-shrink-0" />
+                        <div>
+                          <p className="text-xs text-destructive font-medium">Your Answer</p>
+                          <p className="text-sm text-foreground">{q.options[mistake.selectedAnswer]}</p>
+                        </div>
+                      </div>
+                      
+                      <div className="flex items-start gap-2 p-2 rounded-lg bg-success/10 border border-success/30">
+                        <CheckCircle2 className="w-4 h-4 text-success mt-0.5 flex-shrink-0" />
+                        <div>
+                          <p className="text-xs text-success font-medium">Correct Answer</p>
+                          <p className="text-sm text-foreground">{q.options[mistake.correctAnswer]}</p>
+                        </div>
+                      </div>
+                    </div>
+                  </motion.div>
+                );
+              })}
+            </div>
+          </div>
+        )}
+
+        <button 
+          onClick={handleReset} 
+          className="w-full bg-gradient-gold text-primary-foreground px-6 py-3 rounded-xl font-semibold shadow-gold flex items-center justify-center gap-2"
+        >
+          <RotateCcw className="w-5 h-5" />
           Try Again
         </button>
       </motion.div>
