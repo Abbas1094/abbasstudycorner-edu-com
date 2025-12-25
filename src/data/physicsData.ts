@@ -333,6 +333,7 @@ export const physicsChapters: Chapter[] = [
   }
 ];
 
+// 2025 Test Center Experience Based Physics Questions
 export const physicsExperienceMCQs: MCQ[] = [
   { id: 1, question: "SI unit of force is:", options: ["Joule", "Watt", "Newton", "Pascal"], correctAnswer: 2, isExperienceBased: true },
   { id: 2, question: "Speed of light is approximately:", options: ["3×10⁶ m/s", "3×10⁷ m/s", "3×10⁸ m/s", "3×10⁹ m/s"], correctAnswer: 2, isExperienceBased: true },
@@ -345,5 +346,23 @@ export const physicsExperienceMCQs: MCQ[] = [
   { id: 9, question: "Radius of Earth is:", options: ["6.4×10⁵ m", "6.4×10⁶ m", "6.4×10⁷ m", "6.4×10⁸ m"], correctAnswer: 1, isExperienceBased: true },
   { id: 10, question: "Value of G is:", options: ["6.67×10⁻¹⁰", "6.67×10⁻¹¹", "6.67×10⁻¹²", "6.67×10⁻⁹"], correctAnswer: 1, isExperienceBased: true },
   { id: 11, question: "k (Coulomb's constant) is:", options: ["9×10⁸", "9×10⁹", "9×10¹⁰", "9×10⁷"], correctAnswer: 1, isExperienceBased: true },
-  { id: 12, question: "Acceleration unit is:", options: ["m/s", "m/s²", "m²/s", "s/m²"], correctAnswer: 1, isExperienceBased: true }
+  { id: 12, question: "Acceleration unit is:", options: ["m/s", "m/s²", "m²/s", "s/m²"], correctAnswer: 1, isExperienceBased: true },
+  { id: 13, question: "SI unit of kinetic energy?", options: ["Newton", "Joule", "Watt", "Pascal"], correctAnswer: 1, isExperienceBased: true },
+  { id: 14, question: "Types of units in SI system?", options: ["1", "2", "3", "4"], correctAnswer: 1, isExperienceBased: true },
+  { id: 15, question: "Unit of gravitational constant G?", options: ["Nm/kg", "Nm²/kg²", "N/kg", "Nm/kg²"], correctAnswer: 1, isExperienceBased: true },
+  { id: 16, question: "Solid changes directly into gas is called?", options: ["Evaporation", "Sublimation", "Condensation", "Melting"], correctAnswer: 1, isExperienceBased: true },
+  { id: 17, question: "1 Liter = ? cubic centimeters", options: ["100", "500", "1000", "10000"], correctAnswer: 2, isExperienceBased: true },
+  { id: 18, question: "Mercury is used in thermometer because?", options: ["It is cheap", "Uniform expansion", "It is silver", "Easy to find"], correctAnswer: 1, isExperienceBased: true },
+  { id: 19, question: "Energy is stored in?", options: ["Resistor", "Capacitor", "Inductor", "Transistor"], correctAnswer: 1, isExperienceBased: true },
+  { id: 20, question: "Dimension of Newton (Force)?", options: ["MLT⁻¹", "MLT⁻²", "ML²T⁻²", "M²LT⁻²"], correctAnswer: 1, isExperienceBased: true },
+  { id: 21, question: "Speed formula?", options: ["Distance × Time", "Distance / Time", "Time / Distance", "Distance + Time"], correctAnswer: 1, isExperienceBased: true },
+  { id: 22, question: "Unit of Resistance?", options: ["Volt", "Ampere", "Ohm", "Watt"], correctAnswer: 2, isExperienceBased: true },
+  { id: 23, question: "Velocity formula?", options: ["Distance / Time", "Displacement / Time", "Speed / Time", "Acceleration × Time"], correctAnswer: 1, isExperienceBased: true },
+  { id: 24, question: "Newton's first law is also called law of?", options: ["Force", "Inertia", "Momentum", "Gravity"], correctAnswer: 1, isExperienceBased: true },
+  { id: 25, question: "Unit of power of lens?", options: ["Meter", "Hertz", "Diopter", "Watt"], correctAnswer: 2, isExperienceBased: true },
+  { id: 26, question: "Which is derived quantity?", options: ["Current", "Charge", "Amount of substances", "Plane angle"], correctAnswer: 3, isExperienceBased: true },
+  { id: 27, question: "Distance formula (in kinematics)?", options: ["Speed × Time", "Velocity / Time", "Speed + Time", "Acceleration × Time"], correctAnswer: 0, isExperienceBased: true },
+  { id: 28, question: "V = IR is known as?", options: ["Newton's Law", "Ohm's Law", "Faraday's Law", "Coulomb's Law"], correctAnswer: 1, isExperienceBased: true },
+  { id: 29, question: "Law of Inertia states that?", options: ["Force equals mass times acceleration", "Object at rest stays at rest unless acted upon", "Every action has reaction", "Energy is conserved"], correctAnswer: 1, isExperienceBased: true },
+  { id: 30, question: "SI unit of velocity is?", options: ["m/s", "m/s²", "km/h", "m"], correctAnswer: 0, isExperienceBased: true }
 ];

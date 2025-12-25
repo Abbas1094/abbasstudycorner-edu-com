@@ -333,6 +333,7 @@ export const mathChapters: Chapter[] = [
   }
 ];
 
+// 2025 Test Center Experience Based Math Questions
 export const mathExperienceMCQs: MCQ[] = [
   { id: 1, question: "If a = 2, b = 3 then 2a + b =:", options: ["5", "6", "7", "8"], correctAnswer: 2, isExperienceBased: true },
   { id: 2, question: "Table of 19: 19, 38, 57, __:", options: ["66", "72", "76", "80"], correctAnswer: 2, isExperienceBased: true },
@@ -345,5 +346,13 @@ export const mathExperienceMCQs: MCQ[] = [
   { id: 9, question: "Pythagorean triple: 3, 4, __:", options: ["5", "6", "7", "8"], correctAnswer: 0, isExperienceBased: true },
   { id: 10, question: "Only __ line passes through two points:", options: ["Zero", "One", "Two", "Infinite"], correctAnswer: 1, isExperienceBased: true },
   { id: 11, question: "Determinant ≠ 0 means matrix is:", options: ["Singular", "Non-singular", "Identity", "Null"], correctAnswer: 1, isExperienceBased: true },
-  { id: 12, question: "Opposite of 'Narrow' is:", options: ["Thin", "Small", "Wide", "Short"], correctAnswer: 2, isExperienceBased: true }
+  { id: 12, question: "If A=4, B=3 then A²+B² = ?", options: ["20", "25", "30", "35"], correctAnswer: 1, isExperienceBased: true },
+  { id: 13, question: "Log₁₀ = ?", options: ["0", "1", "2", "10"], correctAnswer: 1, isExperienceBased: true },
+  { id: 14, question: "5, 10, 15, 20, __, 30?", options: ["22", "25", "27", "28"], correctAnswer: 1, isExperienceBased: true },
+  { id: 15, question: "11, 22, 33, 44, ?", options: ["50", "55", "60", "66"], correctAnswer: 1, isExperienceBased: true },
+  { id: 16, question: "1369 × 1369 = ?", options: ["1873161", "1874161", "1875161", "1876161"], correctAnswer: 1, isExperienceBased: true },
+  { id: 17, question: "Supplementary angles sum to?", options: ["90°", "180°", "270°", "360°"], correctAnswer: 1, isExperienceBased: true },
+  { id: 18, question: "A = B and C = D, here B and C are called?", options: ["Equal", "Transitive", "Corresponding", "Equivalent"], correctAnswer: 2, isExperienceBased: true },
+  { id: 19, question: "Log2=0.30, Log3=0.477, Log6=0.778. Log10 = ?", options: ["0.5", "0.778", "1", "1.5"], correctAnswer: 2, isExperienceBased: true },
+  { id: 20, question: "Sum of angles of a triangle?", options: ["90°", "180°", "270°", "360°"], correctAnswer: 1, isExperienceBased: true }
 ];
