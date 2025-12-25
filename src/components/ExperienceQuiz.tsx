@@ -1,7 +1,7 @@
-import { useState } from "react";
+import { useState, useCallback, useMemo } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { MCQ } from "@/data/chemistryData";
-import { CheckCircle2, XCircle, ChevronRight, RotateCcw } from "lucide-react";
+import { CheckCircle2, XCircle, ChevronRight, RotateCcw, Lightbulb } from "lucide-react";
 
 interface ExperienceQuizProps {
   mcqs: MCQ[];
@@ -27,8 +27,8 @@ const ExperienceQuiz = ({ mcqs, subject }: ExperienceQuizProps) => {
   const isCorrect = selected === mcq.correctAnswer;
   const isAnswered = selected !== null;
 
-  const handleSelect = (idx: number) => {
-    if (isAnswered) return;
+  const handleSelect = useCallback((idx: number) => {
+    if (selected !== null) return;
     setSelected(idx);
     const correct = idx === mcq.correctAnswer;
     if (correct) setScore(s => s + 1);
@@ -39,31 +39,42 @@ const ExperienceQuiz = ({ mcqs, subject }: ExperienceQuizProps) => {
       correctAnswer: mcq.correctAnswer,
       isCorrect: correct
     }]);
-  };
+  }, [selected, mcq.correctAnswer, current]);
 
-  const handleNext = () => {
+  const handleNext = useCallback(() => {
     if (current < mcqs.length - 1) {
       setCurrent(c => c + 1);
       setSelected(null);
     } else {
       setShowResult(true);
     }
-  };
+  }, [current, mcqs.length]);
 
-  const handleReset = () => {
+  const handleReset = useCallback(() => {
     setCurrent(0);
     setSelected(null);
     setScore(0);
     setShowResult(false);
     setAnswers([]);
-  };
+  }, []);
 
-  const mistakes = answers.filter(a => !a.isCorrect);
+  const mistakes = useMemo(() => answers.filter(a => !a.isCorrect), [answers]);
+
+  const generateExplanation = (q: typeof mcq) => {
+    if (q.explanation) return q.explanation;
+    const correctOption = q.options[q.correctAnswer];
+    return `The correct answer is "${correctOption}". This is based on standard facts/formulas/concepts tested in Navy exams.`;
+  };
 
   if (showResult) {
     const percentage = Math.round((score / mcqs.length) * 100);
     return (
-      <motion.div initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }} className="py-6">
+      <motion.div 
+        initial={{ opacity: 0, scale: 0.95 }} 
+        animate={{ opacity: 1, scale: 1 }} 
+        transition={{ duration: 0.2 }}
+        className="py-6"
+      >
         <div className="text-center mb-8">
           <div className="w-24 h-24 rounded-full bg-gradient-gold mx-auto mb-6 flex items-center justify-center shadow-gold">
             <span className="text-3xl font-bold text-primary-foreground">{percentage}%</span>
@@ -91,11 +102,8 @@ const ExperienceQuiz = ({ mcqs, subject }: ExperienceQuizProps) => {
               {mistakes.map((mistake, idx) => {
                 const q = mcqs[mistake.questionIndex];
                 return (
-                  <motion.div 
+                  <div 
                     key={idx} 
-                    initial={{ opacity: 0, y: 10 }} 
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: idx * 0.1 }}
                     className="bg-card p-4 rounded-xl border border-border"
                   >
                     <p className="text-sm text-muted-foreground mb-2">Question {mistake.questionIndex + 1}</p>
@@ -117,8 +125,16 @@ const ExperienceQuiz = ({ mcqs, subject }: ExperienceQuizProps) => {
                           <p className="text-sm text-foreground">{q.options[mistake.correctAnswer]}</p>
                         </div>
                       </div>
+
+                      <div className="flex items-start gap-2 p-3 rounded-lg bg-primary/10 border border-primary/30 mt-2">
+                        <Lightbulb className="w-4 h-4 text-primary mt-0.5 flex-shrink-0" />
+                        <div>
+                          <p className="text-xs text-primary font-medium">Explanation</p>
+                          <p className="text-sm text-foreground">{generateExplanation(q)}</p>
+                        </div>
+                      </div>
                     </div>
-                  </motion.div>
+                  </div>
                 );
               })}
             </div>
@@ -144,11 +160,20 @@ const ExperienceQuiz = ({ mcqs, subject }: ExperienceQuizProps) => {
       </div>
 
       <div className="h-2 bg-muted rounded-full mb-6 overflow-hidden">
-        <motion.div className="h-full bg-gradient-gold" initial={{ width: 0 }} animate={{ width: `${((current + 1) / mcqs.length) * 100}%` }} />
+        <div 
+          className="h-full bg-gradient-gold transition-all duration-300 ease-out" 
+          style={{ width: `${((current + 1) / mcqs.length) * 100}%` }} 
+        />
       </div>
 
       <AnimatePresence mode="wait">
-        <motion.div key={current} initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -20 }}>
+        <motion.div 
+          key={current} 
+          initial={{ opacity: 0, x: 10 }} 
+          animate={{ opacity: 1, x: 0 }} 
+          exit={{ opacity: 0, x: -10 }}
+          transition={{ duration: 0.15 }}
+        >
           <div className="bg-card p-5 rounded-2xl border border-border mb-6">
             <p className="text-lg font-medium text-foreground">{mcq.question}</p>
           </div>
@@ -157,10 +182,10 @@ const ExperienceQuiz = ({ mcqs, subject }: ExperienceQuizProps) => {
             {mcq.options.map((opt, idx) => {
               const isSelected = selected === idx;
               const isCorrectOption = idx === mcq.correctAnswer;
-              let classes = "w-full p-4 rounded-xl border text-left transition-all ";
+              let classes = "w-full p-4 rounded-xl border text-left transition-all duration-150 ";
               
               if (!isAnswered) {
-                classes += "bg-card border-border hover:border-primary/50";
+                classes += "bg-card border-border hover:border-primary/50 active:scale-[0.98]";
               } else if (isCorrectOption) {
                 classes += "bg-success/20 border-success text-success";
               } else if (isSelected && !isCorrect) {
@@ -170,7 +195,12 @@ const ExperienceQuiz = ({ mcqs, subject }: ExperienceQuizProps) => {
               }
 
               return (
-                <motion.button key={idx} whileTap={{ scale: 0.98 }} onClick={() => handleSelect(idx)} className={classes}>
+                <button 
+                  key={idx} 
+                  onClick={() => handleSelect(idx)} 
+                  className={classes}
+                  disabled={isAnswered}
+                >
                   <div className="flex items-center gap-3">
                     <span className="w-8 h-8 rounded-lg bg-muted flex items-center justify-center text-sm font-medium">
                       {String.fromCharCode(65 + idx)}
@@ -179,13 +209,19 @@ const ExperienceQuiz = ({ mcqs, subject }: ExperienceQuizProps) => {
                     {isAnswered && isCorrectOption && <CheckCircle2 className="w-5 h-5 text-success" />}
                     {isAnswered && isSelected && !isCorrect && <XCircle className="w-5 h-5 text-destructive" />}
                   </div>
-                </motion.button>
+                </button>
               );
             })}
           </div>
 
           {isAnswered && (
-            <motion.button initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} onClick={handleNext} className="w-full mt-6 bg-gradient-gold text-primary-foreground p-4 rounded-xl font-semibold shadow-gold flex items-center justify-center gap-2">
+            <motion.button 
+              initial={{ opacity: 0, y: 5 }} 
+              animate={{ opacity: 1, y: 0 }} 
+              transition={{ duration: 0.15 }}
+              onClick={handleNext} 
+              className="w-full mt-6 bg-gradient-gold text-primary-foreground p-4 rounded-xl font-semibold shadow-gold flex items-center justify-center gap-2"
+            >
               {current < mcqs.length - 1 ? "Next Question" : "See Results"}
               <ChevronRight className="w-5 h-5" />
             </motion.button>
