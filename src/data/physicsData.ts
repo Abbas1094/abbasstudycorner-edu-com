@@ -364,5 +364,19 @@ export const physicsExperienceMCQs: MCQ[] = [
   { id: 27, question: "Distance formula (in kinematics)?", options: ["Speed × Time", "Velocity / Time", "Speed + Time", "Acceleration × Time"], correctAnswer: 0, isExperienceBased: true },
   { id: 28, question: "V = IR is known as?", options: ["Newton's Law", "Ohm's Law", "Faraday's Law", "Coulomb's Law"], correctAnswer: 1, isExperienceBased: true },
   { id: 29, question: "Law of Inertia states that?", options: ["Force equals mass times acceleration", "Object at rest stays at rest unless acted upon", "Every action has reaction", "Energy is conserved"], correctAnswer: 1, isExperienceBased: true },
-  { id: 30, question: "SI unit of velocity is?", options: ["m/s", "m/s²", "km/h", "m"], correctAnswer: 0, isExperienceBased: true }
+  { id: 30, question: "SI unit of velocity is?", options: ["m/s", "m/s²", "km/h", "m"], correctAnswer: 0, isExperienceBased: true },
+  { id: 31, question: "i × j = ? (Unit vectors cross product)", options: ["i", "j", "k", "-k"], correctAnswer: 2, isExperienceBased: true },
+  { id: 32, question: "Linear and angular acceleration relation is?", options: ["a = r/α", "a = rα", "a = α/r", "a = r + α"], correctAnswer: 1, isExperienceBased: true },
+  { id: 33, question: "Centripetal force formula is?", options: ["F = mv/r", "F = mv²/r", "F = m/vr", "F = mvr"], correctAnswer: 1, isExperienceBased: true },
+  { id: 34, question: "Work done by centripetal force is?", options: ["Maximum", "Minimum", "Zero", "Infinite"], correctAnswer: 2, isExperienceBased: true },
+  { id: 35, question: "Rocket takes off due to?", options: ["Newton's First Law", "Newton's Second Law", "Newton's Third Law", "Law of Gravitation"], correctAnswer: 2, isExperienceBased: true },
+  { id: 36, question: "1 Nanometer equals?", options: ["10⁻⁶ m", "10⁻⁹ m", "10⁻¹² m", "10⁻³ m"], correctAnswer: 1, isExperienceBased: true },
+  { id: 37, question: "Device that varies potential difference is?", options: ["Capacitor", "Resistor", "Rheostat/Potential Divider", "Inductor"], correctAnswer: 2, isExperienceBased: true },
+  { id: 38, question: "Calorimeter measures?", options: ["Temperature", "Heat", "Pressure", "Volume"], correctAnswer: 1, isExperienceBased: true },
+  { id: 39, question: "Freezing point of water in Kelvin?", options: ["0 K", "100 K", "273 K", "373 K"], correctAnswer: 2, isExperienceBased: true },
+  { id: 40, question: "Boiling point of water in Kelvin?", options: ["100 K", "273 K", "373 K", "473 K"], correctAnswer: 2, isExperienceBased: true },
+  { id: 41, question: "Moment of inertia depends on?", options: ["Mass only", "Shape only", "Mass and distribution", "Velocity"], correctAnswer: 2, isExperienceBased: true },
+  { id: 42, question: "Concave lens is also called?", options: ["Converging lens", "Diverging lens", "Compound lens", "Simple lens"], correctAnswer: 1, isExperienceBased: true },
+  { id: 43, question: "Fuel used in aeroplanes is?", options: ["Petrol", "Diesel", "Kerosene/Jet fuel", "CNG"], correctAnswer: 2, isExperienceBased: true },
+  { id: 44, question: "Unit of weight is?", options: ["kg", "Newton", "Joule", "Watt"], correctAnswer: 1, isExperienceBased: true }
 ];

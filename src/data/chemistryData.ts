@@ -378,5 +378,18 @@ export const chemistryExperienceMCQs: MCQ[] = [
   { id: 27, question: "Formula of Sulfuric Acid?", options: ["HCl", "HNO₃", "H₂SO₄", "H₃PO₄"], correctAnswer: 2, isExperienceBased: true },
   { id: 28, question: "King of chemicals is?", options: ["HCl", "HNO₃", "H₂SO₄", "H₃PO₄"], correctAnswer: 2, isExperienceBased: true },
   { id: 29, question: "Chemical formula of water?", options: ["H2O", "CO2", "O2", "H2O2"], correctAnswer: 0, isExperienceBased: true },
-  { id: 30, question: "Boiling point of water?", options: ["90°C", "100°C", "110°C", "120°C"], correctAnswer: 1, isExperienceBased: true }
+  { id: 30, question: "Boiling point of water?", options: ["90°C", "100°C", "110°C", "120°C"], correctAnswer: 1, isExperienceBased: true },
+  { id: 31, question: "M shell has how many subshells?", options: ["1", "2", "3", "4"], correctAnswer: 2, isExperienceBased: true },
+  { id: 32, question: "Magnesium is an example of?", options: ["Alkali metal", "Alkaline earth metal", "Transition metal", "Halogen"], correctAnswer: 1, isExperienceBased: true },
+  { id: 33, question: "18g of water contains how many moles?", options: ["0.5 mole", "1 mole", "2 moles", "18 moles"], correctAnswer: 1, isExperienceBased: true },
+  { id: 34, question: "Hess's Law is based on?", options: ["Conservation of mass", "Conservation of energy", "Conservation of momentum", "Conservation of charge"], correctAnswer: 1, isExperienceBased: true },
+  { id: 35, question: "When forward and reverse rates are equal, it is called?", options: ["Complete reaction", "Chemical equilibrium", "Reversible reaction", "Irreversible reaction"], correctAnswer: 1, isExperienceBased: true },
+  { id: 36, question: "Atoms in 2 moles of Ca?", options: ["6.02×10²³", "12.04×10²³", "3.01×10²³", "18.06×10²³"], correctAnswer: 1, isExperienceBased: true },
+  { id: 37, question: "General formula of Alkenes?", options: ["CₙH₂ₙ₊₂", "CₙH₂ₙ", "CₙH₂ₙ₋₂", "CₙHₙ"], correctAnswer: 1, isExperienceBased: true },
+  { id: 38, question: "Type of bond in Alkene?", options: ["Single bond", "Double bond", "Triple bond", "Ionic bond"], correctAnswer: 1, isExperienceBased: true },
+  { id: 39, question: "Blood is red due to?", options: ["Plasma", "Hemoglobin", "White blood cells", "Platelets"], correctAnswer: 1, isExperienceBased: true },
+  { id: 40, question: "Largest part of brain?", options: ["Cerebellum", "Medulla", "Cerebrum", "Pons"], correctAnswer: 2, isExperienceBased: true },
+  { id: 41, question: "Unit of heredity is?", options: ["Cell", "Chromosome", "Gene", "DNA"], correctAnswer: 2, isExperienceBased: true },
+  { id: 42, question: "Electron was discovered by?", options: ["Rutherford", "Chadwick", "Goldstein", "J.J. Thomson"], correctAnswer: 3, isExperienceBased: true },
+  { id: 43, question: "Oxygen in atmosphere is approximately?", options: ["15%", "21%", "30%", "78%"], correctAnswer: 1, isExperienceBased: true }
 ];
