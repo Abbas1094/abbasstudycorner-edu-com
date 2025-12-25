@@ -347,6 +347,7 @@ export const chemistryChapters: Chapter[] = [
   }
 ];
 
+// 2025 Test Center Experience Based Chemistry Questions
 export const chemistryExperienceMCQs: MCQ[] = [
   { id: 1, question: "Chemical formula of sand (silica) is:", options: ["SiO", "SiO₂", "SO₂", "Si₂O"], correctAnswer: 1, isExperienceBased: true },
   { id: 2, question: "Formula of rust is:", options: ["FeO", "Fe₂O₃", "Fe₂O₃·nH₂O", "Fe₃O₄"], correctAnswer: 2, isExperienceBased: true },
@@ -362,5 +363,20 @@ export const chemistryExperienceMCQs: MCQ[] = [
   { id: 12, question: "Copper glance formula is:", options: ["CuS", "Cu₂S", "CuFeS₂", "CuO"], correctAnswer: 1, isExperienceBased: true },
   { id: 13, question: "Gypsum formula is:", options: ["CaSO₄", "CaSO₄·2H₂O", "CaSO₄·½H₂O", "CaCO₃"], correctAnswer: 1, isExperienceBased: true },
   { id: 14, question: "Plaster of Paris formula is:", options: ["CaSO₄·2H₂O", "CaSO₄·½H₂O", "CaSO₄", "CaCO₃"], correctAnswer: 1, isExperienceBased: true },
-  { id: 15, question: "Densest metal is:", options: ["Gold", "Lead", "Osmium", "Platinum"], correctAnswer: 2, isExperienceBased: true }
+  { id: 15, question: "Densest metal is:", options: ["Gold", "Lead", "Osmium", "Platinum"], correctAnswer: 2, isExperienceBased: true },
+  { id: 16, question: "CO and CO2 oxygen ratio?", options: ["1:1", "1:2", "2:1", "2:3"], correctAnswer: 1, isExperienceBased: true },
+  { id: 17, question: "Fossil fuels contain?", options: ["Nitrogen", "Carbon", "Oxygen", "Hydrogen"], correctAnswer: 1, isExperienceBased: true },
+  { id: 18, question: "Atomic number of Oxygen?", options: ["6", "7", "8", "9"], correctAnswer: 2, isExperienceBased: true },
+  { id: 19, question: "Mixture of solute and solvent is called?", options: ["Compound", "Element", "Solution", "Mixture"], correctAnswer: 2, isExperienceBased: true },
+  { id: 20, question: "Acids and Bases react to form?", options: ["Water", "Salt", "Salt and Water", "Gas"], correctAnswer: 2, isExperienceBased: true },
+  { id: 21, question: "Proton was discovered by?", options: ["Chadwick", "Rutherford", "Thomson", "Bohr"], correctAnswer: 1, isExperienceBased: true },
+  { id: 22, question: "Neutron was discovered by?", options: ["Rutherford", "Thomson", "Chadwick", "Bohr"], correctAnswer: 2, isExperienceBased: true },
+  { id: 23, question: "Cell wall is present in?", options: ["Animals only", "Plants only", "Plants and Bacteria", "All cells"], correctAnswer: 2, isExperienceBased: true },
+  { id: 24, question: "Plants make their food by process of?", options: ["Respiration", "Photosynthesis", "Digestion", "Fermentation"], correctAnswer: 1, isExperienceBased: true },
+  { id: 25, question: "Plants make their food in?", options: ["Nucleus", "Mitochondria", "Chloroplast", "Ribosome"], correctAnswer: 2, isExperienceBased: true },
+  { id: 26, question: "Prokaryotes are examples of?", options: ["Viruses", "Bacteria", "Fungi", "Plants"], correctAnswer: 1, isExperienceBased: true },
+  { id: 27, question: "Formula of Sulfuric Acid?", options: ["HCl", "HNO₃", "H₂SO₄", "H₃PO₄"], correctAnswer: 2, isExperienceBased: true },
+  { id: 28, question: "King of chemicals is?", options: ["HCl", "HNO₃", "H₂SO₄", "H₃PO₄"], correctAnswer: 2, isExperienceBased: true },
+  { id: 29, question: "Chemical formula of water?", options: ["H2O", "CO2", "O2", "H2O2"], correctAnswer: 0, isExperienceBased: true },
+  { id: 30, question: "Boiling point of water?", options: ["90°C", "100°C", "110°C", "120°C"], correctAnswer: 1, isExperienceBased: true }
 ];
