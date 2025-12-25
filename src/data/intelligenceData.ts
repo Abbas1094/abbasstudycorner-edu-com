@@ -393,5 +393,17 @@ export const intelligenceExperienceMCQs: MCQ[] = [
   { id: 43, question: "Vectors have both ___ and magnitude", options: ["Speed", "Direction", "Force", "Velocity"], correctAnswer: 1, isExperienceBased: true },
   { id: 44, question: "7 is the name of?", options: ["Week", "Month", "Day", "Number"], correctAnswer: 3, isExperienceBased: true },
   { id: 45, question: "Opposite of 'Clean'?", options: ["Pure", "Dirty", "Clear", "Fresh"], correctAnswer: 1, isExperienceBased: true },
-  { id: 46, question: "Opposite of 'Front'?", options: ["Side", "Back", "Top", "Bottom"], correctAnswer: 1, isExperienceBased: true }
+  { id: 46, question: "Opposite of 'Front'?", options: ["Side", "Back", "Top", "Bottom"], correctAnswer: 1, isExperienceBased: true },
+  { id: 47, question: "Blinking is to Star as Shrinking is to?", options: ["Sun", "Moon", "Earth", "Planet"], correctAnswer: 1, isExperienceBased: true },
+  { id: 48, question: "Coffee is to Cup as Soap is to?", options: ["Water", "Dish", "Hands", "Bar"], correctAnswer: 1, isExperienceBased: true },
+  { id: 49, question: "Niece is to Brother/Sister as Nephew is to?", options: ["Parents", "Brother/Sister", "Uncle", "Grandfather"], correctAnswer: 1, isExperienceBased: true },
+  { id: 50, question: "Tree is to Leaf as Flower is to?", options: ["Stem", "Petal", "Root", "Seed"], correctAnswer: 1, isExperienceBased: true },
+  { id: 51, question: "FATHER reversed is REHTAF. MOTHER reversed is?", options: ["REHTOM", "MOTHER", "RETOM", "HTEROM"], correctAnswer: 0, isExperienceBased: true },
+  { id: 52, question: "Rearrange LFPO to make a word", options: ["POLO", "FLOP", "LOOP", "POOL"], correctAnswer: 1, isExperienceBased: true },
+  { id: 53, question: "Odd one out: Spoon, Knife, Plate, Sugar", options: ["Spoon", "Knife", "Plate", "Sugar"], correctAnswer: 3, isExperienceBased: true },
+  { id: 54, question: "Odd one out: Green, Blue, Red, Square", options: ["Green", "Blue", "Red", "Square"], correctAnswer: 3, isExperienceBased: true },
+  { id: 55, question: "Sum of deviations from mean is always?", options: ["Positive", "Negative", "Zero", "One"], correctAnswer: 2, isExperienceBased: true },
+  { id: 56, question: "100, 64, 36, 16, ? (Perfect squares: 10², 8², 6², 4², ?)", options: ["4", "8", "9", "12"], correctAnswer: 0, isExperienceBased: true },
+  { id: 57, question: "6, 9, 12, ?", options: ["14", "15", "16", "18"], correctAnswer: 1, isExperienceBased: true },
+  { id: 58, question: "Man covers 600m in 5 min. Speed in km/h?", options: ["6.2 km/h", "7.2 km/h", "8.2 km/h", "9.2 km/h"], correctAnswer: 1, isExperienceBased: true }
 ];
