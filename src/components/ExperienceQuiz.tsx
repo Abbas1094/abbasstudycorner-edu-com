@@ -2,6 +2,7 @@ import { useState, useCallback, useMemo } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { MCQ } from "@/data/chemistryData";
 import { CheckCircle2, XCircle, ChevronRight, RotateCcw, Lightbulb } from "lucide-react";
+import { generateSmartExplanation } from "@/lib/explanations";
 
 interface ExperienceQuizProps {
   mcqs: MCQ[];
@@ -62,8 +63,7 @@ const ExperienceQuiz = ({ mcqs, subject }: ExperienceQuizProps) => {
 
   const generateExplanation = (q: typeof mcq) => {
     if (q.explanation) return q.explanation;
-    const correctOption = q.options[q.correctAnswer];
-    return `The correct answer is "${correctOption}". This is based on standard facts/formulas/concepts tested in Navy exams.`;
+    return generateSmartExplanation(q.question, q.options[q.correctAnswer], q.options);
   };
 
   if (showResult) {

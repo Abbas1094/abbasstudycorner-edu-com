@@ -2,7 +2,7 @@ import { useState, useCallback, useMemo } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Chapter } from "@/data/chemistryData";
 import { CheckCircle2, XCircle, ChevronRight, RotateCcw, Lightbulb } from "lucide-react";
-
+import { generateSmartExplanation } from "@/lib/explanations";
 interface QuizScreenProps {
   chapter: Chapter;
   onBack: () => void;
@@ -61,8 +61,7 @@ const QuizScreen = ({ chapter }: QuizScreenProps) => {
 
   const generateExplanation = (q: typeof mcq) => {
     if (q.explanation) return q.explanation;
-    const correctOption = q.options[q.correctAnswer];
-    return `The correct answer is "${correctOption}". This is the right choice based on the standard definition/formula/concept.`;
+    return generateSmartExplanation(q.question, q.options[q.correctAnswer], q.options);
   };
 
   if (showResult) {
