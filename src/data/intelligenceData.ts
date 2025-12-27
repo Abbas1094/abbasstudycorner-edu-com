@@ -344,6 +344,39 @@ export const intelligenceChapters: Chapter[] = [
       { id: 24, question: "A is younger than B by 7 years. Ratio 7:9. A's age?", options: ["21", "24.5", "28", "31.5"], correctAnswer: 1 },
       { id: 25, question: "Father is 40 years old. Son is 10. After how many years father is twice son's age?", options: ["15", "18", "20", "22"], correctAnswer: 2 }
     ]
+  },
+  {
+    id: "int-tough",
+    name: "Tough Section",
+    description: "Challenging intelligence questions for advanced preparation",
+    icon: "🔥",
+    mcqs: [
+      { id: 1, question: "BEHK : YVSP :: DGJM : ?", options: ["JGDA", "ROLI", "WTQN", "ZWTQ"], correctAnswer: 2 },
+      { id: 2, question: "LJH : KKI :: CIA : ?", options: ["BJB", "BBC", "DBB", "CBZ"], correctAnswer: 2 },
+      { id: 3, question: "392 : 28 :: 722 : ?", options: ["18", "28", "38", "48"], correctAnswer: 2 },
+      { id: 4, question: "DRIVE : EIDRV :: BEGUM : ?", options: ["EUBGM", "MGBEU", "BGMEU", "UEBGM"], correctAnswer: 3 },
+      { id: 5, question: "Timid : Ass :: Cunning : ?", options: ["Ant", "Fox", "Rabbit", "Horse"], correctAnswer: 1 },
+      { id: 6, question: "371 : 150 :: 468 : ?", options: ["247", "357", "246", "345"], correctAnswer: 2 },
+      { id: 7, question: "Architect : Building :: Sculptor : ?", options: ["Museum", "Stone", "Chisel", "Statue"], correctAnswer: 3 },
+      { id: 8, question: "MKQO : LNPR :: ? : XVTZ", options: ["YSUW", "SVWY", "VTWY", "WYSU"], correctAnswer: 3 },
+      { id: 9, question: "IQ formula is:", options: ["(CA/MA) × 100", "(MA/CA) × 100", "MA × (CA/100)", "(CA × MA) × 100"], correctAnswer: 1 },
+      { id: 10, question: "Thread : Cloth :: Wire : ?", options: ["Rope", "Mesh", "Sieve", "Telegraph"], correctAnswer: 1 },
+      { id: 11, question: "Which reasoning analogy: Book is to Reading as Knife is to?", options: ["Sharpening", "Cutting", "Cooking", "Peeling"], correctAnswer: 1 },
+      { id: 12, question: "Complete: ACE, BDF, CEG, ?", options: ["DFH", "EGI", "FHJ", "GIK"], correctAnswer: 0 },
+      { id: 13, question: "If COMPUTER = 12345678, then CUTE = ?", options: ["1234", "1567", "1238", "1378"], correctAnswer: 2 },
+      { id: 14, question: "Ocean : Water :: Desert : ?", options: ["Heat", "Sand", "Oasis", "Camel"], correctAnswer: 1 },
+      { id: 15, question: "3, 9, 27, 81, ?", options: ["162", "216", "243", "324"], correctAnswer: 2 },
+      { id: 16, question: "Pen : Writer :: Brush : ?", options: ["Artist", "Canvas", "Color", "Drawing"], correctAnswer: 0 },
+      { id: 17, question: "FACE : GBDF :: MILK : ?", options: ["NJLM", "NKML", "NKMO", "NJML"], correctAnswer: 0 },
+      { id: 18, question: "2, 6, 12, 20, 30, ?", options: ["40", "42", "44", "48"], correctAnswer: 1 },
+      { id: 19, question: "Doctor : Patient :: Lawyer : ?", options: ["Court", "Judge", "Client", "Case"], correctAnswer: 2 },
+      { id: 20, question: "144 : 12 :: 256 : ?", options: ["14", "15", "16", "18"], correctAnswer: 2 },
+      { id: 21, question: "If A=1, B=2... Z=26, then LOGIC = ?", options: ["47", "52", "57", "60"], correctAnswer: 1 },
+      { id: 22, question: "WATER : XBUFS :: EARTH : ?", options: ["FBSUI", "FCSUJ", "FBUUI", "FBSTH"], correctAnswer: 0 },
+      { id: 23, question: "1, 4, 9, 16, 25, ?", options: ["30", "32", "35", "36"], correctAnswer: 3 },
+      { id: 24, question: "Engine : Car :: Heart : ?", options: ["Arm", "Leg", "Body", "Brain"], correctAnswer: 2 },
+      { id: 25, question: "64, 48, 36, 27, ?", options: ["18", "20.25", "21", "24"], correctAnswer: 1 }
+    ]
   }
 ];
 

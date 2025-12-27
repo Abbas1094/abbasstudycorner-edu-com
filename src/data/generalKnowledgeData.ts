@@ -270,6 +270,39 @@ export const gkChapters: Chapter[] = [
       { id: 29, question: "Solar system was discovered by?", options: ["Galileo", "Newton", "Copernicus", "Einstein"], correctAnswer: 2 },
       { id: 30, question: "First recipient of Nishan-e-Haider?", options: ["Major Aziz Bhatti", "Captain Sarwar Shaheed", "Major Tufail", "Rashid Minhas"], correctAnswer: 1 }
     ]
+  },
+  {
+    id: "gk-tough",
+    name: "Tough Section",
+    description: "Challenging GK questions for advanced preparation",
+    icon: "🔥",
+    mcqs: [
+      { id: 1, question: "Which metal reacts with both air and water?", options: ["Copper", "Potassium", "Iron", "Zinc"], correctAnswer: 1 },
+      { id: 2, question: "Metals that don't react are called:", options: ["Metalloids", "Noble metals", "Alloy", "Mixed metals"], correctAnswer: 1 },
+      { id: 3, question: "Metals are generally:", options: ["Soft and ductile", "Hard and brittle", "Hard, ductile and malleable", "Soft and malleable"], correctAnswer: 2 },
+      { id: 4, question: "Which is a non-metal that conducts electricity?", options: ["Phosphorus", "Sulphur", "Graphite", "Coal"], correctAnswer: 2 },
+      { id: 5, question: "Non-metals are generally:", options: ["Hard and ductile", "Soft and brittle", "Hard and brittle", "Soft and ductile"], correctAnswer: 1 },
+      { id: 6, question: "Iron can displace:", options: ["Zinc", "Sodium", "Potassium", "Copper"], correctAnswer: 3 },
+      { id: 7, question: "Earth rotates from:", options: ["North to south", "South to north", "East to west", "West to east"], correctAnswer: 3 },
+      { id: 8, question: "Which planet is closest to Earth?", options: ["Mercury", "Venus", "Mars", "Jupiter"], correctAnswer: 1 },
+      { id: 9, question: "Besides his parents, he ___ also present at the function.", options: ["is", "was", "were", "has"], correctAnswer: 1 },
+      { id: 10, question: "The thunder was accompanied ___ heavy rain.", options: ["from", "by", "up", "through"], correctAnswer: 1 },
+      { id: 11, question: "___ thing of beauty is a joy forever.", options: ["The", "A", "An", "None of these"], correctAnswer: 1 },
+      { id: 12, question: "Antonym of 'Sacrifice':", options: ["Give up", "Preserve", "Forfeit", "Indict"], correctAnswer: 1 },
+      { id: 13, question: "Sage means:", options: ["Wise man", "Intelligent", "Old man", "Veteran"], correctAnswer: 0 },
+      { id: 14, question: "Fatal means:", options: ["Injurious", "Dangerous", "Deadly", "Terrible"], correctAnswer: 2 },
+      { id: 15, question: "He has ____ of wheat. (Choose correct spelling)", options: ["Lloor", "Flour", "Flower", "Flaur"], correctAnswer: 1 },
+      { id: 16, question: "Seismograph is used to measure:", options: ["Temperature", "Pressure", "Earthquake", "Speed"], correctAnswer: 2 },
+      { id: 17, question: "Contact force example:", options: ["Gravity", "Magnetism", "Friction", "Electrostatic"], correctAnswer: 2 },
+      { id: 18, question: "Non-contact force example:", options: ["Friction", "Gravity", "Tension", "Push"], correctAnswer: 1 },
+      { id: 19, question: "Pressure is force per unit:", options: ["Volume", "Mass", "Area", "Length"], correctAnswer: 2 },
+      { id: 20, question: "Which planet has largest number of moons?", options: ["Jupiter", "Saturn", "Uranus", "Neptune"], correctAnswer: 1 },
+      { id: 21, question: "Planets do not:", options: ["Rotate on axis", "Emit light", "Revolve around sun", "Have gravity"], correctAnswer: 1 },
+      { id: 22, question: "Most planets are:", options: ["Rocky only", "Gaseous only", "Some rocky, some gaseous", "Liquid"], correctAnswer: 2 },
+      { id: 23, question: "Comet is:", options: ["A star", "Made of ice and dust", "A planet", "A satellite"], correctAnswer: 1 },
+      { id: 24, question: "Types of forces are:", options: ["Contact and non-contact", "Push and pull", "Strong and weak", "All of these"], correctAnswer: 0 },
+      { id: 25, question: "Atmospheric pressure is measured by:", options: ["Thermometer", "Barometer", "Ammeter", "Voltmeter"], correctAnswer: 1 }
+    ]
   }
 ];
 
