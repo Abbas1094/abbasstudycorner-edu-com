@@ -345,6 +345,44 @@ export const chemistryChapters: Chapter[] = [
       { id: 24, question: "Carbon monoxide is:", options: ["Non-toxic", "Toxic", "Beneficial", "Nutritious"], correctAnswer: 1 },
       { id: 25, question: "Incomplete combustion produces:", options: ["CO₂", "CO", "H₂O", "O₂"], correctAnswer: 1 }
     ]
+  },
+  {
+    id: "chem-tough",
+    name: "Tough Section",
+    description: "Challenging chemistry questions for advanced preparation",
+    icon: "🔥",
+    mcqs: [
+      { id: 1, question: "Chemical reaction involves:", options: ["Only breaking of bonds", "Only formation of bonds", "Both breaking and formation of bonds", "No change in bonds"], correctAnswer: 2 },
+      { id: 2, question: "Law of conservation of mass is based on:", options: ["Law of thermal equilibrium", "Law of conservation of energy", "Mass cannot be created or destroyed", "All of the above"], correctAnswer: 2 },
+      { id: 3, question: "Single displacement reaction involves:", options: ["Oxidation only", "Reduction only", "Redox reaction", "Heating only"], correctAnswer: 2 },
+      { id: 4, question: "Sting of ants and bees contains:", options: ["Formic acid", "Vinegar", "Succinic acid", "Sodium chloride"], correctAnswer: 0 },
+      { id: 5, question: "Stale food gives bad taste and smell because of:", options: ["Corrosion", "Displacement", "Heating", "Rancidity"], correctAnswer: 3 },
+      { id: 6, question: "The sign ↓ indicates:", options: ["Release of gas", "Dissolution of gas", "Formation of precipitate", "Lowering of temperature"], correctAnswer: 2 },
+      { id: 7, question: "Balance: Fe₂O₃ + CO → Fe + CO₂. Coefficients are:", options: ["1, 2, 2, 3", "1, 3, 2, 3", "1, 2, 2, 2", "2, 6, 4, 3"], correctAnswer: 1 },
+      { id: 8, question: "A liquid has:", options: ["Definite shape and volume", "Definite volume only", "Definite shape only", "Neither shape nor volume"], correctAnswer: 1 },
+      { id: 9, question: "Which has minimum spaces among particles?", options: ["Solids", "Liquids", "Gases", "Plasma"], correctAnswer: 0 },
+      { id: 10, question: "Rate of evaporation decreases with:", options: ["Increase in humidity", "Increase in temperature", "Increase in wind speed", "Increase in surface area"], correctAnswer: 0 },
+      { id: 11, question: "Proton was discovered by:", options: ["Rutherford", "Goldstein", "Chadwick", "J.J. Thomson"], correctAnswer: 1 },
+      { id: 12, question: "Canal rays are:", options: ["Negatively charged", "Positively charged", "Beam of neutrons", "Gamma radiation"], correctAnswer: 1 },
+      { id: 13, question: "α-particles are:", options: ["Negatively charged", "Positively charged", "Beam of neutrons", "Gamma radiation"], correctAnswer: 1 },
+      { id: 14, question: "An α-particle is:", options: ["Hydrogen nucleus", "Helium nucleus", "Proton", "Electron"], correctAnswer: 1 },
+      { id: 15, question: "Maximum electrons in M shell:", options: ["2", "8", "18", "32"], correctAnswer: 2 },
+      { id: 16, question: "Element X forms XCl₂ (high melting point solid). X is in same group as:", options: ["Na", "Mg", "Al", "Si"], correctAnswer: 1 },
+      { id: 17, question: "Döbereiner's triad example:", options: ["Ne, Ca, Na", "H₂, N₂, O₂", "Li, Na, K", "Na, Br, Ar"], correctAnswer: 2 },
+      { id: 18, question: "Law of octaves was given by:", options: ["Mendeleev", "Newlands", "Dalton", "Döbereiner"], correctAnswer: 1 },
+      { id: 19, question: "Mendeleev's periodic table is based on:", options: ["Atomic weight", "Atomic number", "Atomic radius", "Atomic volume"], correctAnswer: 0 },
+      { id: 20, question: "Which is not an inert gas?", options: ["Helium", "Argon", "Bromine", "Radon"], correctAnswer: 2 },
+      { id: 21, question: "Which element is a semi-metal?", options: ["Aluminium", "Chlorine", "Sodium", "Silicon"], correctAnswer: 3 },
+      { id: 22, question: "Modern periodic table is based on:", options: ["Atomic mass", "Mass number", "Atomic number", "Atomic volume"], correctAnswer: 2 },
+      { id: 23, question: "The law of triads is not applicable on:", options: ["Cl, Br, I", "S, Se, Te", "Na, K, Rb", "Ca, Sr, Ba"], correctAnswer: 2 },
+      { id: 24, question: "Vaseline is made from:", options: ["Paraffin wax", "Diesel", "Kerosene", "Petrol"], correctAnswer: 0 },
+      { id: 25, question: "Petroleum is also called:", options: ["Liquid Treasure", "Liquid Platinum", "Black Gold", "Black Magic"], correctAnswer: 2 },
+      { id: 26, question: "LPG stands for:", options: ["Liquefied Petrochemical Gas", "Liquefied Petroleum Gas", "Liquid Petrol Gas", "Light Petroleum Gas"], correctAnswer: 1 },
+      { id: 27, question: "Which of the following is a transition metal?", options: ["Rhodium", "Sodium", "Hydrogen", "Helium"], correctAnswer: 0 },
+      { id: 28, question: "Isobars have same:", options: ["Atomic number", "Mass number", "Number of neutrons", "Electronic configuration"], correctAnswer: 1 },
+      { id: 29, question: "Isotones have same number of:", options: ["Protons", "Electrons", "Neutrons", "Mass number"], correctAnswer: 2 },
+      { id: 30, question: "Mass number formula is:", options: ["A + Z", "A - Z", "Z + N", "Z - N"], correctAnswer: 2 }
+    ]
   }
 ];
 

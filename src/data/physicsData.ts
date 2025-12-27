@@ -330,6 +330,39 @@ export const physicsChapters: Chapter[] = [
       { id: 24, question: "CD stores approximately:", options: ["680 MB", "1 GB", "500 MB", "2 GB"], correctAnswer: 0 },
       { id: 25, question: "Logic gates are used in:", options: ["Analog circuits", "Digital circuits", "AC circuits", "DC circuits only"], correctAnswer: 1 }
     ]
+  },
+  {
+    id: "phys-tough",
+    name: "Tough Section",
+    description: "Challenging physics questions for advanced preparation",
+    icon: "🔥",
+    mcqs: [
+      { id: 1, question: "The unit of force is:", options: ["Newton", "Dyne", "kg.weight", "All of these"], correctAnswer: 3 },
+      { id: 2, question: "Force is defined as:", options: ["Push only", "Pull only", "Both push and pull", "None of these"], correctAnswer: 2 },
+      { id: 3, question: "Pressure at surface of pond compared to bottom is:", options: ["Lower than bottom", "Higher than bottom", "Same as bottom", "Either lower or higher"], correctAnswer: 0 },
+      { id: 4, question: "Lightning conductor protects buildings from:", options: ["Magnetic force", "Contact force", "Electrostatic force", "Gravitational force"], correctAnswer: 2 },
+      { id: 5, question: "Which scale measures magnitude of earthquake?", options: ["Celsius", "Kelvin", "Pascal", "Richter"], correctAnswer: 3 },
+      { id: 6, question: "Electricity was discovered by:", options: ["Thomas Edison", "Benjamin Franklin", "Frank Roosevelt", "Isaac Newton"], correctAnswer: 1 },
+      { id: 7, question: "Like charges:", options: ["Attract each other", "Repel each other", "Either attract or repel", "Neither attract nor repel"], correctAnswer: 1 },
+      { id: 8, question: "Unlike charges:", options: ["Attract each other", "Repel each other", "Either attract or repel", "Neither attract nor repel"], correctAnswer: 0 },
+      { id: 9, question: "Glass rubbed with silk becomes:", options: ["Neutral", "Negative", "Positive", "No charge"], correctAnswer: 2 },
+      { id: 10, question: "When charges move, they constitute:", options: ["Electric current", "Magnetic effect", "Heating effect", "All of the above"], correctAnswer: 3 },
+      { id: 11, question: "Device to check if body carries charge:", options: ["Electroscope", "Microscope", "Periscope", "Telescope"], correctAnswer: 0 },
+      { id: 12, question: "In thunderstorm, upper edges of clouds are:", options: ["Positively charged", "Negatively charged", "Neutral", "Variable charge"], correctAnswer: 0 },
+      { id: 13, question: "Placing object at focal point of concave mirror results in:", options: ["Real image", "Virtual image", "No image", "Inverted image"], correctAnswer: 1 },
+      { id: 14, question: "Focal point is located behind a:", options: ["Concave mirror", "Convex mirror", "Plane mirror", "All mirrors"], correctAnswer: 1 },
+      { id: 15, question: "Image from convex mirror will:", options: ["Always be real", "Always be projected", "Always be virtual", "Never be virtual"], correctAnswer: 2 },
+      { id: 16, question: "Light travels fastest through:", options: ["Diamond", "Water", "Glass", "Air"], correctAnswer: 3 },
+      { id: 17, question: "Which planet rotates from east to west?", options: ["Earth", "Jupiter", "Venus", "Mars"], correctAnswer: 2 },
+      { id: 18, question: "Which planet has rings around it?", options: ["Mars", "Jupiter", "Saturn", "All of these"], correctAnswer: 3 },
+      { id: 19, question: "Brightest planet is:", options: ["Mars", "Jupiter", "Venus", "Saturn"], correctAnswer: 2 },
+      { id: 20, question: "Constellation Ursa Major is also known as:", options: ["Orion", "Big Dipper", "Scorpio", "Southern Cross"], correctAnswer: 1 },
+      { id: 21, question: "Normal line in reflection is:", options: ["Line of refraction", "Line of incidence", "Perpendicular to surface", "Parallel to surface"], correctAnswer: 2 },
+      { id: 22, question: "Specular reflection occurs on:", options: ["Rough surface", "Smooth surface", "Both surfaces", "No surface"], correctAnswer: 1 },
+      { id: 23, question: "A person 2m tall stands 4m from mirror. Minimum mirror height to see full image:", options: ["2.0 m", "0.67 m", "1.0 m", "4.0 m"], correctAnswer: 2 },
+      { id: 24, question: "Copper is a good conductor because it:", options: ["Is cheap", "Has free electrons", "Is shiny", "Is heavy"], correctAnswer: 1 },
+      { id: 25, question: "Noble metals do not react with:", options: ["Air only", "Water only", "Air and water", "Acids"], correctAnswer: 2 }
+    ]
   }
 ];
 
