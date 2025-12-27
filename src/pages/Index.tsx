@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Anchor, BookOpen, Beaker, Calculator, Atom, ChevronRight, Star, Trophy, Target, Brain, Globe } from "lucide-react";
-import { chemistryChapters, chemistryExperienceMCQs } from "@/data/chemistryData";
+import { Anchor, BookOpen, Beaker, Calculator, Atom, ChevronRight, Star, Trophy, Target, Brain, Globe, Flame } from "lucide-react";
+import { chemistryChapters, chemistryExperienceMCQs, chemistryToughMCQs } from "@/data/chemistryData";
 import { physicsChapters, physicsExperienceMCQs } from "@/data/physicsData";
 import { mathChapters, mathExperienceMCQs } from "@/data/mathData";
 import { intelligenceChapters, intelligenceExperienceMCQs } from "@/data/intelligenceData";
@@ -11,7 +11,7 @@ import ChapterList from "@/components/ChapterList";
 import QuizScreen from "@/components/QuizScreen";
 import ExperienceQuiz from "@/components/ExperienceQuiz";
 
-type Screen = "home" | "subject" | "chapters" | "quiz" | "experience";
+type Screen = "home" | "subject" | "chapters" | "quiz" | "experience" | "tough";
 type Subject = "chemistry" | "physics" | "math" | "intelligence" | "gk";
 
 const Index = () => {
@@ -41,13 +41,20 @@ const Index = () => {
     }
   };
 
+  const getToughMCQs = () => {
+    switch (selectedSubject) {
+      case "chemistry": return chemistryToughMCQs;
+      default: return chemistryToughMCQs; // Use chemistry tough as default for now
+    }
+  };
+
   const handleSubjectSelect = (subject: Subject) => {
     setSelectedSubject(subject);
     setScreen("subject");
   };
 
   const handleBack = () => {
-    if (screen === "quiz" || screen === "experience") setScreen("chapters");
+    if (screen === "quiz" || screen === "experience" || screen === "tough") setScreen("subject");
     else if (screen === "chapters") setScreen("subject");
     else if (screen === "subject") setScreen("home");
   };
@@ -107,7 +114,7 @@ const Index = () => {
               <div className="grid gap-4">
                 <SubjectCard icon={Brain} title="Intelligence" subtitle="10 Chapters • 250+ MCQs" color="from-amber-500 to-orange-600" onClick={() => handleSubjectSelect("intelligence")} />
                 <SubjectCard icon={Globe} title="General Knowledge" subtitle="7 Chapters • 175+ MCQs" color="from-rose-500 to-red-600" onClick={() => handleSubjectSelect("gk")} />
-                <SubjectCard icon={Beaker} title="Chemistry" subtitle="16 Chapters • 400+ MCQs" color="from-emerald-500 to-teal-600" onClick={() => handleSubjectSelect("chemistry")} />
+                <SubjectCard icon={Beaker} title="Chemistry" subtitle="10 Chapters • 300+ MCQs" color="from-emerald-500 to-teal-600" onClick={() => handleSubjectSelect("chemistry")} />
                 <SubjectCard icon={Atom} title="Physics" subtitle="10 Chapters • 250+ MCQs" color="from-blue-500 to-cyan-600" onClick={() => handleSubjectSelect("physics")} />
                 <SubjectCard icon={Calculator} title="Mathematics" subtitle="10 Chapters • 250+ MCQs" color="from-purple-500 to-pink-600" onClick={() => handleSubjectSelect("math")} />
               </div>
@@ -119,7 +126,7 @@ const Index = () => {
               <h2 className="font-display text-2xl font-bold mb-6 capitalize text-foreground">{selectedSubject}</h2>
               
               {/* Section A - Experience Based */}
-              <div className="mb-6">
+              <div className="mb-4">
                 <div className="flex items-center gap-2 mb-3">
                   <span className="px-3 py-1 bg-primary/20 text-primary text-xs font-bold rounded-full">SECTION A</span>
                   <span className="text-sm text-muted-foreground">Experience-Based MCQs</span>
@@ -136,19 +143,40 @@ const Index = () => {
               </div>
 
               {/* Section B - Chapters */}
-              <div className="flex items-center gap-2 mb-3">
-                <span className="px-3 py-1 bg-ocean/20 text-ocean text-xs font-bold rounded-full">SECTION B</span>
-                <span className="text-sm text-muted-foreground">Chapter-wise Practice</span>
-              </div>
-              <button onClick={() => setScreen("chapters")} className="w-full bg-gradient-ocean p-5 rounded-2xl shadow-ocean text-left">
-                <div className="flex items-center justify-between">
-                  <div>
-                    <h3 className="font-display text-lg font-bold text-accent-foreground">📚 All Chapters</h3>
-                    <p className="text-sm text-accent-foreground/80">{getChapters().length} chapters • 25 MCQs each</p>
-                  </div>
-                  <ChevronRight className="w-6 h-6 text-accent-foreground" />
+              <div className="mb-4">
+                <div className="flex items-center gap-2 mb-3">
+                  <span className="px-3 py-1 bg-ocean/20 text-ocean text-xs font-bold rounded-full">SECTION B</span>
+                  <span className="text-sm text-muted-foreground">Chapter-wise Practice</span>
                 </div>
-              </button>
+                <button onClick={() => setScreen("chapters")} className="w-full bg-gradient-ocean p-5 rounded-2xl shadow-ocean text-left">
+                  <div className="flex items-center justify-between">
+                    <div>
+                      <h3 className="font-display text-lg font-bold text-accent-foreground">📚 All Chapters</h3>
+                      <p className="text-sm text-accent-foreground/80">{getChapters().length} chapters • 25 MCQs each</p>
+                    </div>
+                    <ChevronRight className="w-6 h-6 text-accent-foreground" />
+                  </div>
+                </button>
+              </div>
+
+              {/* Section C - Tough Section */}
+              <div className="mb-4">
+                <div className="flex items-center gap-2 mb-3">
+                  <span className="px-3 py-1 bg-destructive/20 text-destructive text-xs font-bold rounded-full">SECTION C</span>
+                  <span className="text-sm text-muted-foreground">Advanced Practice</span>
+                </div>
+                <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }} onClick={() => { setScreen("tough"); }} className="bg-gradient-to-r from-red-500 to-orange-600 p-5 rounded-2xl shadow-lg cursor-pointer">
+                  <div className="flex items-center justify-between">
+                    <div>
+                      <h3 className="font-display text-lg font-bold text-white flex items-center gap-2">
+                        <Flame className="w-5 h-5" /> Tough Section
+                      </h3>
+                      <p className="text-sm text-white/80">Challenging questions for advanced preparation</p>
+                    </div>
+                    <ChevronRight className="w-6 h-6 text-white" />
+                  </div>
+                </motion.div>
+              </div>
             </motion.div>
           )}
 
@@ -162,6 +190,10 @@ const Index = () => {
 
           {screen === "experience" && selectedSubject && (
             <ExperienceQuiz mcqs={getExperienceMCQs()} subject={selectedSubject} onBack={handleBack} />
+          )}
+
+          {screen === "tough" && selectedSubject && (
+            <ExperienceQuiz mcqs={getToughMCQs()} subject={`${selectedSubject} - Tough`} onBack={handleBack} />
           )}
         </AnimatePresence>
       </main>
