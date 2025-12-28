@@ -44,8 +44,12 @@ const Index = () => {
   const getToughMCQs = () => {
     switch (selectedSubject) {
       case "chemistry": return chemistryToughMCQs;
-      default: return chemistryToughMCQs; // Use chemistry tough as default for now
+      default: return []; // Only chemistry has tough questions from PDF
     }
+  };
+  
+  const hasToughSection = () => {
+    return selectedSubject === "chemistry";
   };
 
   const handleSubjectSelect = (subject: Subject) => {
