@@ -351,36 +351,174 @@ export const chemistryChapters: Chapter[] = [
 
 // Tough Section MCQs - Separate from regular chapters
 export const chemistryToughMCQs: MCQ[] = [
-  { id: 1, question: "Chemical reaction involves:", options: ["Only breaking of bonds", "Only formation of bonds", "Both breaking and formation of bonds", "No change in bonds"], correctAnswer: 2 },
-  { id: 2, question: "Law of conservation of mass is based on:", options: ["Law of thermal equilibrium", "Law of conservation of energy", "Mass cannot be created or destroyed", "All of the above"], correctAnswer: 2 },
-  { id: 3, question: "Single displacement reaction involves:", options: ["Oxidation only", "Reduction only", "Redox reaction", "Heating only"], correctAnswer: 2 },
-  { id: 4, question: "Sting of ants and bees contains:", options: ["Formic acid", "Vinegar", "Succinic acid", "Sodium chloride"], correctAnswer: 0 },
-  { id: 5, question: "Stale food gives bad taste and smell because of:", options: ["Corrosion", "Displacement", "Heating", "Rancidity"], correctAnswer: 3 },
-  { id: 6, question: "The sign ↓ indicates:", options: ["Release of gas", "Dissolution of gas", "Formation of precipitate", "Lowering of temperature"], correctAnswer: 2 },
-  { id: 7, question: "Balance: Fe₂O₃ + CO → Fe + CO₂. Coefficients are:", options: ["1, 2, 2, 3", "1, 3, 2, 3", "1, 2, 2, 2", "2, 6, 4, 3"], correctAnswer: 1 },
-  { id: 8, question: "A liquid has:", options: ["Definite shape and volume", "Definite volume only", "Definite shape only", "Neither shape nor volume"], correctAnswer: 1 },
-  { id: 9, question: "Which has minimum spaces among particles?", options: ["Solids", "Liquids", "Gases", "Plasma"], correctAnswer: 0 },
-  { id: 10, question: "Rate of evaporation decreases with:", options: ["Increase in humidity", "Increase in temperature", "Increase in wind speed", "Increase in surface area"], correctAnswer: 0 },
-  { id: 11, question: "Proton was discovered by:", options: ["Rutherford", "Goldstein", "Chadwick", "J.J. Thomson"], correctAnswer: 1 },
-  { id: 12, question: "Canal rays are:", options: ["Negatively charged", "Positively charged", "Beam of neutrons", "Gamma radiation"], correctAnswer: 1 },
-  { id: 13, question: "α-particles are:", options: ["Negatively charged", "Positively charged", "Beam of neutrons", "Gamma radiation"], correctAnswer: 1 },
-  { id: 14, question: "An α-particle is:", options: ["Hydrogen nucleus", "Helium nucleus", "Proton", "Electron"], correctAnswer: 1 },
-  { id: 15, question: "Maximum electrons in M shell:", options: ["2", "8", "18", "32"], correctAnswer: 2 },
-  { id: 16, question: "Element X forms XCl₂ (high melting point solid). X is in same group as:", options: ["Na", "Mg", "Al", "Si"], correctAnswer: 1 },
-  { id: 17, question: "Döbereiner's triad example:", options: ["Ne, Ca, Na", "H₂, N₂, O₂", "Li, Na, K", "Na, Br, Ar"], correctAnswer: 2 },
-  { id: 18, question: "Law of octaves was given by:", options: ["Mendeleev", "Newlands", "Dalton", "Döbereiner"], correctAnswer: 1 },
-  { id: 19, question: "Mendeleev's periodic table is based on:", options: ["Atomic weight", "Atomic number", "Atomic radius", "Atomic volume"], correctAnswer: 0 },
-  { id: 20, question: "Which is not an inert gas?", options: ["Helium", "Argon", "Bromine", "Radon"], correctAnswer: 2 },
-  { id: 21, question: "Which element is a semi-metal?", options: ["Aluminium", "Chlorine", "Sodium", "Silicon"], correctAnswer: 3 },
-  { id: 22, question: "Modern periodic table is based on:", options: ["Atomic mass", "Mass number", "Atomic number", "Atomic volume"], correctAnswer: 2 },
-  { id: 23, question: "The law of triads is not applicable on:", options: ["Cl, Br, I", "S, Se, Te", "Na, K, Rb", "Ca, Sr, Ba"], correctAnswer: 2 },
-  { id: 24, question: "Vaseline is made from:", options: ["Paraffin wax", "Diesel", "Kerosene", "Petrol"], correctAnswer: 0 },
-  { id: 25, question: "Petroleum is also called:", options: ["Liquid Treasure", "Liquid Platinum", "Black Gold", "Black Magic"], correctAnswer: 2 },
-  { id: 26, question: "LPG stands for:", options: ["Liquefied Petrochemical Gas", "Liquefied Petroleum Gas", "Liquid Petrol Gas", "Light Petroleum Gas"], correctAnswer: 1 },
-  { id: 27, question: "Which of the following is a transition metal?", options: ["Rhodium", "Sodium", "Hydrogen", "Helium"], correctAnswer: 0 },
-  { id: 28, question: "Isobars have same:", options: ["Atomic number", "Mass number", "Number of neutrons", "Electronic configuration"], correctAnswer: 1 },
-  { id: 29, question: "Isotones have same number of:", options: ["Protons", "Electrons", "Neutrons", "Mass number"], correctAnswer: 2 },
-  { id: 30, question: "Mass number formula is:", options: ["A + Z", "A - Z", "Z + N", "Z - N"], correctAnswer: 2 }
+  { 
+    id: 1, 
+    question: "A chemical reaction involves:", 
+    options: ["Only breaking of bonds", "Only formation of bonds", "Both breaking and formation of bonds", "No change in bonds"], 
+    correctAnswer: 2,
+    explanation: "Chemical reactions require energy to break existing bonds in reactants and release energy when new bonds form in products. This dual process is fundamental to all chemical transformations."
+  },
+  { 
+    id: 2, 
+    question: "A balanced chemical equation always obeys:", 
+    options: ["Law of conservation of mass", "Law of thermodynamics", "Law of definite proportions", "Avogadro's law"], 
+    correctAnswer: 0,
+    explanation: "Matter cannot be created or destroyed in a chemical reaction. The mass of reactants must equal the mass of products, which is why we balance equations."
+  },
+  { 
+    id: 3, 
+    question: "Single displacement reaction involves:", 
+    options: ["Oxidation only", "Reduction only", "Redox", "Decomposition"], 
+    correctAnswer: 2,
+    explanation: "Single displacement is inherently a redox process where a more active element displaces a less active one, involving electron transfer. Example: Zn + CuSO₄ → ZnSO₄ + Cu"
+  },
+  { 
+    id: 4, 
+    question: "Sting of ants and bees contains:", 
+    options: ["Formic acid", "Acetic acid", "Citric acid", "Oxalic acid"], 
+    correctAnswer: 0,
+    explanation: "Formic acid (HCOOH/Methanoic acid) is the irritant found in ant and bee stings. The name 'formic' comes from Latin 'formica' meaning ant."
+  },
+  { 
+    id: 5, 
+    question: "Some stale food gives a bad taste and smell because of:", 
+    options: ["Corrosion", "Combustion", "Fermentation", "Rancidity"], 
+    correctAnswer: 3,
+    explanation: "Rancidity is the aerial oxidation of fats and oils in food, causing foul smell and taste. This is why antioxidants are added to food to prevent rancidity."
+  },
+  { 
+    id: 6, 
+    question: "A red brown gas is released on heating lead nitrate. It is an example of:", 
+    options: ["Combination reaction", "Displacement reaction", "Decomposition reaction", "Double displacement"], 
+    correctAnswer: 2,
+    explanation: "Lead nitrate breaks down upon heating: 2Pb(NO₃)₂ → 2PbO + 4NO₂ + O₂. The brown gas is nitrogen dioxide (NO₂). This is a decomposition reaction."
+  },
+  { 
+    id: 7, 
+    question: "The sign (↓) indicates:", 
+    options: ["Release of gas", "Absorption of heat", "Formation of a precipitate", "Dissolution"], 
+    correctAnswer: 2,
+    explanation: "In chemical equations, a downward arrow (↓) indicates a solid precipitate settling out of a solution. An upward arrow (↑) indicates gas evolution."
+  },
+  { 
+    id: 8, 
+    question: "What are the coefficients of the correctly balanced equation? Fe₂O₃ + CO → Fe + CO₂", 
+    options: ["1, 2, 2, 2", "1, 3, 2, 3", "2, 3, 4, 3", "2, 6, 4, 6"], 
+    correctAnswer: 1,
+    explanation: "Balanced equation: 1Fe₂O₃ + 3CO → 2Fe + 3CO₂. Count atoms: Fe: 2=2 ✓, O: 3+3=6 and 6 ✓, C: 3=3 ✓"
+  },
+  { 
+    id: 9, 
+    question: "Liquids have:", 
+    options: ["Definite shape and volume", "Definite shape but no definite volume", "No definite shape but definite volume", "No definite volume no definite shape"], 
+    correctAnswer: 2,
+    explanation: "Liquids have definite volume but take the shape of their container. Their particles are close but can move past each other."
+  },
+  { 
+    id: 10, 
+    question: "Gases have:", 
+    options: ["Definite shape and volume", "Definite shape but no definite volume", "No definite shape but definite volume", "No definite volume no definite shape"], 
+    correctAnswer: 3,
+    explanation: "Gases expand to fill any container completely. Their particles have high kinetic energy and move freely with large spaces between them."
+  },
+  { 
+    id: 11, 
+    question: "During summer, water kept in an earthen pot becomes cool because of the phenomenon of:", 
+    options: ["Condensation", "Diffusion", "Osmosis", "Evaporation"], 
+    correctAnswer: 3,
+    explanation: "Water seeps through the pores of the earthen pot and evaporates from the outer surface. Evaporation absorbs latent heat from the remaining water, cooling it down."
+  },
+  { 
+    id: 12, 
+    question: "Evaporation causes:", 
+    options: ["Heating up", "No temperature change", "Cooling down", "Melting"], 
+    correctAnswer: 2,
+    explanation: "High-energy molecules escape during evaporation, lowering the average kinetic energy (temperature) of the remaining liquid. This is why sweating cools our body."
+  },
+  { 
+    id: 13, 
+    question: "A change of state directly from solid to gas without passing through liquid state is called:", 
+    options: ["Evaporation", "Sublimation", "Condensation", "Fusion"], 
+    correctAnswer: 1,
+    explanation: "Sublimation is the direct conversion of solid to gas. Examples: dry ice (solid CO₂), naphthalene balls, iodine crystals, camphor."
+  },
+  { 
+    id: 14, 
+    question: "Proton was discovered by:", 
+    options: ["J.J. Thomson", "Goldstein", "Rutherford", "Chadwick"], 
+    correctAnswer: 1,
+    explanation: "Eugen Goldstein discovered canal rays (positive rays) in 1886 which led to the discovery of protons. Rutherford later named them protons in 1920."
+  },
+  { 
+    id: 15, 
+    question: "Canal rays are:", 
+    options: ["Negatively charged particles", "Positively charged particles", "Neutral particles", "Electromagnetic waves"], 
+    correctAnswer: 1,
+    explanation: "Canal rays are streams of positive ions. They were discovered by Goldstein in a modified cathode ray tube and travel in the opposite direction to cathode rays."
+  },
+  { 
+    id: 16, 
+    question: "An α-particle is:", 
+    options: ["An electron", "A helium nucleus", "A proton", "A neutron"], 
+    correctAnswer: 1,
+    explanation: "An alpha particle (α) consists of 2 protons and 2 neutrons, making it a helium nucleus (He²⁺). It has a mass of 4 amu and charge of +2."
+  },
+  { 
+    id: 17, 
+    question: "Rutherford's gold foil experiment indicates that:", 
+    options: ["The nucleus is concentrated at the centre", "Electrons are in the nucleus", "Atoms are solid spheres", "Mass is uniformly distributed"], 
+    correctAnswer: 0,
+    explanation: "Most α-particles passed through (proving atoms are mostly empty space), but some deflected at large angles, proving the existence of a small, dense, positive nucleus at the center."
+  },
+  { 
+    id: 18, 
+    question: "Elements X (atomic number 20) and Y (atomic number 21) have same atomic mass. They are:", 
+    options: ["Isobars", "Isotopes", "Isotones", "Isomers"], 
+    correctAnswer: 0,
+    explanation: "Isobars have the same mass number but different atomic numbers (protons). Example: ⁴⁰₁₈Ar and ⁴⁰₂₀Ca are isobars."
+  },
+  { 
+    id: 19, 
+    question: "Protium, Deuterium and Tritium are isotopes of:", 
+    options: ["Oxygen", "Carbon", "Hydrogen", "Nitrogen"], 
+    correctAnswer: 2,
+    explanation: "These are the three isotopes of Hydrogen: Protium (¹H, no neutrons), Deuterium (²H, 1 neutron), and Tritium (³H, 2 neutrons). They have same atomic number but different mass numbers."
+  },
+  { 
+    id: 20, 
+    question: "An element has electronic configuration 2,8,3. How many valence electrons does it have?", 
+    options: ["2", "8", "3", "13"], 
+    correctAnswer: 2,
+    explanation: "The last number in the electronic configuration represents electrons in the outermost (valence) shell. Here, 3 electrons are in the valence shell. This is Aluminium (Al)."
+  },
+  { 
+    id: 21, 
+    question: "Which particle has the maximum charge to mass ratio?", 
+    options: ["Electron", "Proton", "Neutron", "Alpha particle"], 
+    correctAnswer: 0,
+    explanation: "Electron has the highest e/m ratio (1.76 × 10¹¹ C/kg) because it has the smallest mass (9.11 × 10⁻³¹ kg) with unit charge. e/m ratio = charge/mass."
+  },
+  { 
+    id: 22, 
+    question: "Which is a Döbereiner's triad?", 
+    options: ["H, O, N", "Fe, Cu, Zn", "Li, Na, K", "C, N, O"], 
+    correctAnswer: 2,
+    explanation: "Li, Na, K form a Döbereiner's triad. Atomic mass of Na (23) ≈ average of Li (7) and K (39): (7+39)/2 = 23. They also have similar chemical properties."
+  },
+  { 
+    id: 23, 
+    question: "Which element still has a dicey position in modern periodic table?", 
+    options: ["Helium", "Carbon", "Oxygen", "Hydrogen"], 
+    correctAnswer: 3,
+    explanation: "Hydrogen can be placed in Group 1 (like alkali metals, loses 1 electron) or Group 17 (like halogens, gains 1 electron). It has unique properties of both groups."
+  },
+  { 
+    id: 24, 
+    question: "Coefficients for: BaCl₂ + Al₂(SO₄)₃ → BaSO₄ + AlCl₃", 
+    options: ["1, 1, 1, 1", "2, 1, 2, 2", "3, 1, 3, 2", "3, 2, 3, 4"], 
+    correctAnswer: 2,
+    explanation: "Balanced equation: 3BaCl₂ + 1Al₂(SO₄)₃ → 3BaSO₄ + 2AlCl₃. Check: Ba: 3=3 ✓, Cl: 6=6 ✓, Al: 2=2 ✓, S: 3=3 ✓, O: 12=12 ✓"
+  }
 ];
 
 // 2025 Test Center Experience Based Chemistry Questions

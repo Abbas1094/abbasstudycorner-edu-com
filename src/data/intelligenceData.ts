@@ -4,6 +4,7 @@ export interface MCQ {
   options: string[];
   correctAnswer: number;
   isExperienceBased?: boolean;
+  explanation?: string;
 }
 
 export interface Chapter {
@@ -406,4 +407,36 @@ export const intelligenceExperienceMCQs: MCQ[] = [
   { id: 56, question: "100, 64, 36, 16, ? (Perfect squares: 10², 8², 6², 4², ?)", options: ["4", "8", "9", "12"], correctAnswer: 0, isExperienceBased: true },
   { id: 57, question: "6, 9, 12, ?", options: ["14", "15", "16", "18"], correctAnswer: 1, isExperienceBased: true },
   { id: 58, question: "Man covers 600m in 5 min. Speed in km/h?", options: ["6.2 km/h", "7.2 km/h", "8.2 km/h", "9.2 km/h"], correctAnswer: 1, isExperienceBased: true }
+];
+
+// Tough Section MCQs - IQ & Reasoning
+export const intelligenceToughMCQs: MCQ[] = [
+  { 
+    id: 1, 
+    question: "BEHK : YVSP :: DGJM : ?", 
+    options: ["WSQN", "XTRP", "WTQN", "USRO"], 
+    correctAnswer: 2,
+    explanation: "This is reverse alphabet pairing. B(2nd)→Y(25th=26-1), E(5th)→V(22nd=26-4), H(8th)→S(19th=26-7), K(11th)→P(16th=26-10). Similarly D→W, G→T, J→Q, M→N. Answer: WTQN"
+  },
+  { 
+    id: 2, 
+    question: "392 : 28 :: 722 : ?", 
+    options: ["36", "42", "38", "44"], 
+    correctAnswer: 2,
+    explanation: "The relationship is: number = (answer)²/2. For 392: 28² = 784, 784/2 = 392 ✓. For 722: 722 × 2 = 1444, √1444 = 38. Answer: 38"
+  },
+  { 
+    id: 3, 
+    question: "DRIVE : EIDRV :: BEGUM : ?", 
+    options: ["UBGEM", "MGBEU", "MUBGE", "EUBGM"], 
+    correctAnswer: 1,
+    explanation: "This is position permutation. DRIVE(12345)→EIDRV(53124). Apply same to BEGUM: B(1)→position 3, E(2)→position 4, G(3)→position 2, U(4)→position 5, M(5)→position 1. Result: MGBEU"
+  },
+  { 
+    id: 4, 
+    question: "The formula for IQ (Intelligence Quotient) is:", 
+    options: ["(Chronological Age/Mental Age) × 100", "(Mental Age/Chronological Age) × 100", "Mental Age + Chronological Age", "Mental Age - Chronological Age"], 
+    correctAnswer: 1,
+    explanation: "IQ = (Mental Age/Chronological Age) × 100. This is the Stern formula. If a 10-year-old performs like a 12-year-old, their IQ = (12/10) × 100 = 120."
+  }
 ];

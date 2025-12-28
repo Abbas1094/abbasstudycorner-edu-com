@@ -2,10 +2,10 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Anchor, BookOpen, Beaker, Calculator, Atom, ChevronRight, Star, Trophy, Target, Brain, Globe, Flame } from "lucide-react";
 import { chemistryChapters, chemistryExperienceMCQs, chemistryToughMCQs } from "@/data/chemistryData";
-import { physicsChapters, physicsExperienceMCQs } from "@/data/physicsData";
+import { physicsChapters, physicsExperienceMCQs, physicsToughMCQs } from "@/data/physicsData";
 import { mathChapters, mathExperienceMCQs } from "@/data/mathData";
-import { intelligenceChapters, intelligenceExperienceMCQs } from "@/data/intelligenceData";
-import { gkChapters, gkExperienceMCQs } from "@/data/generalKnowledgeData";
+import { intelligenceChapters, intelligenceExperienceMCQs, intelligenceToughMCQs } from "@/data/intelligenceData";
+import { gkChapters, gkExperienceMCQs, gkToughMCQs } from "@/data/generalKnowledgeData";
 import SubjectCard from "@/components/SubjectCard";
 import ChapterList from "@/components/ChapterList";
 import QuizScreen from "@/components/QuizScreen";
@@ -44,12 +44,15 @@ const Index = () => {
   const getToughMCQs = () => {
     switch (selectedSubject) {
       case "chemistry": return chemistryToughMCQs;
-      default: return []; // Only chemistry has tough questions from PDF
+      case "physics": return physicsToughMCQs;
+      case "intelligence": return intelligenceToughMCQs;
+      case "gk": return gkToughMCQs;
+      default: return [];
     }
   };
   
   const hasToughSection = () => {
-    return selectedSubject === "chemistry";
+    return getToughMCQs().length > 0;
   };
 
   const handleSubjectSelect = (subject: Subject) => {
@@ -163,24 +166,26 @@ const Index = () => {
                 </button>
               </div>
 
-              {/* Section C - Tough Section */}
-              <div className="mb-4">
-                <div className="flex items-center gap-2 mb-3">
-                  <span className="px-3 py-1 bg-destructive/20 text-destructive text-xs font-bold rounded-full">SECTION C</span>
-                  <span className="text-sm text-muted-foreground">Advanced Practice</span>
-                </div>
-                <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }} onClick={() => { setScreen("tough"); }} className="bg-gradient-to-r from-red-500 to-orange-600 p-5 rounded-2xl shadow-lg cursor-pointer">
-                  <div className="flex items-center justify-between">
-                    <div>
-                      <h3 className="font-display text-lg font-bold text-white flex items-center gap-2">
-                        <Flame className="w-5 h-5" /> Tough Section
-                      </h3>
-                      <p className="text-sm text-white/80">Challenging questions for advanced preparation</p>
-                    </div>
-                    <ChevronRight className="w-6 h-6 text-white" />
+              {/* Section C - Tough Section (only shown if tough MCQs exist) */}
+              {hasToughSection() && (
+                <div className="mb-4">
+                  <div className="flex items-center gap-2 mb-3">
+                    <span className="px-3 py-1 bg-destructive/20 text-destructive text-xs font-bold rounded-full">SECTION C</span>
+                    <span className="text-sm text-muted-foreground">Advanced Practice</span>
                   </div>
-                </motion.div>
-              </div>
+                  <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }} onClick={() => { setScreen("tough"); }} className="bg-gradient-to-r from-red-500 to-orange-600 p-5 rounded-2xl shadow-lg cursor-pointer">
+                    <div className="flex items-center justify-between">
+                      <div>
+                        <h3 className="font-display text-lg font-bold text-white flex items-center gap-2">
+                          <Flame className="w-5 h-5" /> Tough Section
+                        </h3>
+                        <p className="text-sm text-white/80">Challenging questions for advanced preparation</p>
+                      </div>
+                      <ChevronRight className="w-6 h-6 text-white" />
+                    </div>
+                  </motion.div>
+                </div>
+              )}
             </motion.div>
           )}
 
