@@ -17,12 +17,27 @@ interface Answer {
   isCorrect: boolean;
 }
 
-const ExperienceQuiz = ({ mcqs, subject }: ExperienceQuizProps) => {
+const ExperienceQuiz = ({ mcqs, subject, onBack }: ExperienceQuizProps) => {
   const [current, setCurrent] = useState(0);
   const [selected, setSelected] = useState<number | null>(null);
   const [score, setScore] = useState(0);
   const [showResult, setShowResult] = useState(false);
   const [answers, setAnswers] = useState<Answer[]>([]);
+
+  // Handle empty MCQs array
+  if (!mcqs || mcqs.length === 0) {
+    return (
+      <div className="py-6 text-center">
+        <div className="bg-card p-8 rounded-2xl border border-border">
+          <h2 className="font-display text-xl font-bold text-foreground mb-2">No Questions Available</h2>
+          <p className="text-muted-foreground mb-4">This section doesn't have any questions yet.</p>
+          <button onClick={onBack} className="bg-gradient-gold text-primary-foreground px-6 py-3 rounded-xl font-semibold shadow-gold">
+            Go Back
+          </button>
+        </div>
+      </div>
+    );
+  }
 
   const mcq = mcqs[current];
   const isCorrect = selected === mcq.correctAnswer;

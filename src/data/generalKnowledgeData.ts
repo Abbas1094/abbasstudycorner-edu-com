@@ -4,6 +4,7 @@ export interface MCQ {
   options: string[];
   correctAnswer: number;
   isExperienceBased?: boolean;
+  explanation?: string;
 }
 
 export interface Chapter {
@@ -337,4 +338,43 @@ export const gkExperienceMCQs: MCQ[] = [
   { id: 60, question: "Antonym of 'Slow'?", options: ["Steady", "Calm", "Fast", "Gentle"], correctAnswer: 2, isExperienceBased: true },
   { id: 61, question: "Antonym of 'Artificial'?", options: ["Fake", "Synthetic", "Natural", "Manufactured"], correctAnswer: 2, isExperienceBased: true },
   { id: 62, question: "Antonym of 'Generous'?", options: ["Kind", "Selfish", "Giving", "Liberal"], correctAnswer: 1, isExperienceBased: true }
+];
+
+// Tough Section MCQs - English Grammar
+export const gkToughMCQs: MCQ[] = [
+  { 
+    id: 1, 
+    question: "Besides his parents, he ____ also present at the function.", 
+    options: ["were", "was", "are", "have been"], 
+    correctAnswer: 1,
+    explanation: "The subject is 'he' (singular). The phrase 'besides his parents' is parenthetical and doesn't change subject-verb agreement. 'Was' is the correct singular past tense verb."
+  },
+  { 
+    id: 2, 
+    question: "The thunder was accompanied ____ a heavy rain.", 
+    options: ["with", "by", "of", "to"], 
+    correctAnswer: 1,
+    explanation: "'Accompanied by' is the correct prepositional phrase when referring to things or events. 'With' is used for people accompanying other people."
+  },
+  { 
+    id: 3, 
+    question: "____ thing of beauty is a joy forever.", 
+    options: ["The", "A", "An", "Some"], 
+    correctAnswer: 1,
+    explanation: "This is a famous quote by John Keats: 'A thing of beauty is a joy forever.' The article 'A' is used because 'thing' starts with a consonant and refers to any beautiful thing in general."
+  },
+  { 
+    id: 4, 
+    question: "Identify the antonym of 'Embellish':", 
+    options: ["Decorate", "Disfigure", "Adorn", "Beautify"], 
+    correctAnswer: 1,
+    explanation: "Embellish means to decorate, beautify, or make more attractive. Disfigure means to spoil the appearance of, making it the opposite (antonym)."
+  },
+  { 
+    id: 5, 
+    question: "He has purchased a bag of ____", 
+    options: ["floor", "flour", "flower", "flew"], 
+    correctAnswer: 1,
+    explanation: "Flour is the powder made from grinding wheat, used in baking. Floor = ground surface, Flower = plant part, Flew = past tense of fly. Context indicates cooking ingredient."
+  }
 ];

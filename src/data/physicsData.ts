@@ -333,6 +333,101 @@ export const physicsChapters: Chapter[] = [
   },
 ];
 
+// Tough Section MCQs - Physics + Astronomy
+export const physicsToughMCQs: MCQ[] = [
+  { 
+    id: 1, 
+    question: "Opening a door is an example of:", 
+    options: ["Non-contact force", "Contact force", "Gravitational force", "Magnetic force"], 
+    correctAnswer: 1,
+    explanation: "You must physically touch the door handle to apply torque and open it. This requires direct physical contact, making it a contact force."
+  },
+  { 
+    id: 2, 
+    question: "The unit of force is:", 
+    options: ["Newton", "Joule", "Watt", "Pascal"], 
+    correctAnswer: 0,
+    explanation: "Newton (N) is the SI unit of force. 1 N = 1 kg·m/s². Named after Sir Isaac Newton who formulated the laws of motion."
+  },
+  { 
+    id: 3, 
+    question: "The force involved in falling an apple from a tree is:", 
+    options: ["Magnetic force", "Electric force", "Friction force", "Gravitational force"], 
+    correctAnswer: 3,
+    explanation: "Gravity attracts all objects toward the center of Earth. Newton's famous apple observation led to his theory of universal gravitation: F = Gm₁m₂/r²"
+  },
+  { 
+    id: 4, 
+    question: "The scientist who showed lightning and sparks are the same:", 
+    options: ["Newton", "Benjamin Franklin", "Faraday", "Edison"], 
+    correctAnswer: 1,
+    explanation: "Benjamin Franklin's famous kite experiment in 1752 demonstrated that lightning is electrical in nature, the same as the sparks from static electricity."
+  },
+  { 
+    id: 5, 
+    question: "A glass rod rubbed with silk acquires:", 
+    options: ["Negative charge", "No charge", "Positive charge", "Neutral charge"], 
+    correctAnswer: 2,
+    explanation: "When glass is rubbed with silk, electrons transfer from glass to silk. Glass loses electrons and becomes positively charged, while silk becomes negatively charged."
+  },
+  { 
+    id: 6, 
+    question: "The line perpendicular to the reflective surface at the point of incidence is called:", 
+    options: ["Normal", "Incident ray", "Reflected ray", "Tangent"], 
+    correctAnswer: 0,
+    explanation: "In optics, the 'Normal' is defined as the line perpendicular (at 90°) to the reflecting surface. Angles of incidence and reflection are measured from the normal."
+  },
+  { 
+    id: 7, 
+    question: "Object at 2.0m from concave mirror, image at 4.0m. Calculate focal length:", 
+    options: ["0.67 m", "1.0 m", "1.33 m", "2.0 m"], 
+    correctAnswer: 2,
+    explanation: "Using mirror formula: 1/f = 1/u + 1/v = 1/2 + 1/4 = 2/4 + 1/4 = 3/4. Therefore f = 4/3 ≈ 1.33 m"
+  },
+  { 
+    id: 8, 
+    question: "Which mirror produces always erect, same height, virtual image?", 
+    options: ["Concave", "Convex", "Plane", "Parabolic"], 
+    correctAnswer: 2,
+    explanation: "Only a plane (flat) mirror creates an image that is: virtual, erect, same size as object, and laterally inverted. The image distance equals object distance."
+  },
+  { 
+    id: 9, 
+    question: "Light travels fastest through:", 
+    options: ["Diamond", "Water", "Glass", "Air"], 
+    correctAnswer: 3,
+    explanation: "Light travels fastest in vacuum, followed by air (n≈1.0003). Speed decreases in denser media: water (n=1.33), glass (n=1.5), diamond (n=2.42). Speed = c/n"
+  },
+  { 
+    id: 10, 
+    question: "The planet having the largest diameter is:", 
+    options: ["Saturn", "Jupiter", "Neptune", "Uranus"], 
+    correctAnswer: 1,
+    explanation: "Jupiter is the largest planet with diameter of about 139,820 km - more than 11 times Earth's diameter. It could fit over 1,300 Earths inside it."
+  },
+  { 
+    id: 11, 
+    question: "The hottest planet of our solar system is:", 
+    options: ["Mercury", "Venus", "Mars", "Jupiter"], 
+    correctAnswer: 1,
+    explanation: "Despite being second from the Sun, Venus is hottest (462°C average) due to its thick CO₂ atmosphere causing a runaway greenhouse effect. Mercury has no atmosphere to trap heat."
+  },
+  { 
+    id: 12, 
+    question: "The body burning like a star and coming towards the Earth is:", 
+    options: ["Comet", "Meteor", "Asteroid", "Satellite"], 
+    correctAnswer: 1,
+    explanation: "Meteors (shooting stars) are space debris that burn up due to friction when entering Earth's atmosphere. If they reach the ground, they're called meteorites."
+  },
+  { 
+    id: 13, 
+    question: "Planets with retrograde rotation (east to west) are:", 
+    options: ["Mercury and Mars", "Earth and Mars", "Venus and Uranus", "Jupiter and Saturn"], 
+    correctAnswer: 2,
+    explanation: "Most planets rotate west to east (prograde). Venus rotates east to west, and Uranus rotates on its side (tilted 98°), effectively making its rotation retrograde."
+  }
+];
+
 // 2025 Test Center Experience Based Physics Questions
 export const physicsExperienceMCQs: MCQ[] = [
   { id: 1, question: "SI unit of force is:", options: ["Joule", "Watt", "Newton", "Pascal"], correctAnswer: 2, isExperienceBased: true },
