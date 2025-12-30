@@ -406,7 +406,29 @@ export const intelligenceExperienceMCQs: MCQ[] = [
   { id: 55, question: "Sum of deviations from mean is always?", options: ["Positive", "Negative", "Zero", "One"], correctAnswer: 2, isExperienceBased: true },
   { id: 56, question: "100, 64, 36, 16, ? (Perfect squares: 10², 8², 6², 4², ?)", options: ["4", "8", "9", "12"], correctAnswer: 0, isExperienceBased: true },
   { id: 57, question: "6, 9, 12, ?", options: ["14", "15", "16", "18"], correctAnswer: 1, isExperienceBased: true },
-  { id: 58, question: "Man covers 600m in 5 min. Speed in km/h?", options: ["6.2 km/h", "7.2 km/h", "8.2 km/h", "9.2 km/h"], correctAnswer: 1, isExperienceBased: true }
+  { id: 58, question: "Man covers 600m in 5 min. Speed in km/h?", options: ["6.2 km/h", "7.2 km/h", "8.2 km/h", "9.2 km/h"], correctAnswer: 1, isExperienceBased: true },
+  { id: 59, question: "If COMPUTER is coded as DPNQVUFS, then PRINTER is coded as?", options: ["QSJOUFS", "QSJOUFR", "QSJMUFS", "PSJOUFS"], correctAnswer: 0, isExperienceBased: true },
+  { id: 60, question: "If 1=5, 2=10, 3=15, 4=20, then 5=?", options: ["1", "5", "25", "30"], correctAnswer: 2, isExperienceBased: true },
+  { id: 61, question: "In a race, if you overtake the person in 2nd place, what position are you in?", options: ["1st", "2nd", "3rd", "4th"], correctAnswer: 1, isExperienceBased: true },
+  { id: 62, question: "If all Zips are Zaps, and all Zaps are Zops, then all Zips are definitely?", options: ["Zops", "Zaps only", "Neither", "Cannot be determined"], correctAnswer: 0, isExperienceBased: true },
+  { id: 63, question: "What comes next: J, F, M, A, M, J, J, ?", options: ["A", "S", "O", "N"], correctAnswer: 0, isExperienceBased: true },
+  { id: 64, question: "If yesterday was Thursday, what day will it be 100 days from now?", options: ["Sunday", "Monday", "Tuesday", "Wednesday"], correctAnswer: 0, isExperienceBased: true },
+  { id: 65, question: "Mirror image of DELHI is?", options: ["IHLED", "IHLED", "DΕLНΙ", "ΙНLΕD"], correctAnswer: 0, isExperienceBased: true },
+  { id: 66, question: "A clock shows 3:15. What is the angle between hour and minute hand?", options: ["0°", "7.5°", "15°", "30°"], correctAnswer: 1, isExperienceBased: true },
+  { id: 67, question: "If ROSE is coded as 6821, CHAIR is coded as 73456, then ROACH is?", options: ["68437", "62473", "68473", "68347"], correctAnswer: 2, isExperienceBased: true },
+  { id: 68, question: "Complete the series: 2, 6, 18, 54, ?", options: ["108", "162", "216", "270"], correctAnswer: 1, isExperienceBased: true },
+  { id: 69, question: "A man points to a woman and says 'Her mother is the only daughter of my mother.' How is the woman related to the man?", options: ["Sister", "Mother", "Daughter", "Grandmother"], correctAnswer: 2, isExperienceBased: true },
+  { id: 70, question: "Which number replaces ? : 3, 9, 27, 81, ?", options: ["162", "243", "324", "405"], correctAnswer: 1, isExperienceBased: true },
+  { id: 71, question: "Rearrange: AETCPNIC to form a word related to government", options: ["PATIENCE", "CAPTAIN", "TECTANIC", "PENTATIC"], correctAnswer: 0, isExperienceBased: true },
+  { id: 72, question: "If South-East becomes North, North-East becomes West, then what does West become?", options: ["North-East", "South-East", "South", "North-West"], correctAnswer: 1, isExperienceBased: true },
+  { id: 73, question: "Find odd: Carrot, Radish, Potato, Cabbage", options: ["Carrot", "Radish", "Potato", "Cabbage"], correctAnswer: 3, isExperienceBased: true },
+  { id: 74, question: "If A is coded as 1, B as 2, then FACE = ?", options: ["15", "18", "21", "25"], correctAnswer: 2, isExperienceBased: true },
+  { id: 75, question: "At what time between 4 and 5 will the hands of clock be at right angle?", options: ["4:05", "4:38", "4:22", "4:55"], correctAnswer: 2, isExperienceBased: true },
+  { id: 76, question: "12, 24, 48, 96, ?", options: ["144", "168", "192", "200"], correctAnswer: 2, isExperienceBased: true },
+  { id: 77, question: "Find wrong number: 2, 3, 6, 15, 46, 157", options: ["3", "6", "15", "46"], correctAnswer: 2, isExperienceBased: true },
+  { id: 78, question: "Pointing to a photograph, Aman said, 'She is the daughter of my grandfather's only son.' How is Aman related to the girl?", options: ["Father", "Brother", "Cousin", "Uncle"], correctAnswer: 1, isExperienceBased: true },
+  { id: 79, question: "If × means +, + means ÷, ÷ means −, − means ×, then 8 × 7 − 8 + 40 ÷ 2 = ?", options: ["7.6", "8.6", "9.6", "10.6"], correctAnswer: 0, isExperienceBased: true },
+  { id: 80, question: "Which comes next in series: AZ, BY, CX, DW, ?", options: ["EV", "EU", "FV", "EW"], correctAnswer: 0, isExperienceBased: true }
 ];
 
 // Tough Section MCQs - IQ & Reasoning
