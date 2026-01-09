@@ -1,0 +1,60 @@
+// Shared types for the app
+
+export interface MCQ {
+  id: string;
+  question: string;
+  options: string[];
+  correctAnswer: number;
+  explanation?: string;
+}
+
+export interface Chapter {
+  id: string;
+  name: string;
+  description: string;
+  icon: string;
+  mcqs: MCQ[];
+}
+
+export interface Subject {
+  id: string;
+  name: string;
+  icon: string;
+  chapters: Chapter[];
+  experienceMCQs?: MCQ[];
+  toughMCQs?: MCQ[];
+}
+
+export interface AcademicClass {
+  id: string;
+  name: string;
+  subjects: AcademicSubject[];
+}
+
+export interface AcademicSubject {
+  id: string;
+  name: string;
+  icon: string;
+  pairingScheme?: string;
+  chapters: AcademicChapter[];
+  mcqs?: MCQ[];
+  resources?: Resource[];
+  studyPlan?: string;
+}
+
+export interface AcademicChapter {
+  id: string;
+  name: string;
+  importantTopics?: string[];
+  keyConcepts?: string[];
+  formulas?: string[];
+  shortNotes?: string;
+  mcqs?: MCQ[];
+}
+
+export interface Resource {
+  id: string;
+  name: string;
+  type: 'book' | 'notes' | 'past-paper';
+  driveLink?: string;
+}
