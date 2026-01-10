@@ -10,6 +10,7 @@ export const academicClasses: AcademicClass[] = [
         id: "physics-9",
         name: "Physics",
         icon: "⚛️",
+        pairingScheme: "https://drive.google.com/file/d/1jgzF4PWOa5Zx4_jYn_ntvHjcMCp3FeRu/view?usp=drivesdk",
         chapters: [
           { id: "ch1", name: "Physical Quantities and Measurement" },
           { id: "ch2", name: "Kinematics" },
@@ -20,12 +21,16 @@ export const academicClasses: AcademicClass[] = [
           { id: "ch7", name: "Properties of Matter" },
           { id: "ch8", name: "Thermal Properties of Matter" },
           { id: "ch9", name: "Transfer of Heat" },
+        ],
+        resources: [
+          { id: "physics-9-book", name: "Physics 9 Textbook", type: "book", driveLink: "https://drive.google.com/file/d/1HikIwpSoNpKouPE0umIuNvl-iXY4xulm/view?usp=drivesdk" }
         ]
       },
       {
         id: "chemistry-9",
         name: "Chemistry",
         icon: "🧪",
+        pairingScheme: "https://drive.google.com/file/d/1UU-Ro5Zuxhp0sStmblM5okIHiZcxWwPN/view?usp=drivesdk",
         chapters: [
           { id: "ch1", name: "Fundamentals of Chemistry" },
           { id: "ch2", name: "Structure of Atoms" },
@@ -35,12 +40,16 @@ export const academicClasses: AcademicClass[] = [
           { id: "ch6", name: "Solutions" },
           { id: "ch7", name: "Electrochemistry" },
           { id: "ch8", name: "Chemical Reactivity" },
+        ],
+        resources: [
+          { id: "chemistry-9-book", name: "Chemistry 9 Textbook", type: "book", driveLink: "https://drive.google.com/file/d/1HdVdPMI99vKpT1XoDtoxOwd6Kh3Upt6d/view?usp=drivesdk" }
         ]
       },
       {
         id: "math-9",
         name: "Mathematics",
         icon: "📐",
+        pairingScheme: "https://drive.google.com/file/d/1LwXgUE6AXNisB7uvcrLsoQeDHah0HAX6/view?usp=drivesdk",
         chapters: [
           { id: "ch1", name: "Matrices and Determinants" },
           { id: "ch2", name: "Real and Complex Numbers" },
@@ -58,6 +67,9 @@ export const academicClasses: AcademicClass[] = [
           { id: "ch14", name: "Ratio and Proportion" },
           { id: "ch15", name: "Pythagoras Theorem" },
           { id: "ch16", name: "Theorems Related with Area" },
+        ],
+        resources: [
+          { id: "math-9-book", name: "Mathematics 9 Textbook", type: "book", driveLink: "https://drive.google.com/file/d/1O3mnyON3YsC1geOK41idQ1MOwOKIlsB6/view?usp=drivesdk" }
         ]
       },
       {
@@ -125,6 +137,7 @@ export const academicClasses: AcademicClass[] = [
         id: "physics-10",
         name: "Physics",
         icon: "⚛️",
+        pairingScheme: "https://drive.google.com/file/d/1I5w_bn0M_M41O-AoGkNqRWiDo0Ad7QOy/view?usp=drivesdk",
         chapters: [
           { id: "ch10", name: "Simple Harmonic Motion and Waves" },
           { id: "ch11", name: "Sound" },
@@ -135,12 +148,16 @@ export const academicClasses: AcademicClass[] = [
           { id: "ch16", name: "Basic Electronics" },
           { id: "ch17", name: "Information and Communication Technology" },
           { id: "ch18", name: "Atomic and Nuclear Physics" },
+        ],
+        resources: [
+          { id: "physics-10-book", name: "Physics 10 Textbook", type: "book", driveLink: "https://drive.google.com/file/d/1YNDI4pfDNlKZ5vkUG3FpBgZH8Vq4rD5c/view?usp=drivesdk" }
         ]
       },
       {
         id: "chemistry-10",
         name: "Chemistry",
         icon: "🧪",
+        pairingScheme: "https://drive.google.com/file/d/1192SGmupIwwexwh_34yK6OxYBwAkbbhK/view?usp=drivesdk",
         chapters: [
           { id: "ch9", name: "Chemical Equilibrium" },
           { id: "ch10", name: "Acids, Bases and Salts" },
@@ -150,12 +167,16 @@ export const academicClasses: AcademicClass[] = [
           { id: "ch14", name: "Environmental Chemistry I" },
           { id: "ch15", name: "Environmental Chemistry II" },
           { id: "ch16", name: "Chemical Industries" },
+        ],
+        resources: [
+          { id: "chemistry-10-book", name: "Chemistry 10 Textbook", type: "book", driveLink: "https://drive.google.com/file/d/1o1NbqFMFX7spARRnFj4yb2f4kgkuHibE/view?usp=drivesdk" }
         ]
       },
       {
         id: "math-10",
         name: "Mathematics",
         icon: "📐",
+        pairingScheme: "https://drive.google.com/file/d/18wHgdZqyyK3EUHDlMJjPAN_AnDqW3Uec/view?usp=drivesdk",
         chapters: [
           { id: "ch1", name: "Quadratic Equations" },
           { id: "ch2", name: "Theory of Quadratic Equations" },
@@ -170,6 +191,9 @@ export const academicClasses: AcademicClass[] = [
           { id: "ch11", name: "Chords and Arcs" },
           { id: "ch12", name: "Angle in a Segment of a Circle" },
           { id: "ch13", name: "Practical Geometry - Circles" },
+        ],
+        resources: [
+          { id: "math-10-book", name: "Mathematics 10 Textbook", type: "book", driveLink: "https://drive.google.com/file/d/1c_VDPgAMX_h2nUBdhttYQb7foCXVi_wN/view?usp=drivesdk" }
         ]
       },
       {
