@@ -904,13 +904,17 @@ Total Marks: 75 | Time: 2 Hours 30 Minutes
           },
           {
             id: "ch15",
-            name: "Environmental Chemistry II",
-            importantTopics: ["Water Quality", "Hard Water", "Water Treatment"],
-            keyConcepts: ["Hardness", "Softening Methods", "Purification"],
-            formulas: [],
+            name: "Water",
+            importantTopics: ["Properties of Water", "Hard Water", "Soft Water", "Water Purification", "Waterborne Diseases"],
+            keyConcepts: ["Hardness Types", "Temporary & Permanent Hardness", "Boiling Method", "Clark's Method", "Distillation"],
+            formulas: ["Ca(HCO₃)₂ → CaCO₃ + H₂O + CO₂ (temporary hardness removal)"],
             mcqs: [
-              { id: "c10-ch15-1", question: "Hard water contains ions of:", options: ["Na and K", "Ca and Mg", "Fe and Zn", "Cu and Ag"], correctAnswer: 1, explanation: "Hard water contains Ca²⁺ and Mg²⁺ ions." },
-              { id: "c10-ch15-2", question: "Washing soda is used to:", options: ["Harden water", "Soften water", "Purify water", "Color water"], correctAnswer: 1, explanation: "Washing soda (Na₂CO₃) removes hardness ions." }
+              { id: "c10-ch15-1", question: "Hard water contains ions of:", options: ["Na and K", "Ca and Mg", "Fe and Zn", "Cu and Ag"], correctAnswer: 1, explanation: "Hard water contains dissolved Ca²⁺ and Mg²⁺ ions that cause hardness." },
+              { id: "c10-ch15-2", question: "Temporary hardness is caused by:", options: ["Chlorides", "Sulfates", "Bicarbonates", "Nitrates"], correctAnswer: 2, explanation: "Temporary hardness is due to bicarbonates of Ca and Mg, removed by boiling." },
+              { id: "c10-ch15-3", question: "Washing soda is used to:", options: ["Harden water", "Soften water", "Purify water", "Color water"], correctAnswer: 1, explanation: "Washing soda (Na₂CO₃) removes hardness by precipitating Ca and Mg as carbonates." },
+              { id: "c10-ch15-4", question: "Permanent hardness is removed by:", options: ["Boiling", "Filtration", "Adding washing soda", "Adding salt"], correctAnswer: 2, explanation: "Permanent hardness (sulfates/chlorides) requires chemical treatment like washing soda." },
+              { id: "c10-ch15-5", question: "Distilled water is:", options: ["Hard water", "Soft water", "Pure water", "Impure water"], correctAnswer: 2, explanation: "Distillation removes all dissolved impurities, giving pure water." },
+              { id: "c10-ch15-6", question: "Water is a universal solvent because it:", options: ["Is colorless", "Has high polarity", "Is tasteless", "Is odorless"], correctAnswer: 1, explanation: "Water's polar nature allows it to dissolve many ionic and polar substances." }
             ]
           },
           {
