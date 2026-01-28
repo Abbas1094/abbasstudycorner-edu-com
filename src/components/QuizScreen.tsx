@@ -1,8 +1,9 @@
 import { useState, useCallback, useMemo } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Chapter } from "@/data/chemistryData";
-import { CheckCircle2, XCircle, ChevronRight, RotateCcw, Lightbulb } from "lucide-react";
+import { CheckCircle2, XCircle, ChevronRight, RotateCcw, Lightbulb, BookOpen, X } from "lucide-react";
 import { generateSmartExplanation } from "@/lib/explanations";
+import { shuffleMCQs } from "@/lib/shuffleUtils";
 interface QuizScreenProps {
   chapter: Chapter;
   onBack: () => void;
@@ -15,14 +16,28 @@ interface Answer {
   isCorrect: boolean;
 }
 
-const QuizScreen = ({ chapter }: QuizScreenProps) => {
+// Extended chapter type with notes
+interface ChapterWithNotes extends Chapter {
+  notes?: string[];
+}
+
+interface QuizScreenPropsExtended {
+  chapter: ChapterWithNotes;
+  onBack: () => void;
+}
+
+const QuizScreen = ({ chapter }: QuizScreenPropsExtended) => {
+  // Shuffle MCQs once when component mounts or chapter changes
+  const shuffledMCQs = useMemo(() => shuffleMCQs(chapter.mcqs), [chapter.id]);
+  
   const [current, setCurrent] = useState(0);
   const [selected, setSelected] = useState<number | null>(null);
   const [score, setScore] = useState(0);
   const [showResult, setShowResult] = useState(false);
   const [answers, setAnswers] = useState<Answer[]>([]);
+  const [showNotes, setShowNotes] = useState(false);
 
-  const mcq = chapter.mcqs[current];
+  const mcq = shuffledMCQs[current];
   const isCorrect = selected === mcq.correctAnswer;
   const isAnswered = selected !== null;
 
@@ -41,13 +56,13 @@ const QuizScreen = ({ chapter }: QuizScreenProps) => {
   }, [selected, mcq.correctAnswer, current]);
 
   const handleNext = useCallback(() => {
-    if (current < chapter.mcqs.length - 1) {
+    if (current < shuffledMCQs.length - 1) {
       setCurrent(c => c + 1);
       setSelected(null);
     } else {
       setShowResult(true);
     }
-  }, [current, chapter.mcqs.length]);
+  }, [current, shuffledMCQs.length]);
 
   const handleReset = useCallback(() => {
     setCurrent(0);
@@ -64,8 +79,52 @@ const QuizScreen = ({ chapter }: QuizScreenProps) => {
     return generateSmartExplanation(q.question, q.options[q.correctAnswer], q.options);
   };
 
+  // Notes Modal
+  const NotesModal = () => (
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      className="fixed inset-0 z-50 bg-black/70 flex items-center justify-center p-4"
+      onClick={() => setShowNotes(false)}
+    >
+      <motion.div
+        initial={{ scale: 0.9, opacity: 0 }}
+        animate={{ scale: 1, opacity: 1 }}
+        exit={{ scale: 0.9, opacity: 0 }}
+        className="bg-card rounded-2xl p-6 max-w-lg w-full max-h-[80vh] overflow-y-auto border border-border"
+        onClick={e => e.stopPropagation()}
+      >
+        <div className="flex items-center justify-between mb-4">
+          <h3 className="font-display text-xl font-bold text-foreground flex items-center gap-2">
+            <BookOpen className="w-5 h-5 text-primary" />
+            Quick Notes
+          </h3>
+          <button 
+            onClick={() => setShowNotes(false)}
+            className="p-2 rounded-full hover:bg-muted transition-colors"
+          >
+            <X className="w-5 h-5 text-muted-foreground" />
+          </button>
+        </div>
+        <div className="space-y-3">
+          {(chapter as ChapterWithNotes).notes?.map((note, idx) => (
+            <div 
+              key={idx} 
+              className="p-3 rounded-xl bg-primary/10 border border-primary/20 text-sm text-foreground"
+              dangerouslySetInnerHTML={{ 
+                __html: note
+                  .replace(/\*\*(.*?)\*\*/g, '<strong class="text-primary">$1</strong>')
+              }}
+            />
+          ))}
+        </div>
+      </motion.div>
+    </motion.div>
+  );
+
   if (showResult) {
-    const percentage = Math.round((score / chapter.mcqs.length) * 100);
+    const percentage = Math.round((score / shuffledMCQs.length) * 100);
     return (
       <motion.div 
         initial={{ opacity: 0, scale: 0.95 }} 
@@ -78,7 +137,7 @@ const QuizScreen = ({ chapter }: QuizScreenProps) => {
             <span className="text-3xl font-bold text-primary-foreground">{percentage}%</span>
           </div>
           <h2 className="font-display text-2xl font-bold text-foreground mb-2">Quiz Complete!</h2>
-          <p className="text-muted-foreground mb-4">You scored {score} out of {chapter.mcqs.length}</p>
+          <p className="text-muted-foreground mb-4">You scored {score} out of {shuffledMCQs.length}</p>
           
           <div className="flex gap-2 justify-center mb-2">
             <span className="px-3 py-1 rounded-full bg-success/20 text-success text-sm font-medium">
@@ -98,7 +157,7 @@ const QuizScreen = ({ chapter }: QuizScreenProps) => {
             </h3>
             <div className="space-y-4">
               {mistakes.map((mistake, idx) => {
-                const q = chapter.mcqs[mistake.questionIndex];
+                const q = shuffledMCQs[mistake.questionIndex];
                 return (
                   <div 
                     key={idx} 
@@ -150,17 +209,35 @@ const QuizScreen = ({ chapter }: QuizScreenProps) => {
     );
   }
 
+  const hasNotes = (chapter as ChapterWithNotes).notes && (chapter as ChapterWithNotes).notes!.length > 0;
+
   return (
     <div>
-      <div className="flex items-center justify-between mb-6">
+      {/* Notes Modal */}
+      <AnimatePresence>
+        {showNotes && <NotesModal />}
+      </AnimatePresence>
+
+      <div className="flex items-center justify-between mb-4">
         <span className="text-sm text-muted-foreground">{chapter.name}</span>
-        <span className="text-sm font-medium text-primary">{current + 1}/{chapter.mcqs.length}</span>
+        <div className="flex items-center gap-2">
+          {hasNotes && (
+            <button
+              onClick={() => setShowNotes(true)}
+              className="flex items-center gap-1 px-3 py-1.5 rounded-full bg-primary/20 text-primary text-xs font-medium hover:bg-primary/30 transition-colors"
+            >
+              <BookOpen className="w-3.5 h-3.5" />
+              Notes
+            </button>
+          )}
+          <span className="text-sm font-medium text-primary">{current + 1}/{shuffledMCQs.length}</span>
+        </div>
       </div>
 
       <div className="h-2 bg-muted rounded-full mb-6 overflow-hidden">
         <div 
           className="h-full bg-gradient-gold transition-all duration-300 ease-out" 
-          style={{ width: `${((current + 1) / chapter.mcqs.length) * 100}%` }} 
+          style={{ width: `${((current + 1) / shuffledMCQs.length) * 100}%` }} 
         />
       </div>
 
@@ -220,7 +297,7 @@ const QuizScreen = ({ chapter }: QuizScreenProps) => {
               onClick={handleNext} 
               className="w-full mt-6 bg-gradient-gold text-primary-foreground p-4 rounded-xl font-semibold shadow-gold flex items-center justify-center gap-2"
             >
-              {current < chapter.mcqs.length - 1 ? "Next Question" : "See Results"}
+              {current < shuffledMCQs.length - 1 ? "Next Question" : "See Results"}
               <ChevronRight className="w-5 h-5" />
             </motion.button>
           )}
