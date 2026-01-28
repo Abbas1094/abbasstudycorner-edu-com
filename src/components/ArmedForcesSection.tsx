@@ -19,11 +19,16 @@ import { gkChapters, gkExperienceMCQs, gkToughMCQs } from "@/data/generalKnowled
 import {
   airforceIntelligenceChapters,
   airforceMathChapters,
-  airforcePhysicsChapters,
   airforceEnglishChapters,
   airforceGKChapters,
   airforceExperienceMCQs
 } from "@/data/airforceData";
+
+// Air Force Physics (Complete 10 chapters, 300 MCQs)
+import {
+  airforcePhysicsChaptersComplete,
+  airforcePhysicsExperienceMCQs
+} from "@/data/airforcePhysicsData";
 
 type ForceType = "navy" | "airforce";
 type Screen = "forces" | "subjects" | "subject-menu" | "chapters" | "quiz" | "experience" | "tough";
@@ -77,7 +82,7 @@ const ArmedForcesSection = ({ onBack }: ArmedForcesSectionProps) => {
     switch (selectedSubject) {
       case "intelligence": return airforceIntelligenceChapters;
       case "math": return airforceMathChapters;
-      case "physics": return airforcePhysicsChapters;
+      case "physics": return airforcePhysicsChaptersComplete;
       case "english": return airforceEnglishChapters;
       case "gk": return airforceGKChapters;
       default: return [];
@@ -91,6 +96,8 @@ const ArmedForcesSection = ({ onBack }: ArmedForcesSectionProps) => {
 
   const getExperienceMCQs = () => {
     if (selectedForce === "navy") return getNavyExperienceMCQs();
+    // Air Force has experience MCQs for Physics
+    if (selectedSubject === "physics") return airforcePhysicsExperienceMCQs;
     return airforceExperienceMCQs;
   };
 
@@ -237,7 +244,7 @@ const ArmedForcesSection = ({ onBack }: ArmedForcesSectionProps) => {
                 <SubjectCard 
                   icon={Atom} 
                   title="Physics" 
-                  subtitle={selectedForce === "navy" ? "10 Chapters • 250+ MCQs" : "5 Chapters"} 
+                  subtitle={selectedForce === "navy" ? "10 Chapters • 250+ MCQs" : "10 Chapters • 300 MCQs"} 
                   color="from-blue-500 to-cyan-600" 
                   onClick={() => { setSelectedSubject("physics"); setScreen("subject-menu"); }} 
                 />
