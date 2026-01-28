@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { MCQ } from "@/data/chemistryData";
 import { CheckCircle2, XCircle, ChevronRight, RotateCcw, Lightbulb } from "lucide-react";
 import { generateSmartExplanation } from "@/lib/explanations";
+import { shuffleMCQs } from "@/lib/shuffleUtils";
 
 interface ExperienceQuizProps {
   mcqs: MCQ[];
@@ -18,6 +19,9 @@ interface Answer {
 }
 
 const ExperienceQuiz = ({ mcqs, subject, onBack }: ExperienceQuizProps) => {
+  // Shuffle MCQs once when component mounts
+  const shuffledMCQs = useMemo(() => shuffleMCQs(mcqs), [mcqs]);
+  
   const [current, setCurrent] = useState(0);
   const [selected, setSelected] = useState<number | null>(null);
   const [score, setScore] = useState(0);
@@ -39,7 +43,7 @@ const ExperienceQuiz = ({ mcqs, subject, onBack }: ExperienceQuizProps) => {
     );
   }
 
-  const mcq = mcqs[current];
+  const mcq = shuffledMCQs[current];
   const isCorrect = selected === mcq.correctAnswer;
   const isAnswered = selected !== null;
 
@@ -58,13 +62,13 @@ const ExperienceQuiz = ({ mcqs, subject, onBack }: ExperienceQuizProps) => {
   }, [selected, mcq.correctAnswer, current]);
 
   const handleNext = useCallback(() => {
-    if (current < mcqs.length - 1) {
+    if (current < shuffledMCQs.length - 1) {
       setCurrent(c => c + 1);
       setSelected(null);
     } else {
       setShowResult(true);
     }
-  }, [current, mcqs.length]);
+  }, [current, shuffledMCQs.length]);
 
   const handleReset = useCallback(() => {
     setCurrent(0);
@@ -82,7 +86,7 @@ const ExperienceQuiz = ({ mcqs, subject, onBack }: ExperienceQuizProps) => {
   };
 
   if (showResult) {
-    const percentage = Math.round((score / mcqs.length) * 100);
+    const percentage = Math.round((score / shuffledMCQs.length) * 100);
     return (
       <motion.div 
         initial={{ opacity: 0, scale: 0.95 }} 
@@ -95,7 +99,7 @@ const ExperienceQuiz = ({ mcqs, subject, onBack }: ExperienceQuizProps) => {
             <span className="text-3xl font-bold text-primary-foreground">{percentage}%</span>
           </div>
           <h2 className="font-display text-2xl font-bold text-foreground mb-2">Experience Quiz Complete!</h2>
-          <p className="text-muted-foreground mb-4">You scored {score} out of {mcqs.length}</p>
+          <p className="text-muted-foreground mb-4">You scored {score} out of {shuffledMCQs.length}</p>
           
           <div className="flex gap-2 justify-center mb-2">
             <span className="px-3 py-1 rounded-full bg-success/20 text-success text-sm font-medium">
@@ -115,7 +119,7 @@ const ExperienceQuiz = ({ mcqs, subject, onBack }: ExperienceQuizProps) => {
             </h3>
             <div className="space-y-4">
               {mistakes.map((mistake, idx) => {
-                const q = mcqs[mistake.questionIndex];
+                const q = shuffledMCQs[mistake.questionIndex];
                 return (
                   <div 
                     key={idx} 
@@ -171,13 +175,13 @@ const ExperienceQuiz = ({ mcqs, subject, onBack }: ExperienceQuizProps) => {
     <div>
       <div className="flex items-center justify-between mb-6">
         <span className="text-sm text-muted-foreground">{subject} - Experience</span>
-        <span className="text-sm font-medium text-primary">{current + 1}/{mcqs.length}</span>
+        <span className="text-sm font-medium text-primary">{current + 1}/{shuffledMCQs.length}</span>
       </div>
 
       <div className="h-2 bg-muted rounded-full mb-6 overflow-hidden">
         <div 
           className="h-full bg-gradient-gold transition-all duration-300 ease-out" 
-          style={{ width: `${((current + 1) / mcqs.length) * 100}%` }} 
+          style={{ width: `${((current + 1) / shuffledMCQs.length) * 100}%` }} 
         />
       </div>
 
@@ -237,7 +241,7 @@ const ExperienceQuiz = ({ mcqs, subject, onBack }: ExperienceQuizProps) => {
               onClick={handleNext} 
               className="w-full mt-6 bg-gradient-gold text-primary-foreground p-4 rounded-xl font-semibold shadow-gold flex items-center justify-center gap-2"
             >
-              {current < mcqs.length - 1 ? "Next Question" : "See Results"}
+              {current < shuffledMCQs.length - 1 ? "Next Question" : "See Results"}
               <ChevronRight className="w-5 h-5" />
             </motion.button>
           )}

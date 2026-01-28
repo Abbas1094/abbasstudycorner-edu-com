@@ -24,10 +24,11 @@ import {
   airforceExperienceMCQs
 } from "@/data/airforceData";
 
-// Air Force Physics (Complete 10 chapters, 300 MCQs)
+// Air Force Physics (Complete 10 chapters, 300 MCQs with Notes)
 import {
   airforcePhysicsChaptersComplete,
-  airforcePhysicsExperienceMCQs
+  airforcePhysicsExperienceMCQs,
+  ChapterWithNotes
 } from "@/data/airforcePhysicsData";
 
 type ForceType = "navy" | "airforce";

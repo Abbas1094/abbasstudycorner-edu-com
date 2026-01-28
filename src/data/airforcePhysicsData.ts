@@ -1,14 +1,34 @@
 // Pakistan Air Force Physics Test Preparation Data
 // Ultimate Military Physics Prep - 10 Chapters, 300 MCQs
 
-import { Chapter, MCQ } from "@/data/chemistryData";
+import { MCQ } from "@/data/chemistryData";
 
-export const airforcePhysicsChaptersComplete: Chapter[] = [
+// Extended Chapter type with notes
+export interface ChapterWithNotes {
+  id: string;
+  name: string;
+  description: string;
+  icon: string;
+  mcqs: MCQ[];
+  notes?: string[];
+}
+
+export const airforcePhysicsChaptersComplete: ChapterWithNotes[] = [
   {
     id: "ch1-measurements",
     name: "Measurements & Physical Quantities",
     description: "Base quantities, SI units, prefixes, instruments, significant figures",
     icon: "📏",
+    notes: [
+      "**7 Base Quantities:** Length (m), Mass (kg), Time (s), Current (A), Temperature (K), Luminous Intensity (cd), Amount of substance (mol)",
+      "**Prefixes:** Tera (10¹²), Giga (10⁹), Mega (10⁶), Kilo (10³), Milli (10⁻³), Micro (10⁻⁶), Nano (10⁻⁹), Pico (10⁻¹²), Femto (10⁻¹⁵)",
+      "**Vernier Caliper:** Least count = 0.1 mm. For small lengths and diameters",
+      "**Screw Gauge:** Least count = 0.01 mm. For thickness and wire diameter",
+      "**Physical Stopwatch:** Least count = 0.1 s. **Digital:** 0.01 s",
+      "**Significant Figures:** All non-zero digits are significant. Zeros between non-zero digits are significant. Leading zeros are NOT significant",
+      "**Derived Units:** Newton (kg⋅m/s²), Joule (kg⋅m²/s²), Watt (kg⋅m²/s³), Pascal (kg/m⋅s²)",
+      "**1 Newton = 10⁵ Dynes, 1 Joule = 10⁷ Ergs**"
+    ],
     mcqs: [
       { id: 1001, question: "Which is a base quantity?", options: ["Force", "Area", "Length", "Velocity"], correctAnswer: 2, explanation: "Length is one of the 7 base quantities in SI system." },
       { id: 1002, question: "The number of base units in SI system is:", options: ["3", "5", "7", "9"], correctAnswer: 2, explanation: "SI has 7 base units: meter, kilogram, second, ampere, kelvin, candela, mole." },
@@ -47,6 +67,17 @@ export const airforcePhysicsChaptersComplete: Chapter[] = [
     name: "Vectors and Equilibrium",
     description: "Scalars, vectors, torque, equilibrium conditions, levers",
     icon: "⚖️",
+    notes: [
+      "**Scalars:** Magnitude only (Mass, Speed, Work, Energy, Temperature)",
+      "**Vectors:** Magnitude + Direction (Force, Velocity, Torque, Displacement, Momentum)",
+      "**Head-to-Tail Rule:** Used to add vectors graphically. Resultant from first tail to last head",
+      "**Resolution of Vectors:** Fx = F cos θ, Fy = F sin θ",
+      "**Torque (τ):** Turning effect of force. τ = F × r (Force × perpendicular distance). Unit: Nm",
+      "**1st Condition of Equilibrium:** ΣF = 0 (Net force is zero - no linear acceleration)",
+      "**2nd Condition of Equilibrium:** Στ = 0 (Net torque is zero - no rotational acceleration)",
+      "**States of Equilibrium:** Stable (cone on base), Unstable (cone on tip), Neutral (ball on floor)",
+      "**Levers:** 1st kind (scissors), 2nd kind (wheelbarrow, door), 3rd kind (human arm, fishing rod)"
+    ],
     mcqs: [
       { id: 2001, question: "A vector having magnitude only is called:", options: ["Scalar", "Vector", "Unit Vector", "Null Vector"], correctAnswer: 0, explanation: "Scalars have magnitude only, no direction." },
       { id: 2002, question: "Vector A is represented as:", options: ["A", "|A|", "→A or Bold A", "None"], correctAnswer: 2, explanation: "Vectors are shown with arrow on top or bold letters." },
@@ -85,6 +116,18 @@ export const airforcePhysicsChaptersComplete: Chapter[] = [
     name: "Motion and Force",
     description: "Speed, velocity, acceleration, Newton's laws, momentum, friction",
     icon: "🚀",
+    notes: [
+      "**Speed:** Distance/time (Scalar). **Velocity:** Displacement/time (Vector)",
+      "**Acceleration:** Change in velocity/time. a = (v - u)/t. Unit: m/s²",
+      "**Equations of Motion:** v = u + at, s = ut + ½at², v² = u² + 2as",
+      "**Newton's 1st Law (Inertia):** Body resists change in state of rest or motion",
+      "**Newton's 2nd Law:** F = ma (Force produces acceleration proportional to mass)",
+      "**Newton's 3rd Law:** Action-Reaction (Equal and opposite forces)",
+      "**Momentum (p):** p = mv. Unit: kg⋅m/s. Conserved in isolated systems",
+      "**Impulse:** Change in momentum = F × t",
+      "**Friction Types:** Rolling < Sliding < Static (Limiting). Depends on nature of surfaces and normal force",
+      "**Free Fall:** g = 9.8 m/s² ≈ 10 m/s². All objects fall with same acceleration (ignoring air resistance)"
+    ],
     mcqs: [
       { id: 3001, question: "Rate of change of displacement is called:", options: ["Speed", "Velocity", "Acceleration", "Torque"], correctAnswer: 1, explanation: "Velocity = displacement/time (rate of change of displacement)." },
       { id: 3002, question: "Newton's first law is also called Law of:", options: ["Force", "Inertia", "Momentum", "Energy"], correctAnswer: 1, explanation: "First law describes inertia - resistance to change in motion." },
@@ -123,6 +166,16 @@ export const airforcePhysicsChaptersComplete: Chapter[] = [
     name: "Work, Power, and Energy",
     description: "Work, kinetic & potential energy, power, efficiency, simple machines",
     icon: "⚡",
+    notes: [
+      "**Work:** W = Fd cos θ. Maximum at 0°, Zero at 90°. Unit: Joule (J)",
+      "**Kinetic Energy (K.E):** Energy due to motion. K.E = ½mv². If v doubles, KE becomes 4×",
+      "**Potential Energy (P.E):** Energy due to position. P.E = mgh",
+      "**Power:** Rate of doing work. P = W/t = F⋅v. Unit: Watt (W)",
+      "**1 HP = 746 W, 1 kWh = 3.6 MJ = 3.6 × 10⁶ J**",
+      "**Efficiency:** (Output/Input) × 100%. Ideal machine = 100% (impossible in practice)",
+      "**Law of Conservation of Energy:** Total energy of the universe is constant. Energy transforms, never created/destroyed",
+      "**Simple Machines:** Lever (3 types), Pulley, Inclined plane, Wheel and axle. M.A = Load/Effort"
+    ],
     mcqs: [
       { id: 4001, question: "Work is equal to product of:", options: ["Force & Velocity", "Force & Displacement", "Mass & Acceleration", "Time & Distance"], correctAnswer: 1, explanation: "Work = Force × Displacement × cos θ." },
       { id: 4002, question: "Unit of Power is:", options: ["Joule", "Watt", "Newton", "Ampere"], correctAnswer: 1, explanation: "Power is measured in Watts (W) = J/s." },
@@ -161,6 +214,17 @@ export const airforcePhysicsChaptersComplete: Chapter[] = [
     name: "Circular Motion and Gravitation",
     description: "Centripetal force, Newton's law of gravitation, satellites, orbital motion",
     icon: "🌍",
+    notes: [
+      "**Centripetal Force:** Fc = mv²/r. Pulls body toward center of circular path",
+      "**Newton's Law of Gravitation:** F = Gm₁m₂/r². Every mass attracts every other mass",
+      "**G (Universal Constant):** 6.67 × 10⁻¹¹ Nm²/kg². Same everywhere in universe",
+      "**g (Gravity):** 9.8 m/s². Varies with height (decreases), depth (decreases). Zero at Earth's center",
+      "**Earth:** Mass = 6 × 10²⁴ kg, Radius = 6400 km",
+      "**Escape Velocity:** 11.2 km/s (to escape Earth's gravity)",
+      "**Orbital Velocity:** v = √(gR) ≈ 7.9 km/s (for orbit near Earth surface)",
+      "**Geostationary Orbit:** Height ~36,000 km, Time period = 24 hours, Used for communication satellites",
+      "**Moon gravity:** 1/6th of Earth (≈ 1.6 m/s²)"
+    ],
     mcqs: [
       { id: 5001, question: "Force that bends path of body into circle:", options: ["Friction", "Centripetal", "Centrifugal", "Gravitational"], correctAnswer: 1, explanation: "Centripetal force pulls body toward center of circular path." },
       { id: 5002, question: "Formula for Centripetal Force:", options: ["mv/r", "mv²/r", "mr/v²", "m/vr"], correctAnswer: 1, explanation: "Fc = mv²/r." },
@@ -199,6 +263,18 @@ export const airforcePhysicsChaptersComplete: Chapter[] = [
     name: "Waves, Sound, and Light",
     description: "Wave properties, sound waves, light, reflection, refraction, lenses",
     icon: "🌊",
+    notes: [
+      "**Time Period (T):** Time for one vibration. T = 2π√(L/g) for pendulum",
+      "**Wave Equation:** v = fλ (velocity = frequency × wavelength)",
+      "**Sound:** Longitudinal wave. Speed ≈ 340 m/s in air. NEEDS medium (cannot travel in vacuum)",
+      "**Light:** Transverse/EM wave. Speed = 3 × 10⁸ m/s. Can travel through vacuum",
+      "**Reflection:** Angle of incidence = Angle of reflection",
+      "**Refraction:** Bending of light. Snell's Law: n₁ sin θ₁ = n₂ sin θ₂",
+      "**Total Internal Reflection (TIR):** Used in Optical Fibers. Critical angle for glass ≈ 42°",
+      "**Lenses:** Convex (Converging), Concave (Diverging). Power P = 1/f (in Diopters)",
+      "**Eye Defects:** Myopia/Short-sightedness (concave lens), Hyperopia/Long-sightedness (convex lens)",
+      "**Audible Range:** 20 Hz – 20,000 Hz. Pitch depends on frequency, Loudness on amplitude"
+    ],
     mcqs: [
       { id: 6001, question: "Time period of simple pendulum depends on:", options: ["Mass", "Length & Gravity", "Amplitude", "Material"], correctAnswer: 1, explanation: "T = 2π√(L/g); depends on length and gravity." },
       { id: 6002, question: "Sound waves are:", options: ["Transverse", "Longitudinal", "EM Waves", "Matter"], correctAnswer: 1, explanation: "Sound is a longitudinal mechanical wave." },
@@ -237,6 +313,17 @@ export const airforcePhysicsChaptersComplete: Chapter[] = [
     name: "Properties of Matter",
     description: "Density, pressure, Pascal's law, Archimedes principle, elasticity",
     icon: "💧",
+    notes: [
+      "**Density (ρ):** Mass/Volume. Unit: kg/m³. Water = 1000 kg/m³ (maximum at 4°C)",
+      "**Pressure (P):** Force/Area. Unit: Pascal (N/m²). Liquid pressure P = ρgh",
+      "**Atmospheric Pressure:** 101,325 Pa = 1 atm = 760 mm Hg",
+      "**Pascal's Law:** Pressure applied to fluid transmits equally. Used in Hydraulic Press, Brakes",
+      "**Archimedes Principle:** Upthrust = Weight of fluid displaced. Explains floating and sinking",
+      "**Hooke's Law:** Stress ∝ Strain (within elastic limit). F = kx",
+      "**Young's Modulus (Y):** Stress/Strain. Steel is most elastic (highest Y)",
+      "**States of Matter:** Solid, Liquid, Gas, Plasma (4th state - ionized gas)",
+      "**Ice floats:** Because ice (917 kg/m³) is less dense than water (1000 kg/m³)"
+    ],
     mcqs: [
       { id: 7001, question: "Mass per unit volume is called:", options: ["Weight", "Force", "Density", "Pressure"], correctAnswer: 2, explanation: "Density ρ = mass/volume." },
       { id: 7002, question: "Unit of Pressure is:", options: ["Newton", "Pascal (N/m²)", "Joule", "Watt"], correctAnswer: 1, explanation: "Pressure is measured in Pascal (Pa) = N/m²." },
@@ -275,6 +362,17 @@ export const airforcePhysicsChaptersComplete: Chapter[] = [
     name: "Heat and Thermodynamics",
     description: "Heat transfer, specific heat, temperature scales, thermal expansion",
     icon: "🔥",
+    notes: [
+      "**Heat:** Form of Energy. Flows from Hot → Cold. SI unit: Joule",
+      "**Temperature:** Average Kinetic Energy of molecules. SI unit: Kelvin",
+      "**Specific Heat (c):** Heat to raise 1 kg by 1 K. Q = mcΔT",
+      "**Water: c = 4200 J/kg·K** (highest among common substances)",
+      "**Modes of Heat Transfer:** Conduction (solids), Convection (fluids), Radiation (through vacuum)",
+      "**Temperature Scales:** C/5 = (F-32)/9 = (K-273)/5. Freezing: 0°C = 32°F = 273K. Boiling: 100°C = 212°F = 373K",
+      "**Absolute Zero:** 0 K = -273°C (molecular motion stops theoretically)",
+      "**Latent Heat:** Ice fusion = 336 kJ/kg, Water vaporization = 2260 kJ/kg",
+      "**1 Calorie = 4.18 Joules**"
+    ],
     mcqs: [
       { id: 8001, question: "SI Unit of Heat:", options: ["Calorie", "Joule", "Watt", "Kelvin"], correctAnswer: 1, explanation: "Heat is energy, measured in Joules (SI unit)." },
       { id: 8002, question: "SI Unit of Temperature:", options: ["Celsius", "Fahrenheit", "Kelvin", "Joule"], correctAnswer: 2, explanation: "Kelvin (K) is the SI unit of temperature." },
@@ -313,6 +411,18 @@ export const airforcePhysicsChaptersComplete: Chapter[] = [
     name: "Electricity and Magnetism",
     description: "Current, resistance, Ohm's law, circuits, transformers, magnetism",
     icon: "⚡",
+    notes: [
+      "**Ohm's Law:** V = IR (Voltage = Current × Resistance)",
+      "**Current (I):** Rate of flow of charge. I = Q/t. Unit: Ampere",
+      "**Resistance (R):** Opposition to current flow. Unit: Ohm (Ω)",
+      "**Capacitor:** Stores charge. Q = CV. Unit: Farad (F)",
+      "**Series Circuit:** R = R₁ + R₂ + R₃... (current same, voltage divides)",
+      "**Parallel Circuit:** 1/R = 1/R₁ + 1/R₂ + 1/R₃... (voltage same, current divides)",
+      "**Electrical Power:** P = VI = I²R = V²/R. Unit: Watt",
+      "**Transformer:** Vs/Vp = Ns/Np. Step-up increases voltage, Step-down decreases",
+      "**Coulomb's Law:** F = kq₁q₂/r², k = 9 × 10⁹ Nm²/C²",
+      "**Electron Charge:** 1.6 × 10⁻¹⁹ C. Like charges repel, unlike attract"
+    ],
     mcqs: [
       { id: 9001, question: "Rate of flow of charge is:", options: ["Voltage", "Current", "Resistance", "Power"], correctAnswer: 1, explanation: "Current I = Q/t (charge flow rate)." },
       { id: 9002, question: "Unit of Current:", options: ["Volt", "Ampere", "Ohm", "Coulomb"], correctAnswer: 1, explanation: "Current is measured in Amperes (A)." },
@@ -351,6 +461,18 @@ export const airforcePhysicsChaptersComplete: Chapter[] = [
     name: "Atomic, Nuclear & Modern Physics + ICT",
     description: "Atomic structure, radioactivity, nuclear reactions, electronics, computers",
     icon: "⚛️",
+    notes: [
+      "**Atom:** Nucleus (Protons + Neutrons) + Electrons orbiting. Proton = +ve, Electron = -ve, Neutron = neutral",
+      "**Isotopes:** Same Atomic Number (Z), Different Mass Number (A). Example: H has 3 isotopes",
+      "**Radioactivity:** α (Helium nucleus, +2), β (fast electron, -1), γ (photon/EM wave, neutral)",
+      "**Penetrating Power:** α < β < γ (Gamma has highest)",
+      "**Half Life:** Time for half atoms to decay. Different for each isotope",
+      "**Fission:** Splitting heavy nucleus → Energy (Nuclear power plants, atomic bomb)",
+      "**Fusion:** Joining light nuclei → Energy (Sun's energy source, hydrogen bomb)",
+      "**ICT:** RAM (temporary, volatile), ROM (permanent, non-volatile), CPU (brain of computer)",
+      "**Memory:** 1 KB = 1024 Bytes, 1 MB = 1024 KB, 1 GB = 1024 MB",
+      "**Semiconductors:** P-type (holes, 3 valence), N-type (electrons, 5 valence). Used in diodes, transistors"
+    ],
     mcqs: [
       { id: 10001, question: "Central part of atom is:", options: ["Electron", "Nucleus", "Orbit", "Shell"], correctAnswer: 1, explanation: "Nucleus is at the center containing protons and neutrons." },
       { id: 10002, question: "Nucleus contains:", options: ["Electrons", "Protons & Neutrons", "Only Protons", "Only Neutrons"], correctAnswer: 1, explanation: "Nucleus has protons (+) and neutrons (neutral)." },
