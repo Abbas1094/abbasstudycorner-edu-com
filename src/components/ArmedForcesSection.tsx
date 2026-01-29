@@ -17,11 +17,7 @@ import { gkChapters, gkExperienceMCQs, gkToughMCQs } from "@/data/generalKnowled
 
 // Air Force data imports
 import {
-  airforceIntelligenceChapters,
-  airforceMathChapters,
-  airforceEnglishChapters,
-  airforceGKChapters,
-  airforceExperienceMCQs
+  airforceMathChapters
 } from "@/data/airforceData";
 
 // Air Force Physics (Complete 10 chapters, 300 MCQs with Notes)
@@ -30,6 +26,24 @@ import {
   airforcePhysicsExperienceMCQs,
   ChapterWithNotes
 } from "@/data/airforcePhysicsData";
+
+// Air Force Intelligence (Complete 10 chapters, 250+ MCQs)
+import {
+  airforceIntelligenceChapters,
+  airforceIntelligenceExperienceMCQs
+} from "@/data/airforceIntelligenceData";
+
+// Air Force GK (Complete 7 chapters)
+import {
+  airforceGKChapters,
+  airforceGKExperienceMCQs
+} from "@/data/airforceGKData";
+
+// Air Force English (Complete 5 chapters)
+import {
+  airforceEnglishChapters,
+  airforceEnglishExperienceMCQs
+} from "@/data/airforceEnglishData";
 
 type ForceType = "navy" | "airforce";
 type Screen = "forces" | "subjects" | "subject-menu" | "chapters" | "quiz" | "experience" | "tough";
@@ -97,9 +111,14 @@ const ArmedForcesSection = ({ onBack }: ArmedForcesSectionProps) => {
 
   const getExperienceMCQs = () => {
     if (selectedForce === "navy") return getNavyExperienceMCQs();
-    // Air Force has experience MCQs for Physics
-    if (selectedSubject === "physics") return airforcePhysicsExperienceMCQs;
-    return airforceExperienceMCQs;
+    // Air Force experience MCQs per subject
+    switch (selectedSubject) {
+      case "physics": return airforcePhysicsExperienceMCQs;
+      case "intelligence": return airforceIntelligenceExperienceMCQs;
+      case "gk": return airforceGKExperienceMCQs;
+      case "english": return airforceEnglishExperienceMCQs;
+      default: return [];
+    }
   };
 
   const getToughMCQs = () => {
@@ -222,14 +241,14 @@ const ArmedForcesSection = ({ onBack }: ArmedForcesSectionProps) => {
                 <SubjectCard 
                   icon={Brain} 
                   title="Intelligence" 
-                  subtitle={selectedForce === "navy" ? "10 Chapters • 250+ MCQs" : "6 Chapters"} 
+                  subtitle={selectedForce === "navy" ? "10 Chapters • 250+ MCQs" : "10 Chapters • 250+ MCQs"} 
                   color="from-amber-500 to-orange-600" 
                   onClick={() => { setSelectedSubject("intelligence"); setScreen("subject-menu"); }} 
                 />
                 <SubjectCard 
                   icon={Globe} 
                   title="General Knowledge" 
-                  subtitle={selectedForce === "navy" ? "7 Chapters • 175+ MCQs" : "5 Chapters"} 
+                  subtitle={selectedForce === "navy" ? "7 Chapters • 175+ MCQs" : "7 Chapters • 175+ MCQs"}
                   color="from-rose-500 to-red-600" 
                   onClick={() => { setSelectedSubject("gk"); setScreen("subject-menu"); }} 
                 />
@@ -260,7 +279,7 @@ const ArmedForcesSection = ({ onBack }: ArmedForcesSectionProps) => {
                   <SubjectCard 
                     icon={BookOpen} 
                     title="English" 
-                    subtitle="5 Chapters" 
+                    subtitle="5 Chapters • 125+ MCQs" 
                     color="from-indigo-500 to-violet-600" 
                     onClick={() => { setSelectedSubject("english"); setScreen("subject-menu"); }} 
                   />
