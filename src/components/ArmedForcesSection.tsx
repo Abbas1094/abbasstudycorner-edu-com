@@ -17,8 +17,9 @@ import { gkChapters, gkExperienceMCQs, gkToughMCQs } from "@/data/generalKnowled
 
 // Air Force data imports
 import {
-  airforceMathChapters
-} from "@/data/airforceData";
+  airforceMathChaptersComplete,
+  airforceMathExperienceMCQs
+} from "@/data/airforceMathData";
 
 // Air Force Physics (Complete 10 chapters, 300 MCQs with Notes)
 import {
@@ -96,7 +97,7 @@ const ArmedForcesSection = ({ onBack }: ArmedForcesSectionProps) => {
   const getAirForceChapters = () => {
     switch (selectedSubject) {
       case "intelligence": return airforceIntelligenceChapters;
-      case "math": return airforceMathChapters;
+      case "math": return airforceMathChaptersComplete;
       case "physics": return airforcePhysicsChaptersComplete;
       case "english": return airforceEnglishChapters;
       case "gk": return airforceGKChapters;
@@ -117,6 +118,7 @@ const ArmedForcesSection = ({ onBack }: ArmedForcesSectionProps) => {
       case "intelligence": return airforceIntelligenceExperienceMCQs;
       case "gk": return airforceGKExperienceMCQs;
       case "english": return airforceEnglishExperienceMCQs;
+      case "math": return airforceMathExperienceMCQs;
       default: return [];
     }
   };
@@ -271,7 +273,7 @@ const ArmedForcesSection = ({ onBack }: ArmedForcesSectionProps) => {
                 <SubjectCard 
                   icon={Calculator} 
                   title="Mathematics" 
-                  subtitle={selectedForce === "navy" ? "10 Chapters • 250+ MCQs" : "5 Chapters"} 
+                  subtitle={selectedForce === "navy" ? "10 Chapters • 250+ MCQs" : "15 Chapters • 450 MCQs"} 
                   color="from-purple-500 to-pink-600" 
                   onClick={() => { setSelectedSubject("math"); setScreen("subject-menu"); }} 
                 />
