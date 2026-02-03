@@ -281,7 +281,7 @@ const ArmedForcesSection = ({ onBack }: ArmedForcesSectionProps) => {
                   <SubjectCard 
                     icon={BookOpen} 
                     title="English" 
-                    subtitle="5 Chapters • 125+ MCQs" 
+                    subtitle="12 Chapters • 360 MCQs" 
                     color="from-indigo-500 to-violet-600" 
                     onClick={() => { setSelectedSubject("english"); setScreen("subject-menu"); }} 
                   />
