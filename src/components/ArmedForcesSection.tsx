@@ -1,12 +1,14 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ArrowLeft, Anchor, Plane, ChevronRight, Brain, Globe, Beaker, Atom, Calculator, BookOpen, Flame } from "lucide-react";
+import { ArrowLeft, Anchor, Plane, ChevronRight, Brain, Globe, Beaker, Atom, Calculator, BookOpen, Flame, ClipboardCheck } from "lucide-react";
 import ForceCard from "@/components/ForceCard";
 import SubjectCard from "@/components/SubjectCard";
 import ChapterList from "@/components/ChapterList";
 import QuizScreen from "@/components/QuizScreen";
 import ExperienceQuiz from "@/components/ExperienceQuiz";
 import PlaceholderMessage from "@/components/PlaceholderMessage";
+import TradeSelectionModal, { TradeType } from "@/components/TradeSelectionModal";
+import MockExam from "@/components/MockExam";
 
 // Navy data imports
 import { chemistryChapters, chemistryExperienceMCQs, chemistryToughMCQs } from "@/data/chemistryData";
@@ -47,7 +49,7 @@ import {
 } from "@/data/airforceEnglishData";
 
 type ForceType = "navy" | "airforce";
-type Screen = "forces" | "subjects" | "subject-menu" | "chapters" | "quiz" | "experience" | "tough";
+type Screen = "forces" | "subjects" | "subject-menu" | "chapters" | "quiz" | "experience" | "tough" | "mock-exam";
 type Subject = "chemistry" | "physics" | "math" | "intelligence" | "gk" | "english";
 
 interface ArmedForcesSectionProps {
@@ -59,6 +61,8 @@ const ArmedForcesSection = ({ onBack }: ArmedForcesSectionProps) => {
   const [selectedForce, setSelectedForce] = useState<ForceType | null>(null);
   const [selectedSubject, setSelectedSubject] = useState<Subject | null>(null);
   const [selectedChapter, setSelectedChapter] = useState<string | null>(null);
+  const [showTradeModal, setShowTradeModal] = useState(false);
+  const [selectedTrade, setSelectedTrade] = useState<TradeType | null>(null);
 
   // Navy data getters (existing)
   const getNavyChapters = () => {
@@ -132,7 +136,10 @@ const ArmedForcesSection = ({ onBack }: ArmedForcesSectionProps) => {
   const hasExperienceSection = () => getExperienceMCQs().length > 0;
 
   const handleBack = () => {
-    if (screen === "quiz" || screen === "experience" || screen === "tough") {
+    if (screen === "mock-exam") {
+      setScreen("subjects");
+      setSelectedTrade(null);
+    } else if (screen === "quiz" || screen === "experience" || screen === "tough") {
       setScreen("subject-menu");
       setSelectedChapter(null);
     } else if (screen === "chapters") {
@@ -146,6 +153,12 @@ const ArmedForcesSection = ({ onBack }: ArmedForcesSectionProps) => {
     } else {
       onBack();
     }
+  };
+
+  const handleTradeSelect = (trade: TradeType) => {
+    setSelectedTrade(trade);
+    setShowTradeModal(false);
+    setScreen("mock-exam");
   };
 
   const getForceTitle = () => {
@@ -238,7 +251,37 @@ const ArmedForcesSection = ({ onBack }: ArmedForcesSectionProps) => {
               animate={{ opacity: 1, x: 0 }}
               exit={{ opacity: 0, x: -20 }}
             >
-              <h2 className="font-display text-2xl font-bold mb-6 text-foreground">Choose Subject</h2>
+              <h2 className="font-display text-2xl font-bold mb-6 text-foreground">
+                {selectedForce === "airforce" ? "Choose Option" : "Choose Subject"}
+              </h2>
+              
+              {/* Air Force Mock Exam Card */}
+              {selectedForce === "airforce" && (
+                <motion.div
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  className="mb-6"
+                >
+                  <motion.button
+                    whileHover={{ scale: 1.02 }}
+                    whileTap={{ scale: 0.98 }}
+                    onClick={() => setShowTradeModal(true)}
+                    className="w-full p-5 rounded-2xl bg-gradient-to-r from-emerald-500 to-teal-600 shadow-lg text-left"
+                  >
+                    <div className="flex items-center gap-4">
+                      <div className="w-14 h-14 rounded-xl bg-white/20 flex items-center justify-center">
+                        <ClipboardCheck className="w-8 h-8 text-white" />
+                      </div>
+                      <div className="flex-1">
+                        <h3 className="font-display text-xl font-bold text-white">🎯 Real Time Full Mock Exam</h3>
+                        <p className="text-sm text-white/80">Complete test simulation with timer • All trades supported</p>
+                      </div>
+                      <ChevronRight className="w-6 h-6 text-white" />
+                    </div>
+                  </motion.button>
+                </motion.div>
+              )}
+
               <div className="grid gap-4">
                 <SubjectCard 
                   icon={Brain} 
@@ -410,7 +453,22 @@ const ArmedForcesSection = ({ onBack }: ArmedForcesSectionProps) => {
               onBack={handleBack} 
             />
           )}
+
+          {/* Mock Exam */}
+          {screen === "mock-exam" && selectedTrade && (
+            <MockExam 
+              trade={selectedTrade} 
+              onBack={handleBack} 
+            />
+          )}
         </AnimatePresence>
+
+        {/* Trade Selection Modal */}
+        <TradeSelectionModal
+          isOpen={showTradeModal}
+          onClose={() => setShowTradeModal(false)}
+          onSelectTrade={handleTradeSelect}
+        />
       </main>
     </div>
   );
