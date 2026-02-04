@@ -1,13 +1,13 @@
 import { useState, useEffect, useMemo, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { 
-  ArrowLeft, Clock, ChevronLeft, ChevronRight, CheckCircle2, XCircle, 
-  RotateCcw, Flag, AlertTriangle, Trophy, Target
+  ArrowLeft, Clock, ChevronLeft, ChevronRight, CheckCircle2, 
+  RotateCcw, Flag, XCircle, Trophy, Target, Home, Sparkles
 } from "lucide-react";
 import { shuffleArray } from "@/lib/shuffleUtils";
 import { TradeType } from "./TradeSelectionModal";
 
-// Import Air Force data - using the chemistryData MCQ type which supports number IDs
+// Import Air Force data
 import { MCQ } from "@/data/chemistryData";
 import { airforceIntelligenceChapters, airforceIntelligenceExperienceMCQs } from "@/data/airforceIntelligenceData";
 import { airforceEnglishChapters, airforceEnglishExperienceMCQs } from "@/data/airforceEnglishData";
@@ -17,8 +17,18 @@ import { airforceMathChaptersComplete, airforceMathExperienceMCQs } from "@/data
 interface ExamSection {
   name: string;
   questions: MCQ[];
-  timeLimit: number; // in seconds
+  timeLimit: number;
   required: number;
+}
+
+interface SectionResult {
+  name: string;
+  total: number;
+  attempted: number;
+  correct: number;
+  wrong: number;
+  percentage: number;
+  passed: boolean;
 }
 
 interface MockExamProps {
@@ -26,7 +36,7 @@ interface MockExamProps {
   onBack: () => void;
 }
 
-// Collect all MCQs from chapters - using any to handle both id types
+// Collect all MCQs from chapters
 const getAllMCQs = (chapters: { mcqs: MCQ[] }[], experienceMCQs: MCQ[] = []): MCQ[] => {
   const chapterMCQs = chapters.flatMap(chapter => chapter.mcqs);
   return [...chapterMCQs, ...experienceMCQs];
@@ -49,13 +59,13 @@ const generateExamSections = (trade: TradeType): ExamSection[] => {
     {
       name: "Intelligence",
       questions: getRandomMCQs(allIntelligence, 100),
-      timeLimit: 40 * 60, // 40 minutes
+      timeLimit: 40 * 60,
       required: 100
     },
     {
       name: "English",
       questions: getRandomMCQs(allEnglish, 50),
-      timeLimit: 30 * 60, // 30 minutes
+      timeLimit: 30 * 60,
       required: 50
     }
   ];
@@ -66,13 +76,13 @@ const generateExamSections = (trade: TradeType): ExamSection[] => {
       {
         name: "Physics",
         questions: getRandomMCQs(allPhysics, 40),
-        timeLimit: 30 * 60, // 30 minutes
+        timeLimit: 30 * 60,
         required: 40
       },
       {
         name: "Math",
         questions: getRandomMCQs(allMath, 40),
-        timeLimit: 30 * 60, // 30 minutes
+        timeLimit: 30 * 60,
         required: 40
       }
     ];
@@ -80,6 +90,272 @@ const generateExamSections = (trade: TradeType): ExamSection[] => {
 
   return baseSections;
 };
+
+// Calculate section result
+const calculateSectionResult = (
+  section: ExamSection,
+  sectionIdx: number,
+  answers: Record<string, number | null>
+): SectionResult => {
+  let correct = 0;
+  let attempted = 0;
+  
+  section.questions.forEach((q, qIdx) => {
+    const key = `${sectionIdx}-${qIdx}`;
+    if (answers[key] !== null && answers[key] !== undefined) {
+      attempted++;
+      if (answers[key] === q.correctAnswer) {
+        correct++;
+      }
+    }
+  });
+
+  const percentage = section.questions.length > 0 
+    ? Math.round((correct / section.questions.length) * 100) 
+    : 0;
+  
+  return {
+    name: section.name,
+    total: section.questions.length,
+    attempted,
+    correct,
+    wrong: attempted - correct,
+    percentage,
+    passed: percentage >= 50
+  };
+};
+
+// ========== SUB-COMPONENTS ==========
+
+// Section Pass Modal
+const SectionPassModal = ({ 
+  sectionName, 
+  nextSectionName,
+  onContinue 
+}: { 
+  sectionName: string; 
+  nextSectionName: string;
+  onContinue: () => void;
+}) => (
+  <motion.div
+    initial={{ opacity: 0 }}
+    animate={{ opacity: 1 }}
+    className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm p-4"
+  >
+    <motion.div
+      initial={{ scale: 0.8, opacity: 0 }}
+      animate={{ scale: 1, opacity: 1 }}
+      transition={{ type: "spring", duration: 0.5 }}
+      className="bg-card border border-border rounded-2xl p-8 max-w-md w-full text-center shadow-2xl"
+    >
+      <div className="w-20 h-20 rounded-full bg-gradient-to-br from-emerald-500 to-green-600 mx-auto mb-4 flex items-center justify-center">
+        <Sparkles className="w-10 h-10 text-white" />
+      </div>
+      <h2 className="font-display text-2xl font-bold text-foreground mb-2">
+        Congratulations!
+      </h2>
+      <p className="text-success font-semibold mb-1">
+        You passed {sectionName}!
+      </p>
+      <p className="text-muted-foreground text-sm mb-6">
+        Get ready for the next section: <strong className="text-foreground">{nextSectionName}</strong>
+      </p>
+      <button
+        onClick={onContinue}
+        className="w-full bg-gradient-gold text-primary-foreground p-4 rounded-xl font-semibold shadow-gold flex items-center justify-center gap-2"
+      >
+        Continue to {nextSectionName}
+        <ChevronRight className="w-5 h-5" />
+      </button>
+    </motion.div>
+  </motion.div>
+);
+
+// Section Fail Screen
+const SectionFailScreen = ({ 
+  result, 
+  onRetake, 
+  onHome 
+}: { 
+  result: SectionResult; 
+  onRetake: () => void; 
+  onHome: () => void;
+}) => (
+  <motion.div
+    initial={{ opacity: 0 }}
+    animate={{ opacity: 1 }}
+    className="min-h-screen bg-gradient-navy"
+  >
+    <header className="sticky top-0 z-50 bg-background/80 backdrop-blur-lg border-b border-border">
+      <div className="container py-4 flex items-center justify-between">
+        <h1 className="font-display text-xl font-bold text-foreground">Exam Failed</h1>
+      </div>
+    </header>
+
+    <main className="container py-8 pb-20">
+      <div className="text-center mb-8">
+        <div className="w-28 h-28 rounded-full mx-auto mb-4 flex items-center justify-center shadow-lg bg-gradient-to-br from-red-500 to-rose-600">
+          <XCircle className="w-14 h-14 text-white" />
+        </div>
+        <h2 className="font-display text-3xl font-bold text-foreground mb-2">
+          TEST FAILED
+        </h2>
+        <p className="text-muted-foreground mb-4">
+          You did not pass the {result.name} section
+        </p>
+        <div className="inline-block px-4 py-1.5 rounded-full text-sm font-semibold bg-destructive/20 text-destructive">
+          Required: 50% • Your Score: {result.percentage}%
+        </div>
+      </div>
+
+      {/* Failed Section Result */}
+      <div className="bg-destructive/5 border border-destructive/30 p-5 rounded-xl mb-8">
+        <div className="flex items-center justify-between mb-3">
+          <h4 className="font-semibold text-foreground text-lg">{result.name}</h4>
+          <span className="px-3 py-1 rounded-full text-sm font-medium bg-destructive/20 text-destructive">
+            FAILED
+          </span>
+        </div>
+        <div className="grid grid-cols-3 gap-4 text-center mb-4">
+          <div className="bg-background/50 rounded-lg p-3">
+            <p className="text-2xl font-bold text-foreground">{result.percentage}%</p>
+            <p className="text-xs text-muted-foreground">Score</p>
+          </div>
+          <div className="bg-background/50 rounded-lg p-3">
+            <p className="text-2xl font-bold text-success">{result.correct}</p>
+            <p className="text-xs text-muted-foreground">Correct</p>
+          </div>
+          <div className="bg-background/50 rounded-lg p-3">
+            <p className="text-2xl font-bold text-destructive">{result.wrong}</p>
+            <p className="text-xs text-muted-foreground">Wrong</p>
+          </div>
+        </div>
+        <div className="h-2 bg-muted rounded-full overflow-hidden">
+          <div 
+            className="h-full bg-destructive transition-all"
+            style={{ width: `${result.percentage}%` }}
+          />
+        </div>
+        <p className="text-xs text-muted-foreground mt-2 text-center">
+          {result.total - result.attempted} questions skipped
+        </p>
+      </div>
+
+      {/* Actions */}
+      <div className="space-y-3">
+        <button
+          onClick={onRetake}
+          className="w-full bg-gradient-gold text-primary-foreground p-4 rounded-xl font-semibold shadow-gold flex items-center justify-center gap-2"
+        >
+          <RotateCcw className="w-5 h-5" />
+          Retake Exam
+        </button>
+        <button
+          onClick={onHome}
+          className="w-full px-6 py-4 rounded-xl border border-border bg-card text-foreground font-semibold flex items-center justify-center gap-2"
+        >
+          <Home className="w-5 h-5" />
+          Return to Home
+        </button>
+      </div>
+    </main>
+  </motion.div>
+);
+
+// Final Success Screen (only shown when all sections passed)
+const FinalSuccessScreen = ({ 
+  results, 
+  onRetake, 
+  onHome 
+}: { 
+  results: SectionResult[]; 
+  onRetake: () => void; 
+  onHome: () => void;
+}) => {
+  const totalCorrect = results.reduce((sum, r) => sum + r.correct, 0);
+  const totalQuestions = results.reduce((sum, r) => sum + r.total, 0);
+  const overallPercentage = Math.round((totalCorrect / totalQuestions) * 100);
+
+  return (
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      className="min-h-screen bg-gradient-navy"
+    >
+      <header className="sticky top-0 z-50 bg-background/80 backdrop-blur-lg border-b border-border">
+        <div className="container py-4 flex items-center justify-between">
+          <h1 className="font-display text-xl font-bold text-foreground">Exam Results</h1>
+        </div>
+      </header>
+
+      <main className="container py-6 pb-20">
+        {/* Overall Score */}
+        <div className="text-center mb-8">
+          <div className="w-28 h-28 rounded-full mx-auto mb-4 flex items-center justify-center shadow-lg bg-gradient-to-br from-emerald-500 to-green-600">
+            <Trophy className="w-14 h-14 text-white" />
+          </div>
+          <h2 className="font-display text-3xl font-bold text-foreground mb-2">{overallPercentage}%</h2>
+          <p className="text-muted-foreground">
+            {totalCorrect} correct out of {totalQuestions}
+          </p>
+          <div className="inline-block mt-3 px-4 py-1.5 rounded-full text-sm font-semibold bg-success/20 text-success">
+            ✓ ALL SECTIONS PASSED
+          </div>
+        </div>
+
+        {/* Section-wise Results */}
+        <div className="space-y-4 mb-8">
+          <h3 className="font-display text-lg font-semibold text-foreground">Section Breakdown</h3>
+          {results.map((result, idx) => (
+            <div 
+              key={idx}
+              className="p-4 rounded-xl border bg-success/5 border-success/30"
+            >
+              <div className="flex items-center justify-between mb-2">
+                <h4 className="font-semibold text-foreground">{result.name}</h4>
+                <span className="px-2 py-0.5 rounded-full text-xs font-medium bg-success/20 text-success">
+                  PASS
+                </span>
+              </div>
+              <div className="flex items-center gap-4 text-sm text-muted-foreground">
+                <span>Score: <strong className="text-foreground">{result.percentage}%</strong></span>
+                <span>•</span>
+                <span className="text-success">✓ {result.correct}</span>
+                <span className="text-destructive">✗ {result.wrong}</span>
+                <span className="text-muted-foreground">○ {result.total - result.attempted} skipped</span>
+              </div>
+              <div className="mt-2 h-2 bg-muted rounded-full overflow-hidden">
+                <div 
+                  className="h-full bg-success transition-all"
+                  style={{ width: `${result.percentage}%` }}
+                />
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* Actions */}
+        <div className="flex gap-3">
+          <button
+            onClick={onRetake}
+            className="flex-1 bg-gradient-gold text-primary-foreground p-4 rounded-xl font-semibold shadow-gold flex items-center justify-center gap-2"
+          >
+            <RotateCcw className="w-5 h-5" />
+            Retake Exam
+          </button>
+          <button
+            onClick={onHome}
+            className="px-6 py-4 rounded-xl border border-border bg-card text-foreground font-semibold"
+          >
+            Exit
+          </button>
+        </div>
+      </main>
+    </motion.div>
+  );
+};
+
+// ========== MAIN COMPONENT ==========
 
 const MockExam = ({ trade, onBack }: MockExamProps) => {
   // Generate exam sections once on mount
@@ -91,8 +367,12 @@ const MockExam = ({ trade, onBack }: MockExamProps) => {
   const [answers, setAnswers] = useState<Record<string, number | null>>({});
   const [flagged, setFlagged] = useState<Set<string>>(new Set());
   const [sectionTimeLeft, setSectionTimeLeft] = useState(sections[0].timeLimit);
+  
+  // Sudden death states
+  const [showPassModal, setShowPassModal] = useState(false);
+  const [failedResult, setFailedResult] = useState<SectionResult | null>(null);
+  const [completedResults, setCompletedResults] = useState<SectionResult[]>([]);
   const [isExamComplete, setIsExamComplete] = useState(false);
-  const [sectionComplete, setSectionComplete] = useState<boolean[]>(new Array(sections.length).fill(false));
 
   const currentSection = sections[currentSectionIndex];
   const currentQuestion = currentSection.questions[currentQuestionIndex];
@@ -100,13 +380,12 @@ const MockExam = ({ trade, onBack }: MockExamProps) => {
 
   // Timer effect
   useEffect(() => {
-    if (isExamComplete || sectionComplete[currentSectionIndex]) return;
+    if (isExamComplete || showPassModal || failedResult) return;
 
     const timer = setInterval(() => {
       setSectionTimeLeft(prev => {
         if (prev <= 1) {
-          // Time's up for this section
-          handleSectionComplete();
+          handleSectionSubmit();
           return 0;
         }
         return prev - 1;
@@ -114,9 +393,13 @@ const MockExam = ({ trade, onBack }: MockExamProps) => {
     }, 1000);
 
     return () => clearInterval(timer);
-  }, [currentSectionIndex, isExamComplete, sectionComplete]);
+  }, [currentSectionIndex, isExamComplete, showPassModal, failedResult]);
 
-  // Format time display
+  // Reset timer when section changes
+  useEffect(() => {
+    setSectionTimeLeft(sections[currentSectionIndex].timeLimit);
+  }, [currentSectionIndex, sections]);
+
   const formatTime = (seconds: number) => {
     const mins = Math.floor(seconds / 60);
     const secs = seconds % 60;
@@ -155,24 +438,33 @@ const MockExam = ({ trade, onBack }: MockExamProps) => {
     setCurrentQuestionIndex(index);
   }, []);
 
-  const handleSectionComplete = useCallback(() => {
-    const newSectionComplete = [...sectionComplete];
-    newSectionComplete[currentSectionIndex] = true;
-    setSectionComplete(newSectionComplete);
-
-    if (currentSectionIndex < sections.length - 1) {
-      // Move to next section
-      setCurrentSectionIndex(prev => prev + 1);
-      setCurrentQuestionIndex(0);
-      setSectionTimeLeft(sections[currentSectionIndex + 1].timeLimit);
+  // SUDDEN DEATH: Submit section and check pass/fail
+  const handleSectionSubmit = useCallback(() => {
+    const result = calculateSectionResult(currentSection, currentSectionIndex, answers);
+    
+    if (result.passed) {
+      // Add to completed results
+      setCompletedResults(prev => [...prev, result]);
+      
+      if (currentSectionIndex < sections.length - 1) {
+        // Show pass modal, then proceed to next section
+        setShowPassModal(true);
+      } else {
+        // All sections complete - show final results
+        setCompletedResults(prev => [...prev, result]);
+        setIsExamComplete(true);
+      }
     } else {
-      // All sections complete
-      setIsExamComplete(true);
+      // FAILED - Stop exam immediately
+      setFailedResult(result);
     }
-  }, [currentSectionIndex, sections.length, sectionComplete]);
+  }, [currentSection, currentSectionIndex, answers, sections.length]);
 
-  const handleFinishExam = useCallback(() => {
-    setIsExamComplete(true);
+  // Continue to next section after pass modal
+  const handleContinueToNextSection = useCallback(() => {
+    setShowPassModal(false);
+    setCurrentSectionIndex(prev => prev + 1);
+    setCurrentQuestionIndex(0);
   }, []);
 
   const handleRetake = useCallback(() => {
@@ -181,152 +473,33 @@ const MockExam = ({ trade, onBack }: MockExamProps) => {
     setCurrentQuestionIndex(0);
     setAnswers({});
     setFlagged(new Set());
-    setSectionComplete(new Array(sections.length).fill(false));
+    setCompletedResults([]);
+    setFailedResult(null);
+    setShowPassModal(false);
     setIsExamComplete(false);
-  }, [sections.length]);
+  }, []);
 
-  // Calculate results
-  const getResults = useCallback(() => {
-    return sections.map((section, sectionIdx) => {
-      let correct = 0;
-      let attempted = 0;
-      
-      section.questions.forEach((q, qIdx) => {
-        const key = `${sectionIdx}-${qIdx}`;
-        if (answers[key] !== null && answers[key] !== undefined) {
-          attempted++;
-          if (answers[key] === q.correctAnswer) {
-            correct++;
-          }
-        }
-      });
+  // ========== RENDER SCREENS ==========
 
-      const percentage = section.questions.length > 0 
-        ? Math.round((correct / section.questions.length) * 100) 
-        : 0;
-      const passed = percentage >= 50; // 50% passing threshold
-
-      return {
-        name: section.name,
-        total: section.questions.length,
-        attempted,
-        correct,
-        wrong: attempted - correct,
-        percentage,
-        passed
-      };
-    });
-  }, [sections, answers]);
-
-  // Result Screen
-  if (isExamComplete) {
-    const results = getResults();
-    const totalCorrect = results.reduce((sum, r) => sum + r.correct, 0);
-    const totalQuestions = results.reduce((sum, r) => sum + r.total, 0);
-    const overallPercentage = Math.round((totalCorrect / totalQuestions) * 100);
-    const allPassed = results.every(r => r.passed);
-
+  // Failed screen
+  if (failedResult) {
     return (
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        className="min-h-screen bg-gradient-navy"
-      >
-        <header className="sticky top-0 z-50 bg-background/80 backdrop-blur-lg border-b border-border">
-          <div className="container py-4 flex items-center justify-between">
-            <h1 className="font-display text-xl font-bold text-foreground">Exam Results</h1>
-            <button 
-              onClick={onBack}
-              className="flex items-center gap-1 text-sm text-primary hover:text-gold-light transition-colors font-medium"
-            >
-              <ArrowLeft className="w-4 h-4" />
-              Exit
-            </button>
-          </div>
-        </header>
+      <SectionFailScreen 
+        result={failedResult} 
+        onRetake={handleRetake} 
+        onHome={onBack} 
+      />
+    );
+  }
 
-        <main className="container py-6 pb-20">
-          {/* Overall Score */}
-          <div className="text-center mb-8">
-            <div className={`w-28 h-28 rounded-full mx-auto mb-4 flex items-center justify-center shadow-lg ${
-              allPassed ? "bg-gradient-to-br from-emerald-500 to-green-600" : "bg-gradient-to-br from-amber-500 to-orange-600"
-            }`}>
-              {allPassed ? (
-                <Trophy className="w-14 h-14 text-white" />
-              ) : (
-                <Target className="w-14 h-14 text-white" />
-              )}
-            </div>
-            <h2 className="font-display text-3xl font-bold text-foreground mb-2">{overallPercentage}%</h2>
-            <p className="text-muted-foreground">
-              {totalCorrect} correct out of {totalQuestions}
-            </p>
-            <div className={`inline-block mt-3 px-4 py-1.5 rounded-full text-sm font-semibold ${
-              allPassed 
-                ? "bg-success/20 text-success" 
-                : "bg-destructive/20 text-destructive"
-            }`}>
-              {allPassed ? "✓ ALL SECTIONS PASSED" : "✗ SOME SECTIONS FAILED"}
-            </div>
-          </div>
-
-          {/* Section-wise Results */}
-          <div className="space-y-4 mb-8">
-            <h3 className="font-display text-lg font-semibold text-foreground">Section Breakdown</h3>
-            {results.map((result, idx) => (
-              <div 
-                key={idx}
-                className={`p-4 rounded-xl border ${
-                  result.passed 
-                    ? "bg-success/5 border-success/30" 
-                    : "bg-destructive/5 border-destructive/30"
-                }`}
-              >
-                <div className="flex items-center justify-between mb-2">
-                  <h4 className="font-semibold text-foreground">{result.name}</h4>
-                  <span className={`px-2 py-0.5 rounded-full text-xs font-medium ${
-                    result.passed 
-                      ? "bg-success/20 text-success" 
-                      : "bg-destructive/20 text-destructive"
-                  }`}>
-                    {result.passed ? "PASS" : "FAIL"}
-                  </span>
-                </div>
-                <div className="flex items-center gap-4 text-sm text-muted-foreground">
-                  <span>Score: <strong className="text-foreground">{result.percentage}%</strong></span>
-                  <span>•</span>
-                  <span className="text-success">✓ {result.correct}</span>
-                  <span className="text-destructive">✗ {result.wrong}</span>
-                  <span className="text-muted-foreground">○ {result.total - result.attempted} skipped</span>
-                </div>
-                <div className="mt-2 h-2 bg-muted rounded-full overflow-hidden">
-                  <div 
-                    className={`h-full transition-all ${result.passed ? "bg-success" : "bg-destructive"}`}
-                    style={{ width: `${result.percentage}%` }}
-                  />
-                </div>
-              </div>
-            ))}
-          </div>
-
-          {/* Actions */}
-          <div className="flex gap-3">
-            <button
-              onClick={handleRetake}
-              className="flex-1 bg-gradient-gold text-primary-foreground p-4 rounded-xl font-semibold shadow-gold flex items-center justify-center gap-2"
-            >
-              <RotateCcw className="w-5 h-5" />
-              Retake Exam
-            </button>
-            <button
-              onClick={onBack}
-              className="px-6 py-4 rounded-xl border border-border bg-card text-foreground font-semibold"
-            >
-              Exit
-            </button>
-          </div>
-        </main>
-      </motion.div>
+  // Final success screen
+  if (isExamComplete) {
+    return (
+      <FinalSuccessScreen 
+        results={completedResults} 
+        onRetake={handleRetake} 
+        onHome={onBack} 
+      />
     );
   }
 
@@ -343,6 +516,17 @@ const MockExam = ({ trade, onBack }: MockExamProps) => {
       animate={{ opacity: 1 }}
       className="min-h-screen bg-gradient-navy"
     >
+      {/* Pass Modal */}
+      <AnimatePresence>
+        {showPassModal && currentSectionIndex < sections.length - 1 && (
+          <SectionPassModal
+            sectionName={currentSection.name}
+            nextSectionName={sections[currentSectionIndex + 1].name}
+            onContinue={handleContinueToNextSection}
+          />
+        )}
+      </AnimatePresence>
+
       {/* Exam Header */}
       <header className="sticky top-0 z-50 bg-background/80 backdrop-blur-lg border-b border-border">
         <div className="container py-3">
@@ -478,21 +662,21 @@ const MockExam = ({ trade, onBack }: MockExamProps) => {
             <ChevronLeft className="w-5 h-5" />
           </button>
           
-          <button
-            onClick={handleNext}
-            disabled={currentQuestionIndex === currentSection.questions.length - 1}
-            className="flex-1 bg-gradient-gold text-primary-foreground p-3 rounded-xl font-semibold shadow-gold flex items-center justify-center gap-2 disabled:opacity-50"
-          >
-            Next Question
-            <ChevronRight className="w-5 h-5" />
-          </button>
-
-          {currentQuestionIndex === currentSection.questions.length - 1 && (
+          {currentQuestionIndex < currentSection.questions.length - 1 ? (
             <button
-              onClick={currentSectionIndex < sections.length - 1 ? handleSectionComplete : handleFinishExam}
-              className="px-4 py-3 rounded-xl bg-success text-white font-semibold"
+              onClick={handleNext}
+              className="flex-1 bg-gradient-gold text-primary-foreground p-3 rounded-xl font-semibold shadow-gold flex items-center justify-center gap-2"
             >
-              {currentSectionIndex < sections.length - 1 ? "Next Section" : "Finish"}
+              Next Question
+              <ChevronRight className="w-5 h-5" />
+            </button>
+          ) : (
+            <button
+              onClick={handleSectionSubmit}
+              className="flex-1 bg-success text-white p-3 rounded-xl font-semibold flex items-center justify-center gap-2"
+            >
+              Submit {currentSection.name}
+              <CheckCircle2 className="w-5 h-5" />
             </button>
           )}
         </div>
