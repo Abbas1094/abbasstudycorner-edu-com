@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ArrowLeft, Anchor, Plane, ChevronRight, Brain, Globe, Beaker, Atom, Calculator, BookOpen, Flame, ClipboardCheck } from "lucide-react";
+import { ArrowLeft, Anchor, Plane, ChevronRight, Brain, Globe, Beaker, Atom, Calculator, BookOpen, Flame, ClipboardCheck, Target } from "lucide-react";
 import ForceCard from "@/components/ForceCard";
 import SubjectCard from "@/components/SubjectCard";
 import ChapterList from "@/components/ChapterList";
@@ -9,6 +9,8 @@ import ExperienceQuiz from "@/components/ExperienceQuiz";
 import PlaceholderMessage from "@/components/PlaceholderMessage";
 import TradeSelectionModal, { TradeType } from "@/components/TradeSelectionModal";
 import MockExam from "@/components/MockExam";
+import CustomPracticeModal, { PracticeSubject } from "@/components/CustomPracticeModal";
+import CustomPractice from "@/components/CustomPractice";
 
 // Navy data imports
 import { chemistryChapters, chemistryExperienceMCQs, chemistryToughMCQs } from "@/data/chemistryData";
@@ -49,7 +51,7 @@ import {
 } from "@/data/airforceEnglishData";
 
 type ForceType = "navy" | "airforce";
-type Screen = "forces" | "subjects" | "subject-menu" | "chapters" | "quiz" | "experience" | "tough" | "mock-exam";
+type Screen = "forces" | "subjects" | "subject-menu" | "chapters" | "quiz" | "experience" | "tough" | "mock-exam" | "custom-practice";
 type Subject = "chemistry" | "physics" | "math" | "intelligence" | "gk" | "english";
 
 interface ArmedForcesSectionProps {
@@ -63,6 +65,9 @@ const ArmedForcesSection = ({ onBack }: ArmedForcesSectionProps) => {
   const [selectedChapter, setSelectedChapter] = useState<string | null>(null);
   const [showTradeModal, setShowTradeModal] = useState(false);
   const [selectedTrade, setSelectedTrade] = useState<TradeType | null>(null);
+  const [showCustomPracticeModal, setShowCustomPracticeModal] = useState(false);
+  const [customPracticeSubjects, setCustomPracticeSubjects] = useState<PracticeSubject[]>([]);
+  const [customPracticeHideTimer, setCustomPracticeHideTimer] = useState(false);
 
   // Navy data getters (existing)
   const getNavyChapters = () => {
@@ -139,6 +144,9 @@ const ArmedForcesSection = ({ onBack }: ArmedForcesSectionProps) => {
     if (screen === "mock-exam") {
       setScreen("subjects");
       setSelectedTrade(null);
+    } else if (screen === "custom-practice") {
+      setScreen("subjects");
+      setCustomPracticeSubjects([]);
     } else if (screen === "quiz" || screen === "experience" || screen === "tough") {
       setScreen("subject-menu");
       setSelectedChapter(null);
@@ -159,6 +167,13 @@ const ArmedForcesSection = ({ onBack }: ArmedForcesSectionProps) => {
     setSelectedTrade(trade);
     setShowTradeModal(false);
     setScreen("mock-exam");
+  };
+
+  const handleCustomPracticeStart = (subjects: PracticeSubject[], hideTimer: boolean) => {
+    setCustomPracticeSubjects(subjects);
+    setCustomPracticeHideTimer(hideTimer);
+    setShowCustomPracticeModal(false);
+    setScreen("custom-practice");
   };
 
   const getForceTitle = () => {
@@ -275,6 +290,25 @@ const ArmedForcesSection = ({ onBack }: ArmedForcesSectionProps) => {
                       <div className="flex-1">
                         <h3 className="font-display text-xl font-bold text-white">🎯 Real Time Full Mock Exam</h3>
                         <p className="text-sm text-white/80">Complete test simulation with timer • All trades supported</p>
+                      </div>
+                      <ChevronRight className="w-6 h-6 text-white" />
+                    </div>
+                  </motion.button>
+
+                  {/* Custom Practice Card */}
+                  <motion.button
+                    whileHover={{ scale: 1.02 }}
+                    whileTap={{ scale: 0.98 }}
+                    onClick={() => setShowCustomPracticeModal(true)}
+                    className="w-full p-5 rounded-2xl bg-gradient-to-r from-violet-500 to-purple-600 shadow-lg text-left mt-3"
+                  >
+                    <div className="flex items-center gap-4">
+                      <div className="w-14 h-14 rounded-xl bg-white/20 flex items-center justify-center">
+                        <Target className="w-8 h-8 text-white" />
+                      </div>
+                      <div className="flex-1">
+                        <h3 className="font-display text-xl font-bold text-white">📝 Custom Subject Practice</h3>
+                        <p className="text-sm text-white/80">Practice specific subjects • No fail blocking</p>
                       </div>
                       <ChevronRight className="w-6 h-6 text-white" />
                     </div>
@@ -461,6 +495,15 @@ const ArmedForcesSection = ({ onBack }: ArmedForcesSectionProps) => {
               onBack={handleBack} 
             />
           )}
+
+          {/* Custom Practice */}
+          {screen === "custom-practice" && customPracticeSubjects.length > 0 && (
+            <CustomPractice 
+              subjects={customPracticeSubjects} 
+              hideTimer={customPracticeHideTimer}
+              onBack={handleBack} 
+            />
+          )}
         </AnimatePresence>
 
         {/* Trade Selection Modal */}
@@ -468,6 +511,13 @@ const ArmedForcesSection = ({ onBack }: ArmedForcesSectionProps) => {
           isOpen={showTradeModal}
           onClose={() => setShowTradeModal(false)}
           onSelectTrade={handleTradeSelect}
+        />
+
+        {/* Custom Practice Modal */}
+        <CustomPracticeModal
+          isOpen={showCustomPracticeModal}
+          onClose={() => setShowCustomPracticeModal(false)}
+          onStart={handleCustomPracticeStart}
         />
       </main>
     </div>
