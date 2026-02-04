@@ -3,7 +3,9 @@
 export interface MCQ {
   id: string;
   question: string;
+  questionImage?: string; // URL or path to question image (for non-verbal patterns)
   options: string[];
+  optionImages?: string[]; // URLs or paths for pictorial options
   correctAnswer: number;
   explanation?: string;
 }
