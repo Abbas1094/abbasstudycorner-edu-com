@@ -331,6 +331,62 @@ export const airforceIntelligenceChapters: Chapter[] = [
       { id: 24, question: "A is younger than B by 7 years. Ratio 7:9. A's age?", options: ["21", "24.5", "28", "31.5"], correctAnswer: 1 },
       { id: 25, question: "Father is 40 years old. Son is 10. After how many years father is twice son's age?", options: ["15", "18", "20", "22"], correctAnswer: 2 }
     ]
+  },
+  {
+    id: "af-int-11",
+    name: "Non-Verbal Patterns",
+    description: "Visual pattern recognition, series completion, analogies",
+    icon: "🔷",
+    mcqs: [
+      { 
+        id: 1, 
+        question: "Choose the correct pattern in the series. (Look at the image carefully)", 
+        questionImage: "/nonverbal/q2-curves.jpg",
+        options: ["Option A", "Option B", "Option C", "Option D"], 
+        correctAnswer: 0,
+        explanation: "Increase in number of curves from top to bottom (add 2 curves in each geometry one by one)"
+      },
+      { 
+        id: 2, 
+        question: "Choose the correct pattern in the series. (Look at the image carefully)", 
+        questionImage: "/nonverbal/q4-line-rotation.jpg",
+        options: ["Option A", "Option B", "Option C", "Option D"], 
+        correctAnswer: 3,
+        explanation: "The line is being rotated counter-clockwise in each step"
+      },
+      { 
+        id: 3, 
+        question: "Choose the correct pattern in the series. (Look at the image carefully)", 
+        questionImage: "/nonverbal/q5-triangle-lines.jpg",
+        options: ["Option A", "Option B", "Option C", "Option D"], 
+        correctAnswer: 1,
+        explanation: "Descending order. Pair of lines rotated clockwise in each step"
+      },
+      { 
+        id: 4, 
+        question: "Choose the correct analogy pattern. (Look at the image carefully)", 
+        questionImage: "/nonverbal/q43-analogy.jpg",
+        options: ["Option A", "Option B", "Option C", "Option D"], 
+        correctAnswer: 2,
+        explanation: "Invert the upper pattern and keep lower pattern intact"
+      },
+      { 
+        id: 5, 
+        question: "Choose the correct pattern in the series. (Look at the image carefully)", 
+        questionImage: "/nonverbal/q47-shapes.jpg",
+        options: ["Option A", "Option B", "Option C", "Option D", "Option E"], 
+        correctAnswer: 4,
+        explanation: "All the shapes have sides and corners except option E (which follows the pattern of filled portions)"
+      },
+      { 
+        id: 6, 
+        question: "Choose the correct pattern in the series. (Look at the image carefully)", 
+        questionImage: "/nonverbal/q46-triangles.jpg",
+        options: ["Option A", "Option B", "Option C", "Option D", "Option E"], 
+        correctAnswer: 0,
+        explanation: "Triangle pattern with internal markings following a specific rotation sequence"
+      }
+    ]
   }
 ];
 
@@ -366,4 +422,56 @@ export const airforceIntelligenceExperienceMCQs: MCQ[] = [
   { id: 28, question: "Doctor is to Patient as Teacher is to?", options: ["School", "Student", "Book", "Class"], correctAnswer: 1, isExperienceBased: true },
   { id: 29, question: "Find odd one: Apple, Orange, Potato, Banana", options: ["Apple", "Orange", "Potato", "Banana"], correctAnswer: 2, isExperienceBased: true },
   { id: 30, question: "Speed = 60 km/h, Time = 2 hours. Distance?", options: ["100 km", "110 km", "120 km", "130 km"], correctAnswer: 2, isExperienceBased: true }
+];
+
+// Non-Verbal Pattern MCQs - Visual/Pictorial Questions
+export const nonVerbalPatternMCQs: MCQ[] = [
+  { 
+    id: 1, 
+    question: "Choose the correct pattern in the series. (Look at the image carefully)", 
+    questionImage: "/nonverbal/q2-curves.jpg",
+    options: ["Option A", "Option B", "Option C", "Option D"], 
+    correctAnswer: 0,
+    explanation: "Increase in number of curves from top to bottom (add 2 curves in each geometry one by one)"
+  },
+  { 
+    id: 2, 
+    question: "Choose the correct pattern in the series. (Look at the image carefully)", 
+    questionImage: "/nonverbal/q4-line-rotation.jpg",
+    options: ["Option A", "Option B", "Option C", "Option D"], 
+    correctAnswer: 3,
+    explanation: "The line is being rotated counter-clockwise in each step"
+  },
+  { 
+    id: 3, 
+    question: "Choose the correct pattern in the series. (Look at the image carefully)", 
+    questionImage: "/nonverbal/q5-triangle-lines.jpg",
+    options: ["Option A", "Option B", "Option C", "Option D"], 
+    correctAnswer: 1,
+    explanation: "Descending order. Pair of lines rotated clockwise in each step"
+  },
+  { 
+    id: 4, 
+    question: "Choose the correct analogy pattern. (Look at the image carefully)", 
+    questionImage: "/nonverbal/q43-analogy.jpg",
+    options: ["Option A", "Option B", "Option C", "Option D"], 
+    correctAnswer: 2,
+    explanation: "Invert the upper pattern and keep lower pattern intact"
+  },
+  { 
+    id: 5, 
+    question: "Choose the correct pattern in the series. (Look at the image carefully)", 
+    questionImage: "/nonverbal/q47-shapes.jpg",
+    options: ["Option A", "Option B", "Option C", "Option D", "Option E"], 
+    correctAnswer: 4,
+    explanation: "All the shapes have sides and corners except option E (which follows the pattern of filled portions)"
+  },
+  { 
+    id: 6, 
+    question: "Choose the correct pattern in the series. (Look at the image carefully)", 
+    questionImage: "/nonverbal/q46-triangles.jpg",
+    options: ["Option A", "Option B", "Option C", "Option D", "Option E"], 
+    correctAnswer: 0,
+    explanation: "Triangle pattern with internal markings following a specific rotation sequence"
+  }
 ];
