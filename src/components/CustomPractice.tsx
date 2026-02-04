@@ -513,12 +513,22 @@ const CustomPractice = ({ subjects, hideTimer: initialHideTimer, onBack }: Custo
                 </button>
               </div>
               <p className="text-lg font-medium text-foreground">{currentQuestion.question}</p>
+              {currentQuestion.questionImage && (
+                <div className="mt-4 flex justify-center">
+                  <img 
+                    src={currentQuestion.questionImage} 
+                    alt="Question visual" 
+                    className="max-w-full max-h-64 rounded-lg border border-border object-contain"
+                  />
+                </div>
+              )}
             </div>
 
             {/* Options */}
             <div className="space-y-3">
               {currentQuestion.options.map((option, idx) => {
                 const isSelected = answers[questionKey] === idx;
+                const hasOptionImage = currentQuestion.optionImages && currentQuestion.optionImages[idx];
                 
                 return (
                   <button
@@ -531,13 +541,21 @@ const CustomPractice = ({ subjects, hideTimer: initialHideTimer, onBack }: Custo
                     }`}
                   >
                     <div className="flex items-center gap-3">
-                      <span className={`w-8 h-8 rounded-lg flex items-center justify-center text-sm font-medium ${
+                      <span className={`w-8 h-8 rounded-lg flex items-center justify-center text-sm font-medium flex-shrink-0 ${
                         isSelected ? "bg-primary text-primary-foreground" : "bg-muted"
                       }`}>
                         {String.fromCharCode(65 + idx)}
                       </span>
-                      <span className="flex-1 text-foreground">{option}</span>
-                      {isSelected && <CheckCircle2 className="w-5 h-5 text-primary" />}
+                      {hasOptionImage ? (
+                        <img 
+                          src={currentQuestion.optionImages![idx]} 
+                          alt={`Option ${String.fromCharCode(65 + idx)}`}
+                          className="max-h-16 rounded border border-border object-contain"
+                        />
+                      ) : (
+                        <span className="flex-1 text-foreground">{option}</span>
+                      )}
+                      {isSelected && <CheckCircle2 className="w-5 h-5 text-primary flex-shrink-0" />}
                     </div>
                   </button>
                 );

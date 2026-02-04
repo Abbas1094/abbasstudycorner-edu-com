@@ -251,6 +251,15 @@ const QuizScreen = ({ chapter }: QuizScreenPropsExtended) => {
         >
           <div className="bg-card p-5 rounded-2xl border border-border mb-6">
             <p className="text-lg font-medium text-foreground">{mcq.question}</p>
+            {mcq.questionImage && (
+              <div className="mt-4 flex justify-center">
+                <img 
+                  src={mcq.questionImage} 
+                  alt="Question visual" 
+                  className="max-w-full max-h-64 rounded-lg border border-border object-contain"
+                />
+              </div>
+            )}
           </div>
 
           <div className="space-y-3">
@@ -269,6 +278,8 @@ const QuizScreen = ({ chapter }: QuizScreenPropsExtended) => {
                 classes += "bg-card border-border opacity-50";
               }
 
+              const hasOptionImage = mcq.optionImages && mcq.optionImages[idx];
+              
               return (
                 <button 
                   key={idx} 
@@ -277,10 +288,18 @@ const QuizScreen = ({ chapter }: QuizScreenPropsExtended) => {
                   disabled={isAnswered}
                 >
                   <div className="flex items-center gap-3">
-                    <span className="w-8 h-8 rounded-lg bg-muted flex items-center justify-center text-sm font-medium">
+                    <span className="w-8 h-8 rounded-lg bg-muted flex items-center justify-center text-sm font-medium flex-shrink-0">
                       {String.fromCharCode(65 + idx)}
                     </span>
-                    <span className="flex-1 text-foreground">{opt}</span>
+                    {hasOptionImage ? (
+                      <img 
+                        src={mcq.optionImages![idx]} 
+                        alt={`Option ${String.fromCharCode(65 + idx)}`}
+                        className="max-h-16 rounded border border-border object-contain"
+                      />
+                    ) : (
+                      <span className="flex-1 text-foreground">{opt}</span>
+                    )}
                     {isAnswered && isCorrectOption && <CheckCircle2 className="w-5 h-5 text-success" />}
                     {isAnswered && isSelected && !isCorrect && <XCircle className="w-5 h-5 text-destructive" />}
                   </div>
