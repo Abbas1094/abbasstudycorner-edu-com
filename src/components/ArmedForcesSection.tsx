@@ -6,6 +6,7 @@ import SubjectCard from "@/components/SubjectCard";
 import ChapterList from "@/components/ChapterList";
 import QuizScreen from "@/components/QuizScreen";
 import ExperienceQuiz from "@/components/ExperienceQuiz";
+import NonVerbalQuiz from "@/components/NonVerbalQuiz";
 import PlaceholderMessage from "@/components/PlaceholderMessage";
 import TradeSelectionModal, { TradeType } from "@/components/TradeSelectionModal";
 import MockExam from "@/components/MockExam";
@@ -462,12 +463,16 @@ const ArmedForcesSection = ({ onBack }: ArmedForcesSectionProps) => {
             />
           )}
 
-          {/* Quiz */}
+          {/* Quiz - use NonVerbalQuiz for af-int-11 chapter */}
           {screen === "quiz" && selectedChapter && (
-            <QuizScreen 
-              chapter={getChapters().find(c => c.id === selectedChapter)!} 
-              onBack={handleBack} 
-            />
+            selectedChapter === "af-int-11" ? (
+              <NonVerbalQuiz onBack={handleBack} />
+            ) : (
+              <QuizScreen 
+                chapter={getChapters().find(c => c.id === selectedChapter)!} 
+                onBack={handleBack} 
+              />
+            )
           )}
 
           {/* Experience Quiz */}
