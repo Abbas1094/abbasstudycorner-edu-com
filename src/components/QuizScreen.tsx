@@ -1,9 +1,24 @@
-import { useState, useCallback, useMemo } from "react";
+import { useState, useCallback, useMemo, ReactNode } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Chapter } from "@/data/chemistryData";
 import { CheckCircle2, XCircle, ChevronRight, RotateCcw, Lightbulb, BookOpen, X } from "lucide-react";
 import { generateSmartExplanation } from "@/lib/explanations";
 import { shuffleMCQs } from "@/lib/shuffleUtils";
+
+/**
+ * Safely formats note text with bold markers (**text**) using React components
+ * instead of dangerouslySetInnerHTML to prevent XSS attacks.
+ */
+const formatNoteWithBold = (note: string): ReactNode => {
+  const parts = note.split(/(\*\*.*?\*\*)/g);
+  return parts.map((part, i) => {
+    if (part.startsWith('**') && part.endsWith('**')) {
+      const boldText = part.slice(2, -2);
+      return <strong key={i} className="text-primary">{boldText}</strong>;
+    }
+    return part;
+  });
+};
 interface QuizScreenProps {
   chapter: Chapter;
   onBack: () => void;
@@ -112,11 +127,9 @@ const QuizScreen = ({ chapter }: QuizScreenPropsExtended) => {
             <div 
               key={idx} 
               className="p-3 rounded-xl bg-primary/10 border border-primary/20 text-sm text-foreground"
-              dangerouslySetInnerHTML={{ 
-                __html: note
-                  .replace(/\*\*(.*?)\*\*/g, '<strong class="text-primary">$1</strong>')
-              }}
-            />
+            >
+              {formatNoteWithBold(note)}
+            </div>
           ))}
         </div>
       </motion.div>
