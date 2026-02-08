@@ -1,7 +1,7 @@
 import { motion, AnimatePresence } from "framer-motion";
-import { X, Plane, Shield, Car, Flame, Dumbbell } from "lucide-react";
+import { X, Plane, Shield, Car, Flame, Dumbbell, Stethoscope } from "lucide-react";
 
-export type TradeType = "aerotrade" | "aerosport" | "security" | "mtd" | "firefighter";
+export type TradeType = "aerotrade" | "aerosport" | "security" | "mtd" | "firefighter" | "medical";
 
 interface Trade {
   id: TradeType;
@@ -18,6 +18,13 @@ const trades: Trade[] = [
     icon: Plane,
     description: "Technical & Engineering Branch",
     subjects: ["Intelligence (100)", "English (50)", "Physics (40)", "Math (40)"]
+  },
+  {
+    id: "medical",
+    name: "Medical Assistant",
+    icon: Stethoscope,
+    description: "Medical & Healthcare Branch",
+    subjects: ["Intelligence (100)", "English (50)", "Physics (40)", "Biology (40)"]
   },
   {
     id: "aerosport",
@@ -127,7 +134,7 @@ const TradeSelectionModal = ({ isOpen, onClose, onSelectTrade }: TradeSelectionM
 
           <div className="mt-6 p-4 rounded-xl bg-muted/50 border border-border">
             <p className="text-xs text-muted-foreground text-center">
-              ⏱️ <strong className="text-foreground">Aerotrade:</strong> 230 MCQs • ~130 mins
+              ⏱️ <strong className="text-foreground">Aerotrade/Medical:</strong> 230 MCQs • ~130 mins
               <br />
               <strong className="text-foreground">Others:</strong> 150 MCQs • ~70 mins
             </p>
