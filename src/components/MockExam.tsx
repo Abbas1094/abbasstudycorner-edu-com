@@ -13,6 +13,7 @@ import { airforceIntelligenceChapters, airforceIntelligenceExperienceMCQs } from
 import { airforceEnglishChapters, airforceEnglishExperienceMCQs } from "@/data/airforceEnglishData";
 import { airforcePhysicsChaptersComplete, airforcePhysicsExperienceMCQs } from "@/data/airforcePhysicsData";
 import { airforceMathChaptersComplete, airforceMathExperienceMCQs } from "@/data/airforceMathData";
+import { airforceBiologyChapters, airforceBiologyExperienceMCQs } from "@/data/airforceBiologyData";
 
 interface ExamSection {
   name: string;
@@ -54,6 +55,7 @@ const generateExamSections = (trade: TradeType): ExamSection[] => {
   const allEnglish = getAllMCQs(airforceEnglishChapters, airforceEnglishExperienceMCQs);
   const allPhysics = getAllMCQs(airforcePhysicsChaptersComplete, airforcePhysicsExperienceMCQs);
   const allMath = getAllMCQs(airforceMathChaptersComplete, airforceMathExperienceMCQs);
+  const allBiology = getAllMCQs(airforceBiologyChapters, airforceBiologyExperienceMCQs);
 
   const baseSections: ExamSection[] = [
     {
@@ -82,6 +84,24 @@ const generateExamSections = (trade: TradeType): ExamSection[] => {
       {
         name: "Math",
         questions: getRandomMCQs(allMath, 40),
+        timeLimit: 30 * 60,
+        required: 40
+      }
+    ];
+  }
+
+  if (trade === "medical") {
+    return [
+      ...baseSections,
+      {
+        name: "Physics",
+        questions: getRandomMCQs(allPhysics, 40),
+        timeLimit: 30 * 60,
+        required: 40
+      },
+      {
+        name: "Biology",
+        questions: getRandomMCQs(allBiology, 40),
         timeLimit: 30 * 60,
         required: 40
       }

@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { X, Brain, BookOpen, Atom, Calculator, Play, Clock, EyeOff } from "lucide-react";
+import { X, Brain, BookOpen, Atom, Calculator, Play, Clock, EyeOff, Leaf } from "lucide-react";
 
-export type PracticeSubject = "intelligence" | "english" | "physics" | "math";
+export type PracticeSubject = "intelligence" | "english" | "physics" | "math" | "biology";
 
 interface SubjectConfig {
   id: PracticeSubject;
@@ -18,6 +18,7 @@ const SUBJECTS: SubjectConfig[] = [
   { id: "english", name: "English", icon: BookOpen, questionCount: 50, timeLimit: 30, color: "from-indigo-500 to-violet-600" },
   { id: "physics", name: "Physics", icon: Atom, questionCount: 40, timeLimit: 30, color: "from-blue-500 to-cyan-600" },
   { id: "math", name: "Mathematics", icon: Calculator, questionCount: 40, timeLimit: 30, color: "from-purple-500 to-pink-600" },
+  { id: "biology", name: "Biology", icon: Leaf, questionCount: 40, timeLimit: 30, color: "from-green-500 to-emerald-600" },
 ];
 
 interface CustomPracticeModalProps {

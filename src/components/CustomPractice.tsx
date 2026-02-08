@@ -13,6 +13,7 @@ import { airforceIntelligenceChapters, airforceIntelligenceExperienceMCQs } from
 import { airforceEnglishChapters, airforceEnglishExperienceMCQs } from "@/data/airforceEnglishData";
 import { airforcePhysicsChaptersComplete, airforcePhysicsExperienceMCQs } from "@/data/airforcePhysicsData";
 import { airforceMathChaptersComplete, airforceMathExperienceMCQs } from "@/data/airforceMathData";
+import { airforceBiologyChapters, airforceBiologyExperienceMCQs } from "@/data/airforceBiologyData";
 
 interface PracticeSection {
   name: string;
@@ -53,6 +54,7 @@ const SUBJECT_CONFIGS: Record<PracticeSubject, { name: string; count: number; ti
   english: { name: "English", count: 50, time: 30 * 60 },
   physics: { name: "Physics", count: 40, time: 30 * 60 },
   math: { name: "Mathematics", count: 40, time: 30 * 60 },
+  biology: { name: "Biology", count: 40, time: 30 * 60 },
 };
 
 // Generate practice sections based on selected subjects
@@ -61,12 +63,14 @@ const generatePracticeSections = (subjects: PracticeSubject[]): PracticeSection[
   const allEnglish = getAllMCQs(airforceEnglishChapters, airforceEnglishExperienceMCQs);
   const allPhysics = getAllMCQs(airforcePhysicsChaptersComplete, airforcePhysicsExperienceMCQs);
   const allMath = getAllMCQs(airforceMathChaptersComplete, airforceMathExperienceMCQs);
+  const allBiology = getAllMCQs(airforceBiologyChapters, airforceBiologyExperienceMCQs);
 
   const dataMap: Record<PracticeSubject, MCQ[]> = {
     intelligence: allIntelligence,
     english: allEnglish,
     physics: allPhysics,
     math: allMath,
+    biology: allBiology,
   };
 
   return subjects.map(subject => ({
