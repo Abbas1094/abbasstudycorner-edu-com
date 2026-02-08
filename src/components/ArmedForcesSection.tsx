@@ -215,7 +215,7 @@ const ArmedForcesSection = ({ onBack }: ArmedForcesSectionProps) => {
             <div>
               <h1 className="font-display text-xl font-bold text-foreground">{getForceTitle()}</h1>
               <p className="text-xs text-muted-foreground">
-                {selectedSubject ? `${selectedSubject.charAt(0).toUpperCase() + selectedSubject.slice(1)}` : "Test Preparation 2025"}
+                {selectedSubject ? `${selectedSubject.charAt(0).toUpperCase() + selectedSubject.slice(1)}` : "Test Preparation 2026"}
               </p>
             </div>
           </div>
@@ -255,7 +255,7 @@ const ArmedForcesSection = ({ onBack }: ArmedForcesSectionProps) => {
                 <ForceCard
                   icon={Plane}
                   title="Pakistan Air Force"
-                  subtitle="Test Preparation Coming Soon"
+                  subtitle="Complete Test Preparation"
                   gradient="bg-gradient-to-r from-sky-600 to-blue-700"
                   onClick={() => {
                     setSelectedForce("airforce");
@@ -410,7 +410,7 @@ const ArmedForcesSection = ({ onBack }: ArmedForcesSectionProps) => {
                   >
                     <div className="flex items-center justify-between">
                       <div>
-                        <h3 className="font-display text-lg font-bold text-primary-foreground">🔥 2025 Pattern MCQs</h3>
+                        <h3 className="font-display text-lg font-bold text-primary-foreground">🔥 2026 Pattern MCQs</h3>
                         <p className="text-sm text-primary-foreground/80">Repeated & trending questions from recent tests</p>
                       </div>
                       <ChevronRight className="w-6 h-6 text-primary-foreground" />
