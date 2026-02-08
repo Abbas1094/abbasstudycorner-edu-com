@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ArrowLeft, Anchor, Plane, ChevronRight, Brain, Globe, Beaker, Atom, Calculator, BookOpen, Flame, ClipboardCheck, Target } from "lucide-react";
+import { ArrowLeft, Anchor, Plane, ChevronRight, Brain, Globe, Beaker, Atom, Calculator, BookOpen, Flame, ClipboardCheck, Target, Leaf } from "lucide-react";
 import ForceCard from "@/components/ForceCard";
 import SubjectCard from "@/components/SubjectCard";
 import ChapterList from "@/components/ChapterList";
@@ -51,9 +51,15 @@ import {
   airforceEnglishExperienceMCQs
 } from "@/data/airforceEnglishData";
 
+// Air Force Biology (8 chapters, 200 MCQs with Notes)
+import {
+  airforceBiologyChapters,
+  airforceBiologyExperienceMCQs
+} from "@/data/airforceBiologyData";
+
 type ForceType = "navy" | "airforce";
 type Screen = "forces" | "subjects" | "subject-menu" | "chapters" | "quiz" | "experience" | "tough" | "mock-exam" | "custom-practice";
-type Subject = "chemistry" | "physics" | "math" | "intelligence" | "gk" | "english";
+type Subject = "chemistry" | "physics" | "math" | "intelligence" | "gk" | "english" | "biology";
 
 interface ArmedForcesSectionProps {
   onBack: () => void;
@@ -111,6 +117,7 @@ const ArmedForcesSection = ({ onBack }: ArmedForcesSectionProps) => {
       case "physics": return airforcePhysicsChaptersComplete;
       case "english": return airforceEnglishChapters;
       case "gk": return airforceGKChapters;
+      case "biology": return airforceBiologyChapters;
       default: return [];
     }
   };
@@ -129,6 +136,7 @@ const ArmedForcesSection = ({ onBack }: ArmedForcesSectionProps) => {
       case "gk": return airforceGKExperienceMCQs;
       case "english": return airforceEnglishExperienceMCQs;
       case "math": return airforceMathExperienceMCQs;
+      case "biology": return airforceBiologyExperienceMCQs;
       default: return [];
     }
   };
@@ -362,6 +370,15 @@ const ArmedForcesSection = ({ onBack }: ArmedForcesSectionProps) => {
                     subtitle="12 Chapters • 360 MCQs" 
                     color="from-indigo-500 to-violet-600" 
                     onClick={() => { setSelectedSubject("english"); setScreen("subject-menu"); }} 
+                  />
+                )}
+                {selectedForce === "airforce" && (
+                  <SubjectCard 
+                    icon={Leaf} 
+                    title="Biology" 
+                    subtitle="8 Chapters • 200 MCQs" 
+                    color="from-green-500 to-emerald-600" 
+                    onClick={() => { setSelectedSubject("biology"); setScreen("subject-menu"); }} 
                   />
                 )}
               </div>
