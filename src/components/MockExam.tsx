@@ -257,7 +257,9 @@ const SectionFailScreen = ({
           />
         </div>
         <p className="text-xs text-muted-foreground mt-2 text-center">
-          {result.total - result.attempted} questions skipped
+          {result.total - result.attempted > 0 
+            ? `${result.total - result.attempted} questions not attempted`
+            : "All questions attempted"}
         </p>
       </div>
 
@@ -398,34 +400,6 @@ const MockExam = ({ trade, onBack }: MockExamProps) => {
   const currentQuestion = currentSection.questions[currentQuestionIndex];
   const questionKey = `${currentSectionIndex}-${currentQuestionIndex}`;
 
-  // Timer effect
-  useEffect(() => {
-    if (isExamComplete || showPassModal || failedResult) return;
-
-    const timer = setInterval(() => {
-      setSectionTimeLeft(prev => {
-        if (prev <= 1) {
-          handleSectionSubmit();
-          return 0;
-        }
-        return prev - 1;
-      });
-    }, 1000);
-
-    return () => clearInterval(timer);
-  }, [currentSectionIndex, isExamComplete, showPassModal, failedResult]);
-
-  // Reset timer when section changes
-  useEffect(() => {
-    setSectionTimeLeft(sections[currentSectionIndex].timeLimit);
-  }, [currentSectionIndex, sections]);
-
-  const formatTime = (seconds: number) => {
-    const mins = Math.floor(seconds / 60);
-    const secs = seconds % 60;
-    return `${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
-  };
-
   const handleAnswer = useCallback((optionIndex: number) => {
     setAnswers(prev => ({ ...prev, [questionKey]: optionIndex }));
   }, [questionKey]);
@@ -463,19 +437,33 @@ const MockExam = ({ trade, onBack }: MockExamProps) => {
     const result = calculateSectionResult(currentSection, currentSectionIndex, answers);
     
     if (result.passed) {
-      // Add to completed results
       setCompletedResults(prev => [...prev, result]);
       
       if (currentSectionIndex < sections.length - 1) {
-        // Show pass modal, then proceed to next section
         setShowPassModal(true);
       } else {
-        // All sections complete - show final results
         setCompletedResults(prev => [...prev, result]);
         setIsExamComplete(true);
       }
     } else {
-      // FAILED - Stop exam immediately
+      setFailedResult(result);
+    }
+  }, [currentSection, currentSectionIndex, answers, sections.length]);
+
+  // Time-up handler: show result for what they attempted, pass them if ≥50%
+  const handleTimeUp = useCallback(() => {
+    const result = calculateSectionResult(currentSection, currentSectionIndex, answers);
+    
+    if (result.passed) {
+      setCompletedResults(prev => [...prev, result]);
+      
+      if (currentSectionIndex < sections.length - 1) {
+        setShowPassModal(true);
+      } else {
+        setCompletedResults(prev => [...prev, result]);
+        setIsExamComplete(true);
+      }
+    } else {
       setFailedResult(result);
     }
   }, [currentSection, currentSectionIndex, answers, sections.length]);
@@ -498,6 +486,34 @@ const MockExam = ({ trade, onBack }: MockExamProps) => {
     setShowPassModal(false);
     setIsExamComplete(false);
   }, []);
+
+  // Timer effect (placed after handleTimeUp to avoid block-scoped variable issue)
+  useEffect(() => {
+    if (isExamComplete || showPassModal || failedResult) return;
+
+    const timer = setInterval(() => {
+      setSectionTimeLeft(prev => {
+        if (prev <= 1) {
+          handleTimeUp();
+          return 0;
+        }
+        return prev - 1;
+      });
+    }, 1000);
+
+    return () => clearInterval(timer);
+  }, [currentSectionIndex, isExamComplete, showPassModal, failedResult, handleTimeUp]);
+
+  // Reset timer when section changes
+  useEffect(() => {
+    setSectionTimeLeft(sections[currentSectionIndex].timeLimit);
+  }, [currentSectionIndex, sections]);
+
+  const formatTime = (seconds: number) => {
+    const mins = Math.floor(seconds / 60);
+    const secs = seconds % 60;
+    return `${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
+  };
 
   // ========== RENDER SCREENS ==========
 
