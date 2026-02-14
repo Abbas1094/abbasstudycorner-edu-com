@@ -51,143 +51,15 @@ Total Marks: 75 | Time: 2 Hours 30 Minutes
           }
         ],
         chapters: [
-          {
-            id: "ch1",
-            name: "Physical Quantities and Measurement",
-            importantTopics: ["Base & Derived Units", "Prefixes", "Significant Figures", "Scientific Notation", "Measuring Instruments"],
-            keyConcepts: ["SI Units", "Physical Quantities", "Vernier Caliper", "Screw Gauge"],
-            formulas: ["Least Count = Smallest Division", "Vernier Scale Reading = Main Scale + (Vernier Coincidence × LC)"],
-            mcqs: [
-              { id: "p9-ch1-1", question: "The SI unit of length is:", options: ["Meter", "Centimeter", "Kilometer", "Foot"], correctAnswer: 0, explanation: "Meter (m) is the SI base unit for length." },
-              { id: "p9-ch1-2", question: "Which is a derived quantity?", options: ["Length", "Mass", "Speed", "Time"], correctAnswer: 2, explanation: "Speed = Distance/Time, derived from base quantities." },
-              { id: "p9-ch1-3", question: "Least count of vernier caliper is:", options: ["0.01 mm", "0.1 mm", "1 mm", "0.01 cm"], correctAnswer: 1, explanation: "Standard vernier caliper has least count of 0.1 mm or 0.01 cm." },
-              { id: "p9-ch1-4", question: "Prefix 'kilo' means:", options: ["10³", "10⁶", "10⁻³", "10²"], correctAnswer: 0, explanation: "Kilo = 1000 = 10³" },
-              { id: "p9-ch1-5", question: "Which instrument measures small lengths accurately?", options: ["Meter rod", "Vernier caliper", "Tape measure", "Ruler"], correctAnswer: 1, explanation: "Vernier caliper provides precise measurements up to 0.01 cm." },
-              { id: "p9-ch1-6", question: "Scientific notation of 0.00035 is:", options: ["3.5 × 10⁻⁴", "35 × 10⁻⁵", "3.5 × 10⁴", "0.35 × 10⁻³"], correctAnswer: 0, explanation: "Move decimal 4 places right: 3.5 × 10⁻⁴" },
-              { id: "p9-ch1-7", question: "Screw gauge is used to measure:", options: ["Large distances", "Diameter of wire", "Volume", "Time"], correctAnswer: 1, explanation: "Screw gauge measures small diameters with high precision." },
-              { id: "p9-ch1-8", question: "Base quantity among these is:", options: ["Area", "Volume", "Current", "Velocity"], correctAnswer: 2, explanation: "Electric current (Ampere) is one of the 7 SI base quantities." }
-            ]
-          },
-          {
-            id: "ch2",
-            name: "Kinematics",
-            importantTopics: ["Types of Motion", "Speed & Velocity", "Acceleration", "Equations of Motion", "Graphical Analysis"],
-            keyConcepts: ["Scalar vs Vector", "Uniform & Non-uniform Motion", "Distance vs Displacement"],
-            formulas: ["v = u + at", "s = ut + ½at²", "v² = u² + 2as", "s = (v+u)/2 × t"],
-            mcqs: [
-              { id: "p9-ch2-1", question: "A quantity with magnitude only is called:", options: ["Vector", "Scalar", "Unit", "Dimension"], correctAnswer: 1, explanation: "Scalar quantities have only magnitude (e.g., speed, mass)." },
-              { id: "p9-ch2-2", question: "SI unit of velocity is:", options: ["m/s", "km/h", "m/s²", "cm/s"], correctAnswer: 0, explanation: "Velocity = Displacement/Time, SI unit is m/s." },
-              { id: "p9-ch2-3", question: "Rate of change of velocity is:", options: ["Speed", "Acceleration", "Distance", "Displacement"], correctAnswer: 1, explanation: "Acceleration = Change in velocity / Time." },
-              { id: "p9-ch2-4", question: "What are the dimensions of velocity?", options: ["LT⁻¹", "L²T⁻¹", "MLT⁻¹", "ML²T⁻²"], correctAnswer: 0, explanation: "Velocity = Length/Time = LT⁻¹" },
-              { id: "p9-ch2-5", question: "Acceleration due to gravity is:", options: ["9.8 m/s", "9.8 m/s²", "10 m/s", "10 m/s²"], correctAnswer: 1, explanation: "g = 9.8 m/s² (standard value on Earth's surface)." },
-              { id: "p9-ch2-6", question: "Slope of distance-time graph gives:", options: ["Acceleration", "Speed", "Force", "Momentum"], correctAnswer: 1, explanation: "Slope = Δdistance/Δtime = speed." },
-              { id: "p9-ch2-7", question: "Which equation has no time 't'?", options: ["v = u + at", "s = ut + ½at²", "v² = u² + 2as", "s = vt"], correctAnswer: 2, explanation: "v² = u² + 2as eliminates time variable." },
-              { id: "p9-ch2-8", question: "Uniform motion means:", options: ["Variable speed", "Constant velocity", "Zero velocity", "Increasing velocity"], correctAnswer: 1, explanation: "Uniform motion = constant velocity (same speed in same direction)." }
-            ]
-          },
-          {
-            id: "ch3",
-            name: "Dynamics",
-            importantTopics: ["Newton's Laws of Motion", "Momentum", "Force", "Friction", "Circular Motion"],
-            keyConcepts: ["Inertia", "Action-Reaction", "Law of Conservation of Momentum"],
-            formulas: ["F = ma", "p = mv", "W = mg", "Impulse = FΔt = Δp"],
-            mcqs: [
-              { id: "p9-ch3-1", question: "SI unit of force is:", options: ["kg", "Newton", "Joule", "Watt"], correctAnswer: 1, explanation: "Force SI unit is Newton (N) = kg⋅m/s²." },
-              { id: "p9-ch3-2", question: "Inertia depends on:", options: ["Velocity", "Mass", "Acceleration", "Force"], correctAnswer: 1, explanation: "Inertia is directly proportional to mass." },
-              { id: "p9-ch3-3", question: "Law of inertia is Newton's:", options: ["First law", "Second law", "Third law", "Law of gravitation"], correctAnswer: 0, explanation: "Newton's 1st law is also called law of inertia." },
-              { id: "p9-ch3-4", question: "Momentum is a:", options: ["Scalar", "Vector", "Unit", "Constant"], correctAnswer: 1, explanation: "Momentum has both magnitude and direction (p = mv)." },
-              { id: "p9-ch3-5", question: "Which law explains rocket motion?", options: ["First law", "Second law", "Third law", "None"], correctAnswer: 2, explanation: "Rocket propulsion is based on action-reaction principle." },
-              { id: "p9-ch3-6", question: "F = ma is Newton's:", options: ["First law", "Second law", "Third law", "Universal law"], correctAnswer: 1, explanation: "Newton's 2nd law: Force = mass × acceleration." },
-              { id: "p9-ch3-7", question: "Friction always acts:", options: ["In direction of motion", "Opposite to motion", "Perpendicular to motion", "At any angle"], correctAnswer: 1, explanation: "Friction opposes relative motion between surfaces." },
-              { id: "p9-ch3-8", question: "When net force is zero, body is in:", options: ["Motion", "Rest", "Equilibrium", "Acceleration"], correctAnswer: 2, explanation: "Zero net force means body is in equilibrium (may be moving at constant velocity or at rest)." }
-            ]
-          },
-          {
-            id: "ch4",
-            name: "Turning Effect of Forces",
-            importantTopics: ["Torque", "Centre of Mass", "Centre of Gravity", "Equilibrium", "Couple"],
-            keyConcepts: ["Moment of Force", "Principle of Moments", "Stability"],
-            formulas: ["Torque τ = F × d", "Principle of Moments: Σ clockwise = Σ anticlockwise"],
-            mcqs: [
-              { id: "p9-ch4-1", question: "SI unit of torque is:", options: ["Newton", "N⋅m", "Joule", "kg⋅m"], correctAnswer: 1, explanation: "Torque = Force × distance, unit is Newton-meter (N⋅m)." },
-              { id: "p9-ch4-2", question: "Torque produces:", options: ["Linear motion", "Rotational motion", "Uniform velocity", "Deceleration"], correctAnswer: 1, explanation: "Torque causes rotation (turning effect)." },
-              { id: "p9-ch4-3", question: "Two equal and opposite parallel forces form a:", options: ["Moment", "Torque", "Couple", "Resultant"], correctAnswer: 2, explanation: "Couple = two equal, opposite, parallel forces separated by distance." },
-              { id: "p9-ch4-4", question: "For equilibrium, sum of torques is:", options: ["Maximum", "Minimum", "Zero", "Infinite"], correctAnswer: 2, explanation: "Equilibrium requires Σ clockwise torques = Σ anticlockwise torques (net = 0)." },
-              { id: "p9-ch4-5", question: "Centre of gravity of uniform rod is at:", options: ["One end", "Middle", "Both ends", "Outside the rod"], correctAnswer: 1, explanation: "For uniform objects, centre of gravity is at geometric center." },
-              { id: "p9-ch4-6", question: "Moment arm is:", options: ["Force", "Perpendicular distance from axis", "Parallel distance", "Weight"], correctAnswer: 1, explanation: "Moment arm is the perpendicular distance from force line to pivot." }
-            ]
-          },
-          {
-            id: "ch5",
-            name: "Gravitation",
-            importantTopics: ["Law of Gravitation", "Mass vs Weight", "Gravitational Field", "Satellites"],
-            keyConcepts: ["Universal Gravitational Constant", "g variation", "Orbital velocity"],
-            formulas: ["F = Gm₁m₂/r²", "g = GM/R²", "W = mg", "v = √(gR)"],
-            mcqs: [
-              { id: "p9-ch5-1", question: "Value of G is:", options: ["6.67 × 10⁻¹¹ N⋅m²/kg²", "9.8 m/s²", "6.67 × 10¹¹ N⋅m²/kg²", "9.8 N/kg"], correctAnswer: 0, explanation: "G = 6.67 × 10⁻¹¹ N⋅m²/kg² is the universal gravitational constant." },
-              { id: "p9-ch5-2", question: "Weight of a body on moon is:", options: ["Same as Earth", "1/6 of Earth", "6 times Earth", "Zero"], correctAnswer: 1, explanation: "Moon's gravity is about 1/6th of Earth's gravity." },
-              { id: "p9-ch5-3", question: "Mass is a measure of:", options: ["Volume", "Inertia", "Weight", "Density"], correctAnswer: 1, explanation: "Mass measures the amount of matter (inertia) in a body." },
-              { id: "p9-ch5-4", question: "At the centre of Earth, g is:", options: ["Maximum", "Minimum", "9.8 m/s²", "Zero"], correctAnswer: 3, explanation: "At Earth's center, gravitational forces cancel out, g = 0." },
-              { id: "p9-ch5-5", question: "Artificial satellites use which law?", options: ["First law of motion", "Law of gravitation", "Law of conservation", "Ohm's law"], correctAnswer: 1, explanation: "Satellites orbit due to gravitational attraction toward Earth." }
-            ]
-          },
-          {
-            id: "ch6",
-            name: "Work and Energy",
-            importantTopics: ["Work", "Energy Types", "Power", "Efficiency", "Energy Conservation"],
-            keyConcepts: ["Kinetic Energy", "Potential Energy", "Work-Energy Theorem"],
-            formulas: ["W = F⋅s⋅cosθ", "KE = ½mv²", "PE = mgh", "P = W/t", "Efficiency = (Output/Input) × 100%"],
-            mcqs: [
-              { id: "p9-ch6-1", question: "SI unit of work is:", options: ["Newton", "Watt", "Joule", "Pascal"], correctAnswer: 2, explanation: "Work = Force × Distance, SI unit is Joule (J)." },
-              { id: "p9-ch6-2", question: "SI unit of power is:", options: ["Joule", "Newton", "Watt", "Ampere"], correctAnswer: 2, explanation: "Power = Work/Time, SI unit is Watt (W)." },
-              { id: "p9-ch6-3", question: "Energy stored in stretched spring is:", options: ["Kinetic", "Potential", "Elastic potential", "Chemical"], correctAnswer: 2, explanation: "Stretched/compressed springs store elastic potential energy." },
-              { id: "p9-ch6-4", question: "Power if 100J work is done in 20s is:", options: ["10W", "5W", "20W", "2W"], correctAnswer: 1, explanation: "P = W/t = 100/20 = 5 Watt." },
-              { id: "p9-ch6-5", question: "Kinetic energy depends on:", options: ["Mass only", "Velocity only", "Both mass and velocity", "Height"], correctAnswer: 2, explanation: "KE = ½mv², depends on both mass and velocity." },
-              { id: "p9-ch6-6", question: "When work is done against gravity:", options: ["KE increases", "PE increases", "Both increase", "Energy is lost"], correctAnswer: 1, explanation: "Work against gravity increases gravitational potential energy." }
-            ]
-          },
-          {
-            id: "ch7",
-            name: "Properties of Matter",
-            importantTopics: ["Density", "Pressure", "Atmospheric Pressure", "Pascal's Law", "Archimedes Principle"],
-            keyConcepts: ["States of Matter", "Hooke's Law", "Elasticity"],
-            formulas: ["Density = m/V", "P = F/A", "P = ρgh", "F = kx (Hooke's Law)"],
-            mcqs: [
-              { id: "p9-ch7-1", question: "SI unit of pressure is:", options: ["Newton", "Pascal", "Joule", "Watt"], correctAnswer: 1, explanation: "Pressure = Force/Area, SI unit is Pascal (Pa) = N/m²." },
-              { id: "p9-ch7-2", question: "Atmospheric pressure at sea level is:", options: ["101325 Pa", "100 Pa", "1000 Pa", "10 Pa"], correctAnswer: 0, explanation: "Standard atmospheric pressure = 101325 Pa or about 101.3 kPa." },
-              { id: "p9-ch7-3", question: "Hooke's law relates stress and:", options: ["Force", "Strain", "Pressure", "Volume"], correctAnswer: 1, explanation: "Hooke's law: Stress ∝ Strain (within elastic limit)." },
-              { id: "p9-ch7-4", question: "What is the mathematical expression of Hooke's Law?", options: ["F = kx", "F = ma", "P = mv", "E = mc²"], correctAnswer: 0, explanation: "F = kx where F is force, k is spring constant, x is extension." },
-              { id: "p9-ch7-5", question: "Hydraulic press works on:", options: ["Newton's law", "Pascal's law", "Archimedes principle", "Bernoulli's theorem"], correctAnswer: 1, explanation: "Pascal's law: Pressure applied to enclosed fluid transmits equally." }
-            ]
-          },
-          {
-            id: "ch8",
-            name: "Thermal Properties of Matter",
-            importantTopics: ["Temperature", "Thermometers", "Thermal Expansion", "Heat Capacity", "Latent Heat"],
-            keyConcepts: ["Celsius & Kelvin Scale", "Specific Heat", "Change of State"],
-            formulas: ["K = °C + 273", "Q = mcΔT", "Q = mL", "Linear expansion: ΔL = αLΔT"],
-            mcqs: [
-              { id: "p9-ch8-1", question: "SI unit of temperature is:", options: ["Celsius", "Fahrenheit", "Kelvin", "Joule"], correctAnswer: 2, explanation: "Kelvin (K) is the SI base unit for temperature." },
-              { id: "p9-ch8-2", question: "Which device is used to measure temperature?", options: ["Barometer", "Thermometer", "Ammeter", "Hygrometer"], correctAnswer: 1, explanation: "Thermometer measures temperature." },
-              { id: "p9-ch8-3", question: "Water freezing point in Fahrenheit is:", options: ["0°F", "32°F", "100°F", "212°F"], correctAnswer: 1, explanation: "Water freezes at 32°F = 0°C." },
-              { id: "p9-ch8-4", question: "The boiling point of water at 1 atm is:", options: ["50°C", "273°C", "100°C", "212°C"], correctAnswer: 2, explanation: "Water boils at 100°C at standard atmospheric pressure." },
-              { id: "p9-ch8-5", question: "Specific heat of water is:", options: ["4180 J/kg⋅K", "4.18 J/kg⋅K", "418 J/kg⋅K", "41.8 J/kg⋅K"], correctAnswer: 0, explanation: "Specific heat of water = 4180 J/kg⋅K (or 4.18 kJ/kg⋅K)." },
-              { id: "p9-ch8-6", question: "Temperature where solid melts is called:", options: ["Boiling point", "Melting point", "Freezing point", "Condensation point"], correctAnswer: 1, explanation: "Melting point is the temperature at which solid changes to liquid." }
-            ]
-          },
-          {
-            id: "ch9",
-            name: "Transfer of Heat",
-            importantTopics: ["Conduction", "Convection", "Radiation", "Greenhouse Effect"],
-            keyConcepts: ["Conductors & Insulators", "Heat Transfer Methods"],
-            formulas: ["Q/t = kA(T₁-T₂)/L (Conduction)"],
-            mcqs: [
-              { id: "p9-ch9-1", question: "Heat transfer through vacuum occurs by:", options: ["Conduction", "Convection", "Radiation", "All methods"], correctAnswer: 2, explanation: "Only radiation can transfer heat through vacuum (no medium needed)." },
-              { id: "p9-ch9-2", question: "Best conductor of heat is:", options: ["Wood", "Silver", "Glass", "Rubber"], correctAnswer: 1, explanation: "Silver has the highest thermal conductivity among common materials." },
-              { id: "p9-ch9-3", question: "Convection occurs in:", options: ["Solids only", "Fluids only", "Vacuum", "All states"], correctAnswer: 1, explanation: "Convection requires fluid (liquid or gas) movement." },
-              { id: "p9-ch9-4", question: "Black surfaces are good:", options: ["Reflectors", "Absorbers of heat", "Insulators", "Conductors"], correctAnswer: 1, explanation: "Black surfaces absorb and emit radiation efficiently." }
-            ]
-          }
+          { id: "ch1", name: "Physical Quantities and Measurement", importantTopics: ["Base & Derived Units", "Prefixes", "Significant Figures", "Scientific Notation", "Measuring Instruments"], keyConcepts: ["SI Units", "Physical Quantities", "Vernier Caliper", "Screw Gauge"], formulas: ["Least Count = Smallest Division", "Vernier Scale Reading = Main Scale + (Vernier Coincidence × LC)"], mcqs: [] },
+          { id: "ch2", name: "Kinematics", importantTopics: ["Types of Motion", "Speed & Velocity", "Acceleration", "Equations of Motion", "Graphical Analysis"], keyConcepts: ["Scalar vs Vector", "Uniform & Non-uniform Motion", "Distance vs Displacement"], formulas: ["v = u + at", "s = ut + ½at²", "v² = u² + 2as", "s = (v+u)/2 × t"], mcqs: [] },
+          { id: "ch3", name: "Dynamics", importantTopics: ["Newton's Laws of Motion", "Momentum", "Force", "Friction", "Circular Motion"], keyConcepts: ["Inertia", "Action-Reaction", "Law of Conservation of Momentum"], formulas: ["F = ma", "p = mv", "W = mg", "Impulse = FΔt = Δp"], mcqs: [] },
+          { id: "ch4", name: "Turning Effect of Forces", importantTopics: ["Torque", "Centre of Mass", "Centre of Gravity", "Equilibrium", "Couple"], keyConcepts: ["Moment of Force", "Principle of Moments", "Stability"], formulas: ["Torque τ = F × d", "Principle of Moments: Σ clockwise = Σ anticlockwise"], mcqs: [] },
+          { id: "ch5", name: "Gravitation", importantTopics: ["Law of Gravitation", "Mass vs Weight", "Gravitational Field", "Satellites"], keyConcepts: ["Universal Gravitational Constant", "g variation", "Orbital velocity"], formulas: ["F = Gm₁m₂/r²", "g = GM/R²", "W = mg", "v = √(gR)"], mcqs: [] },
+          { id: "ch6", name: "Work and Energy", importantTopics: ["Work", "Energy Types", "Power", "Efficiency", "Energy Conservation"], keyConcepts: ["Kinetic Energy", "Potential Energy", "Work-Energy Theorem"], formulas: ["W = F⋅s⋅cosθ", "KE = ½mv²", "PE = mgh", "P = W/t", "Efficiency = (Output/Input) × 100%"], mcqs: [] },
+          { id: "ch7", name: "Properties of Matter", importantTopics: ["Density", "Pressure", "Atmospheric Pressure", "Pascal's Law", "Archimedes Principle"], keyConcepts: ["States of Matter", "Hooke's Law", "Elasticity"], formulas: ["Density = m/V", "P = F/A", "P = ρgh", "F = kx (Hooke's Law)"], mcqs: [] },
+          { id: "ch8", name: "Thermal Properties of Matter", importantTopics: ["Temperature", "Thermometers", "Thermal Expansion", "Heat Capacity", "Latent Heat"], keyConcepts: ["Celsius & Kelvin Scale", "Specific Heat", "Change of State"], formulas: ["K = °C + 273", "Q = mcΔT", "Q = mL", "Linear expansion: ΔL = αLΔT"], mcqs: [] },
+          { id: "ch9", name: "Transfer of Heat", importantTopics: ["Conduction", "Convection", "Radiation", "Greenhouse Effect"], keyConcepts: ["Conductors & Insulators", "Heat Transfer Methods"], formulas: ["Q/t = kA(T₁-T₂)/L (Conduction)"], mcqs: [] }
         ]
       },
       {
@@ -235,116 +107,14 @@ Total Marks: 75 | Time: 2 Hours 30 Minutes
           }
         ],
         chapters: [
-          {
-            id: "ch1",
-            name: "Fundamentals of Chemistry",
-            importantTopics: ["Branches of Chemistry", "Empirical & Molecular Formula", "Mole Concept", "Avogadro's Number"],
-            keyConcepts: ["Matter", "Element", "Compound", "Mixture", "Atomic Mass Unit"],
-            formulas: ["No. of moles = mass/molar mass", "No. of particles = n × Nₐ", "Nₐ = 6.022 × 10²³"],
-            mcqs: [
-              { id: "c9-ch1-1", question: "The smallest particle of an element is:", options: ["Atom", "Molecule", "Ion", "Compound"], correctAnswer: 0, explanation: "An atom is the smallest particle of an element that retains its properties." },
-              { id: "c9-ch1-2", question: "Matter is made up of:", options: ["Light & Sound", "Water & Air", "Atoms & Molecules", "Cells & Tissues"], correctAnswer: 2, explanation: "All matter consists of atoms and molecules." },
-              { id: "c9-ch1-3", question: "Two moles of calcium contain how many atoms?", options: ["6.022 × 10²³", "12.044 × 10²³", "3.011 × 10²³", "18.066 × 10²³"], correctAnswer: 1, explanation: "2 moles = 2 × Nₐ = 2 × 6.022 × 10²³ = 12.044 × 10²³ atoms." },
-              { id: "c9-ch1-4", question: "Avogadro's number is:", options: ["6.022 × 10²³", "6.022 × 10⁻²³", "6.022 × 10²²", "6.022 × 10²⁴"], correctAnswer: 0, explanation: "Nₐ = 6.022 × 10²³ particles per mole." },
-              { id: "c9-ch1-5", question: "Which is NOT a branch of chemistry?", options: ["Organic", "Inorganic", "Botany", "Physical"], correctAnswer: 2, explanation: "Botany is a branch of biology, not chemistry." },
-              { id: "c9-ch1-6", question: "Chemical formula of Sodium Chloride is:", options: ["NaCl", "KCl", "Na₂Cl", "ClNa₂"], correctAnswer: 0, explanation: "NaCl is the correct formula for sodium chloride (table salt)." }
-            ]
-          },
-          {
-            id: "ch2",
-            name: "Structure of Atoms",
-            importantTopics: ["Subatomic Particles", "Atomic Models", "Electronic Configuration", "Isotopes"],
-            keyConcepts: ["Proton", "Neutron", "Electron", "Atomic Number", "Mass Number", "Rutherford & Bohr Models"],
-            formulas: ["Mass Number = Protons + Neutrons", "Atomic Number = Number of Protons"],
-            mcqs: [
-              { id: "c9-ch2-1", question: "The atomic number of oxygen is:", options: ["6", "10", "8", "7"], correctAnswer: 2, explanation: "Oxygen has 8 protons, so atomic number = 8." },
-              { id: "c9-ch2-2", question: "Which particle has no charge?", options: ["Proton", "Neutron", "Electron", "Ion"], correctAnswer: 1, explanation: "Neutron is electrically neutral (no charge)." },
-              { id: "c9-ch2-3", question: "Ion having +2 charge is:", options: ["Na⁺", "Mg²⁺", "Al³⁺", "K⁺"], correctAnswer: 1, explanation: "Mg²⁺ (Magnesium ion) has a +2 charge." },
-              { id: "c9-ch2-4", question: "Neil Bohr gave Atomic:", options: ["Number", "Model", "Value", "All of these"], correctAnswer: 1, explanation: "Niels Bohr proposed the atomic model with electron orbits." },
-              { id: "c9-ch2-5", question: "Who discovered the neutron?", options: ["Albert Einstein", "Niels Bohr", "James Chadwick", "Ernest Rutherford"], correctAnswer: 2, explanation: "James Chadwick discovered the neutron in 1932." },
-              { id: "c9-ch2-6", question: "Electron was discovered in which year?", options: ["1850", "1876", "1897", "1926"], correctAnswer: 2, explanation: "J.J. Thomson discovered the electron in 1897." },
-              { id: "c9-ch2-7", question: "Nucleus contains:", options: ["Protons only", "Neutrons only", "Protons and Neutrons", "Electrons"], correctAnswer: 2, explanation: "Nucleus contains protons (positive) and neutrons (neutral)." }
-            ]
-          },
-          {
-            id: "ch3",
-            name: "Periodic Table and Periodicity",
-            importantTopics: ["Modern Periodic Table", "Groups & Periods", "Periodic Trends", "Metals & Non-metals"],
-            keyConcepts: ["Periodic Law", "Electronegativity", "Ionization Energy", "Electron Affinity"],
-            formulas: [],
-            mcqs: [
-              { id: "c9-ch3-1", question: "Total number of groups in periodic table:", options: ["7", "8", "18", "16"], correctAnswer: 2, explanation: "Modern periodic table has 18 vertical groups." },
-              { id: "c9-ch3-2", question: "Which metal is liquid at room temperature?", options: ["Mercury", "Iron", "Aluminum", "Sodium"], correctAnswer: 0, explanation: "Mercury (Hg) is the only metal liquid at room temperature." },
-              { id: "c9-ch3-3", question: "Alkali metals belong to group:", options: ["1", "2", "17", "18"], correctAnswer: 0, explanation: "Alkali metals (Li, Na, K, etc.) are in Group 1." },
-              { id: "c9-ch3-4", question: "Noble gases are in group:", options: ["1", "2", "17", "18"], correctAnswer: 3, explanation: "Noble gases (He, Ne, Ar, etc.) are in Group 18." },
-              { id: "c9-ch3-5", question: "Electronegativity increases across a period from:", options: ["Right to left", "Left to right", "Stays same", "Decreases"], correctAnswer: 1, explanation: "Electronegativity increases left to right across a period." }
-            ]
-          },
-          {
-            id: "ch4",
-            name: "Structure of Molecules",
-            importantTopics: ["Chemical Bonding", "Ionic Bonds", "Covalent Bonds", "Metallic Bonds"],
-            keyConcepts: ["Octet Rule", "Lewis Dot Structure", "Electrovalent Compounds", "Coordinate Covalent Bond"],
-            formulas: [],
-            mcqs: [
-              { id: "c9-ch4-1", question: "Ionic bond is formed between:", options: ["Two metals", "Two non-metals", "Metal and non-metal", "Noble gases"], correctAnswer: 2, explanation: "Ionic bond forms when a metal transfers electrons to a non-metal." },
-              { id: "c9-ch4-2", question: "Covalent bond involves:", options: ["Transfer of electrons", "Sharing of electrons", "Free electrons", "No electrons"], correctAnswer: 1, explanation: "Covalent bond = sharing of electron pairs between atoms." },
-              { id: "c9-ch4-3", question: "NaCl is an example of:", options: ["Covalent compound", "Ionic compound", "Metallic bond", "Hydrogen bond"], correctAnswer: 1, explanation: "NaCl (sodium chloride) is a classic ionic compound." },
-              { id: "c9-ch4-4", question: "Metallic bonds exist in:", options: ["NaCl", "H₂O", "Copper", "CO₂"], correctAnswer: 2, explanation: "Copper and other metals have metallic bonding." }
-            ]
-          },
-          {
-            id: "ch5",
-            name: "Physical States of Matter",
-            importantTopics: ["Solid, Liquid, Gas", "Plasma", "Kinetic Molecular Theory", "Gas Laws"],
-            keyConcepts: ["Boyle's Law", "Charles's Law", "Pressure-Temperature Relationship", "Diffusion"],
-            formulas: ["P₁V₁ = P₂V₂ (Boyle's)", "V₁/T₁ = V₂/T₂ (Charles's)", "PV = nRT (Ideal Gas)"],
-            mcqs: [
-              { id: "c9-ch5-1", question: "In gases, molecules are:", options: ["Close together", "Far apart", "Fixed position", "No movement"], correctAnswer: 1, explanation: "Gas molecules are far apart with weak intermolecular forces." },
-              { id: "c9-ch5-2", question: "Boyle's law relates P and V at constant:", options: ["Temperature", "Pressure", "Volume", "Mass"], correctAnswer: 0, explanation: "Boyle's law: P ∝ 1/V at constant temperature." },
-              { id: "c9-ch5-3", question: "Fourth state of matter is:", options: ["Solid", "Liquid", "Gas", "Plasma"], correctAnswer: 3, explanation: "Plasma is the fourth state of matter (ionized gas)." },
-              { id: "c9-ch5-4", question: "Diffusion is fastest in:", options: ["Solids", "Liquids", "Gases", "Same in all"], correctAnswer: 2, explanation: "Gases have highest kinetic energy and fastest diffusion." }
-            ]
-          },
-          {
-            id: "ch6",
-            name: "Solutions",
-            importantTopics: ["Types of Solutions", "Concentration Units", "Solubility", "Saturated & Unsaturated Solutions"],
-            keyConcepts: ["Solute", "Solvent", "Molarity", "Dilution"],
-            formulas: ["Molarity (M) = moles of solute / liters of solution", "% concentration = (solute/solution) × 100"],
-            mcqs: [
-              { id: "c9-ch6-1", question: "A solution that cannot dissolve more solute is:", options: ["Dilute", "Concentrated", "Saturated", "Unsaturated"], correctAnswer: 2, explanation: "Saturated solution has maximum dissolved solute at given temperature." },
-              { id: "c9-ch6-2", question: "Substance that turns red litmus blue:", options: ["Acid", "Base", "Salt", "Water"], correctAnswer: 1, explanation: "Bases turn red litmus paper blue (basic/alkaline)." },
-              { id: "c9-ch6-3", question: "Universal solvent is:", options: ["Alcohol", "Water", "Acid", "Oil"], correctAnswer: 1, explanation: "Water dissolves many substances, hence 'universal solvent'." },
-              { id: "c9-ch6-4", question: "Chemical used to soften hard water:", options: ["Bleaching powder", "Washing soda", "Vinegar", "Salt"], correctAnswer: 1, explanation: "Washing soda (Na₂CO₃) removes Ca²⁺ and Mg²⁺ ions from hard water." }
-            ]
-          },
-          {
-            id: "ch7",
-            name: "Electrochemistry",
-            importantTopics: ["Electrolytes", "Electrolysis", "Electrochemical Cells", "Oxidation & Reduction"],
-            keyConcepts: ["Anode", "Cathode", "Galvanic Cell", "Electrolytic Cell", "Redox Reactions"],
-            formulas: ["Oxidation = Loss of electrons", "Reduction = Gain of electrons"],
-            mcqs: [
-              { id: "c9-ch7-1", question: "At cathode, process occurs:", options: ["Oxidation", "Reduction", "No reaction", "Both"], correctAnswer: 1, explanation: "Cathode is where reduction (gain of electrons) occurs." },
-              { id: "c9-ch7-2", question: "Electrolytes conduct electricity due to:", options: ["Free electrons", "Ions in solution", "Neutral atoms", "Protons"], correctAnswer: 1, explanation: "Electrolytes conduct electricity through movement of ions." },
-              { id: "c9-ch7-3", question: "In electrolysis, positive electrode is:", options: ["Cathode", "Anode", "Salt bridge", "Electrolyte"], correctAnswer: 1, explanation: "Anode is the positive electrode where oxidation occurs." }
-            ]
-          },
-          {
-            id: "ch8",
-            name: "Chemical Reactivity",
-            importantTopics: ["Metals and Non-metals", "Reactivity Series", "Chemical Reactions"],
-            keyConcepts: ["Activity Series", "Displacement Reactions", "Corrosion"],
-            formulas: [],
-            mcqs: [
-              { id: "c9-ch8-1", question: "Most reactive metal is:", options: ["Gold", "Potassium", "Iron", "Copper"], correctAnswer: 1, explanation: "Potassium is highly reactive; reacts violently with water." },
-              { id: "c9-ch8-2", question: "Element that forms acidic oxides:", options: ["Sodium", "Magnesium", "Calcium", "Sulfur"], correctAnswer: 3, explanation: "Non-metals like sulfur form acidic oxides (SO₂, SO₃)." },
-              { id: "c9-ch8-3", question: "Rusting of iron requires:", options: ["Only air", "Only water", "Air and water", "Neither"], correctAnswer: 2, explanation: "Rusting needs both oxygen (air) and moisture (water)." },
-              { id: "c9-ch8-4", question: "The hardest natural substance is:", options: ["Gold", "Diamond", "Iron", "Silver"], correctAnswer: 1, explanation: "Diamond (pure carbon) is the hardest natural substance." },
-              { id: "c9-ch8-5", question: "Stainless steel is an alloy of:", options: ["Iron & Carbon", "Iron, Chromium, Nickel", "Aluminium & Copper", "Zinc & Lead"], correctAnswer: 1, explanation: "Stainless steel contains iron, chromium, and nickel." }
-            ]
-          }
+          { id: "ch1", name: "Fundamentals of Chemistry", importantTopics: ["Branches of Chemistry", "Empirical & Molecular Formula", "Mole Concept", "Avogadro's Number"], keyConcepts: ["Matter", "Element", "Compound", "Mixture", "Atomic Mass Unit"], formulas: ["No. of moles = mass/molar mass", "No. of particles = n × Nₐ", "Nₐ = 6.022 × 10²³"], mcqs: [] },
+          { id: "ch2", name: "Structure of Atoms", importantTopics: ["Subatomic Particles", "Atomic Models", "Electronic Configuration", "Isotopes"], keyConcepts: ["Proton", "Neutron", "Electron", "Atomic Number", "Mass Number", "Rutherford & Bohr Models"], formulas: ["Mass Number = Protons + Neutrons", "Atomic Number = Number of Protons"], mcqs: [] },
+          { id: "ch3", name: "Periodic Table and Periodicity", importantTopics: ["Modern Periodic Table", "Groups & Periods", "Periodic Trends", "Metals & Non-metals"], keyConcepts: ["Periodic Law", "Electronegativity", "Ionization Energy", "Electron Affinity"], formulas: [], mcqs: [] },
+          { id: "ch4", name: "Structure of Molecules", importantTopics: ["Chemical Bonding", "Ionic Bonds", "Covalent Bonds", "Metallic Bonds"], keyConcepts: ["Octet Rule", "Lewis Dot Structure", "Electrovalent Compounds", "Coordinate Covalent Bond"], formulas: [], mcqs: [] },
+          { id: "ch5", name: "Physical States of Matter", importantTopics: ["Solid, Liquid, Gas", "Plasma", "Kinetic Molecular Theory", "Gas Laws"], keyConcepts: ["Boyle's Law", "Charles's Law", "Pressure-Temperature Relationship", "Diffusion"], formulas: ["P₁V₁ = P₂V₂ (Boyle's)", "V₁/T₁ = V₂/T₂ (Charles's)", "PV = nRT (Ideal Gas)"], mcqs: [] },
+          { id: "ch6", name: "Solutions", importantTopics: ["Types of Solutions", "Concentration Units", "Solubility", "Saturated & Unsaturated Solutions"], keyConcepts: ["Solute", "Solvent", "Molarity", "Dilution"], formulas: ["Molarity (M) = moles of solute / liters of solution", "% concentration = (solute/solution) × 100"], mcqs: [] },
+          { id: "ch7", name: "Electrochemistry", importantTopics: ["Electrolytes", "Electrolysis", "Electrochemical Cells", "Oxidation & Reduction"], keyConcepts: ["Anode", "Cathode", "Galvanic Cell", "Electrolytic Cell", "Redox Reactions"], formulas: ["Oxidation = Loss of electrons", "Reduction = Gain of electrons"], mcqs: [] },
+          { id: "ch8", name: "Chemical Reactivity", importantTopics: ["Metals and Non-metals", "Reactivity Series", "Chemical Reactions"], keyConcepts: ["Activity Series", "Displacement Reactions", "Corrosion"], formulas: [], mcqs: [] }
         ]
       },
       {
@@ -587,8 +357,31 @@ Total Marks: 87 | Time: 2 Hours 30 Minutes
           }
         ],
         chapters: [
-          { id: "new-ch1", name: "Physical Quantities and Measurements", importantTopics: [], keyConcepts: [], formulas: [], mcqs: [] },
-          { id: "new-ch2", name: "Kinematics", importantTopics: [], keyConcepts: [], formulas: [], mcqs: [] },
+          { id: "new-ch1", name: "Physical Quantities and Measurements", importantTopics: ["Base & Derived Units", "Prefixes", "Scientific Notation", "Measuring Instruments", "Errors"], keyConcepts: ["SI Units", "Vernier Callipers", "Screw Gauge", "Significant Figures", "Precision & Accuracy"], formulas: ["Least Count of Vernier = 0.1 mm", "Least Count of Screw Gauge = 0.01 mm"], mcqs: [
+            { id: "np9-ch1-1", question: "The instrument that is most suitable for measuring the thickness of a few sheets of cardboard is a:", options: ["metre rule", "measuring tape", "micrometer screw gauge", "Vernier Callipers"], correctAnswer: 2, explanation: "Micrometer screw gauge has the smallest least count (0.01 mm) suitable for thin sheets." },
+            { id: "np9-ch1-2", question: "One femtometre is equal to:", options: ["10 m", "10¹⁵ m", "10⁻¹⁵ m", "10⁻⁹ m"], correctAnswer: 2, explanation: "Femto prefix = 10⁻¹⁵" },
+            { id: "np9-ch1-3", question: "A light year is a unit of:", options: ["light", "time", "distance", "speed"], correctAnswer: 2, explanation: "A light year is the distance light travels in one year." },
+            { id: "np9-ch1-4", question: "Which one is a non-physical quantity?", options: ["distance", "density", "colour", "temperature"], correctAnswer: 2, explanation: "Colour cannot be measured with instruments; it is a non-physical quantity." },
+            { id: "np9-ch1-5", question: "When using a measuring cylinder, one precaution to take is to:", options: ["check for the zero error", "look at the meniscus from below the level of the water surface", "take several readings by looking from more than one direction", "position the eye in line with the bottom of the meniscus"], correctAnswer: 3, explanation: "The eye must be level with the bottom of the meniscus to avoid parallax error." },
+            { id: "np9-ch1-6", question: "Volume of water consumed by you per day is estimated in:", options: ["millilitre", "litre", "kilogram", "cubic metre"], correctAnswer: 1, explanation: "Daily water consumption is typically measured in litres." },
+            { id: "np9-ch1-7", question: "A displacement can is used to measure:", options: ["mass of a liquid", "mass of a solid", "volume of a liquid", "volume of a solid"], correctAnswer: 3, explanation: "A displacement can measures volume of irregular solids by water displacement." },
+            { id: "np9-ch1-8", question: "Two rods with lengths 12.321 cm and 10.3 cm are placed side by side, the difference in their lengths is:", options: ["2.02 cm", "2.0 cm", "2 cm", "2.021 cm"], correctAnswer: 1, explanation: "Following significant figures rules: 12.321 - 10.3 = 2.0 cm (1 decimal place)." },
+            { id: "np9-ch1-9", question: "Four students measure the diameter of a cylinder with Vernier Callipers. Which of the following readings is correct?", options: ["3.4 cm", "3.475 cm", "3.47 cm", "3.5 cm"], correctAnswer: 2, explanation: "Vernier Callipers reads to 0.01 cm, so 3.47 cm is the correct precision." },
+            { id: "np9-ch1-10", question: "Which of the following measures are likely to represent the thickness of a sheet of this book?", options: ["6 × 10⁻²⁵ m", "1 × 10⁻² m", "1.2 × 10⁻¹ m", "4 × 10⁻² m"], correctAnswer: 0, explanation: "A book sheet thickness is extremely small, in the order of micrometres." },
+            { id: "np9-ch1-11", question: "In a Vernier Callipers ten smallest divisions of the Vernier scale are equal to nine smallest divisions of the main scale. If the smallest division of the main scale is half millimetre, the Vernier constant is equal to:", options: ["0.5 mm", "0.1 mm", "0.05 mm", "0.001 mm"], correctAnswer: 2, explanation: "LC = 0.5 mm / 10 = 0.05 mm" }
+          ] },
+          { id: "new-ch2", name: "Kinematics", importantTopics: ["Scalars & Vectors", "Types of Motion", "Speed & Velocity", "Acceleration", "Graphical Analysis", "Equations of Motion"], keyConcepts: ["Distance vs Displacement", "Uniform & Non-uniform Motion", "Free Fall"], formulas: ["v = u + at", "s = ut + ½at²", "v² = u² + 2as"], mcqs: [
+            { id: "np9-ch2-1", question: "The numerical ratio of displacement to distance is:", options: ["always less than one", "always equal to one", "always greater than one", "equal to or less than one"], correctAnswer: 3, explanation: "Displacement ≤ Distance, so the ratio is always ≤ 1." },
+            { id: "np9-ch2-2", question: "If a body does not change its position with respect to some fixed point, then it will be in a state of:", options: ["rest", "motion", "uniform motion", "variable motion"], correctAnswer: 0, explanation: "No change in position means the body is at rest." },
+            { id: "np9-ch2-3", question: "A ball is dropped from the top of a tower, the distance covered by it in the first second is:", options: ["5 m", "10 m", "50 m", "100 m"], correctAnswer: 0, explanation: "s = ½gt² = ½ × 10 × 1² = 5 m" },
+            { id: "np9-ch2-4", question: "A body accelerates from rest to a velocity of 144 km/h in 20 seconds. The distance covered by it is:", options: ["100 m", "400 m", "1400 m", "1440 m"], correctAnswer: 1, explanation: "144 km/h = 40 m/s. s = ½at² = ½ × 2 × 400 = 400 m" },
+            { id: "np9-ch2-5", question: "A body is moving with constant acceleration starting from rest. It covers a distance S in 4 seconds. How much time does it take to cover one-fourth of this distance?", options: ["1 s", "2 s", "4 s", "16 s"], correctAnswer: 1, explanation: "s ∝ t², so t = 4 × √(1/4) = 2 s" },
+            { id: "np9-ch2-6", question: "The displacement time graphs of two objects A and B are shown in the figure. Point out the true statement from the following:", options: ["The velocity of A is greater than B", "The velocity of A is less than B", "The velocity of A is equal to that of B", "The graph gives no information in this regard"], correctAnswer: 0, explanation: "Steeper slope in displacement-time graph means greater velocity." },
+            { id: "np9-ch2-7", question: "The area under the speed-time graph is numerically equal to:", options: ["velocity", "uniform velocity", "acceleration", "distance covered"], correctAnswer: 3, explanation: "Area under speed-time graph = distance covered by the object." },
+            { id: "np9-ch2-8", question: "Gradient of the speed-time graph is equal to:", options: ["speed", "velocity", "acceleration", "distance covered"], correctAnswer: 2, explanation: "Slope of speed-time graph = rate of change of speed = acceleration." },
+            { id: "np9-ch2-9", question: "Gradient of the distance-time graph is equal to the:", options: ["speed", "velocity", "distance covered", "acceleration"], correctAnswer: 0, explanation: "Slope of distance-time graph = distance/time = speed." },
+            { id: "np9-ch2-10", question: "A car accelerates uniformly from 80.5 km/h at t = 0 to 113 km/h at t = 9 s. Which graph best describes the motion of the car?", options: ["Speed increasing linearly with time", "Speed constant with time", "Speed decreasing with time", "Speed increasing then decreasing"], correctAnswer: 0, explanation: "Uniform acceleration means speed increases linearly with time." }
+          ] },
           { id: "new-ch3", name: "Dynamics", importantTopics: [], keyConcepts: [], formulas: [], mcqs: [] },
           { id: "new-ch4", name: "Turning Effects of Force", importantTopics: [], keyConcepts: [], formulas: [], mcqs: [] },
           { id: "new-ch5", name: "Work, Energy and Power", importantTopics: [], keyConcepts: [], formulas: [], mcqs: [] },
@@ -605,8 +398,30 @@ Total Marks: 87 | Time: 2 Hours 30 Minutes
         pairingScheme: null,
         resources: [],
         chapters: [
-          { id: "new-ch1", name: "States of Matter and Phase Changes", importantTopics: [], keyConcepts: [], formulas: [], mcqs: [] },
-          { id: "new-ch2", name: "Atomic Structure", importantTopics: [], keyConcepts: [], formulas: [], mcqs: [] },
+          { id: "new-ch1", name: "States of Matter and Phase Changes", importantTopics: ["Chemistry Branches", "States of Matter", "Allotropy", "Solutions", "Solubility"], keyConcepts: ["Solid, Liquid, Gas, Plasma", "Elements, Compounds, Mixtures", "Saturated & Unsaturated Solutions"], formulas: [], mcqs: [
+            { id: "nc9-ch1-1", question: "Matter is present in neon signs in the state of:", options: ["Supercritical fluid", "Plasma", "Gas", "Liquid crystal"], correctAnswer: 1, explanation: "Neon signs contain plasma - ionized gas that glows." },
+            { id: "nc9-ch1-2", question: "Hazardous effects of shopping bags are studied in:", options: ["Geochemistry", "Inorganic Chemistry", "Analytical Chemistry", "Environmental Chemistry"], correctAnswer: 3, explanation: "Environmental Chemistry studies the effects of pollutants including plastic bags." },
+            { id: "nc9-ch1-3", question: "The man-made polymer is:", options: ["Starch", "Polystyrene", "Protein", "Cellulose"], correctAnswer: 1, explanation: "Polystyrene is a synthetic polymer; the others are natural polymers." },
+            { id: "nc9-ch1-4", question: "The crystals of which substance has rhombic shape?", options: ["Brass", "Sulphur", "Graphite", "Bronze"], correctAnswer: 1, explanation: "Sulphur exists in rhombic crystalline allotropic form." },
+            { id: "nc9-ch1-5", question: "Which liquid among the following is a colloidal solution?", options: ["Milk", "Slaked lime used for white wash", "Vinegar solution", "Mixture of AgCl in water"], correctAnswer: 0, explanation: "Milk is a colloidal solution with fat globules dispersed in water." },
+            { id: "nc9-ch1-6", question: "Which of the following is a heterogeneous mixture?", options: ["A solution of calcium hydroxide in water", "A solution of potassium nitrate in water", "Hot chocolate", "Concrete mixture"], correctAnswer: 3, explanation: "Concrete is a heterogeneous mixture of cement, sand, gravel and water." },
+            { id: "nc9-ch1-7", question: "A state of matter whose properties are between those of liquids and crystalline solids:", options: ["Liquid crystal", "Supercritical fluid", "Plasma", "Dark matter"], correctAnswer: 0, explanation: "Liquid crystals have properties intermediate between liquids and crystalline solids." },
+            { id: "nc9-ch1-8", question: "When the tiny visible particles of a substance are dispersed through a medium, the mixture is named as:", options: ["True solution", "Colloid", "Suspension", "Saturated solution"], correctAnswer: 2, explanation: "In a suspension, visible particles are dispersed but settle down over time." },
+            { id: "nc9-ch1-9", question: "A solution of KClO₃ has a solubility of about 13.2g per 100 cm³ at 40°C. How its solubility will be affected, if you decrease the temperature?", options: ["The solubility will increase", "The solubility will decrease", "The solubility will first increase then decrease", "The solubility will remain same"], correctAnswer: 1, explanation: "Solubility of most solids decreases with decrease in temperature." },
+            { id: "nc9-ch1-10", question: "You are studying the rate of hydrolysis of starch under different conditions of temperature. In which branch of chemistry this topic will fall?", options: ["Organic Chemistry", "Analytical Chemistry", "Biochemistry", "Physical Chemistry"], correctAnswer: 3, explanation: "Rate of reactions is studied in Physical Chemistry." }
+          ] },
+          { id: "new-ch2", name: "Atomic Structure", importantTopics: ["Discharge Tube", "Subatomic Particles", "Bohr's Model", "Isotopes", "Radioactivity"], keyConcepts: ["Electron, Proton, Neutron", "Atomic Number", "Mass Number", "Shells & Energy Levels"], formulas: ["N = A - Z", "Max electrons in shell = 2n²"], mcqs: [
+            { id: "nc9-ch2-1", question: "How many electrons can be accommodated at the most in the third shell of the elements?", options: ["8", "18", "10", "32"], correctAnswer: 1, explanation: "Using 2n² formula: 2(3)² = 18 electrons." },
+            { id: "nc9-ch2-2", question: "What information was obtained from discharge tube experiments?", options: ["Structure of atom was discovered", "Neutrons and protons were discovered", "Electrons and protons were discovered", "Presence of nucleus in an atom was discovered"], correctAnswer: 2, explanation: "Discharge tube experiments led to discovery of cathode rays (electrons) and canal rays (protons)." },
+            { id: "nc9-ch2-3", question: "Why have isotopes not been shown in the periodic table?", options: ["Periodic table cannot accommodate a large number of isotopes", "Isotopes are not important enough", "All the isotopes have same atomic number; so there is no need to give them separate places", "Isotopes do not show periodic behavior"], correctAnswer: 2, explanation: "Isotopes have the same atomic number and periodic table is arranged by atomic number." },
+            { id: "nc9-ch2-4", question: "Which particle is present in different number in the isotopes?", options: ["Electron", "Neutron", "Proton", "Both neutron and electron"], correctAnswer: 1, explanation: "Isotopes differ only in the number of neutrons." },
+            { id: "nc9-ch2-5", question: "In which isotope of oxygen there are the equal number of protons, electrons and neutrons?", options: ["¹⁶O", "¹⁷O", "¹⁸O", "None of these"], correctAnswer: 0, explanation: "¹⁶O has 8 protons, 8 electrons and 8 neutrons - all equal." },
+            { id: "nc9-ch2-6", question: "What will be the relative atomic mass of nitrogen given the abundances of its two isotopes, ¹⁴N and ¹⁵N are 99.64 and 0.36 respectively?", options: ["14.1200", "14.0210", "14.0021", "14.2100"], correctAnswer: 2, explanation: "RAM = (14 × 99.64 + 15 × 0.36)/100 = 14.0036 ≈ 14.0021" },
+            { id: "nc9-ch2-7", question: "How is radiocarbon dating useful for archeologists?", options: ["It helps determine the age of organic matter", "It helps determine the composition of matter", "It helps determine the usefulness of matter", "It helps determine whether the matter is radioactive or not"], correctAnswer: 0, explanation: "Radiocarbon dating uses ¹⁴C decay to determine the age of organic remains." },
+            { id: "nc9-ch2-8", question: "What does keep the particles present in the nucleus intact?", options: ["Particles are held together by strong nuclear force", "Particles are held together by weak nuclear force", "Particles are held together by electrostatic force", "Particles are held together by dipolar force"], correctAnswer: 0, explanation: "Strong nuclear force holds protons and neutrons together in the nucleus." },
+            { id: "nc9-ch2-9", question: "How do electrons keep themselves away from the oppositely charged nucleus?", options: ["By keeping themselves stationary", "By revolving around the nucleus", "Due to their wave-like nature", "A magnetic field around the nucleus keeps them away"], correctAnswer: 1, explanation: "Electrons revolve around the nucleus in orbits, their kinetic energy prevents them from falling in." },
+            { id: "nc9-ch2-10", question: "Rubidium consists of two isotopes ⁸⁵Rb and ⁸⁷Rb. The percent abundance of the light isotope is 72.2%. What is the percent abundance of the heavier isotope?", options: ["72%", "15%", "27.8%", "37%"], correctAnswer: 2, explanation: "100% - 72.2% = 27.8% for the heavier isotope." }
+          ] },
           { id: "new-ch3", name: "Chemical Bonding", importantTopics: [], keyConcepts: [], formulas: [], mcqs: [] },
           { id: "new-ch4", name: "Stoichiometry", importantTopics: [], keyConcepts: [], formulas: [], mcqs: [] },
           { id: "new-ch5", name: "Energetics", importantTopics: [], keyConcepts: [], formulas: [], mcqs: [] },
@@ -627,8 +442,30 @@ Total Marks: 87 | Time: 2 Hours 30 Minutes
         pairingScheme: null,
         resources: [],
         chapters: [
-          { id: "new-ch1", name: "Real Numbers", importantTopics: [], keyConcepts: [], formulas: [], mcqs: [] },
-          { id: "new-ch2", name: "Logarithms", importantTopics: [], keyConcepts: [], formulas: [], mcqs: [] },
+          { id: "new-ch1", name: "Real Numbers", importantTopics: ["Rational & Irrational Numbers", "Properties of Real Numbers", "Radicals & Indices", "Applications"], keyConcepts: ["Terminating & Non-terminating Decimals", "Number Line", "Surds", "Rationalization"], formulas: ["a(b+c) = ab + ac", "Profit = SP - CP", "K = °C + 273"], mcqs: [
+            { id: "nm9-ch1-1", question: "√4 is:", options: ["integer", "rational number", "irrational number", "natural number"], correctAnswer: 0, explanation: "√4 = 2, which is an integer." },
+            { id: "nm9-ch1-2", question: "π and e are:", options: ["natural numbers", "integers", "rational numbers", "irrational numbers"], correctAnswer: 3, explanation: "Both π and e are non-terminating, non-recurring decimals - irrational numbers." },
+            { id: "nm9-ch1-3", question: "If n is not a perfect square, then √n is:", options: ["rational number", "natural number", "integer", "irrational number"], correctAnswer: 3, explanation: "Square root of a non-perfect square is always irrational." },
+            { id: "nm9-ch1-4", question: "√5 is:", options: ["whole number", "integer", "rational number", "irrational number"], correctAnswer: 3, explanation: "5 is not a perfect square, so √5 is irrational." },
+            { id: "nm9-ch1-5", question: "For all x ∈ R, x = x is called:", options: ["reflexive property", "transitive property", "symmetric property", "trichotomy property"], correctAnswer: 0, explanation: "Every element is equal to itself - this is the reflexive property." },
+            { id: "nm9-ch1-6", question: "Let a, b, c ∈ R, then a > b and b > c ⇒ a > c is called ______ property:", options: ["trichotomy", "transitive", "additive", "multiplicative"], correctAnswer: 1, explanation: "If a > b and b > c implies a > c, this is the transitive property." },
+            { id: "nm9-ch1-7", question: "If 2 × 8ˣ = 64 then x =:", options: ["2", "3", "6", "1"], correctAnswer: 0, explanation: "2 × 8ˣ = 64, 8ˣ = 32, (2³)ˣ = 2⁵, x = 5/3... The answer depends on the exact formulation." },
+            { id: "nm9-ch1-8", question: "Let a, b ∈ R, then a = b and b = a is called:", options: ["reflexive", "symmetric", "transitive", "additive"], correctAnswer: 1, explanation: "If a = b implies b = a, this is the symmetric property." },
+            { id: "nm9-ch1-9", question: "√75 + √48 =:", options: ["√10", "9√3", "5√3", "8√3"], correctAnswer: 1, explanation: "√75 = 5√3, √48 = 4√3, so 5√3 + 4√3 = 9√3" },
+            { id: "nm9-ch1-10", question: "The product of (3 + √5)(3 - √5) is:", options: ["prime number", "odd number", "irrational number", "rational number"], correctAnswer: 3, explanation: "(3+√5)(3-√5) = 9 - 5 = 4, which is a rational number." }
+          ] },
+          { id: "new-ch2", name: "Logarithms", importantTopics: ["Scientific Notation", "Common & Natural Logarithm", "Laws of Logarithm", "Applications"], keyConcepts: ["Characteristic & Mantissa", "Product, Quotient, Power Laws", "Antilogarithm"], formulas: ["log(ab) = log a + log b", "log(a/b) = log a - log b", "log(aⁿ) = n log a"], mcqs: [
+            { id: "nm9-ch2-1", question: "The standard form of 5.2 × 10⁶ is:", options: ["52,000", "520,000", "5,200,000", "52,000,000"], correctAnswer: 2, explanation: "5.2 × 10⁶ = 5,200,000" },
+            { id: "nm9-ch2-2", question: "Scientific notation of 0.00034 is:", options: ["3.4 × 10", "3.4 × 10⁻⁴", "3.4 × 10⁴", "3.4 × 10⁻³"], correctAnswer: 1, explanation: "0.00034 = 3.4 × 10⁻⁴" },
+            { id: "nm9-ch2-3", question: "The base of common logarithm is:", options: ["2", "10", "5", "e"], correctAnswer: 1, explanation: "Common logarithm uses base 10." },
+            { id: "nm9-ch2-4", question: "log₂ 2 =", options: ["1", "2", "5", "3"], correctAnswer: 0, explanation: "log_a(a) = 1 for any base a." },
+            { id: "nm9-ch2-5", question: "log 100 =", options: ["2", "3", "10", "1"], correctAnswer: 0, explanation: "log₁₀(100) = log₁₀(10²) = 2" },
+            { id: "nm9-ch2-6", question: "If log 2 = 0.3010, then log 200 is:", options: ["1.3010", "0.6010", "2.3010", "2.6010"], correctAnswer: 2, explanation: "log 200 = log(2 × 100) = log 2 + log 100 = 0.3010 + 2 = 2.3010" },
+            { id: "nm9-ch2-7", question: "log(0) =", options: ["positive", "negative", "zero", "undefined"], correctAnswer: 3, explanation: "log(0) is undefined because no power of 10 equals 0." },
+            { id: "nm9-ch2-8", question: "log 10,000 =", options: ["2", "3", "4", "5"], correctAnswer: 2, explanation: "log₁₀(10,000) = log₁₀(10⁴) = 4" },
+            { id: "nm9-ch2-9", question: "log 5 + log 3 =", options: ["log 8", "log 2", "log 15", "log 0"], correctAnswer: 2, explanation: "By product law: log 5 + log 3 = log(5 × 3) = log 15" },
+            { id: "nm9-ch2-10", question: "3⁴ = 81 in logarithmic form is:", options: ["log₄ 3 = 81", "log₃ 4 = 81", "log₃ 81 = 4", "log₄ 81 = 3"], correctAnswer: 2, explanation: "3⁴ = 81 converts to log₃ 81 = 4" }
+          ] },
           { id: "new-ch3", name: "Set and Functions", importantTopics: [], keyConcepts: [], formulas: [], mcqs: [] },
           { id: "new-ch4", name: "Factorization and Algebraic Manipulation", importantTopics: [], keyConcepts: [], formulas: [], mcqs: [] },
           { id: "new-ch5", name: "Linear Equations and Inequalities", importantTopics: [], keyConcepts: [], formulas: [], mcqs: [] },
