@@ -7,8 +7,8 @@ export const academicClasses: AcademicClass[] = [
     name: "Class 9",
     subjects: [
       {
-        id: "physics-9",
-        name: "Physics",
+        id: "physics-9-old",
+        name: "Physics (Old Book)",
         icon: "⚛️",
         pairingScheme: `
 📋 PHYSICS CLASS 9 - PAIRING SCHEME 2026
@@ -191,8 +191,8 @@ Total Marks: 75 | Time: 2 Hours 30 Minutes
         ]
       },
       {
-        id: "chemistry-9",
-        name: "Chemistry",
+        id: "chemistry-9-old",
+        name: "Chemistry (Old Book)",
         icon: "🧪",
         pairingScheme: `
 📋 CHEMISTRY CLASS 9 - PAIRING SCHEME 2026
@@ -348,8 +348,8 @@ Total Marks: 75 | Time: 2 Hours 30 Minutes
         ]
       },
       {
-        id: "math-9",
-        name: "Mathematics",
+        id: "math-9-old",
+        name: "Mathematics (Old Book)",
         icon: "📐",
         pairingScheme: `
 📋 MATHEMATICS CLASS 9 - PAIRING SCHEME 2026
@@ -571,6 +571,75 @@ Total Marks: 87 | Time: 2 Hours 30 Minutes
               { id: "m9-ch16-1", question: "Area of triangle with base 6 and height 4 is:", options: ["10", "12", "24", "20"], correctAnswer: 1, explanation: "Area = ½ × 6 × 4 = 12 square units." }
             ]
           }
+        ]
+      },
+      {
+        id: "physics-9",
+        name: "Physics (New Book)",
+        icon: "⚛️",
+        pairingScheme: null,
+        resources: [
+          {
+            id: "physics-9-new-book",
+            name: "Physics 9 New Textbook (Punjab Board 2025-26)",
+            type: "book",
+            driveLink: "https://drive.google.com/file/d/1HikIwpSoNpKouPE0umIuNvl-iXY4xulm/view"
+          }
+        ],
+        chapters: [
+          { id: "new-ch1", name: "Physical Quantities and Measurements", importantTopics: [], keyConcepts: [], formulas: [], mcqs: [] },
+          { id: "new-ch2", name: "Kinematics", importantTopics: [], keyConcepts: [], formulas: [], mcqs: [] },
+          { id: "new-ch3", name: "Dynamics", importantTopics: [], keyConcepts: [], formulas: [], mcqs: [] },
+          { id: "new-ch4", name: "Turning Effects of Force", importantTopics: [], keyConcepts: [], formulas: [], mcqs: [] },
+          { id: "new-ch5", name: "Work, Energy and Power", importantTopics: [], keyConcepts: [], formulas: [], mcqs: [] },
+          { id: "new-ch6", name: "Mechanical Properties of Matter", importantTopics: [], keyConcepts: [], formulas: [], mcqs: [] },
+          { id: "new-ch7", name: "Thermal Properties of Matter", importantTopics: [], keyConcepts: [], formulas: [], mcqs: [] },
+          { id: "new-ch8", name: "Magnetism", importantTopics: [], keyConcepts: [], formulas: [], mcqs: [] },
+          { id: "new-ch9", name: "Nature of Science", importantTopics: [], keyConcepts: [], formulas: [], mcqs: [] }
+        ]
+      },
+      {
+        id: "chemistry-9",
+        name: "Chemistry (New Book)",
+        icon: "🧪",
+        pairingScheme: null,
+        resources: [],
+        chapters: [
+          { id: "new-ch1", name: "States of Matter and Phase Changes", importantTopics: [], keyConcepts: [], formulas: [], mcqs: [] },
+          { id: "new-ch2", name: "Atomic Structure", importantTopics: [], keyConcepts: [], formulas: [], mcqs: [] },
+          { id: "new-ch3", name: "Chemical Bonding", importantTopics: [], keyConcepts: [], formulas: [], mcqs: [] },
+          { id: "new-ch4", name: "Stoichiometry", importantTopics: [], keyConcepts: [], formulas: [], mcqs: [] },
+          { id: "new-ch5", name: "Energetics", importantTopics: [], keyConcepts: [], formulas: [], mcqs: [] },
+          { id: "new-ch6", name: "Equilibria", importantTopics: [], keyConcepts: [], formulas: [], mcqs: [] },
+          { id: "new-ch7", name: "Acid Base Chemistry", importantTopics: [], keyConcepts: [], formulas: [], mcqs: [] },
+          { id: "new-ch8", name: "Periodic Table and Periodicity", importantTopics: [], keyConcepts: [], formulas: [], mcqs: [] },
+          { id: "new-ch9", name: "Group Properties and Elements", importantTopics: [], keyConcepts: [], formulas: [], mcqs: [] },
+          { id: "new-ch10", name: "Environmental Chemistry", importantTopics: [], keyConcepts: [], formulas: [], mcqs: [] },
+          { id: "new-ch11", name: "Hydrocarbons", importantTopics: [], keyConcepts: [], formulas: [], mcqs: [] },
+          { id: "new-ch12", name: "Empirical Data Collection and Analysis", importantTopics: [], keyConcepts: [], formulas: [], mcqs: [] },
+          { id: "new-ch13", name: "Laboratory and Practical Skills", importantTopics: [], keyConcepts: [], formulas: [], mcqs: [] }
+        ]
+      },
+      {
+        id: "math-9",
+        name: "Mathematics (New Book)",
+        icon: "📐",
+        pairingScheme: null,
+        resources: [],
+        chapters: [
+          { id: "new-ch1", name: "Real Numbers", importantTopics: [], keyConcepts: [], formulas: [], mcqs: [] },
+          { id: "new-ch2", name: "Logarithms", importantTopics: [], keyConcepts: [], formulas: [], mcqs: [] },
+          { id: "new-ch3", name: "Set and Functions", importantTopics: [], keyConcepts: [], formulas: [], mcqs: [] },
+          { id: "new-ch4", name: "Factorization and Algebraic Manipulation", importantTopics: [], keyConcepts: [], formulas: [], mcqs: [] },
+          { id: "new-ch5", name: "Linear Equations and Inequalities", importantTopics: [], keyConcepts: [], formulas: [], mcqs: [] },
+          { id: "new-ch6", name: "Trigonometry", importantTopics: [], keyConcepts: [], formulas: [], mcqs: [] },
+          { id: "new-ch7", name: "Coordinate Geometry", importantTopics: [], keyConcepts: [], formulas: [], mcqs: [] },
+          { id: "new-ch8", name: "Logic", importantTopics: [], keyConcepts: [], formulas: [], mcqs: [] },
+          { id: "new-ch9", name: "Similar Figures", importantTopics: [], keyConcepts: [], formulas: [], mcqs: [] },
+          { id: "new-ch10", name: "Graphs of Functions", importantTopics: [], keyConcepts: [], formulas: [], mcqs: [] },
+          { id: "new-ch11", name: "Loci and Construction", importantTopics: [], keyConcepts: [], formulas: [], mcqs: [] },
+          { id: "new-ch12", name: "Information Handling", importantTopics: [], keyConcepts: [], formulas: [], mcqs: [] },
+          { id: "new-ch13", name: "Probability", importantTopics: [], keyConcepts: [], formulas: [], mcqs: [] }
         ]
       },
       {
