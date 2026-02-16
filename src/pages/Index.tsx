@@ -97,7 +97,7 @@ const Index = () => {
               <MainSectionCard
                 icon={Shield}
                 title="Armed Forces"
-                subtitle="Navy & Air Force"
+                subtitle="Navy, Air Force & PAF Inter Base"
                 description="Comprehensive test preparation for Pakistan Navy and Air Force initial tests"
                 gradient="bg-gradient-to-r from-[hsl(210,50%,25%)] to-[hsl(210,50%,40%)]"
                 onClick={() => setScreen("armed-forces")}

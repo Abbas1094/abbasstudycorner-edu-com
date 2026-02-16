@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ArrowLeft, Anchor, Plane, ChevronRight, Brain, Globe, Beaker, Atom, Calculator, BookOpen, Flame, ClipboardCheck, Target, Leaf } from "lucide-react";
+import { ArrowLeft, Anchor, Plane, ChevronRight, Brain, Globe, Beaker, Atom, Calculator, BookOpen, Flame, ClipboardCheck, Target, Leaf, Award, MessageSquare, Eye } from "lucide-react";
 import ForceCard from "@/components/ForceCard";
 import SubjectCard from "@/components/SubjectCard";
 import ChapterList from "@/components/ChapterList";
@@ -9,7 +9,9 @@ import ExperienceQuiz from "@/components/ExperienceQuiz";
 import NonVerbalQuiz from "@/components/NonVerbalQuiz";
 import PlaceholderMessage from "@/components/PlaceholderMessage";
 import TradeSelectionModal, { TradeType } from "@/components/TradeSelectionModal";
+import InterBaseTradeModal, { InterBaseTradeType } from "@/components/InterBaseTradeModal";
 import MockExam from "@/components/MockExam";
+import InterBaseMockExam from "@/components/InterBaseMockExam";
 import CustomPracticeModal, { PracticeSubject } from "@/components/CustomPracticeModal";
 import CustomPractice from "@/components/CustomPractice";
 
@@ -21,45 +23,25 @@ import { intelligenceChapters, intelligenceExperienceMCQs, intelligenceToughMCQs
 import { gkChapters, gkExperienceMCQs, gkToughMCQs } from "@/data/generalKnowledgeData";
 
 // Air Force data imports
-import {
-  airforceMathChaptersComplete,
-  airforceMathExperienceMCQs
-} from "@/data/airforceMathData";
+import { airforceMathChaptersComplete, airforceMathExperienceMCQs } from "@/data/airforceMathData";
+import { airforcePhysicsChaptersComplete, airforcePhysicsExperienceMCQs, ChapterWithNotes } from "@/data/airforcePhysicsData";
+import { airforceIntelligenceChapters, airforceIntelligenceExperienceMCQs } from "@/data/airforceIntelligenceData";
+import { airforceGKChapters, airforceGKExperienceMCQs } from "@/data/airforceGKData";
+import { airforceEnglishChapters, airforceEnglishExperienceMCQs } from "@/data/airforceEnglishData";
+import { airforceBiologyChapters, airforceBiologyExperienceMCQs } from "@/data/airforceBiologyData";
 
-// Air Force Physics (Complete 10 chapters, 300 MCQs with Notes)
+// PAF Inter Base data imports
 import {
-  airforcePhysicsChaptersComplete,
-  airforcePhysicsExperienceMCQs,
-  ChapterWithNotes
-} from "@/data/airforcePhysicsData";
+  interBaseVerbalChapters, interBaseVerbalExperienceMCQs,
+  interBaseNonVerbalChapters, interBaseNonVerbalExperienceMCQs,
+  interBaseEnglishChapters, interBaseEnglishExperienceMCQs,
+  interBasePhysicsChapters, interBasePhysicsExperienceMCQs,
+  interBaseMathChapters, interBaseMathExperienceMCQs,
+} from "@/data/pafInterBaseData";
 
-// Air Force Intelligence (Complete 10 chapters, 250+ MCQs)
-import {
-  airforceIntelligenceChapters,
-  airforceIntelligenceExperienceMCQs
-} from "@/data/airforceIntelligenceData";
-
-// Air Force GK (Complete 7 chapters)
-import {
-  airforceGKChapters,
-  airforceGKExperienceMCQs
-} from "@/data/airforceGKData";
-
-// Air Force English (Complete 5 chapters)
-import {
-  airforceEnglishChapters,
-  airforceEnglishExperienceMCQs
-} from "@/data/airforceEnglishData";
-
-// Air Force Biology (8 chapters, 200 MCQs with Notes)
-import {
-  airforceBiologyChapters,
-  airforceBiologyExperienceMCQs
-} from "@/data/airforceBiologyData";
-
-type ForceType = "navy" | "airforce";
-type Screen = "forces" | "subjects" | "subject-menu" | "chapters" | "quiz" | "experience" | "tough" | "mock-exam" | "custom-practice";
-type Subject = "chemistry" | "physics" | "math" | "intelligence" | "gk" | "english" | "biology";
+type ForceType = "navy" | "airforce" | "paf-interbase";
+type Screen = "forces" | "subjects" | "subject-menu" | "chapters" | "quiz" | "experience" | "tough" | "mock-exam" | "custom-practice" | "ib-mock-exam";
+type Subject = "chemistry" | "physics" | "math" | "intelligence" | "gk" | "english" | "biology" | "verbal-intelligence" | "nonverbal-intelligence";
 
 interface ArmedForcesSectionProps {
   onBack: () => void;
@@ -72,11 +54,13 @@ const ArmedForcesSection = ({ onBack }: ArmedForcesSectionProps) => {
   const [selectedChapter, setSelectedChapter] = useState<string | null>(null);
   const [showTradeModal, setShowTradeModal] = useState(false);
   const [selectedTrade, setSelectedTrade] = useState<TradeType | null>(null);
+  const [showInterBaseTradeModal, setShowInterBaseTradeModal] = useState(false);
+  const [selectedInterBaseTrade, setSelectedInterBaseTrade] = useState<InterBaseTradeType | null>(null);
   const [showCustomPracticeModal, setShowCustomPracticeModal] = useState(false);
   const [customPracticeSubjects, setCustomPracticeSubjects] = useState<PracticeSubject[]>([]);
   const [customPracticeHideTimer, setCustomPracticeHideTimer] = useState(false);
 
-  // Navy data getters (existing)
+  // Navy data getters
   const getNavyChapters = () => {
     switch (selectedSubject) {
       case "chemistry": return chemistryChapters;
@@ -122,14 +106,37 @@ const ArmedForcesSection = ({ onBack }: ArmedForcesSectionProps) => {
     }
   };
 
+  // Inter Base data getters
+  const getInterBaseChapters = () => {
+    switch (selectedSubject) {
+      case "verbal-intelligence": return interBaseVerbalChapters;
+      case "nonverbal-intelligence": return interBaseNonVerbalChapters;
+      case "english": return interBaseEnglishChapters;
+      case "physics": return interBasePhysicsChapters;
+      case "math": return interBaseMathChapters;
+      default: return [];
+    }
+  };
+
   const getChapters = () => {
     if (selectedForce === "navy") return getNavyChapters();
+    if (selectedForce === "paf-interbase") return getInterBaseChapters();
     return getAirForceChapters();
   };
 
   const getExperienceMCQs = () => {
     if (selectedForce === "navy") return getNavyExperienceMCQs();
-    // Air Force experience MCQs per subject
+    if (selectedForce === "paf-interbase") {
+      switch (selectedSubject) {
+        case "verbal-intelligence": return interBaseVerbalExperienceMCQs;
+        case "nonverbal-intelligence": return interBaseNonVerbalExperienceMCQs;
+        case "english": return interBaseEnglishExperienceMCQs;
+        case "physics": return interBasePhysicsExperienceMCQs;
+        case "math": return interBaseMathExperienceMCQs;
+        default: return [];
+      }
+    }
+    // Air Force
     switch (selectedSubject) {
       case "physics": return airforcePhysicsExperienceMCQs;
       case "intelligence": return airforceIntelligenceExperienceMCQs;
@@ -153,6 +160,9 @@ const ArmedForcesSection = ({ onBack }: ArmedForcesSectionProps) => {
     if (screen === "mock-exam") {
       setScreen("subjects");
       setSelectedTrade(null);
+    } else if (screen === "ib-mock-exam") {
+      setScreen("subjects");
+      setSelectedInterBaseTrade(null);
     } else if (screen === "custom-practice") {
       setScreen("subjects");
       setCustomPracticeSubjects([]);
@@ -178,6 +188,12 @@ const ArmedForcesSection = ({ onBack }: ArmedForcesSectionProps) => {
     setScreen("mock-exam");
   };
 
+  const handleInterBaseTradeSelect = (trade: InterBaseTradeType) => {
+    setSelectedInterBaseTrade(trade);
+    setShowInterBaseTradeModal(false);
+    setScreen("ib-mock-exam");
+  };
+
   const handleCustomPracticeStart = (subjects: PracticeSubject[], hideTimer: boolean) => {
     setCustomPracticeSubjects(subjects);
     setCustomPracticeHideTimer(hideTimer);
@@ -188,7 +204,14 @@ const ArmedForcesSection = ({ onBack }: ArmedForcesSectionProps) => {
   const getForceTitle = () => {
     if (selectedForce === "navy") return "Pakistan Navy";
     if (selectedForce === "airforce") return "Pakistan Air Force";
+    if (selectedForce === "paf-interbase") return "PAF Inter Base";
     return "Armed Forces";
+  };
+
+  const getSubjectDisplayName = () => {
+    if (selectedSubject === "verbal-intelligence") return "Verbal Intelligence";
+    if (selectedSubject === "nonverbal-intelligence") return "Non-Verbal Intelligence";
+    return selectedSubject ? selectedSubject.charAt(0).toUpperCase() + selectedSubject.slice(1) : "";
   };
 
   return (
@@ -202,12 +225,16 @@ const ArmedForcesSection = ({ onBack }: ArmedForcesSectionProps) => {
                 ? "bg-gradient-gold" 
                 : selectedForce === "airforce" 
                   ? "bg-gradient-to-r from-sky-500 to-blue-600"
-                  : "bg-gradient-to-r from-green-600 to-emerald-700"
+                  : selectedForce === "paf-interbase"
+                    ? "bg-gradient-to-r from-indigo-500 to-blue-700"
+                    : "bg-gradient-to-r from-green-600 to-emerald-700"
             }`}>
               {selectedForce === "navy" ? (
                 <Anchor className="w-6 h-6 text-primary-foreground" />
               ) : selectedForce === "airforce" ? (
                 <Plane className="w-6 h-6 text-white" />
+              ) : selectedForce === "paf-interbase" ? (
+                <Award className="w-6 h-6 text-white" />
               ) : (
                 <BookOpen className="w-6 h-6 text-white" />
               )}
@@ -215,7 +242,7 @@ const ArmedForcesSection = ({ onBack }: ArmedForcesSectionProps) => {
             <div>
               <h1 className="font-display text-xl font-bold text-foreground">{getForceTitle()}</h1>
               <p className="text-xs text-muted-foreground">
-                {selectedSubject ? `${selectedSubject.charAt(0).toUpperCase() + selectedSubject.slice(1)}` : "Test Preparation 2026"}
+                {selectedSubject ? getSubjectDisplayName() : "Test Preparation 2026"}
               </p>
             </div>
           </div>
@@ -255,13 +282,24 @@ const ArmedForcesSection = ({ onBack }: ArmedForcesSectionProps) => {
                 <ForceCard
                   icon={Plane}
                   title="Pakistan Air Force"
-                  subtitle="Complete Test Preparation"
+                  subtitle="Airmen Level • Complete Test Preparation"
                   gradient="bg-gradient-to-r from-sky-600 to-blue-700"
                   onClick={() => {
                     setSelectedForce("airforce");
                     setScreen("subjects");
                   }}
                   delay={0.1}
+                />
+                <ForceCard
+                  icon={Award}
+                  title="PAF Inter Base (GDP, CAE, AE, AD, LOG)"
+                  subtitle="Commissioned Level • Officer Selection"
+                  gradient="bg-gradient-to-r from-indigo-600 to-blue-800"
+                  onClick={() => {
+                    setSelectedForce("paf-interbase");
+                    setScreen("subjects");
+                  }}
+                  delay={0.2}
                 />
               </div>
             </motion.div>
@@ -276,16 +314,12 @@ const ArmedForcesSection = ({ onBack }: ArmedForcesSectionProps) => {
               exit={{ opacity: 0, x: -20 }}
             >
               <h2 className="font-display text-2xl font-bold mb-6 text-foreground">
-                {selectedForce === "airforce" ? "Choose Option" : "Choose Subject"}
+                {selectedForce === "airforce" ? "Choose Option" : selectedForce === "paf-interbase" ? "Choose Subject" : "Choose Subject"}
               </h2>
               
-              {/* Air Force Mock Exam Card */}
+              {/* Air Force Mock Exam & Custom Practice Cards */}
               {selectedForce === "airforce" && (
-                <motion.div
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  className="mb-6"
-                >
+                <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} className="mb-6">
                   <motion.button
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
@@ -304,7 +338,6 @@ const ArmedForcesSection = ({ onBack }: ArmedForcesSectionProps) => {
                     </div>
                   </motion.button>
 
-                  {/* Custom Practice Card */}
                   <motion.button
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
@@ -325,61 +358,130 @@ const ArmedForcesSection = ({ onBack }: ArmedForcesSectionProps) => {
                 </motion.div>
               )}
 
+              {/* PAF Inter Base Mock Exam & Custom Practice */}
+              {selectedForce === "paf-interbase" && (
+                <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} className="mb-6">
+                  <motion.button
+                    whileHover={{ scale: 1.02 }}
+                    whileTap={{ scale: 0.98 }}
+                    onClick={() => setShowInterBaseTradeModal(true)}
+                    className="w-full p-5 rounded-2xl bg-gradient-to-r from-indigo-500 to-blue-700 shadow-lg text-left"
+                  >
+                    <div className="flex items-center gap-4">
+                      <div className="w-14 h-14 rounded-xl bg-white/20 flex items-center justify-center">
+                        <ClipboardCheck className="w-8 h-8 text-white" />
+                      </div>
+                      <div className="flex-1">
+                        <h3 className="font-display text-xl font-bold text-white">🎯 Full Mock Exam</h3>
+                        <p className="text-sm text-white/80">Trade-wise simulation • GDP, CAE, AE, AD, LOG</p>
+                      </div>
+                      <ChevronRight className="w-6 h-6 text-white" />
+                    </div>
+                  </motion.button>
+                </motion.div>
+              )}
+
               <div className="grid gap-4">
-                <SubjectCard 
-                  icon={Brain} 
-                  title="Intelligence" 
-                  subtitle={selectedForce === "navy" ? "10 Chapters • 250+ MCQs" : "10 Chapters • 250+ MCQs"} 
-                  color="from-amber-500 to-orange-600" 
-                  onClick={() => { setSelectedSubject("intelligence"); setScreen("subject-menu"); }} 
-                />
-                <SubjectCard 
-                  icon={Globe} 
-                  title="General Knowledge" 
-                  subtitle={selectedForce === "navy" ? "7 Chapters • 175+ MCQs" : "7 Chapters • 175+ MCQs"}
-                  color="from-rose-500 to-red-600" 
-                  onClick={() => { setSelectedSubject("gk"); setScreen("subject-menu"); }} 
-                />
-                {selectedForce === "navy" && (
-                  <SubjectCard 
-                    icon={Beaker} 
-                    title="Chemistry" 
-                    subtitle="10 Chapters • 300+ MCQs" 
-                    color="from-emerald-500 to-teal-600" 
-                    onClick={() => { setSelectedSubject("chemistry"); setScreen("subject-menu"); }} 
-                  />
+                {/* PAF Inter Base subjects */}
+                {selectedForce === "paf-interbase" && (
+                  <>
+                    <SubjectCard 
+                      icon={MessageSquare} 
+                      title="Verbal Intelligence" 
+                      subtitle="10 Chapters • ~84 MCQs per test" 
+                      color="from-amber-500 to-orange-600" 
+                      onClick={() => { setSelectedSubject("verbal-intelligence"); setScreen("subject-menu"); }} 
+                    />
+                    <SubjectCard 
+                      icon={Eye} 
+                      title="Non-Verbal Intelligence" 
+                      subtitle="8 Chapters • ~64 MCQs per test" 
+                      color="from-rose-500 to-pink-600" 
+                      onClick={() => { setSelectedSubject("nonverbal-intelligence"); setScreen("subject-menu"); }} 
+                    />
+                    <SubjectCard 
+                      icon={BookOpen} 
+                      title="English" 
+                      subtitle="10 Chapters • 50-75 MCQs" 
+                      color="from-indigo-500 to-violet-600" 
+                      onClick={() => { setSelectedSubject("english"); setScreen("subject-menu"); }} 
+                    />
+                    <SubjectCard 
+                      icon={Atom} 
+                      title="Physics" 
+                      subtitle="14 Chapters • FSc Part 1 & 2" 
+                      color="from-blue-500 to-cyan-600" 
+                      onClick={() => { setSelectedSubject("physics"); setScreen("subject-menu"); }} 
+                    />
+                    <SubjectCard 
+                      icon={Calculator} 
+                      title="Mathematics (CAE)" 
+                      subtitle="12 Chapters • FSc Level • Eliminator" 
+                      color="from-purple-500 to-pink-600" 
+                      onClick={() => { setSelectedSubject("math"); setScreen("subject-menu"); }} 
+                    />
+                  </>
                 )}
-                <SubjectCard 
-                  icon={Atom} 
-                  title="Physics" 
-                  subtitle={selectedForce === "navy" ? "10 Chapters • 250+ MCQs" : "10 Chapters • 300 MCQs"} 
-                  color="from-blue-500 to-cyan-600" 
-                  onClick={() => { setSelectedSubject("physics"); setScreen("subject-menu"); }} 
-                />
-                <SubjectCard 
-                  icon={Calculator} 
-                  title="Mathematics" 
-                  subtitle={selectedForce === "navy" ? "10 Chapters • 250+ MCQs" : "15 Chapters • 450 MCQs"} 
-                  color="from-purple-500 to-pink-600" 
-                  onClick={() => { setSelectedSubject("math"); setScreen("subject-menu"); }} 
-                />
-                {selectedForce === "airforce" && (
-                  <SubjectCard 
-                    icon={BookOpen} 
-                    title="English" 
-                    subtitle="12 Chapters • 360 MCQs" 
-                    color="from-indigo-500 to-violet-600" 
-                    onClick={() => { setSelectedSubject("english"); setScreen("subject-menu"); }} 
-                  />
-                )}
-                {selectedForce === "airforce" && (
-                  <SubjectCard 
-                    icon={Leaf} 
-                    title="Biology" 
-                    subtitle="8 Chapters • 200 MCQs" 
-                    color="from-green-500 to-emerald-600" 
-                    onClick={() => { setSelectedSubject("biology"); setScreen("subject-menu"); }} 
-                  />
+
+                {/* Navy & Air Force subjects */}
+                {selectedForce !== "paf-interbase" && (
+                  <>
+                    <SubjectCard 
+                      icon={Brain} 
+                      title="Intelligence" 
+                      subtitle={selectedForce === "navy" ? "10 Chapters • 250+ MCQs" : "10 Chapters • 250+ MCQs"} 
+                      color="from-amber-500 to-orange-600" 
+                      onClick={() => { setSelectedSubject("intelligence"); setScreen("subject-menu"); }} 
+                    />
+                    <SubjectCard 
+                      icon={Globe} 
+                      title="General Knowledge" 
+                      subtitle={selectedForce === "navy" ? "7 Chapters • 175+ MCQs" : "7 Chapters • 175+ MCQs"}
+                      color="from-rose-500 to-red-600" 
+                      onClick={() => { setSelectedSubject("gk"); setScreen("subject-menu"); }} 
+                    />
+                    {selectedForce === "navy" && (
+                      <SubjectCard 
+                        icon={Beaker} 
+                        title="Chemistry" 
+                        subtitle="10 Chapters • 300+ MCQs" 
+                        color="from-emerald-500 to-teal-600" 
+                        onClick={() => { setSelectedSubject("chemistry"); setScreen("subject-menu"); }} 
+                      />
+                    )}
+                    <SubjectCard 
+                      icon={Atom} 
+                      title="Physics" 
+                      subtitle={selectedForce === "navy" ? "10 Chapters • 250+ MCQs" : "10 Chapters • 300 MCQs"} 
+                      color="from-blue-500 to-cyan-600" 
+                      onClick={() => { setSelectedSubject("physics"); setScreen("subject-menu"); }} 
+                    />
+                    <SubjectCard 
+                      icon={Calculator} 
+                      title="Mathematics" 
+                      subtitle={selectedForce === "navy" ? "10 Chapters • 250+ MCQs" : "15 Chapters • 450 MCQs"} 
+                      color="from-purple-500 to-pink-600" 
+                      onClick={() => { setSelectedSubject("math"); setScreen("subject-menu"); }} 
+                    />
+                    {selectedForce === "airforce" && (
+                      <SubjectCard 
+                        icon={BookOpen} 
+                        title="English" 
+                        subtitle="12 Chapters • 360 MCQs" 
+                        color="from-indigo-500 to-violet-600" 
+                        onClick={() => { setSelectedSubject("english"); setScreen("subject-menu"); }} 
+                      />
+                    )}
+                    {selectedForce === "airforce" && (
+                      <SubjectCard 
+                        icon={Leaf} 
+                        title="Biology" 
+                        subtitle="8 Chapters • 200 MCQs" 
+                        color="from-green-500 to-emerald-600" 
+                        onClick={() => { setSelectedSubject("biology"); setScreen("subject-menu"); }} 
+                      />
+                    )}
+                  </>
                 )}
               </div>
             </motion.div>
@@ -393,9 +495,9 @@ const ArmedForcesSection = ({ onBack }: ArmedForcesSectionProps) => {
               animate={{ opacity: 1, x: 0 }}
               exit={{ opacity: 0, x: -20 }}
             >
-              <h2 className="font-display text-2xl font-bold mb-6 capitalize text-foreground">{selectedSubject}</h2>
+              <h2 className="font-display text-2xl font-bold mb-6 text-foreground">{getSubjectDisplayName()}</h2>
               
-              {/* Section A - Experience Based (Navy only, or placeholder for PAF) */}
+              {/* Section A - Experience Based */}
               <div className="mb-4">
                 <div className="flex items-center gap-2 mb-3">
                   <span className="px-3 py-1 bg-primary/20 text-primary text-xs font-bold rounded-full">SECTION A</span>
@@ -417,7 +519,7 @@ const ArmedForcesSection = ({ onBack }: ArmedForcesSectionProps) => {
                     </div>
                   </motion.div>
                 ) : (
-                  <PlaceholderMessage message={`📌 ${selectedForce === "airforce" ? "Air Force" : ""} Experience-based questions will be added soon.`} />
+                  <PlaceholderMessage message={`📌 Experience-based questions will be added soon.`} />
                 )}
               </div>
 
@@ -480,7 +582,7 @@ const ArmedForcesSection = ({ onBack }: ArmedForcesSectionProps) => {
             />
           )}
 
-          {/* Quiz - use NonVerbalQuiz for af-int-11 chapter */}
+          {/* Quiz */}
           {screen === "quiz" && selectedChapter && (
             selectedChapter === "af-int-11" ? (
               <NonVerbalQuiz onBack={handleBack} />
@@ -496,7 +598,7 @@ const ArmedForcesSection = ({ onBack }: ArmedForcesSectionProps) => {
           {screen === "experience" && selectedSubject && (
             <ExperienceQuiz 
               mcqs={getExperienceMCQs()} 
-              subject={selectedSubject} 
+              subject={getSubjectDisplayName()} 
               onBack={handleBack} 
             />
           )}
@@ -505,15 +607,23 @@ const ArmedForcesSection = ({ onBack }: ArmedForcesSectionProps) => {
           {screen === "tough" && selectedSubject && (
             <ExperienceQuiz 
               mcqs={getToughMCQs()} 
-              subject={`${selectedSubject} - Tough`} 
+              subject={`${getSubjectDisplayName()} - Tough`} 
               onBack={handleBack} 
             />
           )}
 
-          {/* Mock Exam */}
+          {/* Air Force Mock Exam */}
           {screen === "mock-exam" && selectedTrade && (
             <MockExam 
               trade={selectedTrade} 
+              onBack={handleBack} 
+            />
+          )}
+
+          {/* PAF Inter Base Mock Exam */}
+          {screen === "ib-mock-exam" && selectedInterBaseTrade && (
+            <InterBaseMockExam 
+              trade={selectedInterBaseTrade} 
               onBack={handleBack} 
             />
           )}
@@ -528,11 +638,18 @@ const ArmedForcesSection = ({ onBack }: ArmedForcesSectionProps) => {
           )}
         </AnimatePresence>
 
-        {/* Trade Selection Modal */}
+        {/* Trade Selection Modal (Air Force) */}
         <TradeSelectionModal
           isOpen={showTradeModal}
           onClose={() => setShowTradeModal(false)}
           onSelectTrade={handleTradeSelect}
+        />
+
+        {/* Inter Base Trade Selection Modal */}
+        <InterBaseTradeModal
+          isOpen={showInterBaseTradeModal}
+          onClose={() => setShowInterBaseTradeModal(false)}
+          onSelectTrade={handleInterBaseTradeSelect}
         />
 
         {/* Custom Practice Modal */}
