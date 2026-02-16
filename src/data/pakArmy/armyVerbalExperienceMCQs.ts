@@ -1,6 +1,6 @@
 // PMA Long Course - Verbal Intelligence Experience MCQs
 // Sources: PMA 152, PMA 148 LC, PMA Academics
-import { MCQ } from "@/data/chemistryData";
+import { MCQ } from "@/types";
 
 export const armyVerbalExperienceMCQsData: MCQ[] = [
   // ===== Odd One Out =====

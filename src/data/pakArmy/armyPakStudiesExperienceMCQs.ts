@@ -1,6 +1,6 @@
 // PMA Long Course - Pak Studies Experience MCQs
 // Sources: 11th PMA, 13th PMA, 14th PMA, PMA 152, PMA 148 LC, PMA Guide, PMA 500 MCQs
-import { MCQ } from "@/data/chemistryData";
+import { MCQ } from "@/types";
 
 export const armyPakStudiesExperienceMCQsData: MCQ[] = [
   // ===== Pakistan Movement & History =====
