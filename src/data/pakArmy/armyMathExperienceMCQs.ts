@@ -1,6 +1,6 @@
 // PMA Long Course - Mathematics Experience MCQs
 // Sources: PMA 152, PMA 148 LC, PMA Academics, PMA Guide
-import { MCQ } from "@/data/chemistryData";
+import { MCQ } from "@/types";
 
 export const armyMathExperienceMCQsData: MCQ[] = [
   // ===== Arithmetic & Percentages =====
