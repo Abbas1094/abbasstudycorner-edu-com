@@ -1,5 +1,5 @@
 export interface MCQ {
-  id: number;
+  id: string | number;
   question: string;
   questionImage?: string; // URL or path to question image (for non-verbal patterns)
   options: string[];

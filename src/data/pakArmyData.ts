@@ -1,5 +1,11 @@
 // Pakistan Army - PMA Long Course, TCC, DSSC, IC, LCC Data
-import { Chapter, MCQ } from "@/data/chemistryData";
+import { Chapter, MCQ } from "@/types";
+import { armyVerbalExperienceMCQsData } from "@/data/pakArmy/armyVerbalExperienceMCQs";
+import { armyEnglishExperienceMCQsData } from "@/data/pakArmy/armyEnglishExperienceMCQs";
+import { armyMathExperienceMCQsData } from "@/data/pakArmy/armyMathExperienceMCQs";
+import { armyPakStudiesExperienceMCQsData } from "@/data/pakArmy/armyPakStudiesExperienceMCQs";
+import { armyIslamiatExperienceMCQsData } from "@/data/pakArmy/armyIslamiatExperienceMCQs";
+import { armyGKExperienceMCQsData } from "@/data/pakArmy/armyGKExperienceMCQs";
 
 // ============= INTELLIGENCE - VERBAL =============
 export const armyVerbalChapters: Chapter[] = [
@@ -75,7 +81,7 @@ export const armyVerbalChapters: Chapter[] = [
   }
 ];
 
-export const armyVerbalExperienceMCQs: MCQ[] = [];
+export const armyVerbalExperienceMCQs: MCQ[] = armyVerbalExperienceMCQsData;
 
 // ============= INTELLIGENCE - NON-VERBAL =============
 export const armyNonVerbalChapters: Chapter[] = [
@@ -213,7 +219,7 @@ export const armyEnglishChapters: Chapter[] = [
   }
 ];
 
-export const armyEnglishExperienceMCQs: MCQ[] = [];
+export const armyEnglishExperienceMCQs: MCQ[] = armyEnglishExperienceMCQsData;
 
 // ============= MATHEMATICS =============
 export const armyMathChapters: Chapter[] = [
@@ -289,7 +295,7 @@ export const armyMathChapters: Chapter[] = [
   }
 ];
 
-export const armyMathExperienceMCQs: MCQ[] = [];
+export const armyMathExperienceMCQs: MCQ[] = armyMathExperienceMCQsData;
 
 // ============= PAK STUDIES =============
 export const armyPakStudiesChapters: Chapter[] = [
@@ -351,7 +357,7 @@ export const armyPakStudiesChapters: Chapter[] = [
   }
 ];
 
-export const armyPakStudiesExperienceMCQs: MCQ[] = [];
+export const armyPakStudiesExperienceMCQs: MCQ[] = armyPakStudiesExperienceMCQsData;
 
 // ============= ISLAMIAT =============
 export const armyIslamiatChapters: Chapter[] = [
@@ -413,7 +419,7 @@ export const armyIslamiatChapters: Chapter[] = [
   }
 ];
 
-export const armyIslamiatExperienceMCQs: MCQ[] = [];
+export const armyIslamiatExperienceMCQs: MCQ[] = armyIslamiatExperienceMCQsData;
 
 // ============= GENERAL KNOWLEDGE & CURRENT AFFAIRS =============
 export const armyGKChapters: Chapter[] = [
@@ -475,7 +481,7 @@ export const armyGKChapters: Chapter[] = [
   }
 ];
 
-export const armyGKExperienceMCQs: MCQ[] = [];
+export const armyGKExperienceMCQs: MCQ[] = armyGKExperienceMCQsData;
 
 // ============= PHYSICS (TCC - FSc Level) =============
 export const armyPhysicsChapters: Chapter[] = [
