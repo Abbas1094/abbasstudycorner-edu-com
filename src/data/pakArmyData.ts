@@ -572,3 +572,168 @@ export const armyPhysicsChapters: Chapter[] = [
 ];
 
 export const armyPhysicsExperienceMCQs: MCQ[] = [];
+
+// ============= DISTRIBUTE ALL MCQs INTO CHAPTERS =============
+
+// --- VERBAL INTELLIGENCE ---
+// Verbal Analogies
+armyVerbalChapters[0].mcqs = [armyVerbalExperienceMCQsData[4], armyVerbalExperienceMCQsData[5]];
+// Word Problems (Odd One Out)
+armyVerbalChapters[2].mcqs = armyVerbalExperienceMCQsData.slice(0, 4);
+// Verbal Series
+armyVerbalChapters[4].mcqs = [armyVerbalExperienceMCQsData[11], armyVerbalExperienceMCQsData[12]];
+// Coding-Decoding
+armyVerbalChapters[5].mcqs = [armyVerbalExperienceMCQsData[13], armyVerbalExperienceMCQsData[14], armyVerbalExperienceMCQsData[15]];
+// Logical Reasoning
+armyVerbalChapters[6].mcqs = [armyVerbalExperienceMCQsData[6], armyVerbalExperienceMCQsData[7], armyVerbalExperienceMCQsData[8], armyVerbalExperienceMCQsData[9]];
+// Blood Relations
+armyVerbalChapters[7].mcqs = [armyVerbalExperienceMCQsData[16]];
+// Direction Sense
+armyVerbalChapters[8].mcqs = [armyVerbalExperienceMCQsData[10]];
+// GK (Intelligence)
+armyVerbalChapters[9].mcqs = [armyVerbalExperienceMCQsData[17], armyVerbalExperienceMCQsData[18], armyVerbalExperienceMCQsData[19]];
+
+// --- ENGLISH ---
+// Prepositions
+armyEnglishChapters[0].mcqs = armyEnglishExperienceMCQsData.slice(0, 6);
+// Synonyms
+armyEnglishChapters[1].mcqs = armyEnglishExperienceMCQsData.slice(6, 10);
+// Antonyms
+armyEnglishChapters[2].mcqs = armyEnglishExperienceMCQsData.slice(10, 14);
+// Tenses
+armyEnglishChapters[6].mcqs = [armyEnglishExperienceMCQsData[14], armyEnglishExperienceMCQsData[15], armyEnglishExperienceMCQsData[16]];
+// Vocabulary & Idioms
+armyEnglishChapters[7].mcqs = [armyEnglishExperienceMCQsData[17], armyEnglishExperienceMCQsData[18], armyEnglishExperienceMCQsData[19]];
+// Articles & Determiners
+armyEnglishChapters[8].mcqs = armyEnglishExperienceMCQsData.slice(20, 25);
+
+// --- MATHEMATICS ---
+// Trigonometry
+armyMathChapters[2].mcqs = [armyMathExperienceMCQsData[19], armyMathExperienceMCQsData[20]];
+// Permutations & Combinations
+armyMathChapters[4].mcqs = [armyMathExperienceMCQsData[21], armyMathExperienceMCQsData[22]];
+// Differentiation
+armyMathChapters[5].mcqs = [armyMathExperienceMCQsData[17]];
+// Arithmetic & Number Systems (percentages, fractions, word problems, day problems)
+armyMathChapters[7].mcqs = [
+  ...armyMathExperienceMCQsData.slice(0, 9),
+  ...armyMathExperienceMCQsData.slice(9, 17),
+  armyMathExperienceMCQsData[24],
+  armyMathExperienceMCQsData[29]
+];
+// Algebra (cube root, empty set, roots of unity)
+armyMathChapters[8].mcqs = [armyMathExperienceMCQsData[18], armyMathExperienceMCQsData[23], armyMathExperienceMCQsData[25]];
+// Geometry & Mensuration (vectors, quadrants)
+armyMathChapters[9].mcqs = [armyMathExperienceMCQsData[26], armyMathExperienceMCQsData[27], armyMathExperienceMCQsData[28]];
+
+// --- PAK STUDIES ---
+// Pakistan Movement
+armyPakStudiesChapters[0].mcqs = [
+  armyPakStudiesExperienceMCQsData[1], armyPakStudiesExperienceMCQsData[4],
+  armyPakStudiesExperienceMCQsData[6], armyPakStudiesExperienceMCQsData[10],
+  armyPakStudiesExperienceMCQsData[13], armyPakStudiesExperienceMCQsData[17],
+  armyPakStudiesExperienceMCQsData[19], armyPakStudiesExperienceMCQsData[20]
+];
+// Constitutional History
+armyPakStudiesChapters[1].mcqs = [
+  armyPakStudiesExperienceMCQsData[9], armyPakStudiesExperienceMCQsData[14],
+  armyPakStudiesExperienceMCQsData[22], armyPakStudiesExperienceMCQsData[26],
+  armyPakStudiesExperienceMCQsData[27]
+];
+// Geography of Pakistan
+armyPakStudiesChapters[2].mcqs = [
+  armyPakStudiesExperienceMCQsData[2], armyPakStudiesExperienceMCQsData[23],
+  armyPakStudiesExperienceMCQsData[24], armyPakStudiesExperienceMCQsData[25],
+  armyPakStudiesExperienceMCQsData[28], armyPakStudiesExperienceMCQsData[29]
+];
+// Important Personalities
+armyPakStudiesChapters[3].mcqs = [
+  armyPakStudiesExperienceMCQsData[0], armyPakStudiesExperienceMCQsData[3],
+  armyPakStudiesExperienceMCQsData[5], armyPakStudiesExperienceMCQsData[11],
+  armyPakStudiesExperienceMCQsData[12], armyPakStudiesExperienceMCQsData[15],
+  armyPakStudiesExperienceMCQsData[16], armyPakStudiesExperienceMCQsData[18],
+  armyPakStudiesExperienceMCQsData[21]
+];
+// Wars & Defense
+armyPakStudiesChapters[4].mcqs = [armyPakStudiesExperienceMCQsData[7]];
+// Culture & Society
+armyPakStudiesChapters[5].mcqs = [armyPakStudiesExperienceMCQsData[8]];
+// Firsts in Pakistan
+armyPakStudiesChapters[7].mcqs = [
+  armyPakStudiesExperienceMCQsData[0], armyPakStudiesExperienceMCQsData[12],
+  armyPakStudiesExperienceMCQsData[18], armyPakStudiesExperienceMCQsData[21]
+];
+
+// --- ISLAMIAT ---
+// Basic Beliefs (Aqaid) - Prophet titles
+armyIslamiatChapters[0].mcqs = [armyIslamiatExperienceMCQsData[3], armyIslamiatExperienceMCQsData[26]];
+// Pillars of Islam
+armyIslamiatChapters[1].mcqs = [armyIslamiatExperienceMCQsData[16], armyIslamiatExperienceMCQsData[18]];
+// Life of Prophet Muhammad ﷺ
+armyIslamiatChapters[2].mcqs = [
+  armyIslamiatExperienceMCQsData[2], armyIslamiatExperienceMCQsData[4],
+  armyIslamiatExperienceMCQsData[6], armyIslamiatExperienceMCQsData[21],
+  armyIslamiatExperienceMCQsData[29]
+];
+// Khulafa-e-Rashideen
+armyIslamiatChapters[3].mcqs = [
+  armyIslamiatExperienceMCQsData[23], armyIslamiatExperienceMCQsData[24],
+  armyIslamiatExperienceMCQsData[28]
+];
+// Holy Quran
+armyIslamiatChapters[4].mcqs = [
+  armyIslamiatExperienceMCQsData[9], armyIslamiatExperienceMCQsData[10],
+  armyIslamiatExperienceMCQsData[15], armyIslamiatExperienceMCQsData[20]
+];
+// Islamic History (Battles, events, dates)
+armyIslamiatChapters[6].mcqs = [
+  armyIslamiatExperienceMCQsData[0], armyIslamiatExperienceMCQsData[1],
+  armyIslamiatExperienceMCQsData[5], armyIslamiatExperienceMCQsData[7],
+  armyIslamiatExperienceMCQsData[8], armyIslamiatExperienceMCQsData[11],
+  armyIslamiatExperienceMCQsData[12], armyIslamiatExperienceMCQsData[13],
+  armyIslamiatExperienceMCQsData[14], armyIslamiatExperienceMCQsData[17],
+  armyIslamiatExperienceMCQsData[22], armyIslamiatExperienceMCQsData[25],
+  armyIslamiatExperienceMCQsData[27]
+];
+
+// --- GENERAL KNOWLEDGE ---
+// World Capitals & Countries (capitals + currencies)
+armyGKChapters[0].mcqs = [
+  armyGKExperienceMCQsData[0], armyGKExperienceMCQsData[4],
+  armyGKExperienceMCQsData[13], armyGKExperienceMCQsData[14],
+  armyGKExperienceMCQsData[16], armyGKExperienceMCQsData[22],
+  armyGKExperienceMCQsData[23], armyGKExperienceMCQsData[24],
+  armyGKExperienceMCQsData[37]
+];
+// Current Affairs Pakistan
+armyGKChapters[1].mcqs = [
+  armyGKExperienceMCQsData[1], armyGKExperienceMCQsData[9],
+  armyGKExperienceMCQsData[31], armyGKExperienceMCQsData[36],
+  armyGKExperienceMCQsData[40], armyGKExperienceMCQsData[41],
+  armyGKExperienceMCQsData[42], armyGKExperienceMCQsData[43],
+  armyGKExperienceMCQsData[44]
+];
+// International Organizations
+armyGKChapters[2].mcqs = [
+  armyGKExperienceMCQsData[12], armyGKExperienceMCQsData[19],
+  armyGKExperienceMCQsData[21], armyGKExperienceMCQsData[25],
+  armyGKExperienceMCQsData[26], armyGKExperienceMCQsData[35]
+];
+// Science & Technology
+armyGKChapters[3].mcqs = [
+  armyGKExperienceMCQsData[2], armyGKExperienceMCQsData[5],
+  armyGKExperienceMCQsData[6], armyGKExperienceMCQsData[10]
+];
+// Sports & Awards
+armyGKChapters[4].mcqs = [armyGKExperienceMCQsData[15], armyGKExperienceMCQsData[33]];
+// Geography (World)
+armyGKChapters[5].mcqs = [
+  armyGKExperienceMCQsData[3], armyGKExperienceMCQsData[7],
+  armyGKExperienceMCQsData[8], armyGKExperienceMCQsData[17],
+  armyGKExperienceMCQsData[20], armyGKExperienceMCQsData[27],
+  armyGKExperienceMCQsData[28], armyGKExperienceMCQsData[30],
+  armyGKExperienceMCQsData[32], armyGKExperienceMCQsData[34],
+  armyGKExperienceMCQsData[38], armyGKExperienceMCQsData[39]
+];
+// Pakistan Armed Forces
+armyGKChapters[6].mcqs = [armyGKExperienceMCQsData[11], armyGKExperienceMCQsData[29]];

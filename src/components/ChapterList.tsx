@@ -26,7 +26,7 @@ const ChapterList = ({ chapters, onSelect }: ChapterListProps) => (
             <h4 className="font-semibold text-foreground group-hover:text-primary transition-colors truncate">{chapter.name}</h4>
             <p className="text-sm text-muted-foreground truncate">{chapter.description}</p>
           </div>
-          <span className="text-xs bg-primary/20 text-primary px-2 py-1 rounded-full font-medium whitespace-nowrap">25 MCQs</span>
+          <span className="text-xs bg-primary/20 text-primary px-2 py-1 rounded-full font-medium whitespace-nowrap">{chapter.mcqs?.length || 0} MCQs</span>
         </div>
       </motion.button>
     ))}
