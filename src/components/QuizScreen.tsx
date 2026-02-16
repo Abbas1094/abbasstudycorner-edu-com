@@ -41,9 +41,9 @@ interface QuizScreenPropsExtended {
   onBack: () => void;
 }
 
-const QuizScreen = ({ chapter }: QuizScreenPropsExtended) => {
+const QuizScreen = ({ chapter, onBack }: QuizScreenPropsExtended & { onBack: () => void }) => {
   // Shuffle MCQs once when component mounts or chapter changes
-  const shuffledMCQs = useMemo(() => shuffleMCQs(chapter.mcqs), [chapter.id]);
+  const shuffledMCQs = useMemo(() => shuffleMCQs(chapter.mcqs || []), [chapter.id]);
   
   const [current, setCurrent] = useState(0);
   const [selected, setSelected] = useState<number | null>(null);
@@ -53,11 +53,9 @@ const QuizScreen = ({ chapter }: QuizScreenPropsExtended) => {
   const [showNotes, setShowNotes] = useState(false);
 
   const mcq = shuffledMCQs[current];
-  const isCorrect = selected === mcq.correctAnswer;
-  const isAnswered = selected !== null;
 
   const handleSelect = useCallback((idx: number) => {
-    if (selected !== null) return;
+    if (selected !== null || !mcq) return;
     setSelected(idx);
     const correct = idx === mcq.correctAnswer;
     if (correct) setScore(s => s + 1);
@@ -68,7 +66,7 @@ const QuizScreen = ({ chapter }: QuizScreenPropsExtended) => {
       correctAnswer: mcq.correctAnswer,
       isCorrect: correct
     }]);
-  }, [selected, mcq.correctAnswer, current]);
+  }, [selected, mcq, current]);
 
   const handleNext = useCallback(() => {
     if (current < shuffledMCQs.length - 1) {
@@ -88,6 +86,19 @@ const QuizScreen = ({ chapter }: QuizScreenPropsExtended) => {
   }, []);
 
   const mistakes = useMemo(() => answers.filter(a => !a.isCorrect), [answers]);
+
+  if (!mcq) {
+    return (
+      <div className="flex flex-col items-center justify-center min-h-[40vh] text-center p-8">
+        <p className="text-lg font-semibold text-foreground mb-2">No questions available</p>
+        <p className="text-muted-foreground mb-4">This section doesn't have any MCQs yet.</p>
+        <button onClick={onBack} className="px-4 py-2 bg-primary text-primary-foreground rounded-lg">Go Back</button>
+      </div>
+    );
+  }
+
+  const isCorrect = selected === mcq.correctAnswer;
+  const isAnswered = selected !== null;
 
   const generateExplanation = (q: typeof mcq) => {
     if (q.explanation) return q.explanation;
