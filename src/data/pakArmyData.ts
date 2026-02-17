@@ -14,6 +14,7 @@ import { armyIslCh2MCQs, armyIslCh3MCQs, armyIslCh4MCQs, armyIslCh5MCQs, armyIsl
 import { armyEngCh2MCQs, armyEngCh3MCQs, armyEngCh8MCQs, armyEngCh9MCQs } from "@/data/pakArmy/armyEnglishChapterMCQs";
 import { armyMathCh2MCQs, armyMathCh3MCQs, armyMathCh5MCQs, armyMathCh6MCQs, armyMathCh7MCQs, armyMathCh8MCQs, armyMathCh9MCQs, armyMathCh10MCQs } from "@/data/pakArmy/armyMathChapterMCQs";
 import { armyVerbalCh1MCQs, armyVerbalCh3MCQs, armyVerbalCh5MCQs, armyVerbalCh9MCQs } from "@/data/pakArmy/armyVerbalChapterMCQs";
+import { allNonVerbalMCQs } from "@/data/nonVerbalPatterns";
 
 // ============= INTELLIGENCE - VERBAL =============
 export const armyVerbalChapters: Chapter[] = [
@@ -40,18 +41,30 @@ export const armyVerbalChapters: Chapter[] = [
 export const armyVerbalExperienceMCQs: MCQ[] = armyVerbalExperienceMCQsData;
 
 // ============= INTELLIGENCE - NON-VERBAL =============
+// Map chapter IDs to question ranges for NonVerbalQuiz rendering
+export const armyNvQuestionRanges: Record<string, { start: number; end: number }> = {
+  "army-nv-1": { start: 1, end: 7 },
+  "army-nv-2": { start: 8, end: 14 },
+  "army-nv-3": { start: 15, end: 20 },
+  "army-nv-4": { start: 21, end: 26 },
+  "army-nv-5": { start: 27, end: 32 },
+  "army-nv-6": { start: 33, end: 38 },
+  "army-nv-7": { start: 39, end: 44 },
+  "army-nv-8": { start: 45, end: 50 },
+};
+
 export const armyNonVerbalChapters: Chapter[] = [
-  { id: "army-nv-1", name: "Pattern Recognition", description: "Identify patterns in visual sequences", icon: "🔲", mcqs: [] },
-  { id: "army-nv-2", name: "Figure Series", description: "Complete the visual sequence", icon: "🔳", mcqs: [] },
-  { id: "army-nv-3", name: "Mirror Images", description: "Identify mirror reflections of figures", icon: "🪞", mcqs: [] },
-  { id: "army-nv-4", name: "Paper Folding & Cutting", description: "Predict results of paper operations", icon: "📄", mcqs: [] },
-  { id: "army-nv-5", name: "Figure Analogies", description: "Visual relationship-based reasoning", icon: "🔀", mcqs: [] },
-  { id: "army-nv-6", name: "Embedded Figures", description: "Find hidden figures within complex shapes", icon: "🔍", mcqs: [] },
-  { id: "army-nv-7", name: "Shape Counting", description: "Count geometric shapes in figures", icon: "📐", mcqs: [] },
-  { id: "army-nv-8", name: "Cube & Dice Problems", description: "3D spatial reasoning with cubes", icon: "🎲", mcqs: [] }
+  { id: "army-nv-1", name: "Pattern Recognition", description: "Identify patterns in visual sequences (Q1-Q7)", icon: "🔲", mcqs: allNonVerbalMCQs.slice(0, 7) },
+  { id: "army-nv-2", name: "Figure Series", description: "Complete the visual sequence (Q8-Q14)", icon: "🔳", mcqs: allNonVerbalMCQs.slice(7, 14) },
+  { id: "army-nv-3", name: "Mirror Images", description: "Identify mirror reflections of figures (Q15-Q20)", icon: "🪞", mcqs: allNonVerbalMCQs.slice(14, 20) },
+  { id: "army-nv-4", name: "Paper Folding & Cutting", description: "Predict results of paper operations (Q21-Q26)", icon: "📄", mcqs: allNonVerbalMCQs.slice(20, 26) },
+  { id: "army-nv-5", name: "Figure Analogies", description: "Visual relationship-based reasoning (Q27-Q32)", icon: "🔀", mcqs: allNonVerbalMCQs.slice(26, 32) },
+  { id: "army-nv-6", name: "Embedded Figures", description: "Find hidden figures within complex shapes (Q33-Q38)", icon: "🔍", mcqs: allNonVerbalMCQs.slice(32, 38) },
+  { id: "army-nv-7", name: "Shape Counting", description: "Count geometric shapes in figures (Q39-Q44)", icon: "📐", mcqs: allNonVerbalMCQs.slice(38, 44) },
+  { id: "army-nv-8", name: "Cube & Dice Problems", description: "3D spatial reasoning with cubes (Q45-Q50)", icon: "🎲", mcqs: allNonVerbalMCQs.slice(44, 50) }
 ];
 
-export const armyNonVerbalExperienceMCQs: MCQ[] = [];
+export const armyNonVerbalExperienceMCQs: MCQ[] = allNonVerbalMCQs;
 
 // ============= ENGLISH =============
 export const armyEnglishChapters: Chapter[] = [
