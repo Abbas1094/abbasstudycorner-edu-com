@@ -27,7 +27,7 @@ import { gkChapters, gkExperienceMCQs, gkToughMCQs } from "@/data/generalKnowled
 // Air Force data imports
 import { airforceMathChaptersComplete, airforceMathExperienceMCQs } from "@/data/airforceMathData";
 import { airforcePhysicsChaptersComplete, airforcePhysicsExperienceMCQs, ChapterWithNotes } from "@/data/airforcePhysicsData";
-import { airforceIntelligenceChapters, airforceIntelligenceExperienceMCQs } from "@/data/airforceIntelligenceData";
+import { airforceIntelligenceChapters, airforceIntelligenceExperienceMCQs, airforceNonVerbalChapters, airforceNonVerbalExperienceMCQs, afNvQuestionRanges } from "@/data/airforceIntelligenceData";
 import { airforceGKChapters, airforceGKExperienceMCQs } from "@/data/airforceGKData";
 import { airforceEnglishChapters, airforceEnglishExperienceMCQs } from "@/data/airforceEnglishData";
 import { airforceBiologyChapters, airforceBiologyExperienceMCQs } from "@/data/airforceBiologyData";
@@ -113,6 +113,7 @@ const ArmedForcesSection = ({ onBack }: ArmedForcesSectionProps) => {
   const getAirForceChapters = () => {
     switch (selectedSubject) {
       case "intelligence": return airforceIntelligenceChapters;
+      case "nonverbal-intelligence": return airforceNonVerbalChapters;
       case "math": return airforceMathChaptersComplete;
       case "physics": return airforcePhysicsChaptersComplete;
       case "english": return airforceEnglishChapters;
@@ -185,6 +186,7 @@ const ArmedForcesSection = ({ onBack }: ArmedForcesSectionProps) => {
     switch (selectedSubject) {
       case "physics": return airforcePhysicsExperienceMCQs;
       case "intelligence": return airforceIntelligenceExperienceMCQs;
+      case "nonverbal-intelligence": return airforceNonVerbalExperienceMCQs;
       case "gk": return airforceGKExperienceMCQs;
       case "english": return airforceEnglishExperienceMCQs;
       case "math": return airforceMathExperienceMCQs;
@@ -590,6 +592,15 @@ const ArmedForcesSection = ({ onBack }: ArmedForcesSectionProps) => {
                       color="from-amber-500 to-orange-600" 
                       onClick={() => { setSelectedSubject("intelligence"); setScreen("subject-menu"); }} 
                     />
+                    {selectedForce === "airforce" && (
+                      <SubjectCard 
+                        icon={Eye} 
+                        title="Non-Verbal Intelligence" 
+                        subtitle="8 Chapters • 50 SVG Pattern MCQs" 
+                        color="from-rose-500 to-pink-600" 
+                        onClick={() => { setSelectedSubject("nonverbal-intelligence"); setScreen("subject-menu"); }} 
+                      />
+                    )}
                     <SubjectCard 
                       icon={Globe} 
                       title="General Knowledge" 
@@ -743,6 +754,11 @@ const ArmedForcesSection = ({ onBack }: ArmedForcesSectionProps) => {
           {screen === "quiz" && selectedChapter && (
             selectedChapter === "af-int-11" ? (
               <NonVerbalQuiz onBack={handleBack} />
+            ) : selectedChapter.startsWith("af-nv-") ? (
+              <NonVerbalQuiz 
+                onBack={handleBack} 
+                questionRange={afNvQuestionRanges[selectedChapter]} 
+              />
             ) : selectedChapter.startsWith("army-nv-") ? (
               <NonVerbalQuiz 
                 onBack={handleBack} 
@@ -758,7 +774,7 @@ const ArmedForcesSection = ({ onBack }: ArmedForcesSectionProps) => {
 
           {/* Experience Quiz */}
           {screen === "experience" && selectedSubject && (
-            selectedSubject === "nonverbal-intelligence" && selectedForce === "pak-army" ? (
+            selectedSubject === "nonverbal-intelligence" && (selectedForce === "pak-army" || selectedForce === "airforce") ? (
               <NonVerbalQuiz 
                 onBack={handleBack} 
                 questionRange={{ start: 1, end: 50 }} 

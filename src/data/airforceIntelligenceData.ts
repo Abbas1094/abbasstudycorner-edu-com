@@ -1,5 +1,6 @@
 // Air Force Intelligence Data - Same as Navy Intelligence for complete preparation
 import { Chapter, MCQ } from "@/data/chemistryData";
+import { allNonVerbalMCQs } from "@/data/nonVerbalPatterns";
 
 export const airforceIntelligenceChapters: Chapter[] = [
   {
@@ -332,14 +333,32 @@ export const airforceIntelligenceChapters: Chapter[] = [
       { id: 25, question: "Father is 40 years old. Son is 10. After how many years father is twice son's age?", options: ["15", "18", "20", "22"], correctAnswer: 2 }
     ]
   },
-  {
-    id: "af-int-11",
-    name: "Non-Verbal Patterns",
-    description: "50 SVG pattern questions (clean, no checkmarks)",
-    icon: "🔷",
-    mcqs: [] // MCQs rendered via NonVerbalQuiz using SVG patterns
-  }
 ];
+
+// ============= NON-VERBAL INTELLIGENCE (SVG Patterns) =============
+export const afNvQuestionRanges: Record<string, { start: number; end: number }> = {
+  "af-nv-1": { start: 1, end: 7 },
+  "af-nv-2": { start: 8, end: 14 },
+  "af-nv-3": { start: 15, end: 20 },
+  "af-nv-4": { start: 21, end: 26 },
+  "af-nv-5": { start: 27, end: 32 },
+  "af-nv-6": { start: 33, end: 38 },
+  "af-nv-7": { start: 39, end: 44 },
+  "af-nv-8": { start: 45, end: 50 },
+};
+
+export const airforceNonVerbalChapters: Chapter[] = [
+  { id: "af-nv-1", name: "Pattern Recognition", description: "Identify patterns in visual sequences (Q1-Q7)", icon: "🔲", mcqs: allNonVerbalMCQs.slice(0, 7) },
+  { id: "af-nv-2", name: "Figure Series", description: "Complete the visual sequence (Q8-Q14)", icon: "🔳", mcqs: allNonVerbalMCQs.slice(7, 14) },
+  { id: "af-nv-3", name: "Mirror Images", description: "Identify mirror reflections of figures (Q15-Q20)", icon: "🪞", mcqs: allNonVerbalMCQs.slice(14, 20) },
+  { id: "af-nv-4", name: "Paper Folding & Cutting", description: "Predict results of paper operations (Q21-Q26)", icon: "📄", mcqs: allNonVerbalMCQs.slice(20, 26) },
+  { id: "af-nv-5", name: "Figure Analogies", description: "Visual relationship-based reasoning (Q27-Q32)", icon: "🔀", mcqs: allNonVerbalMCQs.slice(26, 32) },
+  { id: "af-nv-6", name: "Embedded Figures", description: "Find hidden figures within complex shapes (Q33-Q38)", icon: "🔍", mcqs: allNonVerbalMCQs.slice(32, 38) },
+  { id: "af-nv-7", name: "Shape Counting", description: "Count geometric shapes in figures (Q39-Q44)", icon: "📐", mcqs: allNonVerbalMCQs.slice(38, 44) },
+  { id: "af-nv-8", name: "Cube & Dice Problems", description: "3D spatial reasoning with cubes (Q45-Q50)", icon: "🎲", mcqs: allNonVerbalMCQs.slice(44, 50) }
+];
+
+export const airforceNonVerbalExperienceMCQs: MCQ[] = allNonVerbalMCQs;
 
 // Air Force Intelligence Experience MCQs
 export const airforceIntelligenceExperienceMCQs: MCQ[] = [
