@@ -44,7 +44,7 @@ import {
 // Pakistan Army data imports
 import {
   armyVerbalChapters, armyVerbalExperienceMCQs,
-  armyNonVerbalChapters, armyNonVerbalExperienceMCQs,
+  armyNonVerbalChapters, armyNonVerbalExperienceMCQs, armyNvQuestionRanges,
   armyEnglishChapters, armyEnglishExperienceMCQs,
   armyMathChapters, armyMathExperienceMCQs,
   armyPakStudiesChapters, armyPakStudiesExperienceMCQs,
@@ -743,6 +743,11 @@ const ArmedForcesSection = ({ onBack }: ArmedForcesSectionProps) => {
           {screen === "quiz" && selectedChapter && (
             selectedChapter === "af-int-11" ? (
               <NonVerbalQuiz onBack={handleBack} />
+            ) : selectedChapter.startsWith("army-nv-") ? (
+              <NonVerbalQuiz 
+                onBack={handleBack} 
+                questionRange={armyNvQuestionRanges[selectedChapter]} 
+              />
             ) : (
               <QuizScreen 
                 chapter={getChapters().find(c => c.id === selectedChapter)!} 
