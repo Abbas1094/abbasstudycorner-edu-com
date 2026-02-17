@@ -1,5 +1,11 @@
 // Academic data for Class 9-12 with MCQs, Pairing Schemes and Resources
 import { AcademicClass } from "@/types";
+import {
+  chemistry9NewCh3MCQs, chemistry9NewCh4MCQs, chemistry9NewCh5MCQs,
+  chemistry9NewCh6MCQs, chemistry9NewCh7MCQs, chemistry9NewCh8MCQs,
+  chemistry9NewCh9MCQs, chemistry9NewCh10MCQs, chemistry9NewCh11MCQs,
+  chemistry9NewCh12MCQs, chemistry9NewCh13MCQs
+} from "@/data/chemistry9NewMCQs";
 
 export const academicClasses: AcademicClass[] = [
   {
@@ -495,17 +501,17 @@ Total Marks: 87 | Time: 2 Hours 30 Minutes
             { id: "nc9-ch2-9", question: "How do electrons keep themselves away from the oppositely charged nucleus?", options: ["By keeping themselves stationary", "By revolving around the nucleus", "Due to their wave-like nature", "A magnetic field around the nucleus keeps them away"], correctAnswer: 1, explanation: "Electrons revolve around the nucleus in orbits, their kinetic energy prevents them from falling in." },
             { id: "nc9-ch2-10", question: "Rubidium consists of two isotopes ⁸⁵Rb and ⁸⁷Rb. The percent abundance of the light isotope is 72.2%. What is the percent abundance of the heavier isotope?", options: ["72%", "15%", "27.8%", "37%"], correctAnswer: 2, explanation: "100% - 72.2% = 27.8% for the heavier isotope." }
           ] },
-          { id: "new-ch3", name: "Chemical Bonding", importantTopics: [], keyConcepts: [], formulas: [], mcqs: [] },
-          { id: "new-ch4", name: "Stoichiometry", importantTopics: [], keyConcepts: [], formulas: [], mcqs: [] },
-          { id: "new-ch5", name: "Energetics", importantTopics: [], keyConcepts: [], formulas: [], mcqs: [] },
-          { id: "new-ch6", name: "Equilibria", importantTopics: [], keyConcepts: [], formulas: [], mcqs: [] },
-          { id: "new-ch7", name: "Acid Base Chemistry", importantTopics: [], keyConcepts: [], formulas: [], mcqs: [] },
-          { id: "new-ch8", name: "Periodic Table and Periodicity", importantTopics: [], keyConcepts: [], formulas: [], mcqs: [] },
-          { id: "new-ch9", name: "Group Properties and Elements", importantTopics: [], keyConcepts: [], formulas: [], mcqs: [] },
-          { id: "new-ch10", name: "Environmental Chemistry", importantTopics: [], keyConcepts: [], formulas: [], mcqs: [] },
-          { id: "new-ch11", name: "Hydrocarbons", importantTopics: [], keyConcepts: [], formulas: [], mcqs: [] },
-          { id: "new-ch12", name: "Empirical Data Collection and Analysis", importantTopics: [], keyConcepts: [], formulas: [], mcqs: [] },
-          { id: "new-ch13", name: "Laboratory and Practical Skills", importantTopics: [], keyConcepts: [], formulas: [], mcqs: [] }
+          { id: "new-ch3", name: "Chemical Bonding", importantTopics: ["Ionic Bonds", "Covalent Bonds", "Metallic Bonds", "Coordinate Covalent Bond", "Properties"], keyConcepts: ["Octet Rule", "Electronegativity", "Intermolecular Forces", "Hydrogen Bonding"], formulas: [], mcqs: chemistry9NewCh3MCQs },
+          { id: "new-ch4", name: "Stoichiometry", importantTopics: ["Mole Concept", "Avogadro's Number", "Empirical & Molecular Formula", "Chemical Calculations"], keyConcepts: ["Molar Mass", "Percentage Composition", "Stoichiometric Calculations"], formulas: ["No. of moles = mass/molar mass", "No. of particles = n × Nₐ"], mcqs: chemistry9NewCh4MCQs },
+          { id: "new-ch5", name: "Energetics", importantTopics: ["Exothermic & Endothermic Reactions", "Enthalpy", "Bond Energy", "Activation Energy"], keyConcepts: ["Enthalpy Change", "Energy Diagrams", "Hess's Law", "Calorimetry"], formulas: ["ΔH = ΣBond energies(broken) - ΣBond energies(formed)"], mcqs: chemistry9NewCh5MCQs },
+          { id: "new-ch6", name: "Equilibria", importantTopics: ["Reversible Reactions", "Dynamic Equilibrium", "Le Chatelier's Principle", "Factors Affecting Equilibrium"], keyConcepts: ["Equilibrium Constant", "Effect of Temperature, Pressure, Concentration"], formulas: ["Kc = [Products]/[Reactants]"], mcqs: chemistry9NewCh6MCQs },
+          { id: "new-ch7", name: "Acid Base Chemistry", importantTopics: ["Acids & Bases", "Neutralization", "pH Scale", "Salts"], keyConcepts: ["Bronsted-Lowry Theory", "Conjugate Acid-Base Pairs", "Indicators"], formulas: ["pH = -log[H⁺]"], mcqs: chemistry9NewCh7MCQs },
+          { id: "new-ch8", name: "Periodic Table and Periodicity", importantTopics: ["Modern Periodic Table", "Groups & Periods", "Periodic Trends"], keyConcepts: ["Atomic Radius", "Ionization Energy", "Electron Affinity", "Electronegativity"], formulas: [], mcqs: chemistry9NewCh8MCQs },
+          { id: "new-ch9", name: "Group Properties and Elements", importantTopics: ["Alkali Metals", "Alkaline Earth Metals", "Halogens", "Noble Gases", "Transition Metals"], keyConcepts: ["Reactivity Trends", "Physical Properties", "Chemical Properties"], formulas: [], mcqs: chemistry9NewCh9MCQs },
+          { id: "new-ch10", name: "Environmental Chemistry", importantTopics: ["Air Pollution", "Greenhouse Effect", "Acid Rain", "Ozone Depletion"], keyConcepts: ["Pollutants", "Catalytic Converter", "Smog", "Global Warming"], formulas: [], mcqs: chemistry9NewCh10MCQs },
+          { id: "new-ch11", name: "Hydrocarbons", importantTopics: ["Alkanes", "Alkenes", "Alkynes", "Combustion", "Substitution"], keyConcepts: ["Saturated & Unsaturated", "Halogenation", "Cracking"], formulas: ["CₙH₂ₙ₊₂ (Alkanes)", "CₙH₂ₙ (Alkenes)"], mcqs: chemistry9NewCh11MCQs },
+          { id: "new-ch12", name: "Empirical Data Collection and Analysis", importantTopics: ["SI Units", "Scientific Notation", "Measurement", "Prefixes"], keyConcepts: ["Base Units", "Derived Units", "Precision", "Accuracy"], formulas: ["K = °C + 273"], mcqs: chemistry9NewCh12MCQs },
+          { id: "new-ch13", name: "Laboratory and Practical Skills", importantTopics: ["Lab Safety", "Chemical Hazards", "Safety Equipment", "Proper Procedures"], keyConcepts: ["Warning Labels", "Corrosive Chemicals", "Dilution", "Fire Safety"], formulas: [], mcqs: chemistry9NewCh13MCQs }
         ]
       },
       {
