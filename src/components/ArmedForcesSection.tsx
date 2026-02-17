@@ -596,7 +596,7 @@ const ArmedForcesSection = ({ onBack }: ArmedForcesSectionProps) => {
                       <SubjectCard 
                         icon={Eye} 
                         title="Non-Verbal Intelligence" 
-                        subtitle="8 Chapters • 50 SVG Pattern MCQs" 
+                        subtitle="5 Chapters • 50 SVG Pattern MCQs" 
                         color="from-rose-500 to-pink-600" 
                         onClick={() => { setSelectedSubject("nonverbal-intelligence"); setScreen("subject-menu"); }} 
                       />
@@ -753,16 +753,18 @@ const ArmedForcesSection = ({ onBack }: ArmedForcesSectionProps) => {
           {/* Quiz */}
           {screen === "quiz" && selectedChapter && (
             selectedChapter === "af-int-11" ? (
-              <NonVerbalQuiz onBack={handleBack} />
+              <NonVerbalQuiz onBack={handleBack} source="paf" />
             ) : selectedChapter.startsWith("af-nv-") ? (
               <NonVerbalQuiz 
                 onBack={handleBack} 
                 questionRange={afNvQuestionRanges[selectedChapter]} 
+                source="paf"
               />
             ) : selectedChapter.startsWith("army-nv-") ? (
               <NonVerbalQuiz 
                 onBack={handleBack} 
                 questionRange={armyNvQuestionRanges[selectedChapter]} 
+                source="army"
               />
             ) : (
               <QuizScreen 
@@ -774,10 +776,17 @@ const ArmedForcesSection = ({ onBack }: ArmedForcesSectionProps) => {
 
           {/* Experience Quiz */}
           {screen === "experience" && selectedSubject && (
-            selectedSubject === "nonverbal-intelligence" && (selectedForce === "pak-army" || selectedForce === "airforce") ? (
+            selectedSubject === "nonverbal-intelligence" && selectedForce === "pak-army" ? (
               <NonVerbalQuiz 
                 onBack={handleBack} 
                 questionRange={{ start: 1, end: 50 }} 
+                source="army"
+              />
+            ) : selectedSubject === "nonverbal-intelligence" && selectedForce === "airforce" ? (
+              <NonVerbalQuiz 
+                onBack={handleBack} 
+                questionRange={{ start: 1, end: 50 }} 
+                source="paf"
               />
             ) : (
               <ExperienceQuiz 

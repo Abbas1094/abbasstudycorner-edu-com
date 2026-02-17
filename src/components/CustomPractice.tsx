@@ -14,6 +14,7 @@ import { airforceEnglishChapters, airforceEnglishExperienceMCQs } from "@/data/a
 import { airforcePhysicsChaptersComplete, airforcePhysicsExperienceMCQs } from "@/data/airforcePhysicsData";
 import { airforceMathChaptersComplete, airforceMathExperienceMCQs } from "@/data/airforceMathData";
 import { airforceBiologyChapters, airforceBiologyExperienceMCQs } from "@/data/airforceBiologyData";
+import { allPafNonVerbalMCQs } from "@/data/pafNonVerbalPatterns";
 
 interface PracticeSection {
   name: string;
@@ -59,7 +60,7 @@ const SUBJECT_CONFIGS: Record<PracticeSubject, { name: string; count: number; ti
 
 // Generate practice sections based on selected subjects
 const generatePracticeSections = (subjects: PracticeSubject[]): PracticeSection[] => {
-  const allIntelligence = getAllMCQs(airforceIntelligenceChapters, airforceIntelligenceExperienceMCQs);
+  const allIntelligence = [...getAllMCQs(airforceIntelligenceChapters, airforceIntelligenceExperienceMCQs), ...allPafNonVerbalMCQs];
   const allEnglish = getAllMCQs(airforceEnglishChapters, airforceEnglishExperienceMCQs);
   const allPhysics = getAllMCQs(airforcePhysicsChaptersComplete, airforcePhysicsExperienceMCQs);
   const allMath = getAllMCQs(airforceMathChaptersComplete, airforceMathExperienceMCQs);

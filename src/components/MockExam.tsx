@@ -14,6 +14,7 @@ import { airforceEnglishChapters, airforceEnglishExperienceMCQs } from "@/data/a
 import { airforcePhysicsChaptersComplete, airforcePhysicsExperienceMCQs } from "@/data/airforcePhysicsData";
 import { airforceMathChaptersComplete, airforceMathExperienceMCQs } from "@/data/airforceMathData";
 import { airforceBiologyChapters, airforceBiologyExperienceMCQs } from "@/data/airforceBiologyData";
+import { allPafNonVerbalMCQs } from "@/data/pafNonVerbalPatterns";
 
 interface ExamSection {
   name: string;
@@ -51,7 +52,7 @@ const getRandomMCQs = (mcqs: MCQ[], count: number): MCQ[] => {
 
 // Generate exam sections based on trade
 const generateExamSections = (trade: TradeType): ExamSection[] => {
-  const allIntelligence = getAllMCQs(airforceIntelligenceChapters, airforceIntelligenceExperienceMCQs);
+  const allIntelligence = [...getAllMCQs(airforceIntelligenceChapters, airforceIntelligenceExperienceMCQs), ...allPafNonVerbalMCQs];
   const allEnglish = getAllMCQs(airforceEnglishChapters, airforceEnglishExperienceMCQs);
   const allPhysics = getAllMCQs(airforcePhysicsChaptersComplete, airforcePhysicsExperienceMCQs);
   const allMath = getAllMCQs(airforceMathChaptersComplete, airforceMathExperienceMCQs);

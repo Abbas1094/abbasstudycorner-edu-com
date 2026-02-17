@@ -3,13 +3,17 @@ import React, { useState, useCallback } from 'react';
 import { ArrowLeft, ArrowRight, CheckCircle, XCircle, RotateCcw, Lightbulb } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { allNonVerbalMCQs, getPatternByNumber } from '@/data/nonVerbalPatterns';
+import { allPafNonVerbalMCQs, pafGetPatternByNumber } from '@/data/pafNonVerbalPatterns';
 import { PatternContainer } from '@/components/patterns/NonVerbalPattern';
 import { shuffleArray } from '@/lib/shuffleUtils';
 import { motion } from 'framer-motion';
 
+type PatternSource = 'army' | 'paf';
+
 interface NonVerbalQuizProps {
   onBack: () => void;
   questionRange?: { start: number; end: number };
+  source?: PatternSource;
 }
 
 interface AnswerRecord {
@@ -19,12 +23,15 @@ interface AnswerRecord {
   isCorrect: boolean;
 }
 
-const NonVerbalQuiz = ({ onBack, questionRange }: NonVerbalQuizProps) => {
+const NonVerbalQuiz = ({ onBack, questionRange, source = 'army' }: NonVerbalQuizProps) => {
+  const mcqSource = source === 'paf' ? allPafNonVerbalMCQs : allNonVerbalMCQs;
+  const getPattern = source === 'paf' ? pafGetPatternByNumber : getPatternByNumber;
+
   const questions = React.useMemo(() => {
     const start = questionRange?.start ?? 1;
     const end = questionRange?.end ?? 50;
-    return allNonVerbalMCQs.slice(start - 1, end);
-  }, [questionRange]);
+    return mcqSource.slice(start - 1, end);
+  }, [questionRange, mcqSource]);
 
   const [currentIndex, setCurrentIndex] = useState(0);
   const [selectedOption, setSelectedOption] = useState<number | null>(null);
@@ -36,7 +43,7 @@ const NonVerbalQuiz = ({ onBack, questionRange }: NonVerbalQuizProps) => {
 
   const currentQuestion = questions[currentIndex];
   const questionNumber = (questionRange?.start ?? 1) + currentIndex;
-  const patternData = getPatternByNumber(questionNumber);
+  const patternData = getPattern(questionNumber);
 
   const shuffledOptions = React.useMemo(() => {
     if (!patternData) return { options: [0, 1, 2, 3], correctAnswer: currentQuestion.correctAnswer };
@@ -146,7 +153,7 @@ const NonVerbalQuiz = ({ onBack, questionRange }: NonVerbalQuizProps) => {
                   {mistakes.map((mistake, idx) => {
                     const q = questions[mistake.questionIndex];
                     const qNum = (questionRange?.start ?? 1) + mistake.questionIndex;
-                    const pd = getPatternByNumber(qNum);
+                    const pd = getPattern(qNum);
 
                     return (
                       <div key={idx} className="bg-card p-4 rounded-xl border border-border">
