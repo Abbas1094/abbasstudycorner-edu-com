@@ -758,11 +758,18 @@ const ArmedForcesSection = ({ onBack }: ArmedForcesSectionProps) => {
 
           {/* Experience Quiz */}
           {screen === "experience" && selectedSubject && (
-            <ExperienceQuiz 
-              mcqs={getExperienceMCQs()} 
-              subject={getSubjectDisplayName()} 
-              onBack={handleBack} 
-            />
+            selectedSubject === "nonverbal-intelligence" && selectedForce === "pak-army" ? (
+              <NonVerbalQuiz 
+                onBack={handleBack} 
+                questionRange={{ start: 1, end: 50 }} 
+              />
+            ) : (
+              <ExperienceQuiz 
+                mcqs={getExperienceMCQs()} 
+                subject={getSubjectDisplayName()} 
+                onBack={handleBack} 
+              />
+            )
           )}
 
           {/* Tough Quiz */}
