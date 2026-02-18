@@ -15,6 +15,7 @@ import { armyEngCh2MCQs, armyEngCh3MCQs, armyEngCh8MCQs, armyEngCh9MCQs } from "
 import { armyMathCh2MCQs, armyMathCh3MCQs, armyMathCh5MCQs, armyMathCh6MCQs, armyMathCh7MCQs, armyMathCh8MCQs, armyMathCh9MCQs, armyMathCh10MCQs } from "@/data/pakArmy/armyMathChapterMCQs";
 import { armyVerbalCh1MCQs, armyVerbalCh3MCQs, armyVerbalCh5MCQs, armyVerbalCh9MCQs } from "@/data/pakArmy/armyVerbalChapterMCQs";
 import { allNonVerbalMCQs } from "@/data/nonVerbalPatterns";
+import { missingNumberMCQs } from "@/data/missingNumberData";
 
 // New Verbal MCQs from Ilyas Forces + Most Repeated PDFs
 import {
@@ -102,6 +103,7 @@ export const armyNonVerbalChapters: Chapter[] = [
   { id: "army-nv-12", name: "Complex Patterns", description: "Multi-element pattern sequences (Q66-Q70)", icon: "🧩", mcqs: allNonVerbalMCQs.slice(65, 70) },
   { id: "army-nv-13", name: "Shape Transformation", description: "Shapes changing form & complexity (Q71-Q75)", icon: "🔷", mcqs: allNonVerbalMCQs.slice(70, 75) },
   { id: "army-nv-14", name: "Mirror & Analogy", description: "Mirror images and visual analogies (Q76-Q80)", icon: "🪞", mcqs: allNonVerbalMCQs.slice(75, 80) },
+  { id: "army-mn-1", name: "Missing Number (Figures)", description: "Find missing numbers in geometric shapes", icon: "🔢", mcqs: [] },
 ];
 
 export const armyNonVerbalExperienceMCQs: MCQ[] = allNonVerbalMCQs;

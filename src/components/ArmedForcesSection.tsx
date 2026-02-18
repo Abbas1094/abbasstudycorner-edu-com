@@ -7,6 +7,8 @@ import ChapterList from "@/components/ChapterList";
 import QuizScreen from "@/components/QuizScreen";
 import ExperienceQuiz from "@/components/ExperienceQuiz";
 import NonVerbalQuiz from "@/components/NonVerbalQuiz";
+import MissingNumberQuiz from "@/components/MissingNumberQuiz";
+import { missingNumberMCQs } from "@/data/missingNumberData";
 import PlaceholderMessage from "@/components/PlaceholderMessage";
 import TradeSelectionModal, { TradeType } from "@/components/TradeSelectionModal";
 import InterBaseTradeModal, { InterBaseTradeType } from "@/components/InterBaseTradeModal";
@@ -752,7 +754,13 @@ const ArmedForcesSection = ({ onBack }: ArmedForcesSectionProps) => {
 
           {/* Quiz */}
           {screen === "quiz" && selectedChapter && (
-            selectedChapter === "af-int-11" ? (
+            selectedChapter.endsWith("-mn-1") ? (
+              <MissingNumberQuiz
+                mcqs={missingNumberMCQs}
+                title="Missing Number (Figures)"
+                onBack={handleBack}
+              />
+            ) : selectedChapter === "af-int-11" ? (
               <NonVerbalQuiz onBack={handleBack} source="paf" />
             ) : selectedChapter.startsWith("af-nv-") ? (
               <NonVerbalQuiz 
