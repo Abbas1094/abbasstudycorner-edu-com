@@ -351,6 +351,7 @@ export const airforceNonVerbalChapters: Chapter[] = [
   { id: "af-nv-3", name: "Non-Verbal Analogies", description: "Visual analogy & reasoning (Q18-Q33)", icon: "🔳", mcqs: allPafNonVerbalMCQs.slice(17, 33) },
   { id: "af-nv-4", name: "Pattern Completion", description: "Complete the missing piece (Q34-Q42)", icon: "🧩", mcqs: allPafNonVerbalMCQs.slice(33, 42) },
   { id: "af-nv-5", name: "Mixed Patterns", description: "Assorted non-verbal reasoning (Q43-Q50)", icon: "🎯", mcqs: allPafNonVerbalMCQs.slice(42, 50) },
+  { id: "af-mn-1", name: "Missing Number (Figures)", description: "Find missing numbers in geometric shapes", icon: "🔢", mcqs: [] },
 ];
 
 export const airforceNonVerbalExperienceMCQs: MCQ[] = allPafNonVerbalMCQs;

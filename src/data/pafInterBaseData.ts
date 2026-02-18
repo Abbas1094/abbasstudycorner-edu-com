@@ -129,6 +129,13 @@ export const interBaseNonVerbalChapters: Chapter[] = [
     mcqs: []
   },
   {
+    id: "ib-mn-1",
+    name: "Missing Number (Figures)",
+    description: "Find missing numbers in geometric shapes",
+    icon: "🔢",
+    mcqs: []
+  },
+  {
     id: "ib-nv-8",
     name: "Cube & Dice Problems",
     description: "3D spatial reasoning with cubes",
