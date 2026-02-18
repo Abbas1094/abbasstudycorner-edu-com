@@ -136,6 +136,13 @@ export const interBaseNonVerbalChapters: Chapter[] = [
     mcqs: []
   },
   {
+    id: "ib-pg-1",
+    name: "Pattern Grid (Design Test)",
+    description: "Complete the repeating pattern grid",
+    icon: "🧩",
+    mcqs: []
+  },
+  {
     id: "ib-nv-8",
     name: "Cube & Dice Problems",
     description: "3D spatial reasoning with cubes",

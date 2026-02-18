@@ -8,7 +8,9 @@ import QuizScreen from "@/components/QuizScreen";
 import ExperienceQuiz from "@/components/ExperienceQuiz";
 import NonVerbalQuiz from "@/components/NonVerbalQuiz";
 import MissingNumberQuiz from "@/components/MissingNumberQuiz";
+import PatternGridQuiz from "@/components/PatternGridQuiz";
 import { missingNumberMCQs } from "@/data/missingNumberData";
+import { patternGridMCQs } from "@/data/patternGridData";
 import PlaceholderMessage from "@/components/PlaceholderMessage";
 import TradeSelectionModal, { TradeType } from "@/components/TradeSelectionModal";
 import InterBaseTradeModal, { InterBaseTradeType } from "@/components/InterBaseTradeModal";
@@ -754,7 +756,13 @@ const ArmedForcesSection = ({ onBack }: ArmedForcesSectionProps) => {
 
           {/* Quiz */}
           {screen === "quiz" && selectedChapter && (
-            selectedChapter.endsWith("-mn-1") ? (
+            selectedChapter.endsWith("-pg-1") ? (
+              <PatternGridQuiz
+                mcqs={patternGridMCQs}
+                title="Pattern Grid (Design Test)"
+                onBack={handleBack}
+              />
+            ) : selectedChapter.endsWith("-mn-1") ? (
               <MissingNumberQuiz
                 mcqs={missingNumberMCQs}
                 title="Missing Number (Figures)"
