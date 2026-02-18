@@ -1088,44 +1088,76 @@ Total Marks: 87 | Time: 2 Hours 30 Minutes
             id: "ch1",
             name: "Quadratic Equations",
             importantTopics: ["Solving Quadratic Equations", "Factorization Method", "Quadratic Formula", "Completing the Square"],
-            keyConcepts: ["Standard Form ax² + bx + c = 0", "Roots", "Discriminant"],
-            formulas: ["x = (-b ± √(b²-4ac)) / 2a", "Sum of roots = -b/a", "Product of roots = c/a"],
+            keyConcepts: ["Standard Form ax² + bx + c = 0", "Roots", "Methods of Solving"],
+            formulas: ["x = (-b ± √(b²-4ac)) / 2a"],
             mcqs: [
-              { id: "m10-ch1-1", question: "Standard form of quadratic equation is:", options: ["ax + b = 0", "ax² + bx + c = 0", "ax³ + bx = 0", "x² = c"], correctAnswer: 1, explanation: "Quadratic equation: ax² + bx + c = 0 where a ≠ 0." },
-              { id: "m10-ch1-2", question: "If discriminant is zero, roots are:", options: ["Real and distinct", "Real and equal", "Imaginary", "No roots"], correctAnswer: 1, explanation: "D = 0 gives two equal real roots." },
-              { id: "m10-ch1-3", question: "A quadratic equation whose roots are 3 and -4 is:", options: ["x² + x - 12 = 0", "x² - x - 12 = 0", "x² - x + 12 = 0", "x² + x + 12 = 0"], correctAnswer: 0, explanation: "Sum = -1, Product = -12, so x² - (-1)x + (-12) = x² + x - 12 = 0" }
+              { id: "m10-ch1-1", question: "Standard form of quadratic equation is:", options: ["bx + c = 0, b ≠ 0", "ax² + bx + c = 0, a ≠ 0", "ax² = bx, a ≠ 0", "ax² = 0, a ≠ 0"], correctAnswer: 1, explanation: "The standard form of a quadratic equation is ax² + bx + c = 0 where a ≠ 0." },
+              { id: "m10-ch1-2", question: "The number of terms in a standard quadratic equation ax² + bx + c = 0 is:", options: ["1", "2", "3", "4"], correctAnswer: 2, explanation: "A standard quadratic has three terms: ax², bx, and c." },
+              { id: "m10-ch1-3", question: "The number of methods to solve a quadratic equation is:", options: ["1", "2", "3", "4"], correctAnswer: 2, explanation: "Three methods: factorization, completing the square, and quadratic formula." },
+              { id: "m10-ch1-4", question: "Two linear factors of x² − 15x + 56 are:", options: ["(x − 7) and (x + 8)", "(x + 7) and (x − 8)", "(x − 7) and (x − 8)", "(x + 7) and (x + 8)"], correctAnswer: 2, explanation: "x² − 15x + 56 = (x − 7)(x − 8) since (−7) + (−8) = −15 and (−7)(−8) = 56." },
+              { id: "m10-ch1-5", question: "An equation of the type 3ˣ + 3²⁻ˣ + 6 = 0 is a/an:", options: ["Exponential equation", "Reciprocal equation", "Radical equation", "None of these"], correctAnswer: 0, explanation: "Equations involving variable exponents are exponential equations." },
+              { id: "m10-ch1-6", question: "The solution set of equation 4x² − 16 = 0 is:", options: ["{−4}", "{4}", "{−2, 2}", "{2}"], correctAnswer: 2, explanation: "4x² = 16, x² = 4, x = ±2." },
+              { id: "m10-ch1-7", question: "The solution set of equation x² − 7x + 6 = 0 is:", options: ["{1, 6}", "{−1, −6}", "{−1, 6}", "{1, −6}"], correctAnswer: 0, explanation: "x² − 7x + 6 = (x − 1)(x − 6) = 0, so x = 1 or x = 6." },
+              { id: "m10-ch1-8", question: "If b = 0 in a quadratic equation ax² + bx + c = 0, then it is called:", options: ["Pure quadratic equation", "Linear equation", "Quadratic equation", "Exponential equation"], correctAnswer: 0, explanation: "When b = 0, the equation becomes ax² + c = 0, called a pure quadratic." },
+              { id: "m10-ch1-9", question: "What is the degree of a quadratic equation?", options: ["1", "2", "3", "4"], correctAnswer: 1, explanation: "A quadratic equation has degree 2." },
+              { id: "m10-ch1-10", question: "The number of roots of a quadratic equation is:", options: ["1", "2", "3", "4"], correctAnswer: 1, explanation: "A quadratic equation always has exactly two roots (which may be equal or complex)." }
             ]
           },
           {
             id: "ch2",
             name: "Theory of Quadratic Equations",
-            importantTopics: ["Nature of Roots", "Discriminant", "Relation between Roots"],
-            keyConcepts: ["D = b² - 4ac", "Real vs Complex Roots"],
-            formulas: ["D = b² - 4ac", "α + β = -b/a", "αβ = c/a"],
+            importantTopics: ["Nature of Roots", "Discriminant", "Cube Roots of Unity", "Symmetric Functions"],
+            keyConcepts: ["D = b² - 4ac", "Sum and Product of Roots", "ω and ω²"],
+            formulas: ["D = b² - 4ac", "α + β = -b/a", "αβ = c/a", "1 + ω + ω² = 0"],
             mcqs: [
-              { id: "m10-ch2-1", question: "For real roots, discriminant must be:", options: ["Negative", "Zero", "Non-negative", "Positive only"], correctAnswer: 2, explanation: "D ≥ 0 for real roots (D = 0 gives equal roots, D > 0 gives distinct)." },
-              { id: "m10-ch2-2", question: "If D < 0, roots are:", options: ["Real", "Equal", "Complex/Imaginary", "Rational"], correctAnswer: 2, explanation: "Negative discriminant gives complex/imaginary roots." }
+              { id: "m10-ch2-1", question: "α² + β² is equal to:", options: ["α² − β²", "1/α + 1/β", "(α + β)² − 2αβ", "α + β"], correctAnswer: 2, explanation: "α² + β² = (α + β)² − 2αβ is a standard identity." },
+              { id: "m10-ch2-2", question: "Two square roots of unity are:", options: ["1, −1", "1, ω", "1, −ω", "ω, ω²"], correctAnswer: 0, explanation: "x² = 1 gives x = 1 or x = −1." },
+              { id: "m10-ch2-3", question: "Roots of the equation 4x² − 4x + 1 = 0 are:", options: ["Real, equal", "Real, unequal", "Imaginary", "Irrational"], correctAnswer: 0, explanation: "D = 16 − 16 = 0, so roots are real and equal." },
+              { id: "m10-ch2-4", question: "If α, β are the roots of px² + qx + r = 0, then sum of the roots 2α and 2β is:", options: ["-q/p", "r/p", "-2q/p", "2r/p"], correctAnswer: 2, explanation: "Sum of 2α and 2β = 2(α + β) = 2(−q/p) = −2q/p." },
+              { id: "m10-ch2-5", question: "If α, β are the roots of x² − x + 1 = 0, then product of the roots 2α and 2β is:", options: ["-2", "2", "4", "-4"], correctAnswer: 2, explanation: "(2α)(2β) = 4αβ = 4(1) = 4." },
+              { id: "m10-ch2-6", question: "The nature of the roots of equation ax² + bx + c = 0 is determined by:", options: ["Sum of the roots", "Product of the roots", "Synthetic division", "Discriminant"], correctAnswer: 3, explanation: "The discriminant b² − 4ac determines the nature of the roots." },
+              { id: "m10-ch2-7", question: "The discriminant of ax² + bx + c = 0 is:", options: ["b² − 4ac", "b² + 4ac", "−b² + 4ac", "−b² − 4ac"], correctAnswer: 0, explanation: "The discriminant is D = b² − 4ac." },
+              { id: "m10-ch2-8", question: "If b² − 4ac < 0, then the roots of ax² + bx + c = 0 are:", options: ["Irrational", "Rational", "Imaginary", "None of these"], correctAnswer: 2, explanation: "When discriminant is negative, roots are imaginary/complex." },
+              { id: "m10-ch2-9", question: "Sum of the cube roots of unity is:", options: ["0", "1", "−1", "3"], correctAnswer: 0, explanation: "1 + ω + ω² = 0 is a fundamental property of cube roots of unity." },
+              { id: "m10-ch2-10", question: "Product of cube roots of unity is:", options: ["0", "1", "−1", "3"], correctAnswer: 1, explanation: "1 · ω · ω² = ω³ = 1." }
             ]
           },
           {
             id: "ch3",
             name: "Variations",
-            importantTopics: ["Direct Variation", "Inverse Variation", "Joint Variation"],
-            keyConcepts: ["Proportion", "Constant of Variation"],
+            importantTopics: ["Direct Variation", "Inverse Variation", "Joint Variation", "Proportion"],
+            keyConcepts: ["Constant of Variation", "Continued Proportion", "k-variation"],
             formulas: ["Direct: y = kx", "Inverse: y = k/x", "Joint: z = kxy"],
             mcqs: [
-              { id: "m10-ch3-1", question: "If y ∝ x, then:", options: ["y = kx", "y = k/x", "xy = k", "y = x"], correctAnswer: 0, explanation: "Direct variation: y = kx where k is constant." },
-              { id: "m10-ch3-2", question: "In inverse variation, product is:", options: ["Variable", "Constant", "Zero", "Undefined"], correctAnswer: 1, explanation: "Inverse: xy = k (product is constant)." }
+              { id: "m10-ch3-1", question: "If u ∝ v², then:", options: ["u = v²", "u = kv²", "uv² = k", "uv² = 1"], correctAnswer: 1, explanation: "Direct variation: u ∝ v² means u = kv² for some constant k." },
+              { id: "m10-ch3-2", question: "In continued proportion a:b = b:c, b is said to be ___ proportional:", options: ["Third", "Fourth", "Mean", "None of these"], correctAnswer: 2, explanation: "In continued proportion, b is the mean proportional between a and c." },
+              { id: "m10-ch3-3", question: "In continued proportion a:b = b:c, c is said to be ___ proportional to a and b:", options: ["Third", "Fourth", "Mean", "None of these"], correctAnswer: 0, explanation: "c is the third proportional to a and b in continued proportion." },
+              { id: "m10-ch3-4", question: "Find x in proportion 4:x :: 5:15:", options: ["75", "12", "4", "3"], correctAnswer: 1, explanation: "4/x = 5/15, so x = 4 × 15/5 = 12." },
+              { id: "m10-ch3-5", question: "Newton's law of Gravitation is an example of:", options: ["Variation", "Direct variation", "Inverse variation", "Joint variation"], correctAnswer: 3, explanation: "Gravitational force varies jointly with masses and inversely with distance squared." },
+              { id: "m10-ch3-6", question: "The relation between radius and circumference of a circle is an example of:", options: ["Variation", "Direct variation", "Inverse variation", "Joint variation"], correctAnswer: 1, explanation: "C = 2πr shows circumference varies directly with radius." },
+              { id: "m10-ch3-7", question: "If x and y vary directly, then x =:", options: ["y", "ky", "k", "k/y"], correctAnswer: 1, explanation: "Direct variation: x = ky where k is the constant of variation." },
+              { id: "m10-ch3-8", question: "If w varies inversely as p², then k =:", options: ["w/p²", "wp²", "p²/w", "wp"], correctAnswer: 1, explanation: "Inverse variation: w = k/p², so k = wp²." },
+              { id: "m10-ch3-9", question: "A third proportional of 12 and 4 is:", options: ["3", "4/3", "12", "16"], correctAnswer: 1, explanation: "12:4 = 4:x, so x = 16/12 = 4/3." },
+              { id: "m10-ch3-10", question: "In proportion 7:4 :: p:8, p =:", options: ["1", "28", "14", "56"], correctAnswer: 2, explanation: "7/4 = p/8, so p = 56/4 = 14." }
             ]
           },
           {
             id: "ch4",
             name: "Partial Fractions",
             importantTopics: ["Proper & Improper Fractions", "Linear Factors", "Repeated Factors", "Quadratic Factors"],
-            keyConcepts: ["Decomposition", "Distinct Linear Factors"],
-            formulas: ["A/(x-a) + B/(x-b) = (A(x-b) + B(x-a))/((x-a)(x-b))"],
+            keyConcepts: ["Decomposition", "Distinct Linear Factors", "Identity vs Equation"],
+            formulas: ["A/(x-a) + B/(x-b)"],
             mcqs: [
-              { id: "m10-ch4-1", question: "Partial fractions are used for:", options: ["Multiplication", "Division", "Integration", "Differentiation"], correctAnswer: 2, explanation: "Partial fractions simplify integration of rational functions." }
+              { id: "m10-ch4-1", question: "The identity (5x + 4)² = 25x² + 40x + 16 is true for:", options: ["One value of x", "Two values of x", "All values of x", "None of these"], correctAnswer: 2, explanation: "An identity holds for all values of the variable." },
+              { id: "m10-ch4-2", question: "A function of the form f(x) = N(x)/D(x), where N(x) and D(x) are polynomials, is called:", options: ["An identity", "An equation", "A fraction", "None of these"], correctAnswer: 2, explanation: "A ratio of two polynomials is a rational fraction." },
+              { id: "m10-ch4-3", question: "A fraction in which the degree of the numerator is greater than or equal to the degree of the denominator is called:", options: ["A proper fraction", "An improper fraction", "An equation", "Algebraic relation"], correctAnswer: 1, explanation: "When degree of numerator ≥ degree of denominator, it's an improper fraction." },
+              { id: "m10-ch4-4", question: "A fraction in which the degree of the numerator is less than the degree of the denominator is called:", options: ["An equation", "An improper fraction", "An identity", "A proper fraction"], correctAnswer: 3, explanation: "When degree of numerator < degree of denominator, it's a proper fraction." },
+              { id: "m10-ch4-5", question: "(x + 3)² = x² + 6x + 9 is:", options: ["A linear equation", "An equation", "An identity", "None of these"], correctAnswer: 2, explanation: "This is true for all values of x, so it's an identity." },
+              { id: "m10-ch4-6", question: "(x³ + 1)/((x − 1)(x + 2)) is:", options: ["A proper fraction", "An improper fraction", "An identity", "A constant term"], correctAnswer: 1, explanation: "Degree of numerator (3) ≥ degree of denominator (2), so it's improper." },
+              { id: "m10-ch4-7", question: "Partial fractions of (x − 2)/((x − 1)(x + 2)) are of the form:", options: ["A/(x−1) + B/(x+2)", "(Ax+B)/((x−1)(x+2))", "A + Bx + C/((x−1)(x+2))", "Ax + B + C/((x−1)(x+2))"], correctAnswer: 0, explanation: "For distinct linear factors, use A/(x−1) + B/(x+2)." },
+              { id: "m10-ch4-8", question: "How many linear factors a quadratic equation has?", options: ["1", "2", "3", "4"], correctAnswer: 1, explanation: "A quadratic expression has exactly two linear factors." },
+              { id: "m10-ch4-9", question: "Partial fractions of (x + 2)/((x + 1)(x² + 2)) are of the form:", options: ["A/(x+1) + B/(x²+2)", "A/(x+1) + (Bx+C)/(x²+2)", "Ax+B+C/((x+1)(x²+2))", "A + Bx/((x+1)(x²+2))"], correctAnswer: 1, explanation: "For irreducible quadratic factor, use (Bx + C)/(x² + 2)." },
+              { id: "m10-ch4-10", question: "Cubic polynomial has degree:", options: ["1", "2", "3", "4"], correctAnswer: 2, explanation: "A cubic polynomial has the highest power 3." }
             ]
           },
           {
@@ -1135,19 +1167,35 @@ Total Marks: 87 | Time: 2 Hours 30 Minutes
             keyConcepts: ["Union", "Intersection", "Domain", "Range", "One-to-One", "Onto"],
             formulas: ["n(A∪B) = n(A) + n(B) - n(A∩B)"],
             mcqs: [
-              { id: "m10-ch5-1", question: "Empty set is denoted by:", options: ["{ }", "∅", "Both A and B", "None"], correctAnswer: 2, explanation: "Empty set can be written as { } or ∅." },
-              { id: "m10-ch5-2", question: "A function assigns to each element:", options: ["Multiple values", "Exactly one value", "No value", "Two values"], correctAnswer: 1, explanation: "Function: each input maps to exactly one output." }
+              { id: "m10-ch5-1", question: "A collection of well-defined distinct objects is called:", options: ["Subset", "Power set", "Set", "None of these"], correctAnswer: 2, explanation: "A set is a well-defined collection of distinct objects." },
+              { id: "m10-ch5-2", question: "A set with no element is called:", options: ["Subset", "Empty set", "Singleton set", "Super set"], correctAnswer: 1, explanation: "A set with no elements is called an empty or null set." },
+              { id: "m10-ch5-3", question: "If number of elements in set A is 3 and in set B is 4, then number of elements in A × B is:", options: ["3", "4", "12", "7"], correctAnswer: 2, explanation: "n(A × B) = n(A) × n(B) = 3 × 4 = 12." },
+              { id: "m10-ch5-4", question: "The relation {(1,2), (2,3), (3,3), (3,4)} is:", options: ["Onto function", "Into function", "Not a function", "One-one function"], correctAnswer: 2, explanation: "Element 3 maps to both 3 and 4, so it's not a function." },
+              { id: "m10-ch5-5", question: "If A ∩ B = ∅, then sets A and B are ___ sets:", options: ["Sub", "Overlapping", "Disjoint", "Power"], correctAnswer: 2, explanation: "Sets with no common elements are called disjoint sets." },
+              { id: "m10-ch5-6", question: "If A ⊆ B and B ⊆ A, then:", options: ["A = B", "A ⊂ B", "A ∩ B = ∅", "A ∪ B = ∅"], correctAnswer: 0, explanation: "If each is a subset of the other, they must be equal." },
+              { id: "m10-ch5-7", question: "Point (−1, 4) lies in the quadrant:", options: ["I", "II", "III", "IV"], correctAnswer: 1, explanation: "Negative x and positive y means quadrant II." },
+              { id: "m10-ch5-8", question: "The domain of {(a,b), (b,c), (c,d)} is:", options: ["{a, b, c}", "{b, c, d}", "{a, b}", "{a, b, c, d}"], correctAnswer: 0, explanation: "Domain is the set of first elements: {a, b, c}." },
+              { id: "m10-ch5-9", question: "If f:A → B and range of f = B, then f is an:", options: ["Into function", "Onto function", "Bijective function", "Function"], correctAnswer: 1, explanation: "When range equals codomain, the function is onto (surjective)." },
+              { id: "m10-ch5-10", question: "Venn diagram was first used by:", options: ["John Venn", "Newton", "Arthur Cayley", "John Napier"], correctAnswer: 0, explanation: "Venn diagrams are named after John Venn who introduced them." }
             ]
           },
           {
             id: "ch6",
             name: "Basic Statistics",
-            importantTopics: ["Measures of Central Tendency", "Mean", "Median", "Mode", "Frequency Distribution"],
-            keyConcepts: ["Grouped & Ungrouped Data", "Cumulative Frequency"],
-            formulas: ["Mean = Σx/n", "Mean (grouped) = Σfx/Σf"],
+            importantTopics: ["Measures of Central Tendency", "Mean", "Median", "Mode", "Dispersion"],
+            keyConcepts: ["Grouped & Ungrouped Data", "Variance", "Standard Deviation"],
+            formulas: ["Mean = Σx/n", "Mean (grouped) = Σfx/Σf", "Variance = S²"],
             mcqs: [
-              { id: "m10-ch6-1", question: "Arithmetic mean of 2, 4, 6, 8 is:", options: ["4", "5", "6", "7"], correctAnswer: 1, explanation: "Mean = (2+4+6+8)/4 = 20/4 = 5" },
-              { id: "m10-ch6-2", question: "Most frequently occurring value is:", options: ["Mean", "Median", "Mode", "Range"], correctAnswer: 2, explanation: "Mode is the value that appears most often." }
+              { id: "m10-ch6-1", question: "A data in the form of frequency distribution is called:", options: ["Grouped data", "Ungrouped data", "Histogram", "Dispersion"], correctAnswer: 0, explanation: "Data organized in a frequency distribution table is grouped data." },
+              { id: "m10-ch6-2", question: "The most frequently occurring observation in a data set is called:", options: ["Mode", "Median", "Harmonic mean", "Mean"], correctAnswer: 0, explanation: "Mode is the value that appears most often in a data set." },
+              { id: "m10-ch6-3", question: "The measure which determines the middlemost observation in a data set is called:", options: ["Median", "Mode", "Mean", "Range"], correctAnswer: 0, explanation: "Median is the middle value when data is arranged in order." },
+              { id: "m10-ch6-4", question: "The observations that divide a data set into four equal parts are called:", options: ["Deciles", "Quartiles", "Percentiles", "Mode"], correctAnswer: 1, explanation: "Quartiles divide data into four equal parts." },
+              { id: "m10-ch6-5", question: "Median from the data 82, 93, 86, 92 and 79 is:", options: ["82", "86", "92", "93"], correctAnswer: 1, explanation: "Arranged: 79, 82, 86, 92, 93. Middle value is 86." },
+              { id: "m10-ch6-6", question: "The class having maximum frequency is called ___ class:", options: ["Modal", "Median", "Lower", "Upper"], correctAnswer: 0, explanation: "The class with the highest frequency is the modal class." },
+              { id: "m10-ch6-7", question: "Variance is denoted by:", options: ["V", "S", "S²", "X̄"], correctAnswer: 2, explanation: "Variance is denoted by S² (sigma squared)." },
+              { id: "m10-ch6-8", question: "Sum of the deviations of variable x from its mean is always:", options: ["Zero", "One", "Same", "Negative"], correctAnswer: 0, explanation: "The sum of deviations from the mean is always zero: Σ(xᵢ − x̄) = 0." },
+              { id: "m10-ch6-9", question: "Geometric Mean of 2, 4, 8 is:", options: ["2", "4", "8", "3"], correctAnswer: 1, explanation: "G.M. = ∛(2 × 4 × 8) = ∛64 = 4." },
+              { id: "m10-ch6-10", question: "If standard deviation is 6 then its variance is:", options: ["6", "36", "√6", "12"], correctAnswer: 1, explanation: "Variance = (Standard Deviation)² = 6² = 36." }
             ]
           },
           {
@@ -1157,9 +1205,16 @@ Total Marks: 87 | Time: 2 Hours 30 Minutes
             keyConcepts: ["sin, cos, tan", "sec, cosec, cot", "Degrees & Radians"],
             formulas: ["sin²θ + cos²θ = 1", "1 + tan²θ = sec²θ", "1 + cot²θ = cosec²θ"],
             mcqs: [
-              { id: "m10-ch7-1", question: "sin 30° equals:", options: ["0", "1/2", "1", "√3/2"], correctAnswer: 1, explanation: "sin 30° = 1/2" },
-              { id: "m10-ch7-2", question: "cos 60° equals:", options: ["0", "1/2", "1", "√3/2"], correctAnswer: 1, explanation: "cos 60° = 1/2" },
-              { id: "m10-ch7-3", question: "tan 45° equals:", options: ["0", "1/2", "1", "Undefined"], correctAnswer: 2, explanation: "tan 45° = 1" }
+              { id: "m10-ch7-1", question: "The system of measurement in which the angle is measured in radians is called:", options: ["CGS system", "Sexagesimal system", "MKS system", "Circular system"], correctAnswer: 3, explanation: "The circular system measures angles in radians." },
+              { id: "m10-ch7-2", question: "sec²θ =", options: ["1 − sin²θ", "1 + tan²θ", "1 + cos²θ", "1 − tan²θ"], correctAnswer: 1, explanation: "sec²θ = 1 + tan²θ is a fundamental trigonometric identity." },
+              { id: "m10-ch7-3", question: "cosec²θ − cot²θ =", options: ["−1", "1", "0", "tanθ"], correctAnswer: 1, explanation: "From the identity 1 + cot²θ = cosec²θ, we get cosec²θ − cot²θ = 1." },
+              { id: "m10-ch7-4", question: "sin 30° =", options: ["1", "√3/2", "1/2", "0"], correctAnswer: 2, explanation: "sin 30° = 1/2 is a standard trigonometric value." },
+              { id: "m10-ch7-5", question: "cos 45° =", options: ["1", "√2", "1/√2", "0"], correctAnswer: 2, explanation: "cos 45° = 1/√2 = √2/2." },
+              { id: "m10-ch7-6", question: "tan 60° =", options: ["1", "√3", "1/√3", "2"], correctAnswer: 1, explanation: "tan 60° = √3." },
+              { id: "m10-ch7-7", question: "π radians =", options: ["0°", "90°", "180°", "360°"], correctAnswer: 2, explanation: "π radians = 180°." },
+              { id: "m10-ch7-8", question: "sin²θ + cos²θ =", options: ["tan²θ", "cot²θ", "1", "0"], correctAnswer: 2, explanation: "The Pythagorean identity: sin²θ + cos²θ = 1." },
+              { id: "m10-ch7-9", question: "1° =", options: ["π/180 radian", "180/π radian", "π radian", "180 radian"], correctAnswer: 0, explanation: "To convert degrees to radians: multiply by π/180." },
+              { id: "m10-ch7-10", question: "In which quadrant are all trigonometric ratios positive?", options: ["I", "II", "III", "IV"], correctAnswer: 0, explanation: "All trigonometric ratios are positive in quadrant I." }
             ]
           },
           {
@@ -1167,39 +1222,75 @@ Total Marks: 87 | Time: 2 Hours 30 Minutes
             name: "Projection of a Side of a Triangle",
             importantTopics: ["Projection Formula", "Law of Cosines"],
             keyConcepts: ["Projection", "Oblique Triangles"],
-            formulas: ["a = b cos C + c cos B", "a² = b² + c² - 2bc cos A"],
+            formulas: ["a = b cos C + c cos B", "a² = b² + c² − 2bc cos A"],
             mcqs: [
-              { id: "m10-ch8-1", question: "Projection formula relates sides and:", options: ["Areas", "Angles", "Perimeter", "Height"], correctAnswer: 1, explanation: "Projection formula involves sides and their opposite angles." }
+              { id: "m10-ch8-1", question: "In a right triangle, the square of the hypotenuse is equal to:", options: ["Sum of other two sides", "Sum of squares of other two sides", "Product of other two sides", "Difference of squares"], correctAnswer: 1, explanation: "Pythagoras theorem: c² = a² + b²." },
+              { id: "m10-ch8-2", question: "The projection of side b on side c is:", options: ["b cos A", "b cos C", "c cos B", "a cos C"], correctAnswer: 0, explanation: "The projection of b on c = b cos A where A is the included angle." },
+              { id: "m10-ch8-3", question: "In △ABC, a² = b² + c² − 2bc cos A is called:", options: ["Sine rule", "Cosine rule", "Projection formula", "Tangent rule"], correctAnswer: 1, explanation: "This is the law of cosines (cosine rule)." },
+              { id: "m10-ch8-4", question: "If angle A = 90° in the cosine rule, then a² =:", options: ["b² + c²", "b² − c²", "2bc", "b² + c² + 2bc"], correctAnswer: 0, explanation: "When A = 90°, cos 90° = 0, so a² = b² + c² (Pythagoras)." },
+              { id: "m10-ch8-5", question: "In △ABC, a = b cos C + c cos B is called:", options: ["Sine rule", "Cosine rule", "Projection formula", "Hero's formula"], correctAnswer: 2, explanation: "a = b cos C + c cos B is the projection formula." },
+              { id: "m10-ch8-6", question: "The projection formula relates sides and:", options: ["Areas", "Angles", "Perimeter", "Height"], correctAnswer: 1, explanation: "The projection formula involves sides and their opposite angles." },
+              { id: "m10-ch8-7", question: "In a triangle, b = a cos C + c cos A is a:", options: ["Cosine formula", "Projection formula", "Sine formula", "Area formula"], correctAnswer: 1, explanation: "This is the projection formula for side b." },
+              { id: "m10-ch8-8", question: "cos 0° =", options: ["0", "1", "−1", "1/2"], correctAnswer: 1, explanation: "cos 0° = 1." },
+              { id: "m10-ch8-9", question: "If A = 0° in a² = b² + c² − 2bc cos A, then a² =:", options: ["b² + c² − 2bc", "(b − c)²", "Both A and B", "b² + c²"], correctAnswer: 2, explanation: "cos 0° = 1, so a² = b² + c² − 2bc = (b − c)²." },
+              { id: "m10-ch8-10", question: "In an obtuse-angled triangle, the square of the side opposite to obtuse angle is:", options: ["Less than sum of squares of other two sides", "Equal to sum of squares of other two sides", "Greater than sum of squares of other two sides", "None of these"], correctAnswer: 2, explanation: "Since cos of an obtuse angle is negative, a² > b² + c²." }
             ]
           },
           {
             id: "ch9",
             name: "Chords of a Circle",
             importantTopics: ["Chord Properties", "Perpendicular from Center", "Equal Chords"],
-            keyConcepts: ["Chord bisected by perpendicular from center"],
+            keyConcepts: ["Chord bisected by perpendicular from center", "Congruent chords"],
             formulas: [],
             mcqs: [
-              { id: "m10-ch9-1", question: "Perpendicular from center to chord:", options: ["Passes through circumference", "Bisects the chord", "Is parallel to chord", "Equals the radius"], correctAnswer: 1, explanation: "Perpendicular from center bisects the chord." }
+              { id: "m10-ch9-1", question: "A line segment joining any two points of a circle is called:", options: ["Circumference", "Radial segment", "Chord", "Diameter"], correctAnswer: 2, explanation: "A chord is a line segment joining any two points on a circle." },
+              { id: "m10-ch9-2", question: "The largest chord of a circle is its:", options: ["Circumference", "Radial segment", "Chord", "Diameter"], correctAnswer: 3, explanation: "The diameter is the longest possible chord of a circle." },
+              { id: "m10-ch9-3", question: "Perpendicular from center to a chord:", options: ["Passes through circumference", "Bisects the chord", "Is parallel to chord", "Equals the radius"], correctAnswer: 1, explanation: "A perpendicular from the center of a circle bisects the chord." },
+              { id: "m10-ch9-4", question: "Two chords equidistant from the center are:", options: ["Parallel", "Non congruent", "Congruent", "Perpendicular"], correctAnswer: 2, explanation: "Chords equidistant from the center are equal in length (congruent)." },
+              { id: "m10-ch9-5", question: "Through how many non-collinear points can a circle pass?", options: ["One", "Two", "Three", "None"], correctAnswer: 2, explanation: "A unique circle passes through exactly three non-collinear points." },
+              { id: "m10-ch9-6", question: "Locus of a point in a plane equidistant from a fixed point is called:", options: ["Radius", "Circle", "Circumference", "Diameter"], correctAnswer: 1, explanation: "A circle is the set of all points equidistant from a fixed point (center)." },
+              { id: "m10-ch9-7", question: "The line segment joining the center and any point of circle is called:", options: ["Circumference", "Radial segment", "Chord", "Diameter"], correctAnswer: 1, explanation: "A radial segment connects the center to any point on the circle." },
+              { id: "m10-ch9-8", question: "If central chord of a circle is 12 cm, then its radius is:", options: ["6 cm", "8 cm", "12 cm", "24 cm"], correctAnswer: 0, explanation: "The central chord is the diameter. Radius = diameter/2 = 12/2 = 6 cm." },
+              { id: "m10-ch9-9", question: "A complete circle is divided into:", options: ["90 degrees", "180 degrees", "270 degrees", "360 degrees"], correctAnswer: 3, explanation: "A full circle measures 360°." },
+              { id: "m10-ch9-10", question: "π is the ratio of:", options: ["Radius and diameter", "Diameter and circumference", "Circumference and diameter", "Circumference and radius"], correctAnswer: 2, explanation: "π = circumference/diameter." }
             ]
           },
           {
             id: "ch10",
             name: "Tangent to a Circle",
-            importantTopics: ["Tangent Properties", "Tangent-Radius Relationship"],
-            keyConcepts: ["Tangent perpendicular to radius", "Tangent from external point"],
+            importantTopics: ["Tangent Properties", "Tangent-Radius Relationship", "Tangent from External Point"],
+            keyConcepts: ["Tangent perpendicular to radius", "Equal tangents from external point"],
             formulas: [],
             mcqs: [
-              { id: "m10-ch10-1", question: "Tangent to circle is perpendicular to:", options: ["Chord", "Diameter", "Radius at point of contact", "Secant"], correctAnswer: 2, explanation: "Tangent is perpendicular to radius at the point of tangency." }
+              { id: "m10-ch10-1", question: "A line which has only one point in common with a circle is called:", options: ["Sine of a circle", "Cosine of a circle", "Tangent of a circle", "Secant of a circle"], correctAnswer: 2, explanation: "A tangent touches the circle at exactly one point." },
+              { id: "m10-ch10-2", question: "A line which has two points in common with a circle is called:", options: ["Sine of a circle", "Cosine of a circle", "Tangent of a circle", "Secant of a circle"], correctAnswer: 3, explanation: "A secant intersects the circle at two points." },
+              { id: "m10-ch10-3", question: "Two tangents drawn to a circle from a point outside it are ___ in length:", options: ["Half", "Equal", "Double", "Triple"], correctAnswer: 1, explanation: "Tangent segments from the same external point are equal in length." },
+              { id: "m10-ch10-4", question: "A circle has only one:", options: ["Secant", "Chord", "Diameter", "Center"], correctAnswer: 3, explanation: "Every circle has exactly one center." },
+              { id: "m10-ch10-5", question: "A tangent line intersects the circle at:", options: ["Three points", "Two points", "Single point", "No point"], correctAnswer: 2, explanation: "A tangent meets (touches) the circle at exactly one point." },
+              { id: "m10-ch10-6", question: "Tangents drawn at the ends of a diameter of a circle are ___ to each other:", options: ["Parallel", "Non-parallel", "Perpendicular", "Coincident"], correctAnswer: 0, explanation: "Tangents at the endpoints of a diameter are parallel." },
+              { id: "m10-ch10-7", question: "Tangent to circle is perpendicular to:", options: ["Chord", "Diameter", "Radius at point of contact", "Secant"], correctAnswer: 2, explanation: "The tangent is always perpendicular to the radius at the point of tangency." },
+              { id: "m10-ch10-8", question: "How many tangents can be drawn from a point outside the circle?", options: ["1", "2", "3", "None"], correctAnswer: 1, explanation: "Exactly two tangents can be drawn from an external point to a circle." },
+              { id: "m10-ch10-9", question: "If two circles touch each other, their centers and point of contact are:", options: ["Coincident", "Non collinear", "Collinear", "Non coplanar"], correctAnswer: 2, explanation: "The centers and the point of tangency lie on the same straight line." },
+              { id: "m10-ch10-10", question: "The distance between the centers of two congruent circles touching externally is:", options: ["Zero length", "The radius of each circle", "The diameter of each circle", "Twice the diameter"], correctAnswer: 2, explanation: "Distance = r₁ + r₂ = r + r = 2r = diameter (for congruent circles)." }
             ]
           },
           {
             id: "ch11",
             name: "Chords and Arcs",
-            importantTopics: ["Arc Length", "Relation between Chords and Arcs"],
+            importantTopics: ["Arc Length", "Relation between Chords and Arcs", "Central Angle"],
             keyConcepts: ["Equal chords = equal arcs", "Arc subtended angle"],
             formulas: ["Arc length = rθ (θ in radians)"],
             mcqs: [
-              { id: "m10-ch11-1", question: "Equal chords cut off:", options: ["Unequal arcs", "Equal arcs", "No arcs", "Diameter"], correctAnswer: 1, explanation: "Equal chords subtend equal arcs in the same circle." }
+              { id: "m10-ch11-1", question: "A 4 cm long chord subtends a central angle of 60°. The radial segment of this circle is:", options: ["1 cm", "2 cm", "3 cm", "4 cm"], correctAnswer: 3, explanation: "If chord = radius and central angle = 60°, then an equilateral triangle is formed, so r = 4 cm." },
+              { id: "m10-ch11-2", question: "The length of a chord and the radial segment of a circle are congruent. The central angle made by the chord will be:", options: ["30°", "45°", "60°", "75°"], correctAnswer: 2, explanation: "When chord = radius, the triangle formed is equilateral, so central angle = 60°." },
+              { id: "m10-ch11-3", question: "Out of two congruent arcs of a circle, if one arc makes a central angle of 30° then the other arc will subtend:", options: ["15°", "30°", "45°", "60°"], correctAnswer: 1, explanation: "Congruent arcs subtend equal central angles." },
+              { id: "m10-ch11-4", question: "An arc subtends a central angle of 40°, then the corresponding chord will subtend a central angle of:", options: ["20°", "40°", "60°", "80°"], correctAnswer: 1, explanation: "A chord and its arc subtend the same central angle." },
+              { id: "m10-ch11-5", question: "A pair of chords subtending two congruent central angles is:", options: ["Congruent", "Incongruent", "Overlapping", "Parallel"], correctAnswer: 0, explanation: "Equal central angles correspond to equal chords." },
+              { id: "m10-ch11-6", question: "Equal chords cut off:", options: ["Unequal arcs", "Equal arcs", "No arcs", "Diameter"], correctAnswer: 1, explanation: "Equal chords subtend equal arcs in the same circle." },
+              { id: "m10-ch11-7", question: "The semi-circumference and diameter both subtend a central angle of:", options: ["90°", "180°", "270°", "360°"], correctAnswer: 1, explanation: "Both the semi-circumference and diameter subtend 180° at the center." },
+              { id: "m10-ch11-8", question: "If an arc subtends a central angle of 60°, the corresponding chord makes a central angle of:", options: ["20°", "40°", "60°", "80°"], correctAnswer: 2, explanation: "The chord and its corresponding arc subtend the same central angle." },
+              { id: "m10-ch11-9", question: "The arc length formula is:", options: ["l = r/θ", "l = θ/r", "l = rθ", "l = r²θ"], correctAnswer: 2, explanation: "Arc length l = rθ where θ is in radians." },
+              { id: "m10-ch11-10", question: "Area of a circular sector =", options: ["rθ", "r²θ", "(1/2)rθ", "(1/2)r²θ"], correctAnswer: 3, explanation: "Area of sector = (1/2)r²θ where θ is in radians." }
             ]
           },
           {
@@ -1209,18 +1300,35 @@ Total Marks: 87 | Time: 2 Hours 30 Minutes
             keyConcepts: ["Inscribed angle = half central angle", "Angle in semicircle = 90°"],
             formulas: [],
             mcqs: [
-              { id: "m10-ch12-1", question: "Angle in a semicircle is:", options: ["45°", "60°", "90°", "180°"], correctAnswer: 2, explanation: "Angle inscribed in a semicircle is always 90°." },
-              { id: "m10-ch12-2", question: "Inscribed angle is ___ of central angle:", options: ["Equal", "Half", "Double", "Quarter"], correctAnswer: 1, explanation: "Inscribed angle = ½ × central angle on same arc." }
+              { id: "m10-ch12-1", question: "Angle inscribed in a semicircle is:", options: ["45°", "60°", "90°", "180°"], correctAnswer: 2, explanation: "An angle inscribed in a semicircle is always a right angle (90°)." },
+              { id: "m10-ch12-2", question: "Inscribed angle is ___ of central angle on the same arc:", options: ["Equal", "Half", "Double", "Quarter"], correctAnswer: 1, explanation: "The inscribed angle is half the central angle subtended by the same arc." },
+              { id: "m10-ch12-3", question: "A circle passes through the vertices of a right-angled triangle with hypotenuse 5 cm. Radius of the circle is:", options: ["1.5 cm", "2.0 cm", "2.5 cm", "3.5 cm"], correctAnswer: 2, explanation: "The hypotenuse is the diameter of the circumscribed circle. Radius = 5/2 = 2.5 cm." },
+              { id: "m10-ch12-4", question: "Central angle is ___ the inscribed angle on the same arc:", options: ["Equal to", "Half of", "Double of", "Triple of"], correctAnswer: 2, explanation: "Central angle = 2 × inscribed angle on the same arc." },
+              { id: "m10-ch12-5", question: "The circumference of a circle is called its:", options: ["Chord", "Segment", "Boundary", "Point"], correctAnswer: 2, explanation: "The circumference is the boundary of a circle." },
+              { id: "m10-ch12-6", question: "A line intersecting a circle is called:", options: ["Tangent", "Secant", "Chord", "Diameter"], correctAnswer: 1, explanation: "A secant is a line that intersects a circle at two points." },
+              { id: "m10-ch12-7", question: "The portion of a circle between two radii and an arc is called:", options: ["Sector", "Segment", "Chord", "Interior"], correctAnswer: 0, explanation: "A sector is the region bounded by two radii and an arc." },
+              { id: "m10-ch12-8", question: "Angles inscribed in the same arc are:", options: ["Supplementary", "Complementary", "Equal", "Unequal"], correctAnswer: 2, explanation: "Inscribed angles in the same arc (on the same side) are equal." },
+              { id: "m10-ch12-9", question: "If a central angle is 120°, the inscribed angle on the same arc is:", options: ["30°", "60°", "90°", "120°"], correctAnswer: 1, explanation: "Inscribed angle = half of central angle = 120°/2 = 60°." },
+              { id: "m10-ch12-10", question: "The angle in a major segment is:", options: ["Acute", "Right", "Obtuse", "Reflex"], correctAnswer: 0, explanation: "An inscribed angle in the major segment is always acute (< 90°)." }
             ]
           },
           {
             id: "ch13",
             name: "Practical Geometry - Circles",
-            importantTopics: ["Constructing Tangents", "Circumscribed & Inscribed Circles"],
-            keyConcepts: ["Tangent construction", "Circle through three points"],
+            importantTopics: ["Constructing Tangents", "Circumscribed & Inscribed Circles", "Escribed Circles"],
+            keyConcepts: ["Tangent construction", "Circumcircle", "Incircle"],
             formulas: [],
             mcqs: [
-              { id: "m10-ch13-1", question: "How many tangents can be drawn from external point?", options: ["One", "Two", "Three", "Infinite"], correctAnswer: 1, explanation: "Exactly two tangents can be drawn from an external point." }
+              { id: "m10-ch13-1", question: "The circle passing through vertices of a triangle is called:", options: ["Circumscribed circle", "Inscribed circle", "Escribed circle", "Right circle"], correctAnswer: 0, explanation: "The circumscribed circle (circumcircle) passes through all three vertices." },
+              { id: "m10-ch13-2", question: "The circle which touches the three sides of a triangle is called:", options: ["Circumscribed circle", "Inscribed circle", "Escribed circle", "Right circle"], correctAnswer: 1, explanation: "The inscribed circle (incircle) touches all three sides of the triangle." },
+              { id: "m10-ch13-3", question: "The circle touching one side externally and two produced sides internally is called:", options: ["Circumscribed circle", "Inscribed circle", "Escribed circle", "Right circle"], correctAnswer: 2, explanation: "An escribed circle touches one side and the extensions of the other two." },
+              { id: "m10-ch13-4", question: "How many tangents can be drawn from external point to a circle?", options: ["One", "Two", "Three", "Infinite"], correctAnswer: 1, explanation: "Exactly two tangents can be drawn from an external point." },
+              { id: "m10-ch13-5", question: "The tangent and radius of a circle at the point of contact are:", options: ["Parallel", "Not perpendicular", "Perpendicular", "Collinear"], correctAnswer: 2, explanation: "A tangent is always perpendicular to the radius at the point of contact." },
+              { id: "m10-ch13-6", question: "If the in-center and circumcenter of a triangle coincide, the triangle is:", options: ["Isosceles", "Right triangle", "Equilateral", "Scalene"], correctAnswer: 2, explanation: "Only in an equilateral triangle do all centers coincide." },
+              { id: "m10-ch13-7", question: "The length of the diameter of a circle is how many times the radius?", options: ["1", "2", "3", "4"], correctAnswer: 1, explanation: "Diameter = 2 × radius." },
+              { id: "m10-ch13-8", question: "Tangent is a line touching a circle at:", options: ["No point", "One point", "Two points", "Infinite points"], correctAnswer: 1, explanation: "A tangent touches the circle at exactly one point." },
+              { id: "m10-ch13-9", question: "How many common tangents can be drawn for two disjoint circles?", options: ["1", "2", "3", "4"], correctAnswer: 3, explanation: "Two disjoint circles have 4 common tangents (2 external + 2 internal)." },
+              { id: "m10-ch13-10", question: "The word geometry is derived from two ___ words:", options: ["English", "Latin", "Greek", "Chinese"], correctAnswer: 2, explanation: "Geometry comes from Greek words 'Geo' (earth) and 'Metron' (measure)." }
             ]
           }
         ]
