@@ -104,6 +104,7 @@ export const armyNonVerbalChapters: Chapter[] = [
   { id: "army-nv-13", name: "Shape Transformation", description: "Shapes changing form & complexity (Q71-Q75)", icon: "🔷", mcqs: allNonVerbalMCQs.slice(70, 75) },
   { id: "army-nv-14", name: "Mirror & Analogy", description: "Mirror images and visual analogies (Q76-Q80)", icon: "🪞", mcqs: allNonVerbalMCQs.slice(75, 80) },
   { id: "army-mn-1", name: "Missing Number (Figures)", description: "Find missing numbers in geometric shapes", icon: "🔢", mcqs: [] },
+  { id: "army-pg-1", name: "Pattern Grid (Design Test)", description: "Complete the repeating pattern grid", icon: "🧩", mcqs: [] },
 ];
 
 export const armyNonVerbalExperienceMCQs: MCQ[] = allNonVerbalMCQs;
