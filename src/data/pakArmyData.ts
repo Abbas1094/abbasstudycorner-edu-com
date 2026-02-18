@@ -16,26 +16,42 @@ import { armyMathCh2MCQs, armyMathCh3MCQs, armyMathCh5MCQs, armyMathCh6MCQs, arm
 import { armyVerbalCh1MCQs, armyVerbalCh3MCQs, armyVerbalCh5MCQs, armyVerbalCh9MCQs } from "@/data/pakArmy/armyVerbalChapterMCQs";
 import { allNonVerbalMCQs } from "@/data/nonVerbalPatterns";
 
+// New Verbal MCQs from Ilyas Forces + Most Repeated PDFs
+import {
+  armyVerbalNewCh1MCQs,
+  armyVerbalNewCh3MCQs,
+  armyVerbalNewCh5MCQs,
+  armyVerbalNewCh6MCQs,
+  armyVerbalNewCh7TimeMCQs,
+  armyVerbalNewCh7AgeMCQs,
+  armyVerbalNewCh7MathMCQs,
+  armyVerbalNewCh7SpeedMCQs,
+  armyVerbalNewCh7ProfitMCQs,
+  armyVerbalNewCh8MCQs,
+  armyVerbalNewCh9MCQs,
+  armyVerbalNewCh10MCQs,
+} from "@/data/pakArmy/armyVerbalNewMCQs";
+
 // ============= INTELLIGENCE - VERBAL =============
 export const armyVerbalChapters: Chapter[] = [
   { id: "army-verbal-1", name: "Verbal Analogies", description: "Word relationships and analogies", icon: "💭",
-    mcqs: [...armyVerbalExperienceMCQsData.slice(4, 6), ...armyVerbalCh1MCQs] },
+    mcqs: [...armyVerbalExperienceMCQsData.slice(4, 6), ...armyVerbalCh1MCQs, ...armyVerbalNewCh1MCQs] },
   { id: "army-verbal-2", name: "Synonyms & Antonyms", description: "Words with similar and opposite meanings", icon: "🔤", mcqs: [] },
   { id: "army-verbal-3", name: "Word Problems", description: "Logical word-based reasoning / Odd One Out", icon: "📝",
-    mcqs: [...armyVerbalExperienceMCQsData.slice(0, 4), ...armyVerbalCh3MCQs] },
+    mcqs: [...armyVerbalExperienceMCQsData.slice(0, 4), ...armyVerbalCh3MCQs, ...armyVerbalNewCh3MCQs] },
   { id: "army-verbal-4", name: "Sentence Completion", description: "Fill in the blanks with correct words", icon: "✍️", mcqs: [] },
   { id: "army-verbal-5", name: "Verbal Series", description: "Letter and word sequences", icon: "🔡",
-    mcqs: [...armyVerbalExperienceMCQsData.slice(11, 13), ...armyVerbalCh5MCQs] },
+    mcqs: [...armyVerbalExperienceMCQsData.slice(11, 13), ...armyVerbalCh5MCQs, ...armyVerbalNewCh5MCQs] },
   { id: "army-verbal-6", name: "Coding-Decoding", description: "Pattern recognition in letter/number codes", icon: "🔐",
-    mcqs: armyVerbalExperienceMCQsData.slice(13, 16) },
-  { id: "army-verbal-7", name: "Logical Reasoning", description: "Deductive and inductive reasoning", icon: "🧠",
-    mcqs: armyVerbalExperienceMCQsData.slice(6, 10) },
+    mcqs: [...armyVerbalExperienceMCQsData.slice(13, 16), ...armyVerbalNewCh6MCQs] },
+  { id: "army-verbal-7", name: "Logical Reasoning", description: "Time/Days, Age, Math, Speed problems", icon: "🧠",
+    mcqs: [...armyVerbalExperienceMCQsData.slice(6, 10), ...armyVerbalNewCh7TimeMCQs, ...armyVerbalNewCh7AgeMCQs, ...armyVerbalNewCh7MathMCQs, ...armyVerbalNewCh7SpeedMCQs, ...armyVerbalNewCh7ProfitMCQs] },
   { id: "army-verbal-8", name: "Blood Relations", description: "Family relationship-based problems", icon: "👨‍👩‍👧‍👦",
-    mcqs: [armyVerbalExperienceMCQsData[16]] },
+    mcqs: [armyVerbalExperienceMCQsData[16], ...armyVerbalNewCh8MCQs] },
   { id: "army-verbal-9", name: "Direction Sense", description: "Navigation and direction-based problems", icon: "🧭",
-    mcqs: [armyVerbalExperienceMCQsData[10], ...armyVerbalCh9MCQs] },
-  { id: "army-verbal-10", name: "General Knowledge (Intelligence)", description: "GK-based intelligence questions", icon: "🌐",
-    mcqs: armyVerbalExperienceMCQsData.slice(17, 20) }
+    mcqs: [armyVerbalExperienceMCQsData[10], ...armyVerbalCh9MCQs, ...armyVerbalNewCh9MCQs] },
+  { id: "army-verbal-10", name: "General Knowledge (Intelligence)", description: "GK-based intelligence & ranking", icon: "🌐",
+    mcqs: [...armyVerbalExperienceMCQsData.slice(17, 20), ...armyVerbalNewCh10MCQs] }
 ];
 
 export const armyVerbalExperienceMCQs: MCQ[] = armyVerbalExperienceMCQsData;
@@ -51,6 +67,8 @@ export const armyNvQuestionRanges: Record<string, { start: number; end: number }
   "army-nv-6": { start: 33, end: 38 },
   "army-nv-7": { start: 39, end: 44 },
   "army-nv-8": { start: 45, end: 50 },
+  "army-nv-9": { start: 51, end: 55 },
+  "army-nv-10": { start: 56, end: 60 },
 };
 
 export const armyNonVerbalChapters: Chapter[] = [
@@ -61,7 +79,9 @@ export const armyNonVerbalChapters: Chapter[] = [
   { id: "army-nv-5", name: "Figure Analogies", description: "Visual relationship-based reasoning (Q27-Q32)", icon: "🔀", mcqs: allNonVerbalMCQs.slice(26, 32) },
   { id: "army-nv-6", name: "Embedded Figures", description: "Find hidden figures within complex shapes (Q33-Q38)", icon: "🔍", mcqs: allNonVerbalMCQs.slice(32, 38) },
   { id: "army-nv-7", name: "Shape Counting", description: "Count geometric shapes in figures (Q39-Q44)", icon: "📐", mcqs: allNonVerbalMCQs.slice(38, 44) },
-  { id: "army-nv-8", name: "Cube & Dice Problems", description: "3D spatial reasoning with cubes (Q45-Q50)", icon: "🎲", mcqs: allNonVerbalMCQs.slice(44, 50) }
+  { id: "army-nv-8", name: "Cube & Dice Problems", description: "3D spatial reasoning with cubes (Q45-Q50)", icon: "🎲", mcqs: allNonVerbalMCQs.slice(44, 50) },
+  { id: "army-nv-9", name: "Series Completion I", description: "Complete the series - lines & rotation (Q51-Q55)", icon: "🔄", mcqs: allNonVerbalMCQs.slice(50, 55) },
+  { id: "army-nv-10", name: "Series Completion II", description: "Complete the series - shapes & fills (Q56-Q60)", icon: "🔁", mcqs: allNonVerbalMCQs.slice(55, 60) },
 ];
 
 export const armyNonVerbalExperienceMCQs: MCQ[] = allNonVerbalMCQs;

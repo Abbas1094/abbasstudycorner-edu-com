@@ -4,21 +4,24 @@ export { patterns11to20, patternComponents11to20 } from './patterns11to20';
 export { patterns21to30, patternComponents21to30 } from './patterns21to30';
 export { patterns31to40, patternComponents31to40 } from './patterns31to40';
 export { patterns41to50, patternComponents41to50 } from './patterns41to50';
+export { patterns51to60, patternComponents51to60 } from './patterns51to60';
 
 import { patterns1to10, patternComponents1to10 } from './patterns1to10';
 import { patterns11to20, patternComponents11to20 } from './patterns11to20';
 import { patterns21to30, patternComponents21to30 } from './patterns21to30';
 import { patterns31to40, patternComponents31to40 } from './patterns31to40';
 import { patterns41to50, patternComponents41to50 } from './patterns41to50';
+import { patterns51to60, patternComponents51to60 } from './patterns51to60';
 import type { MCQ } from '@/types';
 
-// All 50 non-verbal MCQs combined
+// All non-verbal MCQs combined
 export const allNonVerbalMCQs: MCQ[] = [
   ...patterns1to10,
   ...patterns11to20,
   ...patterns21to30,
   ...patterns31to40,
   ...patterns41to50,
+  ...patterns51to60,
 ];
 
 // All pattern components combined for rendering
@@ -28,6 +31,7 @@ export const allPatternComponents = {
   ...patternComponents21to30,
   ...patternComponents31to40,
   ...patternComponents41to50,
+  ...patternComponents51to60,
 };
 
 // Helper to get pattern component by question number
