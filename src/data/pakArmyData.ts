@@ -83,6 +83,8 @@ export const armyNvQuestionRanges: Record<string, { start: number; end: number }
   "army-nv-10": { start: 56, end: 60 },
   "army-nv-11": { start: 61, end: 65 },
   "army-nv-12": { start: 66, end: 70 },
+  "army-nv-13": { start: 71, end: 75 },
+  "army-nv-14": { start: 76, end: 80 },
 };
 
 export const armyNonVerbalChapters: Chapter[] = [
@@ -98,6 +100,8 @@ export const armyNonVerbalChapters: Chapter[] = [
   { id: "army-nv-10", name: "Series Completion II", description: "Complete the series - shapes & fills (Q56-Q60)", icon: "🔁", mcqs: allNonVerbalMCQs.slice(55, 60) },
   { id: "army-nv-11", name: "Rotation & Direction", description: "Arrow/shape rotation patterns (Q61-Q65)", icon: "🧭", mcqs: allNonVerbalMCQs.slice(60, 65) },
   { id: "army-nv-12", name: "Complex Patterns", description: "Multi-element pattern sequences (Q66-Q70)", icon: "🧩", mcqs: allNonVerbalMCQs.slice(65, 70) },
+  { id: "army-nv-13", name: "Shape Transformation", description: "Shapes changing form & complexity (Q71-Q75)", icon: "🔷", mcqs: allNonVerbalMCQs.slice(70, 75) },
+  { id: "army-nv-14", name: "Mirror & Analogy", description: "Mirror images and visual analogies (Q76-Q80)", icon: "🪞", mcqs: allNonVerbalMCQs.slice(75, 80) },
 ];
 
 export const armyNonVerbalExperienceMCQs: MCQ[] = allNonVerbalMCQs;
