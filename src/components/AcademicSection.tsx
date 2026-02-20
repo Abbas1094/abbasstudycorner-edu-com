@@ -1,15 +1,16 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ArrowLeft, BookOpen, FileText, HelpCircle, FolderOpen, Calendar, ChevronRight, Trophy, CheckCircle2 } from "lucide-react";
+import { ArrowLeft, BookOpen, FileText, HelpCircle, FolderOpen, Calendar, ChevronRight, Trophy, CheckCircle2, Zap } from "lucide-react";
 import { academicClasses } from "@/data/academicData";
 import { AcademicClass, AcademicSubject, AcademicChapter } from "@/types";
 import ClassCard from "@/components/ClassCard";
 import AcademicSubjectCard from "@/components/AcademicSubjectCard";
 import PlaceholderMessage from "@/components/PlaceholderMessage";
 import AcademicQuiz from "@/components/AcademicQuiz";
+import GrandQuizEngine from "@/components/GrandQuizEngine";
 import { isChapterCompleted, getChapterScore, getSubjectProgress } from "@/lib/academicProgress";
 
-type AcademicScreen = "classes" | "subjects" | "subject-content" | "chapter-content" | "chapter-mcqs";
+type AcademicScreen = "classes" | "subjects" | "subject-content" | "chapter-content" | "chapter-mcqs" | "grand-quiz";
 
 interface AcademicSectionProps {
   onBack: () => void;
@@ -22,7 +23,9 @@ const AcademicSection = ({ onBack }: AcademicSectionProps) => {
   const [selectedChapter, setSelectedChapter] = useState<AcademicChapter | null>(null);
 
   const handleBack = () => {
-    if (screen === "chapter-mcqs") {
+    if (screen === "grand-quiz") {
+      setScreen("subject-content");
+    } else if (screen === "chapter-mcqs") {
       setScreen("subject-content");
       setSelectedChapter(null);
     } else if (screen === "chapter-content") {
@@ -137,13 +140,35 @@ const AcademicSection = ({ onBack }: AcademicSectionProps) => {
               animate={{ opacity: 1, x: 0 }}
               exit={{ opacity: 0, x: -20 }}
             >
-              <div className="flex items-center gap-3 mb-6">
+              <div className="flex items-center gap-3 mb-4">
                 <span className="text-4xl">{selectedSubject.icon}</span>
                 <div>
                   <h2 className="font-display text-2xl font-bold text-foreground">{selectedSubject.name}</h2>
                   <p className="text-sm text-muted-foreground">{selectedClass.name}</p>
                 </div>
               </div>
+
+              {/* ── Grand Quiz Button ── */}
+              <motion.button
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.05 }}
+                whileHover={{ scale: 1.01 }}
+                whileTap={{ scale: 0.98 }}
+                onClick={() => setScreen("grand-quiz")}
+                className="w-full mb-4 p-4 rounded-2xl bg-gradient-to-r from-amber-500 via-yellow-500 to-amber-400 text-white font-semibold shadow-lg flex items-center justify-between group"
+              >
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 rounded-xl bg-white/20 flex items-center justify-center flex-shrink-0">
+                    <Zap className="w-5 h-5 text-white" />
+                  </div>
+                  <div className="text-left">
+                    <p className="font-display text-base font-bold">Grand Quiz MCQs</p>
+                    <p className="text-xs text-white/80 font-normal">Board Pattern · 15–20 Random Questions</p>
+                  </div>
+                </div>
+                <ChevronRight className="w-5 h-5 text-white group-hover:translate-x-1 transition-transform" />
+              </motion.button>
 
               <div className="space-y-4">
                 {/* Pairing Scheme */}
@@ -387,6 +412,22 @@ const AcademicSection = ({ onBack }: AcademicSectionProps) => {
                   setScreen("subject-content");
                   setSelectedChapter(null);
                 }}
+              />
+            </motion.div>
+          )}
+
+          {/* Grand Quiz */}
+          {screen === "grand-quiz" && selectedSubject && selectedClass && (
+            <motion.div
+              key="grand-quiz"
+              initial={{ opacity: 0, x: 20 }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: -20 }}
+            >
+              <GrandQuizEngine
+                subject={selectedSubject}
+                classId={selectedClass.id}
+                onBack={() => setScreen("subject-content")}
               />
             </motion.div>
           )}
