@@ -408,6 +408,7 @@ const AcademicSection = ({ onBack }: AcademicSectionProps) => {
                 classId={selectedClass.id}
                 subjectId={selectedSubject.id}
                 chapterId={selectedChapter.id}
+                notes={selectedChapter.notes}
                 onBack={() => {
                   setScreen("subject-content");
                   setSelectedChapter(null);

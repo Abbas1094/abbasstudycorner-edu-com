@@ -1,10 +1,20 @@
-import { useState, useCallback, useMemo, useEffect } from "react";
+import { useState, useCallback, useMemo, useEffect, ReactNode } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { CheckCircle2, XCircle, ChevronRight, RotateCcw, Lightbulb, ArrowLeft, Timer, Trophy, AlertTriangle } from "lucide-react";
+import { CheckCircle2, XCircle, ChevronRight, RotateCcw, Lightbulb, ArrowLeft, Timer, Trophy, AlertTriangle, BookOpen, X } from "lucide-react";
 import { MCQ } from "@/types";
 import { shuffleMCQs } from "@/lib/shuffleUtils";
 import { saveChapterScore, ChapterScore } from "@/lib/academicProgress";
 import { Progress } from "@/components/ui/progress";
+
+const formatNoteWithBold = (note: string): ReactNode => {
+  const parts = note.split(/(\*\*.*?\*\*)/g);
+  return parts.map((part, i) => {
+    if (part.startsWith('**') && part.endsWith('**')) {
+      return <strong key={i} className="text-primary">{part.slice(2, -2)}</strong>;
+    }
+    return part;
+  });
+};
 
 interface AcademicQuizProps {
   mcqs: MCQ[];
@@ -14,7 +24,8 @@ interface AcademicQuizProps {
   chapterId: string;
   onBack: () => void;
   enableTimer?: boolean;
-  timePerQuestion?: number; // seconds per question, default 30
+  timePerQuestion?: number;
+  notes?: string[];
 }
 
 interface Answer {
@@ -33,7 +44,9 @@ const AcademicQuiz = ({
   onBack,
   enableTimer = false,
   timePerQuestion = 30,
+  notes,
 }: AcademicQuizProps) => {
+  const [showNotes, setShowNotes] = useState(false);
   const shuffledMCQs = useMemo(() => shuffleMCQs(mcqs), [mcqs]);
 
   const [current, setCurrent] = useState(0);
@@ -262,10 +275,57 @@ const AcademicQuiz = ({
 
   return (
     <div>
+      {/* Notes Modal */}
+      <AnimatePresence>
+        {showNotes && notes && notes.length > 0 && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-50 bg-black/70 flex items-center justify-center p-4"
+            onClick={() => setShowNotes(false)}
+          >
+            <motion.div
+              initial={{ scale: 0.9, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.9, opacity: 0 }}
+              className="bg-card rounded-2xl p-6 max-w-lg w-full max-h-[80vh] overflow-y-auto border border-border"
+              onClick={e => e.stopPropagation()}
+            >
+              <div className="flex items-center justify-between mb-4">
+                <h3 className="font-display text-xl font-bold text-foreground flex items-center gap-2">
+                  <BookOpen className="w-5 h-5 text-primary" />
+                  Quick Notes
+                </h3>
+                <button onClick={() => setShowNotes(false)} className="p-2 rounded-full hover:bg-muted transition-colors">
+                  <X className="w-5 h-5 text-muted-foreground" />
+                </button>
+              </div>
+              <div className="space-y-3">
+                {notes.map((note, idx) => (
+                  <div key={idx} className="p-3 rounded-xl bg-primary/10 border border-primary/20 text-sm text-foreground">
+                    {formatNoteWithBold(note)}
+                  </div>
+                ))}
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
       {/* Header Info */}
       <div className="flex items-center justify-between mb-3">
-        <p className="text-sm text-muted-foreground truncate max-w-[60%]">{chapterName}</p>
+        <p className="text-sm text-muted-foreground truncate max-w-[45%]">{chapterName}</p>
         <div className="flex items-center gap-3">
+          {notes && notes.length > 0 && (
+            <button
+              onClick={() => setShowNotes(true)}
+              className="flex items-center gap-1 px-3 py-1.5 rounded-full bg-primary/20 text-primary text-xs font-medium hover:bg-primary/30 transition-colors"
+            >
+              <BookOpen className="w-3.5 h-3.5" />
+              Notes
+            </button>
+          )}
           {enableTimer && (
             <span className={`text-sm font-mono font-medium flex items-center gap-1 ${timeLeft < 60 ? "text-destructive" : "text-muted-foreground"}`}>
               <Timer className="w-3.5 h-3.5" />
