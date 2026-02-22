@@ -6,6 +6,30 @@ import {
   chemistry9NewCh9MCQs, chemistry9NewCh10MCQs, chemistry9NewCh11MCQs,
   chemistry9NewCh12MCQs, chemistry9NewCh13MCQs
 } from "@/data/chemistry9NewMCQs";
+import {
+  e9PresentIndefiniteMCQs, e9PresentIndefiniteNotes,
+  e9PresentContinuousMCQs, e9PresentContinuousNotes,
+  e9PresentPerfectMCQs, e9PresentPerfectNotes,
+  e9PresentPerfectContinuousMCQs, e9PresentPerfectContinuousNotes,
+  e9PastIndefiniteMCQs, e9PastIndefiniteNotes,
+  e9PastContinuousMCQs, e9PastContinuousNotes,
+  e9PastPerfectMCQs, e9PastPerfectNotes,
+  e9PastPerfectContinuousMCQs, e9PastPerfectContinuousNotes,
+  e9FutureIndefiniteMCQs, e9FutureIndefiniteNotes,
+  e9FutureContinuousMCQs, e9FutureContinuousNotes,
+  e9FuturePerfectMCQs, e9FuturePerfectNotes,
+  e9FuturePerfectContinuousMCQs, e9FuturePerfectContinuousNotes,
+  e9AllTenseMCQs,
+  e9SpellingMCQs, e9SpellingNotes,
+  e9VocabularyMCQs, e9VocabularyNotes,
+  e9NounsPronounsMCQs, e9NounsPronounsNotes,
+  e9VerbsGerundsMCQs, e9VerbsGerundsNotes,
+  e9AdverbsClausesMCQs, e9AdverbsClausesNotes,
+  e9PrepositionsConjunctionsMCQs, e9PrepositionsConjunctionsNotes,
+  e9SentenceConditionalsMCQs, e9SentenceConditionalsNotes,
+  e9FiguresOfSpeechMCQs, e9FiguresOfSpeechNotes,
+  e9AllGrammarMCQs,
+} from "@/data/english9NewMCQs";
 
 export const academicClasses: AcademicClass[] = [
   {
@@ -697,7 +721,7 @@ Total Marks: 87 | Time: 2 Hours 30 Minutes
       },
       {
         id: "english-9",
-        name: "English",
+        name: "English (Old Book)",
         icon: "📚",
         chapters: [
           { id: "ch1", name: "The Saviour of Mankind" },
@@ -712,6 +736,49 @@ Total Marks: 87 | Time: 2 Hours 30 Minutes
           { id: "ch10", name: "Drug Addiction" },
           { id: "ch11", name: "Noise in the Environment" },
           { id: "ch12", name: "Three Days to See" }
+        ]
+      },
+      {
+        id: "english-9-new",
+        name: "English (New Book)",
+        icon: "📚",
+        chapters: [
+          // ── PART A: Correct Form of Verb – by Tense ──
+          { id: "part-a-present-indefinite", name: "Part A – Present Indefinite Tense", mcqs: e9PresentIndefiniteMCQs, notes: e9PresentIndefiniteNotes },
+          { id: "part-a-present-continuous", name: "Part A – Present Continuous Tense", mcqs: e9PresentContinuousMCQs, notes: e9PresentContinuousNotes },
+          { id: "part-a-present-perfect", name: "Part A – Present Perfect Tense", mcqs: e9PresentPerfectMCQs, notes: e9PresentPerfectNotes },
+          { id: "part-a-present-perfect-continuous", name: "Part A – Present Perfect Continuous", mcqs: e9PresentPerfectContinuousMCQs, notes: e9PresentPerfectContinuousNotes },
+          { id: "part-a-past-indefinite", name: "Part A – Past Indefinite Tense", mcqs: e9PastIndefiniteMCQs, notes: e9PastIndefiniteNotes },
+          { id: "part-a-past-continuous", name: "Part A – Past Continuous Tense", mcqs: e9PastContinuousMCQs, notes: e9PastContinuousNotes },
+          { id: "part-a-past-perfect", name: "Part A – Past Perfect Tense", mcqs: e9PastPerfectMCQs, notes: e9PastPerfectNotes },
+          { id: "part-a-past-perfect-continuous", name: "Part A – Past Perfect Continuous", mcqs: e9PastPerfectContinuousMCQs, notes: e9PastPerfectContinuousNotes },
+          { id: "part-a-future-indefinite", name: "Part A – Future Indefinite Tense", mcqs: e9FutureIndefiniteMCQs, notes: e9FutureIndefiniteNotes },
+          { id: "part-a-future-continuous", name: "Part A – Future Continuous Tense", mcqs: e9FutureContinuousMCQs, notes: e9FutureContinuousNotes },
+          { id: "part-a-future-perfect", name: "Part A – Future Perfect Tense", mcqs: e9FuturePerfectMCQs, notes: e9FuturePerfectNotes },
+          { id: "part-a-future-perfect-continuous", name: "Part A – Future Perfect Continuous", mcqs: e9FuturePerfectContinuousMCQs, notes: e9FuturePerfectContinuousNotes },
+          { id: "part-a-mixed", name: "Part A – Mixed Tenses Practice (All 115+ MCQs)", mcqs: e9AllTenseMCQs, notes: [
+            "**Mixed Practice:** This section contains ALL tense MCQs shuffled randomly.",
+            "**Tip:** Identify the keyword first (now, yesterday, since, by, ago, always) to determine the tense.",
+            "**Present:** always/daily → Indefinite, now → Continuous, already/just → Perfect, since/for → Perfect Continuous.",
+            "**Past:** yesterday/ago → Indefinite, when → Continuous, before/after → Perfect, since/for (past) → Perfect Continuous.",
+            "**Future:** tomorrow/next → Indefinite, at that time → Continuous, by/before → Perfect.",
+          ]},
+          // ── PART B: Correct Spellings ──
+          { id: "part-b", name: "Part B – Correct Spellings (40 MCQs)", mcqs: e9SpellingMCQs, notes: e9SpellingNotes },
+          // ── PART C: Synonyms, Antonyms & Meanings ──
+          { id: "part-c", name: "Part C – Synonyms, Antonyms & Meanings (40 MCQs)", mcqs: e9VocabularyMCQs, notes: e9VocabularyNotes },
+          // ── PART D: Grammar – by Category ──
+          { id: "part-d-nouns-pronouns", name: "Part D – Nouns & Pronouns", mcqs: e9NounsPronounsMCQs, notes: e9NounsPronounsNotes },
+          { id: "part-d-verbs-gerunds", name: "Part D – Verbs, Gerunds, Infinitives & Participles", mcqs: e9VerbsGerundsMCQs, notes: e9VerbsGerundsNotes },
+          { id: "part-d-adverbs-clauses", name: "Part D – Adjectives, Adverbs, Phrases & Clauses", mcqs: e9AdverbsClausesMCQs, notes: e9AdverbsClausesNotes },
+          { id: "part-d-prepositions", name: "Part D – Prepositions & Conjunctions", mcqs: e9PrepositionsConjunctionsMCQs, notes: e9PrepositionsConjunctionsNotes },
+          { id: "part-d-sentences", name: "Part D – Sentence Structure & Conditionals", mcqs: e9SentenceConditionalsMCQs, notes: e9SentenceConditionalsNotes },
+          { id: "part-d-figures", name: "Part D – Figures of Speech", mcqs: e9FiguresOfSpeechMCQs, notes: e9FiguresOfSpeechNotes },
+          { id: "part-d-mixed", name: "Part D – Mixed Grammar Practice (All 42 MCQs)", mcqs: e9AllGrammarMCQs, notes: [
+            "**Mixed Practice:** This section contains ALL grammar MCQs shuffled randomly.",
+            "**Categories covered:** Nouns, Pronouns, Verbs, Gerunds, Infinitives, Participles, Adverbs, Clauses, Phrases, Prepositions, Conjunctions, Conditionals, Figures of Speech.",
+            "**Tip:** Read the question carefully – identify whether it asks about a word's type, clause type, or sentence type.",
+          ]},
         ]
       },
       {
