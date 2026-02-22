@@ -52,6 +52,7 @@ export interface AcademicChapter {
   formulas?: string[];
   shortNotes?: string;
   mcqs?: MCQ[];
+  notes?: string[];
 }
 
 export interface Resource {

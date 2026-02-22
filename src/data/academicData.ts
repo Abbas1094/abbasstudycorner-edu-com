@@ -1597,6 +1597,16 @@ Total Marks: 87 | Time: 2 Hours 30 Minutes
               { id: "e10-a60", question: "She ______ taking this medicine by March next.", options: ["Stop", "Stopped", "Have stopped", "Will have stopped"], correctAnswer: 3, explanation: "Future Perfect: 'will have stopped' – completed by a future time." },
               { id: "e10-a61", question: "She ______ her examination by the next fall.", options: ["take", "took", "will have taken", "takes"], correctAnswer: 2, explanation: "Future Perfect: 'will have taken'." },
               { id: "e10-a62", question: "The farmers ______ the harvest before the rains.", options: ["reap", "reaps", "will have reaped", "reaping"], correctAnswer: 2, explanation: "Future Perfect: 'will have reaped'." }
+            ],
+            notes: [
+              "**Present Indefinite:** Keywords → always, everyday, usually, generally, daily. Use 1st form (+s/es for He/She/It). Example: The sun **rises** in the east.",
+              "**Present Continuous:** Keywords → now, at present, at the moment, tomorrow (planned). Use is/am/are + V-ing. Example: She **is speaking** English now.",
+              "**Present Perfect:** Keywords → already, yet, recently, just. Use has/have + 3rd form. Example: I have **already posted** the letter.",
+              "**Perfect Continuous (Present/Past/Future):** Keywords → since, for. Use has been/have been/had been + V-ing. Example: She **has been sleeping** since morning.",
+              "**Past Indefinite:** Keywords → yesterday, ago, last night, last year. Use 2nd form. Example: He **left** twenty minutes ago.",
+              "**Past Continuous & Past Perfect:** Keywords → when, before, after. Example: I **was reading** a book when the bell rang. They took breakfast after they **had washed** their hands.",
+              "**Future Indefinite:** Keywords → next week, tomorrow. Use will/shall + 1st form. Example: The court **will give** its verdict on Thursday.",
+              "**Future Perfect:** Keywords → by April, by next year. Use will have + 3rd form. Example: These mangoes **will have reached** the market by April."
             ]
           },
           {
@@ -1671,6 +1681,12 @@ Total Marks: 87 | Time: 2 Hours 30 Minutes
               { id: "e10-b66", question: "Choose the correct spelling:", options: ["Dynamyc", "Dynammic", "Dynomic", "Dynamic"], correctAnswer: 3, explanation: "The correct spelling is 'Dynamic'." },
               { id: "e10-b67", question: "Choose the correct spelling:", options: ["Miner", "Minar", "Minir", "Minor"], correctAnswer: 3, explanation: "The correct spelling is 'Minor'." },
               { id: "e10-b68", question: "Choose the correct spelling:", options: ["Conquar", "Concuer", "Conqueer", "Conquer"], correctAnswer: 3, explanation: "The correct spelling is 'Conquer'." }
+            ],
+            notes: [
+              "**A–C:** Accessible, Academic, Adhesive, Ancestor, Applauded, Aspirations, Attempt, Believe, Broadcast, Calendar, Career, Celebrations, Chivalry, Circumstances, Conquer, Convict, Critical, Customary.",
+              "**D–I:** Demise, Destitute, Discipline, Dynamic, Equitable, Escalate, Execution, Faithfulness, February, Gauze, Infection, Innovative, Instant, Integrity, Intercede.",
+              "**L–P:** Leisure, Loathe, Luxury, Magnitude, Minor, Motivation, Occasion, Ointment, Orphan, Participant, Persevere, Population, Prevail, Primarily, Priority, Proclaim, Proficient, Property.",
+              "**R–V:** Recapture, Receive, Recipient, Reinvigorate, Resume, Revenge, Rewarding, Significance, Success, Symbolize, Thoroughly, Truly, Vulnerable."
             ]
           },
           {
@@ -1717,6 +1733,26 @@ Total Marks: 87 | Time: 2 Hours 30 Minutes
               { id: "e10-c38", question: "'Reeled' means:", options: ["Sealed", "Peeled", "Moved back quickly", "Stopped"], correctAnswer: 2, explanation: "'Reeled' means moved back quickly or staggered." },
               { id: "e10-c39", question: "The synonym of 'Depleted' is:", options: ["Reduced", "Amused", "Reused", "Bright"], correctAnswer: 0, explanation: "'Depleted' means reduced or used up." },
               { id: "e10-c40", question: "The antonym of 'Humanity' is:", options: ["Sympathy", "Alms", "Easy", "Inhumanity"], correctAnswer: 3, explanation: "The antonym of 'Humanity' is 'Inhumanity'." }
+            ],
+            notes: [
+              "**Abandon** → Synonym: Desert, Leave. Antonym: Support, Accept.",
+              "**Ancestor** → Synonym: Forefather, Predecessor. Antonym: Successor, Descendant.",
+              "**Bright** → Synonym: Brilliant, Clear, Vivid. Antonym: Dark, Dull.",
+              "**Consume** → Synonym: Use, Spend, Utilize. Antonym: Save, Hoard.",
+              "**Convict** → Synonym: Prisoner, Offender. Antonym: Innocent.",
+              "**Culprit** → Synonym: Offender, Criminal. Antonym: Innocent.",
+              "**Current** → Synonym: Up-to-date, Present. Antonym: Dated, Old, Ancient.",
+              "**Defy** → Synonym: Openly resist, Disobey. Antonym: Accept, Obey, Yield.",
+              "**Distinct** → Synonym: Clear, Marked. Antonym: Perplexing, Unknown.",
+              "**Equitable** → Synonym: Fair, Just. Antonym: Unfair, Privileged.",
+              "**Excel** → Synonym: To do extremely well. Antonym: Fail.",
+              "**Firm** → Synonym: Persistent, Resolute. Antonym: Weak, Yielding.",
+              "**Foe** → Synonym: Enemy, Rival. Antonym: Friend, Companion.",
+              "**Luxury** → Synonym: Prosperity, Comfort. Antonym: Poverty, Destitute.",
+              "**Mighty** → Synonym: Strong, Powerful. Antonym: Weak.",
+              "**Persevere** → Synonym: Persist, Continue. Antonym: Give up, Surrender.",
+              "**Solace** → Synonym: Comfort, Relief. Antonym: Aggravation, Distress.",
+              "**Suffering** → Synonym: Anguish, Distress. Antonym: Pleasure, Comfort."
             ]
           },
           {
@@ -1763,6 +1799,27 @@ Total Marks: 87 | Time: 2 Hours 30 Minutes
               { id: "e10-d38", question: "I gave her two pencils. The underlined word is a/an _______:", options: ["Adverb", "Adjective", "Infinitive", "Frequency"], correctAnswer: 1, explanation: "'Two' is an adjective (numeral adjective) modifying 'pencils'." },
               { id: "e10-d39", question: "He is the most honest man in the family. The underlined word is a _______:", options: ["Positive degree", "Negative degree", "Comparative degree", "Superlative degree"], correctAnswer: 3, explanation: "'Most honest' is the superlative degree." },
               { id: "e10-d40", question: "The accident was due to his ruthlessness. The underlined word is a/an _______ noun.", options: ["Material", "Abstract", "Concrete", "Collective"], correctAnswer: 1, explanation: "'Ruthlessness' is an abstract noun." }
+            ],
+            notes: [
+              "**Abstract Noun:** Feelings/ideas you can't touch → justice, truthfulness, ruthlessness, merit, care.",
+              "**Collective Noun:** A group → audience, crew, crowd, class.",
+              "**Concrete/Material Noun:** Physical objects → basket, pet, balls, water.",
+              "**Reflexive Pronoun:** Ends in -self/-selves → myself, himself, themselves.",
+              "**Interrogative Pronoun:** Used to ask questions → Who, What, Which.",
+              "**Relative Pronoun:** Connects clauses → who, which, that, whose.",
+              "**Indefinite Pronoun:** Non-specific → everybody, someone, anything.",
+              "**Adverb of Frequency:** How often? → usually, always, often, never.",
+              "**Adverb of Manner:** How? → successfully, fast, carefully.",
+              "**Adverb of Time:** When? → last night, yesterday, tomorrow.",
+              "**Infinitive:** 'To' + 1st form → to spend, to improve, to go.",
+              "**Gerund:** V+ing as a noun → Swimming is fun. I enjoy reading.",
+              "**Participle:** V+ing or V+ed as an adjective → amused, damaging, broken.",
+              "**Zero Conditional:** If + Present, Present → If you heat ice, it melts.",
+              "**First Conditional:** If + Present, Future → If we wait, we shall be late.",
+              "**Second Conditional:** If + Past, Would + V → If he offered me a job, I would accept.",
+              "**Third Conditional:** If + Past Perfect, Would have + PP → If we had arrived earlier, we would have seen our aunt.",
+              "**Phrase:** Group of words without subject-verb → 'over the cat' (prepositional phrase).",
+              "**Clause:** Group of words with subject + verb → 'that there was no bread' (dependent clause)."
             ]
           }
         ]
