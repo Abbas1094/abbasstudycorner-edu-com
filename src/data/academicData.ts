@@ -30,6 +30,8 @@ import {
   e9FiguresOfSpeechMCQs, e9FiguresOfSpeechNotes,
   e9AllGrammarMCQs,
 } from "@/data/english9NewMCQs";
+import { e9MostRepeatedMCQs } from "@/data/english9MostRepeatedMCQs";
+import { e10MostRepeatedMCQs } from "@/data/english10MostRepeatedMCQs";
 
 export const academicClasses: AcademicClass[] = [
   {
@@ -756,8 +758,8 @@ Total Marks: 87 | Time: 2 Hours 30 Minutes
           { id: "part-a-future-continuous", name: "Part A – Future Continuous Tense", mcqs: e9FutureContinuousMCQs, notes: e9FutureContinuousNotes },
           { id: "part-a-future-perfect", name: "Part A – Future Perfect Tense", mcqs: e9FuturePerfectMCQs, notes: e9FuturePerfectNotes },
           { id: "part-a-future-perfect-continuous", name: "Part A – Future Perfect Continuous", mcqs: e9FuturePerfectContinuousMCQs, notes: e9FuturePerfectContinuousNotes },
-          { id: "part-a-mixed", name: "Part A – Mixed Tenses Practice (All 115+ MCQs)", mcqs: e9AllTenseMCQs, notes: [
-            "**Mixed Practice:** This section contains ALL tense MCQs shuffled randomly.",
+          { id: "part-a-mixed", name: "Part A – Mixed Tenses Practice (Random 30 MCQs)", mcqs: e9AllTenseMCQs, notes: [
+            "**Mixed Practice:** This section randomly picks 30 MCQs from ALL tenses each time.",
             "**Tip:** Identify the keyword first (now, yesterday, since, by, ago, always) to determine the tense.",
             "**Present:** always/daily → Indefinite, now → Continuous, already/just → Perfect, since/for → Perfect Continuous.",
             "**Past:** yesterday/ago → Indefinite, when → Continuous, before/after → Perfect, since/for (past) → Perfect Continuous.",
@@ -774,10 +776,17 @@ Total Marks: 87 | Time: 2 Hours 30 Minutes
           { id: "part-d-prepositions", name: "Part D – Prepositions & Conjunctions", mcqs: e9PrepositionsConjunctionsMCQs, notes: e9PrepositionsConjunctionsNotes },
           { id: "part-d-sentences", name: "Part D – Sentence Structure & Conditionals", mcqs: e9SentenceConditionalsMCQs, notes: e9SentenceConditionalsNotes },
           { id: "part-d-figures", name: "Part D – Figures of Speech", mcqs: e9FiguresOfSpeechMCQs, notes: e9FiguresOfSpeechNotes },
-          { id: "part-d-mixed", name: "Part D – Mixed Grammar Practice (All 42 MCQs)", mcqs: e9AllGrammarMCQs, notes: [
-            "**Mixed Practice:** This section contains ALL grammar MCQs shuffled randomly.",
+          { id: "part-d-mixed", name: "Part D – Mixed Grammar Practice (Random 30 MCQs)", mcqs: e9AllGrammarMCQs, notes: [
+            "**Mixed Practice:** This section randomly picks 30 MCQs from ALL grammar categories each time.",
             "**Categories covered:** Nouns, Pronouns, Verbs, Gerunds, Infinitives, Participles, Adverbs, Clauses, Phrases, Prepositions, Conjunctions, Conditionals, Figures of Speech.",
             "**Tip:** Read the question carefully – identify whether it asks about a word's type, clause type, or sentence type.",
+          ]},
+          // ── Most Repeated MCQs ──
+          { id: "most-repeated", name: "🔴 Most Repeated MCQs (30 Past Paper Questions)", mcqs: e9MostRepeatedMCQs, notes: [
+            "**These are the 30 most repeated MCQs** from Class 9 English past papers.",
+            "**Frequency ranges from 2 to 7 times** – these questions appear again and again in board exams.",
+            "**Covers all sections:** Verb Forms, Grammar, Vocabulary/Meanings, and Spellings.",
+            "**Tip:** Memorize these thoroughly – they have the highest probability of appearing in your exam!",
           ]},
         ]
       },
@@ -1887,6 +1896,18 @@ Total Marks: 87 | Time: 2 Hours 30 Minutes
               "**Third Conditional:** If + Past Perfect, Would have + PP → If we had arrived earlier, we would have seen our aunt.",
               "**Phrase:** Group of words without subject-verb → 'over the cat' (prepositional phrase).",
               "**Clause:** Group of words with subject + verb → 'that there was no bread' (dependent clause)."
+            ]
+          },
+          // ── Most Repeated MCQs ──
+          {
+            id: "most-repeated",
+            name: "🔴 Most Repeated MCQs (30 Past Paper Questions)",
+            mcqs: e10MostRepeatedMCQs,
+            notes: [
+              "**These are the 30 most repeated MCQs** from Class 10 English past papers.",
+              "**Frequency ranges from 3 to 9 times** – these questions appear again and again in board exams.",
+              "**Covers all sections:** Verb Forms, Spellings, Vocabulary/Synonyms, and Grammar.",
+              "**Tip:** Memorize these thoroughly – they have the highest probability of appearing in your exam!",
             ]
           }
         ]

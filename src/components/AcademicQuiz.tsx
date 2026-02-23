@@ -47,7 +47,14 @@ const AcademicQuiz = ({
   notes,
 }: AcademicQuizProps) => {
   const [showNotes, setShowNotes] = useState(false);
-  const shuffledMCQs = useMemo(() => shuffleMCQs(mcqs), [mcqs]);
+  const shuffledMCQs = useMemo(() => {
+    const shuffled = shuffleMCQs(mcqs);
+    // For mixed practice chapters, limit to 30 random MCQs
+    if ((chapterId === "part-a-mixed" || chapterId === "part-d-mixed") && shuffled.length > 30) {
+      return shuffled.slice(0, 30);
+    }
+    return shuffled;
+  }, [mcqs, chapterId]);
 
   const [current, setCurrent] = useState(0);
   const [selected, setSelected] = useState<number | null>(null);
