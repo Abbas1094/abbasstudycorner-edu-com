@@ -32,6 +32,12 @@ import {
 } from "@/data/english9NewMCQs";
 import { e9MostRepeatedMCQs } from "@/data/english9MostRepeatedMCQs";
 import { e10MostRepeatedMCQs } from "@/data/english10MostRepeatedMCQs";
+import {
+  physics12Ch12MCQs, physics12Ch13MCQs, physics12Ch14MCQs,
+  physics12Ch15MCQs, physics12Ch16MCQs, physics12Ch17MCQs,
+  physics12Ch18MCQs, physics12Ch19MCQs, physics12Ch20MCQs,
+  physics12Ch21MCQs
+} from "@/data/physics12Data";
 
 export const academicClasses: AcademicClass[] = [
   {
@@ -2043,16 +2049,16 @@ Total Marks: 87 | Time: 2 Hours 30 Minutes
         name: "Physics",
         icon: "⚛️",
         chapters: [
-          { id: "ch12", name: "Electrostatics" },
-          { id: "ch13", name: "Current Electricity" },
-          { id: "ch14", name: "Electromagnetism" },
-          { id: "ch15", name: "Electromagnetic Induction" },
-          { id: "ch16", name: "Alternating Current" },
-          { id: "ch17", name: "Physics of Solids" },
-          { id: "ch18", name: "Electronics" },
-          { id: "ch19", name: "Dawn of Modern Physics" },
-          { id: "ch20", name: "Atomic Spectra" },
-          { id: "ch21", name: "Nuclear Physics" }
+          { id: "ch12", name: "Ch 12 – Electrostatics", mcqs: physics12Ch12MCQs },
+          { id: "ch13", name: "Ch 13 – Current Electricity", mcqs: physics12Ch13MCQs },
+          { id: "ch14", name: "Ch 14 – Electromagnetism", mcqs: physics12Ch14MCQs },
+          { id: "ch15", name: "Ch 15 – Electromagnetic Induction", mcqs: physics12Ch15MCQs },
+          { id: "ch16", name: "Ch 16 – Alternating Current", mcqs: physics12Ch16MCQs },
+          { id: "ch17", name: "Ch 17 – Physics of Solids", mcqs: physics12Ch17MCQs },
+          { id: "ch18", name: "Ch 18 – Electronics", mcqs: physics12Ch18MCQs },
+          { id: "ch19", name: "Ch 19 – Dawn of Modern Physics", mcqs: physics12Ch19MCQs },
+          { id: "ch20", name: "Ch 20 – Atomic Spectra", mcqs: physics12Ch20MCQs },
+          { id: "ch21", name: "Ch 21 – Nuclear Physics", mcqs: physics12Ch21MCQs }
         ]
       },
       {
