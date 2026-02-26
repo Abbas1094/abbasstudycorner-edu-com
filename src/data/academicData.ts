@@ -36,8 +36,13 @@ import {
   physics12Ch12MCQs, physics12Ch13MCQs, physics12Ch14MCQs,
   physics12Ch15MCQs, physics12Ch16MCQs, physics12Ch17MCQs,
   physics12Ch18MCQs, physics12Ch19MCQs, physics12Ch20MCQs,
-  physics12Ch21MCQs
+  physics12Ch21MCQs, physics12Ch22MCQs, physics12Ch23MCQs
 } from "@/data/physics12Data";
+import {
+  math12Ch1MCQs, math12Ch2MCQs, math12Ch3MCQs,
+  math12Ch4MCQs, math12Ch5MCQs, math12Ch6MCQs,
+  math12Ch7MCQs
+} from "@/data/math12Data";
 
 export const academicClasses: AcademicClass[] = [
   {
@@ -2058,7 +2063,9 @@ Total Marks: 87 | Time: 2 Hours 30 Minutes
           { id: "ch18", name: "Ch 18 – Electronics", mcqs: physics12Ch18MCQs },
           { id: "ch19", name: "Ch 19 – Dawn of Modern Physics", mcqs: physics12Ch19MCQs },
           { id: "ch20", name: "Ch 20 – Atomic Spectra", mcqs: physics12Ch20MCQs },
-          { id: "ch21", name: "Ch 21 – Nuclear Physics", mcqs: physics12Ch21MCQs }
+          { id: "ch21", name: "Ch 21 – Nuclear Physics", mcqs: physics12Ch21MCQs },
+          { id: "ch22", name: "🔴 Tricky MCQs – Info Boxes & Side Data", mcqs: physics12Ch22MCQs },
+          { id: "ch23", name: "🔴 Tricky MCQs – Numerical & Conceptual", mcqs: physics12Ch23MCQs }
         ]
       },
       {
@@ -2088,18 +2095,13 @@ Total Marks: 87 | Time: 2 Hours 30 Minutes
         name: "Mathematics",
         icon: "📐",
         chapters: [
-          { id: "ch1", name: "Functions and Limits" },
-          { id: "ch2", name: "Differentiation" },
-          { id: "ch3", name: "Higher Order Derivatives" },
-          { id: "ch4", name: "Application of Derivatives" },
-          { id: "ch5", name: "Integration" },
-          { id: "ch6", name: "Application of Integration" },
-          { id: "ch7", name: "Differential Equations" },
-          { id: "ch8", name: "Vectors" },
-          { id: "ch9", name: "Analytic Geometry (Straight Line)" },
-          { id: "ch10", name: "Circle" },
-          { id: "ch11", name: "Conic Sections" },
-          { id: "ch12", name: "Linear Programming" }
+          { id: "ch1", name: "Ch 1 – Functions and Limits", mcqs: math12Ch1MCQs },
+          { id: "ch2", name: "Ch 2 – Differentiation", mcqs: math12Ch2MCQs },
+          { id: "ch3", name: "Ch 3 – Integration", mcqs: math12Ch3MCQs },
+          { id: "ch4", name: "Ch 4 – Analytic Geometry", mcqs: math12Ch4MCQs },
+          { id: "ch5", name: "Ch 5 – Linear Inequalities & Programming", mcqs: math12Ch5MCQs },
+          { id: "ch6", name: "Ch 6 – Conic Sections", mcqs: math12Ch6MCQs },
+          { id: "ch7", name: "Ch 7 – Vectors", mcqs: math12Ch7MCQs }
         ]
       },
       {
