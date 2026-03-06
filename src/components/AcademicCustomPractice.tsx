@@ -1,6 +1,6 @@
 import { useState, useMemo } from "react";
 import { motion } from "framer-motion";
-import { ArrowLeft, CheckSquare, Square, Shuffle, Play, BookOpen, Hash } from "lucide-react";
+import { ArrowLeft, CheckSquare, Square, Shuffle, Play, BookOpen, Hash, ToggleLeft, ToggleRight } from "lucide-react";
 import { AcademicSubject, MCQ } from "@/types";
 import { shuffleMCQs } from "@/lib/shuffleUtils";
 import AcademicQuiz from "@/components/AcademicQuiz";
@@ -16,21 +16,30 @@ const QUESTION_PRESETS = [10, 15, 20, 25, 30, 50];
 const AcademicCustomPractice = ({ subject, classId, onBack }: AcademicCustomPracticeProps) => {
   const [selectedChapterIds, setSelectedChapterIds] = useState<string[]>([]);
   const [questionCount, setQuestionCount] = useState<number | "all">(20);
+  const [includeOutside, setIncludeOutside] = useState(false);
   const [started, setStarted] = useState(false);
 
-  // Only chapters that have MCQs
+  // Only chapters that have MCQs (exercise or outside)
   const availableChapters = useMemo(
-    () => subject.chapters.filter((ch) => ch.mcqs && ch.mcqs.length > 0),
+    () => subject.chapters.filter((ch) => (ch.mcqs && ch.mcqs.length > 0) || (ch.outsideExerciseMCQs && ch.outsideExerciseMCQs.length > 0)),
     [subject.chapters]
   );
 
-  const totalAvailable = useMemo(
-    () =>
-      availableChapters
-        .filter((ch) => selectedChapterIds.includes(ch.id))
-        .reduce((sum, ch) => sum + (ch.mcqs?.length || 0), 0),
-    [availableChapters, selectedChapterIds]
+  // Check if any chapter has outside exercise MCQs
+  const hasAnyOutsideMCQs = useMemo(
+    () => subject.chapters.some((ch) => ch.outsideExerciseMCQs && ch.outsideExerciseMCQs.length > 0),
+    [subject.chapters]
   );
+
+  const totalAvailable = useMemo(() => {
+    return availableChapters
+      .filter((ch) => selectedChapterIds.includes(ch.id))
+      .reduce((sum, ch) => {
+        let count = ch.mcqs?.length || 0;
+        if (includeOutside) count += ch.outsideExerciseMCQs?.length || 0;
+        return sum + count;
+      }, 0);
+  }, [availableChapters, selectedChapterIds, includeOutside]);
 
   const toggleChapter = (id: string) => {
     setSelectedChapterIds((prev) =>
@@ -50,14 +59,15 @@ const AcademicCustomPractice = ({ subject, classId, onBack }: AcademicCustomPrac
   const customMCQs = useMemo(() => {
     const pool: MCQ[] = [];
     for (const ch of availableChapters) {
-      if (selectedChapterIds.includes(ch.id) && ch.mcqs) {
-        pool.push(...ch.mcqs);
+      if (selectedChapterIds.includes(ch.id)) {
+        if (ch.mcqs) pool.push(...ch.mcqs);
+        if (includeOutside && ch.outsideExerciseMCQs) pool.push(...ch.outsideExerciseMCQs);
       }
     }
     const shuffled = shuffleMCQs(pool);
     if (questionCount === "all") return shuffled;
     return shuffled.slice(0, Math.min(questionCount, shuffled.length));
-  }, [availableChapters, selectedChapterIds, questionCount]);
+  }, [availableChapters, selectedChapterIds, questionCount, includeOutside]);
 
   if (started && customMCQs.length > 0) {
     return (
@@ -91,6 +101,37 @@ const AcademicCustomPractice = ({ subject, classId, onBack }: AcademicCustomPrac
         </div>
       </div>
 
+      {/* Outside Exercise Toggle */}
+      {hasAnyOutsideMCQs && (
+        <motion.button
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          onClick={() => setIncludeOutside(!includeOutside)}
+          className={`w-full mb-4 p-4 rounded-2xl border-2 flex items-center justify-between transition-all ${
+            includeOutside
+              ? "bg-amber-500/15 border-amber-500/50"
+              : "bg-card border-border"
+          }`}
+        >
+          <div className="flex items-center gap-3">
+            <div className={`w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0 ${
+              includeOutside ? "bg-amber-500/20" : "bg-muted"
+            }`}>
+              <span className="text-lg">📝</span>
+            </div>
+            <div className="text-left">
+              <p className="font-display text-sm font-bold text-foreground">Outside Exercise MCQs</p>
+              <p className="text-xs text-muted-foreground">Include past paper MCQs from chapter text</p>
+            </div>
+          </div>
+          {includeOutside ? (
+            <ToggleRight className="w-8 h-8 text-amber-500 flex-shrink-0" />
+          ) : (
+            <ToggleLeft className="w-8 h-8 text-muted-foreground flex-shrink-0" />
+          )}
+        </motion.button>
+      )}
+
       {/* Step 1 – Chapter Selection */}
       <div className="bg-card p-5 rounded-2xl border border-border mb-4">
         <div className="flex items-center justify-between mb-3">
@@ -107,8 +148,11 @@ const AcademicCustomPractice = ({ subject, classId, onBack }: AcademicCustomPrac
         </div>
 
         <div className="space-y-2 max-h-[40vh] overflow-y-auto pr-1">
-          {availableChapters.map((ch, i) => {
+          {availableChapters.map((ch) => {
             const isSelected = selectedChapterIds.includes(ch.id);
+            const exerciseCount = ch.mcqs?.length || 0;
+            const outsideCount = ch.outsideExerciseMCQs?.length || 0;
+            const displayCount = includeOutside ? exerciseCount + outsideCount : exerciseCount;
             return (
               <button
                 key={ch.id}
@@ -126,7 +170,10 @@ const AcademicCustomPractice = ({ subject, classId, onBack }: AcademicCustomPrac
                 )}
                 <span className="flex-1 text-sm text-foreground truncate">{ch.name}</span>
                 <span className="text-xs text-muted-foreground flex-shrink-0">
-                  {ch.mcqs?.length || 0} Qs
+                  {displayCount} Qs
+                  {includeOutside && outsideCount > 0 && (
+                    <span className="text-amber-500 ml-1">(+{outsideCount})</span>
+                  )}
                 </span>
               </button>
             );

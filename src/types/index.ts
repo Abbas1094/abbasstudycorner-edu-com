@@ -52,6 +52,7 @@ export interface AcademicChapter {
   formulas?: string[];
   shortNotes?: string;
   mcqs?: MCQ[];
+  outsideExerciseMCQs?: MCQ[];
   notes?: string[];
 }
 

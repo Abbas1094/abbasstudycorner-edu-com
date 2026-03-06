@@ -43,6 +43,21 @@ import {
   math12Ch4MCQs, math12Ch5MCQs, math12Ch6MCQs,
   math12Ch7MCQs
 } from "@/data/math12Data";
+import {
+  p10Ch10OutsideMCQs, p10Ch11OutsideMCQs, p10Ch12OutsideMCQs,
+  p10Ch13OutsideMCQs, p10Ch14OutsideMCQs, p10Ch15OutsideMCQs,
+  p10Ch16OutsideMCQs, p10Ch17OutsideMCQs, p10Ch18OutsideMCQs
+} from "@/data/physics10OutsideMCQs";
+import {
+  c10Ch9OutsideMCQs, c10Ch10OutsideMCQs, c10Ch11OutsideMCQs,
+  c10Ch13OutsideMCQs, c10Ch14OutsideMCQs, c10Ch15OutsideMCQs,
+  c10Ch16OutsideMCQs
+} from "@/data/chemistry10OutsideMCQs";
+import {
+  ps10Ch1MCQs, ps10Ch1OutsideMCQs, ps10Ch3MCQs,
+  ps10Ch4MCQs, ps10Ch4OutsideMCQs, ps10Ch6MCQs,
+  ps10Ch8OutsideMCQs
+} from "@/data/pakStudy10Data";
 
 export const academicClasses: AcademicClass[] = [
   {
@@ -888,7 +903,8 @@ Total Marks: 75 | Time: 2 Hours 30 Minutes
               { id: "p10-ch10-7", question: "A large ripple tank with a vibrator working at a frequency of 30 Hz produces 25 complete waves in a distance of 50 cm. The velocity of the wave is", options: ["53 cm s⁻¹", "60 cm s⁻¹", "750 cm s⁻¹", "1500 cm s⁻¹"], correctAnswer: 1, explanation: "λ = 50/25 = 2 cm. v = fλ = 30 × 2 = 60 cm/s." },
               { id: "p10-ch10-8", question: "Which of the following characteristics of a wave is independent of the others?", options: ["Speed", "Frequency", "Amplitude", "Wavelength"], correctAnswer: 2, explanation: "Amplitude is independent of speed, frequency, and wavelength." },
               { id: "p10-ch10-9", question: "The relation between v, f and λ of a wave is", options: ["vf = λ", "fλ = v", "vλ = f", "v = λ / f"], correctAnswer: 1, explanation: "The wave equation: velocity = frequency × wavelength, i.e., v = fλ." }
-            ]
+            ],
+            outsideExerciseMCQs: p10Ch10OutsideMCQs
           },
           {
             id: "ch11",
@@ -904,7 +920,8 @@ Total Marks: 75 | Time: 2 Hours 30 Minutes
               { id: "p10-ch11-5", question: "The loudness of a sound is most closely related to its", options: ["Frequency", "Period", "Wavelength", "Amplitude"], correctAnswer: 3, explanation: "Loudness depends on the amplitude of the sound wave." },
               { id: "p10-ch11-6", question: "For a normal person, audible frequency range for sound wave lies between", options: ["10 Hz and 10 kHz", "20 Hz and 20 kHz", "25 Hz and 25 kHz", "30 Hz and 30 kHz"], correctAnswer: 1, explanation: "The human audible range is 20 Hz to 20,000 Hz (20 kHz)." },
               { id: "p10-ch11-7", question: "When the frequency of a sound wave is increased, which of the following will decrease? i. wavelength  ii. period  iii. amplitude", options: ["i only", "iii only", "i and ii only", "i and iii only"], correctAnswer: 2, explanation: "Increasing frequency decreases wavelength (v = fλ) and period (T = 1/f). Amplitude is independent." }
-            ]
+            ],
+            outsideExerciseMCQs: p10Ch11OutsideMCQs
           },
           {
             id: "ch12",
@@ -923,7 +940,8 @@ Total Marks: 75 | Time: 2 Hours 30 Minutes
               { id: "p10-ch12-8", question: "Image formed by a camera is", options: ["Real, inverted, and diminished", "Virtual, upright and diminished", "Virtual, upright and magnified", "Real, inverted and magnified"], correctAnswer: 0, explanation: "A camera lens forms a real, inverted, diminished image on the film/sensor." },
               { id: "p10-ch12-9", question: "If a ray of light in glass is incident on an air surface at an angle greater than the critical angle, the ray will", options: ["Refract only", "Reflect only", "Partially refract and partially reflect", "Diffract only"], correctAnswer: 1, explanation: "At angles greater than the critical angle, total internal reflection occurs." },
               { id: "p10-ch12-10", question: "The critical angle for a beam of light passing from water into air is 48.8 degrees. This means that all light rays with an angle of incidence greater than this angle will be", options: ["Absorbed", "Totally reflected", "Partially reflected and partially transmitted", "Totally transmitted"], correctAnswer: 1, explanation: "Beyond the critical angle, total internal reflection occurs — all light is reflected back." }
-            ]
+            ],
+            outsideExerciseMCQs: p10Ch12OutsideMCQs
           },
           {
             id: "ch13",
@@ -943,7 +961,8 @@ Total Marks: 75 | Time: 2 Hours 30 Minutes
               { id: "p10-ch13-9", question: "Two small charged spheres are separated by 2 mm. Which of the following would produce the greatest attractive force?", options: ["+1q and +4q", "–1q and –4q", "+2q and +2q", "+2q and –2q"], correctAnswer: 3, explanation: "For attractive force we need opposite charges. |+2q × –2q| = 4q² gives greatest attractive force among opposite charge pairs." },
               { id: "p10-ch13-10", question: "Electric field lines", options: ["Always cross each other", "Never cross each other", "Cross each other in the region of strong field", "Cross each other in the region of weak field"], correctAnswer: 1, explanation: "Electric field lines never cross because at any point, the field has a unique direction." },
               { id: "p10-ch13-11", question: "Capacitance is defined as", options: ["VC", "Q/V", "QV", "V/Q"], correctAnswer: 1, explanation: "Capacitance C = Q/V, the ratio of charge stored to potential difference." }
-            ]
+            ],
+            outsideExerciseMCQs: p10Ch13OutsideMCQs
           },
           {
             id: "ch14",
@@ -961,7 +980,8 @@ Total Marks: 75 | Time: 2 Hours 30 Minutes
               { id: "p10-ch14-7", question: "If we double both the current and the voltage in a circuit while keeping its resistance constant, the power", options: ["Remains unchanged", "Halves", "Doubles", "Quadruples"], correctAnswer: 3, explanation: "P = VI. If both V and I double, P = (2V)(2I) = 4VI = 4 times original power." },
               { id: "p10-ch14-8", question: "What is the power rating of a lamp connected to a 12 V source when it carries 2.5 A?", options: ["4.8 W", "14.5 W", "30 W", "60 W"], correctAnswer: 2, explanation: "P = VI = 12 × 2.5 = 30 W." },
               { id: "p10-ch14-9", question: "The combined resistance of two identical resistors, connected in series is 8 Ω. Their combined resistance in a parallel arrangement will be", options: ["2 Ω", "4 Ω", "8 Ω", "12 Ω"], correctAnswer: 0, explanation: "Each resistor is 4 Ω (8/2). In parallel: 1/R = 1/4 + 1/4 = 1/2, R = 2 Ω." }
-            ]
+            ],
+            outsideExerciseMCQs: p10Ch14OutsideMCQs
           },
           {
             id: "ch15",
@@ -979,7 +999,8 @@ Total Marks: 75 | Time: 2 Hours 30 Minutes
               { id: "p10-ch15-7", question: "The direction of induced e.m.f. in a circuit is in accordance with conservation of", options: ["Mass", "Charge", "Momentum", "Energy"], correctAnswer: 3, explanation: "Lenz's law (direction of induced EMF) follows the law of conservation of energy." },
               { id: "p10-ch15-8", question: "The step-up transformer", options: ["Increases the input current", "Increases the input voltage", "Has more turns in the primary", "Has less turns in the secondary coil"], correctAnswer: 1, explanation: "A step-up transformer increases voltage (more turns in secondary than primary)." },
               { id: "p10-ch15-9", question: "The turn ratio of a transformer is 10. It means", options: ["Is = 10 Ip", "Ns = Np/10", "Ns = 10 Np", "Vs = Vp/10"], correctAnswer: 2, explanation: "Turn ratio = Ns/Np = 10, so Ns = 10 Np." }
-            ]
+            ],
+            outsideExerciseMCQs: p10Ch15OutsideMCQs
           },
           {
             id: "ch16",
@@ -995,7 +1016,8 @@ Total Marks: 75 | Time: 2 Hours 30 Minutes
               { id: "p10-ch16-5", question: "The output of a two-input NOR gate is 1 when:", options: ["A is '1' and B is '0'", "A is '0' and B is '1'", "Both A and B are '0'", "Both A and B are '1'"], correctAnswer: 2, explanation: "NOR gate output is 1 only when both inputs are 0." },
               { id: "p10-ch16-6", question: "If X = A.B, then X is '1' when:", options: ["A and B are '1'", "A or B is '0'", "A is '0' and B is '1'", "A is '1' and B is '0'"], correctAnswer: 0, explanation: "AND operation (A.B) gives 1 only when both A and B are 1." },
               { id: "p10-ch16-7", question: "The output of a NAND gate is '0' when", options: ["Both of its inputs are '0'", "Both of its inputs are '1'", "Any of its inputs is '0'", "Any of its inputs is '1'"], correctAnswer: 1, explanation: "NAND gate output is 0 only when both inputs are 1." }
-            ]
+            ],
+            outsideExerciseMCQs: p10Ch16OutsideMCQs
           },
           {
             id: "ch17",
@@ -1011,7 +1033,8 @@ Total Marks: 75 | Time: 2 Hours 30 Minutes
               { id: "p10-ch17-5", question: "Which of the following is not processing?", options: ["Arranging", "Manipulating", "Calculating", "Gathering"], correctAnswer: 3, explanation: "Gathering is data collection (input), not processing." },
               { id: "p10-ch17-6", question: "From which of the following we can get information almost about everything?", options: ["Book", "Teacher", "Computer", "Internet"], correctAnswer: 3, explanation: "The internet provides access to information on virtually any topic." },
               { id: "p10-ch17-7", question: "What does the term e-mail stand for?", options: ["Emergency mail", "Electronic mail", "Extra mail", "External mail"], correctAnswer: 1, explanation: "E-mail stands for electronic mail." }
-            ]
+            ],
+            outsideExerciseMCQs: p10Ch17OutsideMCQs
           },
           {
             id: "ch18",
@@ -1029,7 +1052,8 @@ Total Marks: 75 | Time: 2 Hours 30 Minutes
               { id: "p10-ch18-7", question: "Release of energy by the Sun is due to", options: ["Nuclear fission", "Nuclear fusion", "Burning of gases", "Chemical reaction"], correctAnswer: 1, explanation: "The Sun produces energy by nuclear fusion of hydrogen into helium." },
               { id: "p10-ch18-8", question: "When a heavy nucleus splits into two lighter nuclei, the process would", options: ["Release nuclear energy", "Absorb nuclear energy", "Release chemical energy", "Absorb chemical energy"], correctAnswer: 0, explanation: "Nuclear fission (splitting heavy nuclei) releases enormous nuclear energy." },
               { id: "p10-ch18-9", question: "The reason carbon-dating works is that", options: ["Plants and animals are such strong emitters of carbon-14", "After a plant or animal dies, it stops taking in fresh carbon-14", "There is so much non-radioactive carbon dioxide in the air", "When plants or animals die, they absorb fresh carbon-14"], correctAnswer: 1, explanation: "After death, organisms stop absorbing C-14, so the remaining C-14 decays at a known rate." }
-            ]
+            ],
+            outsideExerciseMCQs: p10Ch18OutsideMCQs
           }
         ]
       },
@@ -1098,7 +1122,8 @@ Total Marks: 75 | Time: 2 Hours 30 Minutes
               { id: "c10-ch9-11", question: "A reverse reaction is one:", options: ["Which proceeds from left to right", "In which reactants react to form products", "Which slows down gradually", "Which speeds up gradually"], correctAnswer: 2, explanation: "The reverse reaction starts fast then slows down as product concentration decreases." },
               { id: "c10-ch9-12", question: "Nitrogen and hydrogen were reacted together to make ammonia: N₂ + 3H₂ ⇌ 2NH₃. Kc = 2.86 mol⁻² dm⁶. What will be present in the equilibrium mixture?", options: ["NH₃ only", "N₂, H₂ and NH₃", "N₂ and H₂ only", "H₂ only"], correctAnswer: 1, explanation: "At equilibrium, all species (reactants and products) are present: N₂, H₂, and NH₃." },
               { id: "c10-ch9-13", question: "For a reaction between PCl₃ and Cl₂ to form PCl₅, the units of Kc are:", options: ["mol dm⁻³", "mol⁻¹ dm⁻³", "mol⁻¹ dm³", "mol dm³"], correctAnswer: 2, explanation: "PCl₃ + Cl₂ ⇌ PCl₅. Kc = [PCl₅]/([PCl₃][Cl₂]). Units: (mol/dm³)/((mol/dm³)(mol/dm³)) = mol⁻¹ dm³." }
-            ]
+            ],
+            outsideExerciseMCQs: c10Ch9OutsideMCQs
           },
           {
             id: "ch10",
@@ -1127,7 +1152,8 @@ Total Marks: 75 | Time: 2 Hours 30 Minutes
               { id: "c10-ch10-18", question: "Which one of the following is a Lewis base?", options: ["NH₃", "BF₃", "H⁺", "AlCl₃"], correctAnswer: 0, explanation: "NH₃ has a lone pair of electrons to donate, making it a Lewis base." },
               { id: "c10-ch10-19", question: "According to the Lewis concept, acid is a substance which can:", options: ["Donate a proton", "Donate a pair of electrons", "Accept a proton", "Accept a pair of electrons"], correctAnswer: 3, explanation: "Lewis acid accepts an electron pair." },
               { id: "c10-ch10-20", question: "Given Kw = [H⁺][OH⁻] = 1.0 × 10⁻¹⁴ at 25°C. What is the concentration of H⁺ in pure water at 25°C?", options: ["1 × 10⁻⁷ mol dm⁻³", "1 × 10⁷ mol dm⁻³", "1 × 10⁻¹⁴ mol dm⁻³", "1 × 10¹⁴ mol dm⁻³"], correctAnswer: 0, explanation: "In pure water [H⁺] = [OH⁻] = √(10⁻¹⁴) = 10⁻⁷ mol dm⁻³." }
-            ]
+            ],
+            outsideExerciseMCQs: c10Ch10OutsideMCQs
           },
           {
             id: "ch11",
@@ -1159,7 +1185,8 @@ Total Marks: 75 | Time: 2 Hours 30 Minutes
               { id: "c10-ch11-21", question: "Conversion of dead plants into coal by the action of bacteria and heat is called:", options: ["Carbonization", "Catenation", "Hydrogenation", "Cracking"], correctAnswer: 0, explanation: "Carbonization is the natural process of converting dead plants into coal." },
               { id: "c10-ch11-22", question: "Which one of the following compounds is an aldehyde?", options: ["CH₃–CH₂–OH", "CH₃–COOH", "CH₃CHO", "CH₃COCH₃"], correctAnswer: 2, explanation: "CH₃CHO (acetaldehyde) contains the –CHO aldehyde functional group." },
               { id: "c10-ch11-23", question: "Formula of acetaldehyde is:", options: ["CH₃–CH₂OH", "CH₃–CO–OH", "CH₃–CO–H", "H–CO–H"], correctAnswer: 2, explanation: "Acetaldehyde is CH₃CHO (CH₃–CO–H)." }
-            ]
+            ],
+            outsideExerciseMCQs: c10Ch11OutsideMCQs
           },
           {
             id: "ch12",
@@ -1217,7 +1244,8 @@ Total Marks: 75 | Time: 2 Hours 30 Minutes
               { id: "c10-ch13-18", question: "Deficiency of Vitamin E causes:", options: ["Rickets", "Scurvy", "Anemia in babies", "Night blindness"], correctAnswer: 2, explanation: "Vitamin E deficiency can cause anemia, especially in premature babies." },
               { id: "c10-ch13-19", question: "Lipids are macromolecules. They have characteristics except one of the following:", options: ["They are high energy foods", "They are soluble in water", "They are poor conductors of heat", "They are esters of fatty acids"], correctAnswer: 1, explanation: "Lipids are insoluble in water (they are non-polar/hydrophobic)." },
               { id: "c10-ch13-20", question: "Vitamins are Accessory Growth Factors. They play important role in our body like:", options: ["Provide energy to the body", "Insulate our body from electric shock", "Build brain cells", "Regulate metabolic process"], correctAnswer: 3, explanation: "Vitamins regulate metabolic processes as coenzymes and cofactors." }
-            ]
+            ],
+            outsideExerciseMCQs: c10Ch13OutsideMCQs
           },
           {
             id: "ch14",
@@ -1246,7 +1274,8 @@ Total Marks: 75 | Time: 2 Hours 30 Minutes
               { id: "c10-ch14-18", question: "The process by which atmospheric nitrogen is turned into nitrates in the soil is called:", options: ["Nitration", "Fixing", "Oxidation", "Reduction"], correctAnswer: 1, explanation: "Nitrogen fixation converts atmospheric N₂ into soil nitrates." },
               { id: "c10-ch14-19", question: "Global warming is caused by:", options: ["Absorption of infrared radiations emitted by the Earth's surface", "Absorption of infrared radiations coming from the Sun", "Absorption of ultraviolet radiation coming from the Sun", "Emission of ultraviolet radiation from the Earth's surface"], correctAnswer: 0, explanation: "Greenhouse gases absorb infrared radiation emitted by Earth's surface, causing global warming." },
               { id: "c10-ch14-20", question: "Carbon monoxide is harmful to us because:", options: ["It paralyses the lungs", "It damages lungs tissues", "It reduces oxygen carrying ability of haemoglobin", "It makes the blood coagulate"], correctAnswer: 2, explanation: "CO binds to haemoglobin 200x more strongly than O₂, reducing oxygen transport." }
-            ]
+            ],
+            outsideExerciseMCQs: c10Ch14OutsideMCQs
           },
           {
             id: "ch15",
@@ -1271,7 +1300,8 @@ Total Marks: 75 | Time: 2 Hours 30 Minutes
               { id: "c10-ch15-14", question: "A disease that causes bone and tooth damage is:", options: ["Fluorosis", "Hepatitis", "Cholera", "Jaundice"], correctAnswer: 0, explanation: "Fluorosis (excess fluoride) causes damage to bones and teeth." },
               { id: "c10-ch15-15", question: "Ionic compounds are soluble in water due to:", options: ["Hydrogen bonding", "Ion-dipole forces", "Dipole-dipole forces", "Dipole-induced dipole forces"], correctAnswer: 1, explanation: "Ionic compounds dissolve in water through ion-dipole interactions." },
               { id: "c10-ch15-16", question: "The chemicals used to kill or control pests are called pesticides. They are:", options: ["Dangerous inorganic chemicals", "Dangerous organic chemicals", "Beneficial inorganic chemicals", "Beneficial organic chemicals"], correctAnswer: 1, explanation: "Pesticides are dangerous organic chemicals used to control pests." }
-            ]
+            ],
+            outsideExerciseMCQs: c10Ch15OutsideMCQs
           },
           {
             id: "ch16",
@@ -1296,7 +1326,8 @@ Total Marks: 75 | Time: 2 Hours 30 Minutes
               { id: "c10-ch16-14", question: "Which one of the following is not a fraction of petroleum?", options: ["Kerosene oil", "Diesel oil", "Alcohol", "Petrol"], correctAnswer: 2, explanation: "Alcohol is not a petroleum fraction; it is obtained by fermentation." },
               { id: "c10-ch16-15", question: "The nitrogen present in urea is used by plants to synthesize:", options: ["Sugar", "Proteins", "Fats", "DNA"], correctAnswer: 1, explanation: "Plants use nitrogen from urea to synthesize proteins (amino acids)." },
               { id: "c10-ch16-16", question: "Which one of the following organic compounds is found in gasoline?", options: ["C₂H₄", "C₃H₈", "C₈H₁₈", "C₁₂H₂₆"], correctAnswer: 2, explanation: "C₈H₁₈ (octane) is the main component found in gasoline/petrol." }
-            ]
+            ],
+            outsideExerciseMCQs: c10Ch16OutsideMCQs
           }
         ]
       },
@@ -1925,12 +1956,14 @@ Total Marks: 87 | Time: 2 Hours 30 Minutes
       },
       {
         id: "pak-studies-10",
-        name: "Pakistan Studies",
+        name: "Pakistan Studies (معاشرتی علوم)",
         icon: "🇵🇰",
         chapters: [
-          { id: "ch4", name: "Land and Environment" },
-          { id: "ch5", name: "Population" },
-          { id: "ch6", name: "Culture and Society" }
+          { id: "ch1", name: "باب 1-2: قیامِ پاکستان اور تاریخی پس منظر", mcqs: ps10Ch1MCQs, outsideExerciseMCQs: ps10Ch1OutsideMCQs },
+          { id: "ch3", name: "باب 3: آئینی ترقی اور حکومتی نظام", mcqs: ps10Ch3MCQs },
+          { id: "ch4", name: "باب 4-5: ارضی ماحول اور جغرافیہ", mcqs: ps10Ch4MCQs, outsideExerciseMCQs: ps10Ch4OutsideMCQs },
+          { id: "ch6", name: "باب 6: ثقافت اور معاشرت", mcqs: ps10Ch6MCQs },
+          { id: "ch8", name: "باب 8: خواتین کا کردار", outsideExerciseMCQs: ps10Ch8OutsideMCQs }
         ]
       },
       {
