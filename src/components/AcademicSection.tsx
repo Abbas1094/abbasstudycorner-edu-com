@@ -506,7 +506,28 @@ const AcademicSection = ({ onBack }: AcademicSectionProps) => {
             </motion.div>
           )}
 
-          {/* Grand Quiz */}
+          {/* Outside Exercise MCQs Quiz */}
+          {screen === "outside-mcqs" && selectedChapter && selectedClass && selectedSubject && (
+            <motion.div
+              key="outside-mcqs"
+              initial={{ opacity: 0, x: 20 }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: -20 }}
+            >
+              <AcademicQuiz
+                mcqs={selectedChapter.outsideExerciseMCQs || []}
+                chapterName={`${selectedChapter.name} (Outside Exercise)`}
+                classId={selectedClass.id}
+                subjectId={selectedSubject.id}
+                chapterId={`${selectedChapter.id}-outside`}
+                onBack={() => {
+                  setScreen("subject-content");
+                  setSelectedChapter(null);
+                }}
+              />
+            </motion.div>
+          )}
+
           {screen === "grand-quiz" && selectedSubject && selectedClass && (
             <motion.div
               key="grand-quiz"
