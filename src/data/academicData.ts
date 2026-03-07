@@ -54,8 +54,9 @@ import {
   c10Ch16OutsideMCQs
 } from "@/data/chemistry10OutsideMCQs";
 import {
-  ps10Ch1MCQs, ps10Ch1OutsideMCQs, ps10Ch3MCQs,
-  ps10Ch4MCQs, ps10Ch4OutsideMCQs, ps10Ch6MCQs,
+  ps10Ch1MCQs, ps10Ch2MCQs, ps10Ch3MCQs, ps10Ch4MCQs,
+  ps10Ch5MCQs, ps10Ch6MCQs, ps10Ch7MCQs, ps10Ch8MCQs,
+  ps10Ch1OutsideMCQs, ps10Ch4OutsideMCQs, ps10Ch5OutsideMCQs,
   ps10Ch8OutsideMCQs
 } from "@/data/pakStudy10Data";
 
