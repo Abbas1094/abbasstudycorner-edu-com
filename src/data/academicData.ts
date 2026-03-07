@@ -54,8 +54,9 @@ import {
   c10Ch16OutsideMCQs
 } from "@/data/chemistry10OutsideMCQs";
 import {
-  ps10Ch1MCQs, ps10Ch1OutsideMCQs, ps10Ch3MCQs,
-  ps10Ch4MCQs, ps10Ch4OutsideMCQs, ps10Ch6MCQs,
+  ps10Ch1MCQs, ps10Ch2MCQs, ps10Ch3MCQs, ps10Ch4MCQs,
+  ps10Ch5MCQs, ps10Ch6MCQs, ps10Ch7MCQs, ps10Ch8MCQs,
+  ps10Ch1OutsideMCQs, ps10Ch4OutsideMCQs, ps10Ch5OutsideMCQs,
   ps10Ch8OutsideMCQs
 } from "@/data/pakStudy10Data";
 
@@ -1959,11 +1960,14 @@ Total Marks: 87 | Time: 2 Hours 30 Minutes
         name: "Pakistan Studies (معاشرتی علوم)",
         icon: "🇵🇰",
         chapters: [
-          { id: "ch1", name: "باب 1-2: قیامِ پاکستان اور تاریخی پس منظر", mcqs: ps10Ch1MCQs, outsideExerciseMCQs: ps10Ch1OutsideMCQs },
-          { id: "ch3", name: "باب 3: آئینی ترقی اور حکومتی نظام", mcqs: ps10Ch3MCQs },
-          { id: "ch4", name: "باب 4-5: ارضی ماحول اور جغرافیہ", mcqs: ps10Ch4MCQs, outsideExerciseMCQs: ps10Ch4OutsideMCQs },
-          { id: "ch6", name: "باب 6: ثقافت اور معاشرت", mcqs: ps10Ch6MCQs },
-          { id: "ch8", name: "باب 8: خواتین کا کردار", outsideExerciseMCQs: ps10Ch8OutsideMCQs }
+          { id: "ch1", name: "باب 1: پاکستان کی نظریاتی اساس", mcqs: ps10Ch1MCQs, outsideExerciseMCQs: ps10Ch1OutsideMCQs },
+          { id: "ch2", name: "باب 2: تحریک پاکستان اور پاکستان کا قیام", mcqs: ps10Ch2MCQs },
+          { id: "ch3", name: "باب 3: تاریخ پاکستان (1971ء تا حال)", mcqs: ps10Ch3MCQs },
+          { id: "ch4", name: "باب 4: پاکستان اور عالمی اُمور", mcqs: ps10Ch4MCQs, outsideExerciseMCQs: ps10Ch4OutsideMCQs },
+          { id: "ch5", name: "باب 5: زمین اور ماحول", mcqs: ps10Ch5MCQs, outsideExerciseMCQs: ps10Ch5OutsideMCQs },
+          { id: "ch6", name: "باب 6: آبادی، معاشرہ اور ثقافت", mcqs: ps10Ch6MCQs },
+          { id: "ch7", name: "باب 7: پاکستان کی معاشی ترقی", mcqs: ps10Ch7MCQs },
+          { id: "ch8", name: "باب 8: خواتین کو بااختیار بنانا", mcqs: ps10Ch8MCQs, outsideExerciseMCQs: ps10Ch8OutsideMCQs },
         ]
       },
       {
