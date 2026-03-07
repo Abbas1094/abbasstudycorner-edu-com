@@ -467,6 +467,18 @@ const AcademicSection = ({ onBack }: AcademicSectionProps) => {
                     <ChevronRight className="w-5 h-5" />
                   </button>
                 )}
+
+                {/* Outside Exercise MCQs Button in chapter-content */}
+                {selectedChapter.outsideExerciseMCQs && selectedChapter.outsideExerciseMCQs.length > 0 && (
+                  <button
+                    onClick={() => setScreen("outside-mcqs")}
+                    className="w-full bg-gradient-to-r from-amber-500 to-amber-600 text-white p-4 rounded-xl font-semibold shadow-lg flex items-center justify-center gap-2"
+                  >
+                    <FileText className="w-5 h-5" />
+                    📝 Outside Exercise MCQs ({selectedChapter.outsideExerciseMCQs.length} Questions)
+                    <ChevronRight className="w-5 h-5" />
+                  </button>
+                )}
               </div>
             </motion.div>
           )}
