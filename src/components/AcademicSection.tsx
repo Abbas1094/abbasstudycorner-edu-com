@@ -11,7 +11,7 @@ import GrandQuizEngine from "@/components/GrandQuizEngine";
 import AcademicCustomPractice from "@/components/AcademicCustomPractice";
 import { isChapterCompleted, getChapterScore, getSubjectProgress } from "@/lib/academicProgress";
 
-type AcademicScreen = "classes" | "subjects" | "subject-content" | "chapter-content" | "chapter-mcqs" | "grand-quiz" | "most-repeated" | "custom-practice";
+type AcademicScreen = "classes" | "subjects" | "subject-content" | "chapter-content" | "chapter-mcqs" | "outside-mcqs" | "grand-quiz" | "most-repeated" | "custom-practice";
 
 interface AcademicSectionProps {
   onBack: () => void;
@@ -24,7 +24,10 @@ const AcademicSection = ({ onBack }: AcademicSectionProps) => {
   const [selectedChapter, setSelectedChapter] = useState<AcademicChapter | null>(null);
 
   const handleBack = () => {
-    if (screen === "custom-practice") {
+    if (screen === "outside-mcqs") {
+      setScreen("subject-content");
+      setSelectedChapter(null);
+    } else if (screen === "custom-practice") {
       setScreen("subject-content");
     } else if (screen === "most-repeated") {
       setScreen("subject-content");
@@ -266,6 +269,7 @@ const AcademicSection = ({ onBack }: AcademicSectionProps) => {
                       const completed = isChapterCompleted(selectedClass.id, selectedSubject.id, chapter.id);
                       const chapterScore = getChapterScore(selectedClass.id, selectedSubject.id, chapter.id);
                       const hasMCQs = chapter.mcqs && chapter.mcqs.length > 0;
+                      const hasOutsideMCQs = chapter.outsideExerciseMCQs && chapter.outsideExerciseMCQs.length > 0;
 
                       return (
                         <div key={chapter.id} className="space-y-1">
@@ -313,6 +317,22 @@ const AcademicSection = ({ onBack }: AcademicSectionProps) => {
                               <Trophy className="w-3.5 h-3.5 text-amber-400" />
                             )}
                           </button>
+
+                          {/* Outside Exercise MCQs Button */}
+                          {hasOutsideMCQs && (
+                            <button
+                              onClick={() => {
+                                setSelectedChapter(chapter);
+                                setScreen("outside-mcqs");
+                              }}
+                              className="w-full flex items-center justify-between p-2.5 pl-8 rounded-lg text-left text-sm transition-colors bg-amber-500/10 hover:bg-amber-500/20 text-amber-600 dark:text-amber-400"
+                            >
+                              <span className="flex items-center gap-2">
+                                <FileText className="w-3.5 h-3.5" />
+                                📝 Outside Exercise MCQs ({chapter.outsideExerciseMCQs!.length})
+                              </span>
+                            </button>
+                          )}
                         </div>
                       );
                     })}
@@ -447,6 +467,18 @@ const AcademicSection = ({ onBack }: AcademicSectionProps) => {
                     <ChevronRight className="w-5 h-5" />
                   </button>
                 )}
+
+                {/* Outside Exercise MCQs Button in chapter-content */}
+                {selectedChapter.outsideExerciseMCQs && selectedChapter.outsideExerciseMCQs.length > 0 && (
+                  <button
+                    onClick={() => setScreen("outside-mcqs")}
+                    className="w-full bg-gradient-to-r from-amber-500 to-amber-600 text-white p-4 rounded-xl font-semibold shadow-lg flex items-center justify-center gap-2"
+                  >
+                    <FileText className="w-5 h-5" />
+                    📝 Outside Exercise MCQs ({selectedChapter.outsideExerciseMCQs.length} Questions)
+                    <ChevronRight className="w-5 h-5" />
+                  </button>
+                )}
               </div>
             </motion.div>
           )}
@@ -474,7 +506,28 @@ const AcademicSection = ({ onBack }: AcademicSectionProps) => {
             </motion.div>
           )}
 
-          {/* Grand Quiz */}
+          {/* Outside Exercise MCQs Quiz */}
+          {screen === "outside-mcqs" && selectedChapter && selectedClass && selectedSubject && (
+            <motion.div
+              key="outside-mcqs"
+              initial={{ opacity: 0, x: 20 }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: -20 }}
+            >
+              <AcademicQuiz
+                mcqs={selectedChapter.outsideExerciseMCQs || []}
+                chapterName={`${selectedChapter.name} (Outside Exercise)`}
+                classId={selectedClass.id}
+                subjectId={selectedSubject.id}
+                chapterId={`${selectedChapter.id}-outside`}
+                onBack={() => {
+                  setScreen("subject-content");
+                  setSelectedChapter(null);
+                }}
+              />
+            </motion.div>
+          )}
+
           {screen === "grand-quiz" && selectedSubject && selectedClass && (
             <motion.div
               key="grand-quiz"
