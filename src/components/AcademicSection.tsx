@@ -11,7 +11,7 @@ import GrandQuizEngine from "@/components/GrandQuizEngine";
 import AcademicCustomPractice from "@/components/AcademicCustomPractice";
 import { isChapterCompleted, getChapterScore, getSubjectProgress } from "@/lib/academicProgress";
 
-type AcademicScreen = "classes" | "subjects" | "subject-content" | "chapter-content" | "chapter-mcqs" | "grand-quiz" | "most-repeated" | "custom-practice";
+type AcademicScreen = "classes" | "subjects" | "subject-content" | "chapter-content" | "chapter-mcqs" | "outside-mcqs" | "grand-quiz" | "most-repeated" | "custom-practice";
 
 interface AcademicSectionProps {
   onBack: () => void;
