@@ -24,7 +24,10 @@ const AcademicSection = ({ onBack }: AcademicSectionProps) => {
   const [selectedChapter, setSelectedChapter] = useState<AcademicChapter | null>(null);
 
   const handleBack = () => {
-    if (screen === "custom-practice") {
+    if (screen === "outside-mcqs") {
+      setScreen("subject-content");
+      setSelectedChapter(null);
+    } else if (screen === "custom-practice") {
       setScreen("subject-content");
     } else if (screen === "most-repeated") {
       setScreen("subject-content");
@@ -266,6 +269,7 @@ const AcademicSection = ({ onBack }: AcademicSectionProps) => {
                       const completed = isChapterCompleted(selectedClass.id, selectedSubject.id, chapter.id);
                       const chapterScore = getChapterScore(selectedClass.id, selectedSubject.id, chapter.id);
                       const hasMCQs = chapter.mcqs && chapter.mcqs.length > 0;
+                      const hasOutsideMCQs = chapter.outsideExerciseMCQs && chapter.outsideExerciseMCQs.length > 0;
 
                       return (
                         <div key={chapter.id} className="space-y-1">
@@ -313,6 +317,22 @@ const AcademicSection = ({ onBack }: AcademicSectionProps) => {
                               <Trophy className="w-3.5 h-3.5 text-amber-400" />
                             )}
                           </button>
+
+                          {/* Outside Exercise MCQs Button */}
+                          {hasOutsideMCQs && (
+                            <button
+                              onClick={() => {
+                                setSelectedChapter(chapter);
+                                setScreen("outside-mcqs");
+                              }}
+                              className="w-full flex items-center justify-between p-2.5 pl-8 rounded-lg text-left text-sm transition-colors bg-amber-500/10 hover:bg-amber-500/20 text-amber-600 dark:text-amber-400"
+                            >
+                              <span className="flex items-center gap-2">
+                                <FileText className="w-3.5 h-3.5" />
+                                📝 Outside Exercise MCQs ({chapter.outsideExerciseMCQs!.length})
+                              </span>
+                            </button>
+                          )}
                         </div>
                       );
                     })}
