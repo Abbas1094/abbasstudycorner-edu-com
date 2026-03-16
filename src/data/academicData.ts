@@ -59,6 +59,11 @@ import {
   ps10Ch1OutsideMCQs, ps10Ch4OutsideMCQs, ps10Ch5OutsideMCQs,
   ps10Ch8OutsideMCQs
 } from "@/data/pakStudy10Data";
+import {
+  cs10Unit1MCQs, cs10Unit2MCQs, cs10Unit3MCQs, cs10Unit4MCQs, cs10Unit5MCQs,
+  cs10Unit1OutsideMCQs, cs10Unit2OutsideMCQs, cs10Unit3OutsideMCQs,
+  cs10Unit4OutsideMCQs, cs10Unit5OutsideMCQs
+} from "@/data/computerScience10Data";
 
 export const academicClasses: AcademicClass[] = [
   {
@@ -1978,6 +1983,18 @@ Total Marks: 87 | Time: 2 Hours 30 Minutes
           { id: "ch4", name: "Islamic Jurisprudence" },
           { id: "ch5", name: "Social System of Islam" },
           { id: "ch6", name: "Islamic Economic System" }
+        ]
+      },
+      {
+        id: "cs-10",
+        name: "Computer Science",
+        icon: "💻",
+        chapters: [
+          { id: "unit1", name: "Unit 1: Introduction to Programming", mcqs: cs10Unit1MCQs, outsideExerciseMCQs: cs10Unit1OutsideMCQs },
+          { id: "unit2", name: "Unit 2: User Interaction", mcqs: cs10Unit2MCQs, outsideExerciseMCQs: cs10Unit2OutsideMCQs },
+          { id: "unit3", name: "Unit 3: Conditional Logic", mcqs: cs10Unit3MCQs, outsideExerciseMCQs: cs10Unit3OutsideMCQs },
+          { id: "unit4", name: "Unit 4: Data and Repetition", mcqs: cs10Unit4MCQs, outsideExerciseMCQs: cs10Unit4OutsideMCQs },
+          { id: "unit5", name: "Unit 5: Functions", mcqs: cs10Unit5MCQs, outsideExerciseMCQs: cs10Unit5OutsideMCQs },
         ]
       }
     ]
