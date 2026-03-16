@@ -59,6 +59,11 @@ import {
   ps10Ch1OutsideMCQs, ps10Ch4OutsideMCQs, ps10Ch5OutsideMCQs,
   ps10Ch8OutsideMCQs
 } from "@/data/pakStudy10Data";
+import {
+  cs10Unit1MCQs, cs10Unit2MCQs, cs10Unit3MCQs, cs10Unit4MCQs, cs10Unit5MCQs,
+  cs10Unit1OutsideMCQs, cs10Unit2OutsideMCQs, cs10Unit3OutsideMCQs,
+  cs10Unit4OutsideMCQs, cs10Unit5OutsideMCQs
+} from "@/data/computerScience10Data";
 
 export const academicClasses: AcademicClass[] = [
   {
