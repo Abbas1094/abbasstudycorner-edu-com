@@ -69,39 +69,66 @@ export const cs10Unit5MCQs: MCQ[] = [
 // ── Outside Exercise MCQs ──
 
 export const cs10Unit1OutsideMCQs: MCQ[] = [
-  { id: "cs10o-u1-1", question: "The extension of header file is:", options: [".h", ".c", ".cpp", ".txt"], correctAnswer: 0, explanation: "Header files in C have the .h extension." },
-  { id: "cs10o-u1-2", question: "Which of the following is a valid line of code?", options: ["int=30;", "line = this is a line;", "float = 4.3;", "Char grade = 'A';"], correctAnswer: 3, explanation: "Char grade = 'A'; is a valid variable declaration and assignment." },
-  { id: "cs10o-u1-3", question: "BASIC is a ______ language.", options: ["Machine", "Assembly", "Low level", "High level"], correctAnswer: 3, explanation: "BASIC (Beginner's All-purpose Symbolic Instruction Code) is a high-level language." },
+  { id: "cs10o-u1-1", question: "'include' statements are written in ______ section.", options: ["Header", "Main", "Comments", "Print"], correctAnswer: 0, explanation: "Include statements (#include) are written in the header section. Repeated in past papers." },
+  { id: "cs10o-u1-2", question: "The extension of header file is:", options: [".h", ".c", ".cpp", ".txt"], correctAnswer: 0, explanation: "Header files in C have the .h extension." },
+  { id: "cs10o-u1-3", question: "A software that facilitates programmers in writing computer programs is known as ______.", options: ["Compiler", "Editor", "IDE", "Debugger"], correctAnswer: 2, explanation: "An IDE combines editor, compiler, and debugger in one interface." },
+  { id: "cs10o-u1-4", question: "______ is a software that converts program files to machine understandable code.", options: ["Compiler", "Editor", "IDE", "Debugger"], correctAnswer: 0, explanation: "A compiler converts source code to machine-executable code." },
+  { id: "cs10o-u1-5", question: "A list of words that are predefined and cannot be used as variable names are called ______.", options: ["Auto words", "Reserved words", "Restricted words", "Predefined words"], correctAnswer: 1, explanation: "Reserved words (keywords) cannot be used as variable names." },
+  { id: "cs10o-u1-6", question: "______ are the values that do not change during program execution.", options: ["Variables", "Constants", "Strings", "Comments"], correctAnswer: 1, explanation: "Constants are fixed values that remain unchanged during execution." },
+  { id: "cs10o-u1-7", question: "A float uses ______ bytes of memory.", options: ["3", "4", "5", "6"], correctAnswer: 1, explanation: "A float data type uses 4 bytes of memory." },
+  { id: "cs10o-u1-8", question: "For initializing a variable, we use ______ operator.", options: ["→", "=", "@", "?"], correctAnswer: 1, explanation: "The assignment operator (=) is used to initialize variables." },
+  { id: "cs10o-u1-9", question: "Which of the following is a valid line of code?", options: ["int=30;", "line = this is a line;", "float = 4.3;", "Char grade = 'A';"], correctAnswer: 3, explanation: "Char grade = 'A'; is a valid variable declaration and assignment." },
+  { id: "cs10o-u1-10", question: "BASIC is a ______ language.", options: ["Machine", "Assembly", "Low level", "High level"], correctAnswer: 3, explanation: "BASIC is a high-level programming language." },
 ];
 
 export const cs10Unit2OutsideMCQs: MCQ[] = [
   { id: "cs10o-u2-1", question: "Scanf() is an example of ______ function.", options: ["Input", "Output", "Logical", "Math"], correctAnswer: 0, explanation: "scanf() is an input function used to read data from the user." },
   { id: "cs10o-u2-2", question: "The expression 13 % 3 has answer:", options: ["13", "5", "3", "1"], correctAnswer: 3, explanation: "13 % 3 = 1 (remainder when 13 is divided by 3)." },
-  { id: "cs10o-u2-3", question: "Which of the following is a valid character in C language?", options: ["\"here\"", "\"a\"", "'a'", "115"], correctAnswer: 2, explanation: "'a' is a valid character literal in C (single quotes for char)." },
-  { id: "cs10o-u2-4", question: "Which operator has highest precedence among these?", options: ["=", "<", "*", "!"], correctAnswer: 3, explanation: "! (NOT operator) has the highest precedence among these operators." },
-  { id: "cs10o-u2-5", question: "Which of the following is not a logical operator?", options: ["AND", "OR", "NOT", "NEITHER"], correctAnswer: 3, explanation: "NEITHER is not a logical operator. AND, OR, NOT are the three logical operators." },
-  { id: "cs10o-u2-6", question: "What is the use of modulus operator?", options: ["Percentage", "Division", "Remainder", "Multiplication"], correctAnswer: 2, explanation: "The modulus operator (%) returns the remainder of a division." },
-  { id: "cs10o-u2-7", question: "Format specifier %f is for data type:", options: ["int", "float", "char", "void"], correctAnswer: 1, explanation: "%f is the format specifier for float data type." },
+  { id: "cs10o-u2-3", question: "The operator % is used to calculate:", options: ["Percentage", "Remainder", "Factorial", "Square"], correctAnswer: 1, explanation: "The modulus operator (%) calculates the remainder of division." },
+  { id: "cs10o-u2-4", question: "Which of the following is a valid character in C language?", options: ["\"here\"", "\"a\"", "'a'", "115"], correctAnswer: 2, explanation: "'a' is a valid character literal in C (single quotes for char)." },
+  { id: "cs10o-u2-5", question: "Which operator has highest precedence among these?", options: ["=", "<", "*", "!"], correctAnswer: 3, explanation: "! (NOT operator) has the highest precedence among these operators." },
+  { id: "cs10o-u2-6", question: "Let int a=4; float b=2.2; a=a*b; What is value of a?", options: ["8.8", "8", "8.0", "8.2"], correctAnswer: 1, explanation: "Since 'a' is int, the result 8.8 is truncated to 8." },
+  { id: "cs10o-u2-7", question: "Which of the following is not a logical operator?", options: ["AND", "OR", "NOT", "NEITHER"], correctAnswer: 3, explanation: "NEITHER is not a logical operator. AND, OR, NOT are the three logical operators." },
+  { id: "cs10o-u2-8", question: "What is the use of modulus operator?", options: ["Percentage", "Division", "Remainder", "Multiplication"], correctAnswer: 2, explanation: "The modulus operator (%) returns the remainder of a division." },
+  { id: "cs10o-u2-9", question: "Format specifier %f is for data type:", options: ["int", "float", "char", "void"], correctAnswer: 1, explanation: "%f is the format specifier for float data type." },
+  { id: "cs10o-u2-10", question: "getch() is used to take ______ as input from user.", options: ["int", "float", "char", "All of these"], correctAnswer: 2, explanation: "getch() reads a single character input from the user." },
 ];
 
 export const cs10Unit3OutsideMCQs: MCQ[] = [
   { id: "cs10o-u3-1", question: "How many types of control structures are in C language?", options: ["1", "2", "3", "4"], correctAnswer: 2, explanation: "Three types: Sequential, Selection (conditional), and Repetition (loop)." },
   { id: "cs10o-u3-2", question: "______ is the default control structure in C language.", options: ["Sequential Control", "Repetition Control", "Conditional Control", "Check Control"], correctAnswer: 0, explanation: "Sequential control is the default – statements execute one after another." },
   { id: "cs10o-u3-3", question: "All of the following are control statements EXCEPT:", options: ["Sequential", "Repetition", "Selection", "Relation"], correctAnswer: 3, explanation: "Relation is not a control statement. Sequential, Repetition, Selection are." },
-  { id: "cs10o-u3-4", question: "Which is not a type of control statement?", options: ["Check control", "Repetition control", "Selection control", "Sequential control"], correctAnswer: 0, explanation: "Check control is not a standard control structure type." },
-  { id: "cs10o-u3-5", question: "What is the output?\nint x=3, y=7;\nif(x>y) printf(\"%d\",x);\nelse printf(\"%d\",y);", options: ["1", "0", "3", "7"], correctAnswer: 3, explanation: "Since x(3) > y(7) is false, the else executes and prints y = 7." },
-  { id: "cs10o-u3-6", question: "An if statement ______ have a compulsory else statement.", options: ["Must", "Does not", "Always", "Sometimes"], correctAnswer: 1, explanation: "An if statement does not require a compulsory else statement." },
+  { id: "cs10o-u3-4", question: "In if statement, what happens if condition is false?", options: ["Program Error", "Index out of Bound", "Further code executes", "Syntax Error"], correctAnswer: 2, explanation: "If the condition is false, the program skips the if block and further code executes." },
+  { id: "cs10o-u3-5", question: "An if statement inside another if statement is called ______ structure.", options: ["Boxed", "Repeated", "Nested", "Decomposed"], correctAnswer: 2, explanation: "Nested if means an if statement placed inside another if statement." },
+  { id: "cs10o-u3-6", question: "A set of multiple instructions enclosed in braces { } is called a ______.", options: ["Box", "List", "Job", "Block"], correctAnswer: 3, explanation: "A block is a group of statements enclosed in curly braces { }." },
+  { id: "cs10o-u3-7", question: "Which is not a type of control statement?", options: ["Check control", "Repetition control", "Selection control", "Sequential control"], correctAnswer: 0, explanation: "Check control is not a standard control structure type." },
+  { id: "cs10o-u3-8", question: "What is the output?\nint x=3, y=7;\nif(x>y) printf(\"%d\",x);\nelse printf(\"%d\",y);", options: ["1", "0", "3", "7"], correctAnswer: 3, explanation: "Since x(3) > y(7) is false, the else executes and prints y = 7." },
+  { id: "cs10o-u3-9", question: "Conditional logic helps in:", options: ["Decisions", "Iterations", "Traversing", "Deletion"], correctAnswer: 0, explanation: "Conditional logic is primarily used for decision-making." },
+  { id: "cs10o-u3-10", question: "An if statement ______ have a compulsory else statement.", options: ["Must", "Does not", "Always", "Sometimes"], correctAnswer: 1, explanation: "An if statement does not require a compulsory else statement." },
 ];
 
 export const cs10Unit4OutsideMCQs: MCQ[] = [
-  { id: "cs10o-u4-1", question: "What is the size of array in int a[9];?", options: ["10", "9", "8", "0"], correctAnswer: 1, explanation: "int a[9] declares an array of size 9 (indices 0 to 8)." },
-  { id: "cs10o-u4-2", question: "How many times will \"Pakistan\" be printed?\nfor(int a=2; a<=10; a=a+2) printf(\"Pakistan\");", options: ["Two", "Three", "Four", "Five"], correctAnswer: 3, explanation: "a takes values 2, 4, 6, 8, 10 → loop runs 5 times." },
+  { id: "cs10o-u4-1", question: "If size of array is 10, the range of indexes will be:", options: ["0 – 9", "0 – 10", "1 – 10", "10 – 20"], correctAnswer: 0, explanation: "Array indexing starts from 0, so for size 10: indices 0 to 9." },
+  { id: "cs10o-u4-2", question: "What is the size of array in int a[9];?", options: ["10", "9", "8", "0"], correctAnswer: 1, explanation: "int a[9] declares an array of size 9 (indices 0 to 8)." },
+  { id: "cs10o-u4-3", question: "______ part of for loop is executed first.", options: ["Condition", "Body", "Initialization", "Increment"], correctAnswer: 2, explanation: "In a for loop, the initialization part executes first." },
+  { id: "cs10o-u4-4", question: "______ make it easier to read and write values in array.", options: ["Loops", "Conditions", "Expressions", "Functions"], correctAnswer: 0, explanation: "Loops make it easy to iterate through array elements." },
+  { id: "cs10o-u4-5", question: "An array is a ______ structure.", options: ["Loop", "Control", "Data", "Conditional"], correctAnswer: 2, explanation: "An array is a data structure that stores multiple values." },
+  { id: "cs10o-u4-6", question: "How many times will \"Pakistan\" be printed?\nfor(int a=2; a<=10; a=a+2) printf(\"Pakistan\");", options: ["Two", "Three", "Four", "Five"], correctAnswer: 3, explanation: "a takes values 2, 4, 6, 8, 10 → loop runs 5 times." },
+  { id: "cs10o-u4-7", question: "Array elements are stored at ______ memory locations.", options: ["Contiguous", "Scattered", "Divided", "None"], correctAnswer: 0, explanation: "Array elements are stored in contiguous (adjacent) memory locations." },
+  { id: "cs10o-u4-8", question: "Using loops inside loops is called ______ loops.", options: ["For", "While", "Do-while", "Nested"], correctAnswer: 3, explanation: "A loop inside another loop is called a nested loop." },
+  { id: "cs10o-u4-9", question: "To initialize array in a single statement, initialize it ______ declaration.", options: ["After", "Before", "At the time of", "Both A & B"], correctAnswer: 2, explanation: "To initialize in a single statement, do it at the time of declaration." },
+  { id: "cs10o-u4-10", question: "______ structure allows repetition of a set of instructions.", options: ["Loop", "Conditional", "Control", "Data"], correctAnswer: 0, explanation: "Loop structures are used to repeat instructions." },
 ];
 
 export const cs10Unit5OutsideMCQs: MCQ[] = [
   { id: "cs10o-u5-1", question: "A function cannot return more than ______ value(s).", options: ["One", "Two", "Three", "Four"], correctAnswer: 0, explanation: "A function can return at most one value." },
-  { id: "cs10o-u5-2", question: "______ describes the name, inputs and outputs of a function.", options: ["Function declaration", "Function call", "Function signature", "All"], correctAnswer: 2, explanation: "Function signature describes the function's name, parameters, and return type." },
-  { id: "cs10o-u5-3", question: "A built-in function ______.", options: ["Can be redefined", "Cannot be redefined", "Should be redefined", "Cannot return a value"], correctAnswer: 1, explanation: "Built-in functions are part of the standard library and cannot be redefined." },
-  { id: "cs10o-u5-4", question: "getch() function is ______.", options: ["Custom Function", "Arithmetic Function", "User defined", "Built-in function"], correctAnswer: 3, explanation: "getch() is a built-in function from the conio.h library." },
-  { id: "cs10o-u5-5", question: "What is the output?\nint add(int a, int b) { return a+b; }\nprintf(\"%d\", add(2,4));", options: ["16", "8", "6", "4"], correctAnswer: 2, explanation: "add(2,4) returns 2+4 = 6." },
+  { id: "cs10o-u5-2", question: "______ means to transfer control to another function.", options: ["Calling", "Defining", "Re-writing", "Including"], correctAnswer: 0, explanation: "Calling a function means transferring control to that function." },
+  { id: "cs10o-u5-3", question: "The values passed to a function are called ______.", options: ["Bodies", "Return types", "Arrays", "Arguments"], correctAnswer: 3, explanation: "Arguments are values passed to a function when calling it." },
+  { id: "cs10o-u5-4", question: "In char cd() { return 'a'; }, char is the ______.", options: ["Body", "Array", "Arguments", "Return type"], correctAnswer: 3, explanation: "'char' specifies the return type of the function." },
+  { id: "cs10o-u5-5", question: "______ describes the name, inputs and outputs of a function.", options: ["Function declaration", "Function call", "Function signature", "All"], correctAnswer: 2, explanation: "Function signature describes the function's name, parameters, and return type." },
+  { id: "cs10o-u5-6", question: "A built-in function ______.", options: ["Can be redefined", "Cannot be redefined", "Should be redefined", "Cannot return a value"], correctAnswer: 1, explanation: "Built-in functions are part of the standard library and cannot be redefined." },
+  { id: "cs10o-u5-7", question: "If there are three return statements in function body, ______ will be executed.", options: ["One", "Two", "Three", "Four"], correctAnswer: 0, explanation: "Only one return statement executes; the function exits after the first return." },
+  { id: "cs10o-u5-8", question: "Functions could be built-in or ______.", options: ["Admin defined", "Server defined", "User defined", "Related defined"], correctAnswer: 2, explanation: "Functions are either built-in or user-defined." },
+  { id: "cs10o-u5-9", question: "getch() function is ______.", options: ["Custom Function", "Arithmetic Function", "User defined", "Built-in function"], correctAnswer: 3, explanation: "getch() is a built-in function from the conio.h library." },
+  { id: "cs10o-u5-10", question: "What is the output?\nint add(int a, int b) { return a+b; }\nprintf(\"%d\", add(2,4));", options: ["16", "8", "6", "4"], correctAnswer: 2, explanation: "add(2,4) returns 2+4 = 6." },
 ];
