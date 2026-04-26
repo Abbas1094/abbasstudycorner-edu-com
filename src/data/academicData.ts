@@ -64,6 +64,10 @@ import {
   cs10Unit1OutsideMCQs, cs10Unit2OutsideMCQs, cs10Unit3OutsideMCQs,
   cs10Unit4OutsideMCQs, cs10Unit5OutsideMCQs
 } from "@/data/computerScience10Data";
+import {
+  c9OldCh1MCQs, c9OldCh2MCQs, c9OldCh3MCQs, c9OldCh4MCQs,
+  c9OldCh5MCQs, c9OldCh6MCQs, c9OldCh7MCQs, c9OldCh8MCQs
+} from "@/data/chemistry9OldMCQs";
 
 export const academicClasses: AcademicClass[] = [
   {
