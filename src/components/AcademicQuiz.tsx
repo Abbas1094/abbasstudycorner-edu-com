@@ -105,6 +105,16 @@ const AcademicQuiz = ({
     }
   }, [current, shuffledMCQs.length, handleFinish]);
 
+  const handleSkip = useCallback(() => {
+    if (!mcq || !(mcq as any).isExcluded || isAnswered) return;
+    if (current < shuffledMCQs.length - 1) {
+      setCurrent((c) => c + 1);
+      setSelected(null);
+    } else {
+      handleFinish();
+    }
+  }, [mcq, isAnswered, current, shuffledMCQs.length, handleFinish]);
+
   const handleRestart = useCallback(() => {
     setCurrent(0);
     setSelected(null);
@@ -402,6 +412,20 @@ const AcademicQuiz = ({
               className="w-full mt-5 bg-gradient-to-r from-primary to-primary/80 text-primary-foreground p-4 rounded-xl font-semibold shadow-lg flex items-center justify-center gap-2"
             >
               {current < shuffledMCQs.length - 1 ? "Next Question" : "See Results"}
+              <ChevronRight className="w-5 h-5" />
+            </motion.button>
+          )}
+
+          {/* Skip Button — only for excluded (Smart Syllabus) MCQs */}
+          {!isAnswered && (mcq as any).isExcluded && (
+            <motion.button
+              initial={{ opacity: 0, y: 5 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.15 }}
+              onClick={handleSkip}
+              className="w-full mt-5 bg-destructive/10 hover:bg-destructive/15 border border-destructive/40 text-destructive p-3 rounded-xl font-semibold flex items-center justify-center gap-2"
+            >
+              Skip (Excluded — Not in Exam)
               <ChevronRight className="w-5 h-5" />
             </motion.button>
           )}
