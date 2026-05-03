@@ -8,6 +8,7 @@ export interface MCQ {
   optionImages?: string[]; // URLs or paths for pictorial options
   correctAnswer: number;
   explanation?: string;
+  isExcluded?: boolean; // Marked excluded by Smart Syllabus (ALP) — show red badge
 }
 
 export interface Chapter {
