@@ -352,6 +352,11 @@ const AcademicQuiz = ({
       <AnimatePresence mode="wait">
         <motion.div key={current} initial={{ opacity: 0, x: 10 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -10 }} transition={{ duration: 0.15 }}>
           <div className="bg-card p-5 rounded-2xl border border-border mb-5">
+            {(mcq as any).isExcluded && (
+              <div className="mb-3 inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-destructive/15 border border-destructive/40 text-destructive text-[11px] font-semibold">
+                🔴 Excluded in Smart Syllabus (ALP) — Not in Exam
+              </div>
+            )}
             <p className="text-lg font-medium text-foreground">{mcq.question}</p>
           </div>
 
