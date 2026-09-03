@@ -14,16 +14,218 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      bookmarks: {
+        Row: {
+          created_at: string
+          id: string
+          item_ref: string
+          item_type: string
+          label: string | null
+          metadata: Json
+          user_id: string
+        }
+        Insert: {
+          created_at?: string
+          id?: string
+          item_ref: string
+          item_type: string
+          label?: string | null
+          metadata?: Json
+          user_id: string
+        }
+        Update: {
+          created_at?: string
+          id?: string
+          item_ref?: string
+          item_type?: string
+          label?: string | null
+          metadata?: Json
+          user_id?: string
+        }
+        Relationships: []
+      }
+      profiles: {
+        Row: {
+          avatar_url: string | null
+          created_at: string
+          display_name: string | null
+          email: string | null
+          id: string
+          updated_at: string
+        }
+        Insert: {
+          avatar_url?: string | null
+          created_at?: string
+          display_name?: string | null
+          email?: string | null
+          id: string
+          updated_at?: string
+        }
+        Update: {
+          avatar_url?: string | null
+          created_at?: string
+          display_name?: string | null
+          email?: string | null
+          id?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
+      quiz_answers: {
+        Row: {
+          attempt_id: string
+          correct_answer: number | null
+          created_at: string
+          explanation_viewed: boolean
+          flagged: boolean
+          id: string
+          is_correct: boolean
+          question_id: string
+          question_text: string | null
+          selected_answer: number | null
+          time_spent_seconds: number | null
+          user_id: string
+        }
+        Insert: {
+          attempt_id: string
+          correct_answer?: number | null
+          created_at?: string
+          explanation_viewed?: boolean
+          flagged?: boolean
+          id?: string
+          is_correct?: boolean
+          question_id: string
+          question_text?: string | null
+          selected_answer?: number | null
+          time_spent_seconds?: number | null
+          user_id: string
+        }
+        Update: {
+          attempt_id?: string
+          correct_answer?: number | null
+          created_at?: string
+          explanation_viewed?: boolean
+          flagged?: boolean
+          id?: string
+          is_correct?: boolean
+          question_id?: string
+          question_text?: string | null
+          selected_answer?: number | null
+          time_spent_seconds?: number | null
+          user_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "quiz_answers_attempt_id_fkey"
+            columns: ["attempt_id"]
+            isOneToOne: false
+            referencedRelation: "quiz_attempts"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      quiz_attempts: {
+        Row: {
+          category: string | null
+          chapter: string | null
+          completed_at: string | null
+          correct_answers: number
+          created_at: string
+          id: string
+          incorrect_answers: number
+          metadata: Json
+          mode: string
+          passed: boolean
+          percentage: number
+          quiz_key: string
+          score: number
+          started_at: string
+          subject: string | null
+          time_spent_seconds: number | null
+          total_questions: number
+          unanswered: number
+          user_id: string
+        }
+        Insert: {
+          category?: string | null
+          chapter?: string | null
+          completed_at?: string | null
+          correct_answers?: number
+          created_at?: string
+          id?: string
+          incorrect_answers?: number
+          metadata?: Json
+          mode?: string
+          passed?: boolean
+          percentage?: number
+          quiz_key: string
+          score?: number
+          started_at?: string
+          subject?: string | null
+          time_spent_seconds?: number | null
+          total_questions?: number
+          unanswered?: number
+          user_id: string
+        }
+        Update: {
+          category?: string | null
+          chapter?: string | null
+          completed_at?: string | null
+          correct_answers?: number
+          created_at?: string
+          id?: string
+          incorrect_answers?: number
+          metadata?: Json
+          mode?: string
+          passed?: boolean
+          percentage?: number
+          quiz_key?: string
+          score?: number
+          started_at?: string
+          subject?: string | null
+          time_spent_seconds?: number | null
+          total_questions?: number
+          unanswered?: number
+          user_id?: string
+        }
+        Relationships: []
+      }
+      user_roles: {
+        Row: {
+          created_at: string
+          id: string
+          role: Database["public"]["Enums"]["app_role"]
+          user_id: string
+        }
+        Insert: {
+          created_at?: string
+          id?: string
+          role?: Database["public"]["Enums"]["app_role"]
+          user_id: string
+        }
+        Update: {
+          created_at?: string
+          id?: string
+          role?: Database["public"]["Enums"]["app_role"]
+          user_id?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
     }
     Functions: {
-      [_ in never]: never
+      has_role: {
+        Args: {
+          _role: Database["public"]["Enums"]["app_role"]
+          _user_id: string
+        }
+        Returns: boolean
+      }
     }
     Enums: {
-      [_ in never]: never
+      app_role: "admin" | "student"
     }
     CompositeTypes: {
       [_ in never]: never
@@ -150,6 +352,8 @@ export type CompositeTypes<
 
 export const Constants = {
   public: {
-    Enums: {},
+    Enums: {
+      app_role: ["admin", "student"],
+    },
   },
 } as const
