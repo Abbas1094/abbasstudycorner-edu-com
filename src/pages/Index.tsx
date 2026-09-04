@@ -69,9 +69,9 @@ const Index = () => {
               {/* Stats */}
               <div className="grid grid-cols-3 gap-2.5 sm:gap-4 max-w-sm sm:max-w-md mx-auto mb-8 sm:mb-12">
                 {[
-                  { icon: BookOpen, label: "Subjects", value: "20+" },
-                  { icon: Target, label: "MCQs", value: "2000+" },
-                  { icon: Users, label: "Students", value: "Active" }
+                  { icon: BookOpen, label: "Coverage", value: "Class 9-12" },
+                  { icon: Target, label: "Practice", value: "Chapter-wise" },
+                  { icon: Shield, label: "Forces", value: "Navy · PAF · Army" }
                 ].map((stat, i) => (
                   <motion.div
                     key={i}
