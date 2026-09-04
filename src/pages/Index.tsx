@@ -164,35 +164,6 @@ const Index = () => {
               </div>
             </section>
 
-            {/* Student Success / Testimonials */}
-            <section className="container px-4 sm:px-6 pb-10 sm:pb-14">
-              <h3 className="font-display text-xl sm:text-2xl font-bold text-center mb-1.5 sm:mb-2 text-foreground">Student Success</h3>
-              <p className="text-muted-foreground text-center mb-6 sm:mb-8 text-xs sm:text-sm">Hear from students who cleared their initial tests</p>
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-5 max-w-3xl mx-auto">
-                {[
-                  { name: "Ahmed R.", role: "PAF GD Pilot Selected", quote: "Abbas Study Corner's mock tests were almost identical to the real exam. I felt fully prepared on test day!" },
-                  { name: "Bilal K.", role: "Pak Army PMA Cadet", quote: "The non-verbal intelligence SVGs helped me practice patterns I'd never seen before. Highly recommend!" },
-                  { name: "Usman S.", role: "Navy Sailor Selected", quote: "Chapter-wise MCQs and detailed explanations made revision so much easier. Passed on my first attempt!" },
-                ].map((t, i) => (
-                  <motion.div
-                    key={i}
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.1 * i }}
-                    className="bg-gradient-card border border-border rounded-2xl p-5 sm:p-6"
-                  >
-                    <div className="flex gap-0.5 sm:gap-1 mb-2.5 sm:mb-3">
-                      {[...Array(5)].map((_, j) => (
-                        <Star key={j} className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-primary fill-primary" />
-                      ))}
-                    </div>
-                    <p className="text-xs sm:text-sm text-muted-foreground italic mb-3 sm:mb-4 leading-relaxed">"{t.quote}"</p>
-                    <p className="font-display font-bold text-foreground text-xs sm:text-sm">{t.name}</p>
-                    <p className="text-[10px] sm:text-xs text-primary">{t.role}</p>
-                  </motion.div>
-                ))}
-              </div>
-            </section>
           </motion.div>
         </AnimatePresence>
       </main>
