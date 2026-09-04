@@ -1,4 +1,5 @@
-// Academic progress tracking via localStorage
+// Academic progress tracking via localStorage (+ cloud attempt history when signed in)
+import { recordAttemptAsync } from "@/lib/quizAttempts";
 
 const STORAGE_KEY = "academic_progress";
 
@@ -75,6 +76,18 @@ export function saveChapterScore(
 
   progress[classId][subjectId][chapterId] = entry;
   saveProgress(progress);
+
+  recordAttemptAsync({
+    quizKey: `${classId}/${subjectId}/${chapterId}`,
+    category: "academic",
+    subject: subjectId,
+    chapter: chapterId,
+    mode: "chapter",
+    totalQuestions: total,
+    correctAnswers: score,
+    metadata: { classId },
+  });
+
   return entry;
 }
 

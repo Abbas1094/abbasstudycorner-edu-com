@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
-import { GraduationCap, Shield, BookOpen, Trophy, Target, Users, Brain, FileText, ClipboardList, Star, Phone, Mail, Sparkles, Zap, Award, LogIn, LogOut } from "lucide-react";
+import { GraduationCap, Shield, BookOpen, Target, Brain, FileText, ClipboardList, Phone, Mail, Sparkles, LogIn, BarChart3, User } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useAuth } from "@/hooks/useAuth";
 import MainSectionCard from "@/components/MainSectionCard";
@@ -13,7 +13,7 @@ type MainScreen = "home" | "academic" | "armed-forces";
 const Index = () => {
   const [screen, setScreen] = useState<MainScreen>("home");
   const navigate = useNavigate();
-  const { user, profile, loading, signOut } = useAuth();
+  const { user, profile, loading } = useAuth();
 
 
   if (screen === "academic") {
@@ -40,13 +40,16 @@ const Index = () => {
           </div>
           <div className="flex-shrink-0">
             {loading ? null : user ? (
-              <div className="flex items-center gap-2">
-                <span className="hidden sm:inline text-xs text-muted-foreground max-w-[10rem] truncate">
-                  {profile?.display_name ?? user.email}
-                </span>
-                <Button variant="outline" size="sm" onClick={() => signOut()} aria-label="Sign out">
-                  <LogOut className="w-4 h-4 sm:mr-1.5" />
-                  <span className="hidden sm:inline">Sign out</span>
+              <div className="flex items-center gap-1.5 sm:gap-2">
+                <Button variant="ghost" size="sm" onClick={() => navigate("/progress")} aria-label="My progress">
+                  <BarChart3 className="w-4 h-4 sm:mr-1.5" />
+                  <span className="hidden sm:inline">Progress</span>
+                </Button>
+                <Button variant="outline" size="sm" onClick={() => navigate("/profile")} aria-label="My profile">
+                  <User className="w-4 h-4 sm:mr-1.5" />
+                  <span className="hidden sm:inline max-w-[8rem] truncate">
+                    {profile?.display_name ?? "Profile"}
+                  </span>
                 </Button>
               </div>
             ) : (
