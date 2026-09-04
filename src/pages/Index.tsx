@@ -81,7 +81,7 @@ const Index = () => {
                     className="bg-gradient-card rounded-xl p-3 sm:p-4 text-center border border-border"
                   >
                     <stat.icon className="w-4 h-4 sm:w-5 sm:h-5 text-primary mx-auto mb-1.5 sm:mb-2" />
-                    <p className="text-lg sm:text-xl font-bold font-display text-foreground">{stat.value}</p>
+                    <p className="text-sm sm:text-base font-bold font-display text-foreground">{stat.value}</p>
                     <p className="text-[10px] sm:text-xs text-muted-foreground">{stat.label}</p>
                   </motion.div>
                 ))}
