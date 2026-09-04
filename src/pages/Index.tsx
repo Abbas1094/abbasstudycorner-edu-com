@@ -117,9 +117,10 @@ const Index = () => {
               <p className="text-muted-foreground text-center mb-6 sm:mb-8 text-xs sm:text-sm">Everything you need to ace your exams</p>
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-5 max-w-3xl mx-auto">
                 {[
-                  { icon: Brain, title: "AI Note Generator", desc: "Generate concise, exam-focused notes from any chapter using AI. Study smarter, not harder." },
-                  { icon: ClipboardList, title: "Mock Quizzes", desc: "Practice with realistic mock tests that mirror the actual PAF & Army entrance exams." },
-                  { icon: FileText, title: "Past Paper Analysis", desc: "Access analyzed past papers with highlighted important topics and predicted questions." },
+                  { icon: Brain, title: "Study Notes", desc: "Deep-analysis notes attached to questions so you understand the concept, not just the answer." },
+                  { icon: ClipboardList, title: "Mock Quizzes", desc: "Practice with mock tests modelled on the actual PAF, Navy & Army entrance exams." },
+                  { icon: FileText, title: "Exercise & Past MCQs", desc: "Board-book exercise MCQs plus commonly repeated outside-exercise questions." },
+
                 ].map((feature, i) => (
                   <motion.div
                     key={i}
