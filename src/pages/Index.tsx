@@ -13,7 +13,7 @@ type MainScreen = "home" | "academic" | "armed-forces";
 const Index = () => {
   const [screen, setScreen] = useState<MainScreen>("home");
   const navigate = useNavigate();
-  const { user, profile, loading, signOut } = useAuth();
+  const { user, profile, loading } = useAuth();
 
 
   if (screen === "academic") {
