@@ -1,6 +1,9 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
-import { GraduationCap, Shield, BookOpen, Trophy, Target, Users, Brain, FileText, ClipboardList, Star, Phone, Mail, Sparkles, Zap, Award } from "lucide-react";
+import { GraduationCap, Shield, BookOpen, Trophy, Target, Users, Brain, FileText, ClipboardList, Star, Phone, Mail, Sparkles, Zap, Award, LogIn, LogOut } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { useAuth } from "@/hooks/useAuth";
 import MainSectionCard from "@/components/MainSectionCard";
 import AcademicSection from "@/components/AcademicSection";
 import ArmedForcesSection from "@/components/ArmedForcesSection";
@@ -9,6 +12,9 @@ type MainScreen = "home" | "academic" | "armed-forces";
 
 const Index = () => {
   const [screen, setScreen] = useState<MainScreen>("home");
+  const navigate = useNavigate();
+  const { user, profile, loading, signOut } = useAuth();
+
 
   if (screen === "academic") {
     return <AcademicSection onBack={() => setScreen("home")} />;
@@ -22,18 +28,37 @@ const Index = () => {
     <div className="min-h-screen bg-gradient-navy flex flex-col overflow-x-hidden">
       {/* Header */}
       <header className="sticky top-0 z-50 bg-background/80 backdrop-blur-lg border-b border-border">
-        <div className="container px-4 sm:px-6 py-3 sm:py-4 flex items-center justify-center">
-          <div className="flex items-center gap-2.5 sm:gap-3">
+        <div className="container px-4 sm:px-6 py-3 sm:py-4 flex items-center justify-between gap-3">
+          <div className="flex items-center gap-2.5 sm:gap-3 min-w-0">
             <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-gradient-gold flex items-center justify-center shadow-gold flex-shrink-0">
               <BookOpen className="w-5 h-5 sm:w-7 sm:h-7 text-primary-foreground" />
             </div>
-            <div>
-              <h1 className="font-display text-lg sm:text-2xl font-bold text-gradient-gold leading-tight">Abbas Study Corner</h1>
-              <p className="text-[10px] sm:text-xs text-muted-foreground">Academic & Armed Forces Preparation</p>
+            <div className="min-w-0">
+              <h1 className="font-display text-base sm:text-2xl font-bold text-gradient-gold leading-tight truncate">Abbas Study Corner</h1>
+              <p className="text-[10px] sm:text-xs text-muted-foreground truncate">Academic & Armed Forces Preparation</p>
             </div>
+          </div>
+          <div className="flex-shrink-0">
+            {loading ? null : user ? (
+              <div className="flex items-center gap-2">
+                <span className="hidden sm:inline text-xs text-muted-foreground max-w-[10rem] truncate">
+                  {profile?.display_name ?? user.email}
+                </span>
+                <Button variant="outline" size="sm" onClick={() => signOut()} aria-label="Sign out">
+                  <LogOut className="w-4 h-4 sm:mr-1.5" />
+                  <span className="hidden sm:inline">Sign out</span>
+                </Button>
+              </div>
+            ) : (
+              <Button size="sm" onClick={() => navigate("/auth")} aria-label="Sign in">
+                <LogIn className="w-4 h-4 sm:mr-1.5" />
+                <span className="hidden sm:inline">Sign in</span>
+              </Button>
+            )}
           </div>
         </div>
       </header>
+
 
       <main className="flex-1">
         <AnimatePresence mode="wait">
@@ -69,9 +94,9 @@ const Index = () => {
               {/* Stats */}
               <div className="grid grid-cols-3 gap-2.5 sm:gap-4 max-w-sm sm:max-w-md mx-auto mb-8 sm:mb-12">
                 {[
-                  { icon: BookOpen, label: "Subjects", value: "20+" },
-                  { icon: Target, label: "MCQs", value: "2000+" },
-                  { icon: Users, label: "Students", value: "Active" }
+                  { icon: BookOpen, label: "Coverage", value: "Class 9-12" },
+                  { icon: Target, label: "Practice", value: "Chapter-wise" },
+                  { icon: Shield, label: "Forces", value: "Navy · PAF · Army" }
                 ].map((stat, i) => (
                   <motion.div
                     key={i}
@@ -81,7 +106,7 @@ const Index = () => {
                     className="bg-gradient-card rounded-xl p-3 sm:p-4 text-center border border-border"
                   >
                     <stat.icon className="w-4 h-4 sm:w-5 sm:h-5 text-primary mx-auto mb-1.5 sm:mb-2" />
-                    <p className="text-lg sm:text-xl font-bold font-display text-foreground">{stat.value}</p>
+                    <p className="text-sm sm:text-base font-bold font-display text-foreground">{stat.value}</p>
                     <p className="text-[10px] sm:text-xs text-muted-foreground">{stat.label}</p>
                   </motion.div>
                 ))}
@@ -117,9 +142,10 @@ const Index = () => {
               <p className="text-muted-foreground text-center mb-6 sm:mb-8 text-xs sm:text-sm">Everything you need to ace your exams</p>
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-5 max-w-3xl mx-auto">
                 {[
-                  { icon: Brain, title: "AI Note Generator", desc: "Generate concise, exam-focused notes from any chapter using AI. Study smarter, not harder." },
-                  { icon: ClipboardList, title: "Mock Quizzes", desc: "Practice with realistic mock tests that mirror the actual PAF & Army entrance exams." },
-                  { icon: FileText, title: "Past Paper Analysis", desc: "Access analyzed past papers with highlighted important topics and predicted questions." },
+                  { icon: Brain, title: "Study Notes", desc: "Deep-analysis notes attached to questions so you understand the concept, not just the answer." },
+                  { icon: ClipboardList, title: "Mock Quizzes", desc: "Practice with mock tests modelled on the actual PAF, Navy & Army entrance exams." },
+                  { icon: FileText, title: "Exercise & Past MCQs", desc: "Board-book exercise MCQs plus commonly repeated outside-exercise questions." },
+
                 ].map((feature, i) => (
                   <motion.div
                     key={i}
@@ -138,35 +164,6 @@ const Index = () => {
               </div>
             </section>
 
-            {/* Student Success / Testimonials */}
-            <section className="container px-4 sm:px-6 pb-10 sm:pb-14">
-              <h3 className="font-display text-xl sm:text-2xl font-bold text-center mb-1.5 sm:mb-2 text-foreground">Student Success</h3>
-              <p className="text-muted-foreground text-center mb-6 sm:mb-8 text-xs sm:text-sm">Hear from students who cleared their initial tests</p>
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-5 max-w-3xl mx-auto">
-                {[
-                  { name: "Ahmed R.", role: "PAF GD Pilot Selected", quote: "Abbas Study Corner's mock tests were almost identical to the real exam. I felt fully prepared on test day!" },
-                  { name: "Bilal K.", role: "Pak Army PMA Cadet", quote: "The non-verbal intelligence SVGs helped me practice patterns I'd never seen before. Highly recommend!" },
-                  { name: "Usman S.", role: "Navy Sailor Selected", quote: "Chapter-wise MCQs and detailed explanations made revision so much easier. Passed on my first attempt!" },
-                ].map((t, i) => (
-                  <motion.div
-                    key={i}
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.1 * i }}
-                    className="bg-gradient-card border border-border rounded-2xl p-5 sm:p-6"
-                  >
-                    <div className="flex gap-0.5 sm:gap-1 mb-2.5 sm:mb-3">
-                      {[...Array(5)].map((_, j) => (
-                        <Star key={j} className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-primary fill-primary" />
-                      ))}
-                    </div>
-                    <p className="text-xs sm:text-sm text-muted-foreground italic mb-3 sm:mb-4 leading-relaxed">"{t.quote}"</p>
-                    <p className="font-display font-bold text-foreground text-xs sm:text-sm">{t.name}</p>
-                    <p className="text-[10px] sm:text-xs text-primary">{t.role}</p>
-                  </motion.div>
-                ))}
-              </div>
-            </section>
           </motion.div>
         </AnimatePresence>
       </main>
