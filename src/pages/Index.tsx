@@ -22,18 +22,37 @@ const Index = () => {
     <div className="min-h-screen bg-gradient-navy flex flex-col overflow-x-hidden">
       {/* Header */}
       <header className="sticky top-0 z-50 bg-background/80 backdrop-blur-lg border-b border-border">
-        <div className="container px-4 sm:px-6 py-3 sm:py-4 flex items-center justify-center">
-          <div className="flex items-center gap-2.5 sm:gap-3">
+        <div className="container px-4 sm:px-6 py-3 sm:py-4 flex items-center justify-between gap-3">
+          <div className="flex items-center gap-2.5 sm:gap-3 min-w-0">
             <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-gradient-gold flex items-center justify-center shadow-gold flex-shrink-0">
               <BookOpen className="w-5 h-5 sm:w-7 sm:h-7 text-primary-foreground" />
             </div>
-            <div>
-              <h1 className="font-display text-lg sm:text-2xl font-bold text-gradient-gold leading-tight">Abbas Study Corner</h1>
-              <p className="text-[10px] sm:text-xs text-muted-foreground">Academic & Armed Forces Preparation</p>
+            <div className="min-w-0">
+              <h1 className="font-display text-base sm:text-2xl font-bold text-gradient-gold leading-tight truncate">Abbas Study Corner</h1>
+              <p className="text-[10px] sm:text-xs text-muted-foreground truncate">Academic & Armed Forces Preparation</p>
             </div>
+          </div>
+          <div className="flex-shrink-0">
+            {loading ? null : user ? (
+              <div className="flex items-center gap-2">
+                <span className="hidden sm:inline text-xs text-muted-foreground max-w-[10rem] truncate">
+                  {profile?.display_name ?? user.email}
+                </span>
+                <Button variant="outline" size="sm" onClick={() => signOut()} aria-label="Sign out">
+                  <LogOut className="w-4 h-4 sm:mr-1.5" />
+                  <span className="hidden sm:inline">Sign out</span>
+                </Button>
+              </div>
+            ) : (
+              <Button size="sm" onClick={() => navigate("/auth")} aria-label="Sign in">
+                <LogIn className="w-4 h-4 sm:mr-1.5" />
+                <span className="hidden sm:inline">Sign in</span>
+              </Button>
+            )}
           </div>
         </div>
       </header>
+
 
       <main className="flex-1">
         <AnimatePresence mode="wait">
