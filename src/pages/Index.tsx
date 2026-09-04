@@ -1,6 +1,9 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
-import { GraduationCap, Shield, BookOpen, Trophy, Target, Users, Brain, FileText, ClipboardList, Star, Phone, Mail, Sparkles, Zap, Award } from "lucide-react";
+import { GraduationCap, Shield, BookOpen, Trophy, Target, Users, Brain, FileText, ClipboardList, Star, Phone, Mail, Sparkles, Zap, Award, LogIn, LogOut } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { useAuth } from "@/hooks/useAuth";
 import MainSectionCard from "@/components/MainSectionCard";
 import AcademicSection from "@/components/AcademicSection";
 import ArmedForcesSection from "@/components/ArmedForcesSection";
@@ -9,6 +12,9 @@ type MainScreen = "home" | "academic" | "armed-forces";
 
 const Index = () => {
   const [screen, setScreen] = useState<MainScreen>("home");
+  const navigate = useNavigate();
+  const { user, profile, loading, signOut } = useAuth();
+
 
   if (screen === "academic") {
     return <AcademicSection onBack={() => setScreen("home")} />;
