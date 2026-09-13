@@ -12,3 +12,8 @@ Allow: /
 
 User-agent: *
 Allow: /
+Disallow: /admin/
+Disallow: /progress
+Disallow: /profile
+
+Sitemap: https://abbasstudycorner-edu-com.lovable.app/sitemap.xml
