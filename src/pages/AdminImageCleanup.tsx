@@ -17,7 +17,7 @@ const AdminImageCleanup = () => {
     Array.from({ length: 50 }, (_, i) => ({
       questionNumber: i + 1,
       status: 'pending' as const,
-      originalUrl: `/nonverbal/page_${i + 1}.jpg`,
+      originalUrl: `/nonverbal/page_${i + 1}.webp`,
     }))
   );
   const [isProcessing, setIsProcessing] = useState(false);
