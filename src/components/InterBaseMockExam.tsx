@@ -453,7 +453,7 @@ const InterBaseMockExam = ({ trade, onBack }: InterBaseMockExamProps) => {
               <p className="text-xs text-muted-foreground mb-2">Question {currentQuestionIndex + 1}</p>
               <p className="text-foreground font-medium leading-relaxed">{currentQuestion.question}</p>
               {currentQuestion.questionImage && (
-                <img src={currentQuestion.questionImage} alt="Question" className="mt-3 rounded-lg max-w-full" />
+                <img src={currentQuestion.questionImage} alt="Question" loading="lazy" decoding="async" className="mt-3 rounded-lg max-w-full" />
               )}
             </div>
 

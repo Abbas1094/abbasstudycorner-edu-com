@@ -523,6 +523,8 @@ const CustomPractice = ({ subjects, hideTimer: initialHideTimer, onBack }: Custo
                   <img 
                     src={currentQuestion.questionImage} 
                     alt="Question visual" 
+                    loading="lazy"
+                    decoding="async"
                     className="max-w-full max-h-64 rounded-lg border border-border object-contain"
                   />
                 </div>
