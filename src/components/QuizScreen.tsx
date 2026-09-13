@@ -280,6 +280,8 @@ const QuizScreen = ({ chapter, onBack }: QuizScreenPropsExtended & { onBack: () 
                 <img 
                   src={mcq.questionImage} 
                   alt="Question visual" 
+                  loading="lazy"
+                  decoding="async"
                   className="max-w-full max-h-64 rounded-lg border border-border object-contain"
                 />
               </div>
