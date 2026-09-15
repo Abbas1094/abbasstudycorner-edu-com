@@ -1,12 +1,22 @@
-import { useState } from "react";
+import { useState, lazy, Suspense } from "react";
 import { useNavigate } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { GraduationCap, Shield, BookOpen, Target, Brain, FileText, ClipboardList, Phone, Mail, Sparkles, LogIn, BarChart3, User } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useAuth } from "@/hooks/useAuth";
 import MainSectionCard from "@/components/MainSectionCard";
-import AcademicSection from "@/components/AcademicSection";
-import ArmedForcesSection from "@/components/ArmedForcesSection";
+
+const AcademicSection = lazy(() => import("@/components/AcademicSection"));
+const ArmedForcesSection = lazy(() => import("@/components/ArmedForcesSection"));
+
+const SectionLoader = () => (
+  <div className="min-h-screen bg-gradient-navy flex items-center justify-center">
+    <div className="flex flex-col items-center gap-3">
+      <div className="w-10 h-10 rounded-full border-2 border-primary/30 border-t-primary animate-spin" />
+      <p className="text-sm text-muted-foreground">Loading…</p>
+    </div>
+  </div>
+);
 
 type MainScreen = "home" | "academic" | "armed-forces";
 
@@ -17,11 +27,19 @@ const Index = () => {
 
 
   if (screen === "academic") {
-    return <AcademicSection onBack={() => setScreen("home")} />;
+    return (
+      <Suspense fallback={<SectionLoader />}>
+        <AcademicSection onBack={() => setScreen("home")} />
+      </Suspense>
+    );
   }
 
   if (screen === "armed-forces") {
-    return <ArmedForcesSection onBack={() => setScreen("home")} />;
+    return (
+      <Suspense fallback={<SectionLoader />}>
+        <ArmedForcesSection onBack={() => setScreen("home")} />
+      </Suspense>
+    );
   }
 
   return (
