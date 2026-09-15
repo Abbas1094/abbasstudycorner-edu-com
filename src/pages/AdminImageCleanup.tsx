@@ -44,25 +44,21 @@ const AdminImageCleanup = () => {
       // Convert image to base64 on client side
       const base64 = await imageToBase64(image.originalUrl);
       
-      const response = await fetch(
-        `${import.meta.env.VITE_SUPABASE_URL}/functions/v1/clean-pattern-image`,
+      const { data, error: invokeError } = await supabase.functions.invoke(
+        "clean-pattern-image",
         {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-            'apikey': import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY,
-            'Authorization': `Bearer ${import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY}`,
-          },
-          body: JSON.stringify({
+          body: {
             imageBase64: base64,
             questionNumber: image.questionNumber,
-          }),
+          },
         }
       );
 
-      const data = await response.json();
+      if (invokeError) {
+        throw new Error(invokeError.message);
+      }
 
-      if (data.success && data.cleanedImageBase64) {
+      if (data?.success && data.cleanedImageBase64) {
         setImages(prev => prev.map((img, i) => 
           i === index ? { 
             ...img, 
