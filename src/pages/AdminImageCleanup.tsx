@@ -67,7 +67,7 @@ const AdminImageCleanup = () => {
           } : img
         ));
       } else {
-        throw new Error(data.error || 'Failed to process image');
+        throw new Error(data?.error || data?.message || 'Failed to process image');
       }
     } catch (error) {
       setImages(prev => prev.map((img, i) => 
