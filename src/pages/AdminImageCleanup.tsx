@@ -2,6 +2,7 @@ import { useState } from "react";
 import { ArrowLeft, Play, Check, X, Loader2, Download } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Progress } from "@/components/ui/progress";
+import { supabase } from "@/integrations/supabase/client";
 
 
 interface ProcessedImage {
