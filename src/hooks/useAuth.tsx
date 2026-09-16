@@ -1,6 +1,7 @@
 import { createContext, useContext, useEffect, useState, ReactNode, useCallback } from "react";
 import type { Session, User } from "@supabase/supabase-js";
 import { supabase } from "@/integrations/supabase/client";
+import { syncProgressFromCloud } from "@/lib/academicProgress";
 
 export interface Profile {
   id: string;
@@ -38,6 +39,8 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
     ]);
     setProfile((profileData as Profile) ?? null);
     setIsAdmin(Boolean(roleData?.some((r) => r.role === "admin")));
+    // restore chapter progress saved to this account (cross-device)
+    void syncProgressFromCloud();
   }, []);
 
   useEffect(() => {
