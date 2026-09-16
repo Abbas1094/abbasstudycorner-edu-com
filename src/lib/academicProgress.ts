@@ -132,6 +132,11 @@ export async function syncProgressFromCloud(): Promise<void> {
       .slice()
       .reverse();
 
+    const cloudCounts = new Map<string, number>();
+    for (const r of chapterRecords) {
+      cloudCounts.set(r.quiz_key, (cloudCounts.get(r.quiz_key) ?? 0) + 1);
+    }
+
     for (const r of chapterRecords) {
       const [classId, subjectId, chapterId] = r.quiz_key.split("/");
       if (!classId || !subjectId || !chapterId) continue;
@@ -148,7 +153,7 @@ export async function syncProgressFromCloud(): Promise<void> {
         total: isNewer ? r.total_questions : existing!.total,
         percentage: isNewer ? r.percentage : existing!.percentage,
         passed: r.passed || (existing?.passed ?? false),
-        attempts: Math.max((existing?.attempts ?? 0), 0) + (existing ? 0 : 1),
+        attempts: Math.max(existing?.attempts ?? 0, cloudCounts.get(r.quiz_key) ?? 1),
         bestScore: Math.max(existing?.bestScore ?? 0, r.correct_answers),
         bestPercentage: Math.max(existing?.bestPercentage ?? 0, r.percentage),
         lastAttemptDate: isNewer ? date : existing!.lastAttemptDate,
