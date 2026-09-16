@@ -1,5 +1,5 @@
 // Academic progress tracking via localStorage (+ cloud attempt history when signed in)
-import { recordAttemptAsync } from "@/lib/quizAttempts";
+import { recordAttemptAsync, listAttempts } from "@/lib/quizAttempts";
 
 const STORAGE_KEY = "academic_progress";
 
@@ -113,4 +113,55 @@ export function getSubjectProgress(
     }
   }
   return { completed, total: chapterIds.length };
+}
+
+/**
+ * Rebuilds local chapter progress from the signed-in user's cloud attempt
+ * history, so progress follows the account across devices and cache clears.
+ * Best-effort: never throws, never removes existing local progress.
+ */
+export async function syncProgressFromCloud(): Promise<void> {
+  try {
+    const records = await listAttempts(500);
+    if (records.length === 0) return;
+
+    const progress = getProgress();
+    // oldest first so "attempts" counts and latest score end up correct
+    const chapterRecords = records
+      .filter((r) => r.category === "academic" && r.quiz_key.split("/").length === 3)
+      .slice()
+      .reverse();
+
+    const cloudCounts = new Map<string, number>();
+    for (const r of chapterRecords) {
+      cloudCounts.set(r.quiz_key, (cloudCounts.get(r.quiz_key) ?? 0) + 1);
+    }
+
+    for (const r of chapterRecords) {
+      const [classId, subjectId, chapterId] = r.quiz_key.split("/");
+      if (!classId || !subjectId || !chapterId) continue;
+
+      if (!progress[classId]) progress[classId] = {};
+      if (!progress[classId][subjectId]) progress[classId][subjectId] = {};
+
+      const existing = progress[classId][subjectId][chapterId];
+      const date = r.completed_at ?? r.created_at;
+      const isNewer = !existing || new Date(date) > new Date(existing.lastAttemptDate);
+
+      progress[classId][subjectId][chapterId] = {
+        score: isNewer ? r.correct_answers : existing!.score,
+        total: isNewer ? r.total_questions : existing!.total,
+        percentage: isNewer ? r.percentage : existing!.percentage,
+        passed: r.passed || (existing?.passed ?? false),
+        attempts: Math.max(existing?.attempts ?? 0, cloudCounts.get(r.quiz_key) ?? 1),
+        bestScore: Math.max(existing?.bestScore ?? 0, r.correct_answers),
+        bestPercentage: Math.max(existing?.bestPercentage ?? 0, r.percentage),
+        lastAttemptDate: isNewer ? date : existing!.lastAttemptDate,
+      };
+    }
+
+    saveProgress(progress);
+  } catch {
+    // local progress remains the source of truth if sync fails
+  }
 }
