@@ -6,54 +6,70 @@
 
 @layer base {
   :root {
-    --background: 222 47% 6%;
+    /* Core brand palette: military navy, ceremonial gold, academic white */
+    --background: 220 52% 7%;
     --foreground: 210 40% 98%;
 
-    --card: 222 47% 9%;
+    --card: 218 43% 11%;
     --card-foreground: 210 40% 98%;
 
-    --popover: 222 47% 8%;
+    --popover: 218 44% 10%;
     --popover-foreground: 210 40% 98%;
 
-    --primary: 45 100% 50%;
-    --primary-foreground: 222 47% 6%;
+    --primary: 43 96% 54%;
+    --primary-foreground: 220 52% 7%;
 
-    --secondary: 210 50% 20%;
+    --secondary: 213 46% 21%;
     --secondary-foreground: 210 40% 98%;
 
-    --muted: 217 33% 17%;
-    --muted-foreground: 215 20% 65%;
+    --muted: 217 32% 16%;
+    --muted-foreground: 215 20% 72%;
 
-    --accent: 199 89% 48%;
-    --accent-foreground: 222 47% 6%;
+    --accent: 43 96% 54%;
+    --accent-foreground: 220 52% 7%;
 
-    --destructive: 0 84% 60%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive: 0 72% 54%;
+    --destructive-foreground: 0 0% 100%;
 
-    --border: 217 33% 20%;
-    --input: 217 33% 20%;
-    --ring: 45 100% 50%;
+    --border: 215 32% 23%;
+    --input: 215 32% 23%;
+    --ring: 43 96% 54%;
 
-    --radius: 0.75rem;
+    --radius: 0.5rem;
 
-    --navy-dark: 222 47% 6%;
-    --navy: 210 50% 15%;
-    --navy-light: 210 50% 25%;
-    --gold: 45 100% 50%;
-    --gold-light: 45 100% 60%;
-    --ocean: 199 89% 48%;
-    --ocean-light: 199 89% 60%;
-    --success: 142 76% 36%;
-    --warning: 38 92% 50%;
+    --navy-dark: 220 52% 7%;
+    --navy: 216 47% 14%;
+    --navy-light: 213 46% 24%;
+    --gold: 43 96% 54%;
+    --gold-light: 45 100% 68%;
+    --ocean: 207 64% 47%;
+    --ocean-light: 204 72% 62%;
+    --success: 151 61% 42%;
+    --success-foreground: 150 70% 96%;
+    --warning: 35 92% 55%;
+    --warning-foreground: 25 85% 10%;
+    --surface: 218 43% 11%;
+    --surface-raised: 216 40% 15%;
+    --surface-subtle: 218 38% 9%;
+    --heading: 0 0% 100%;
+    --body-copy: 215 25% 82%;
 
-    --sidebar-background: 222 47% 8%;
+    --sidebar-background: 218 44% 9%;
     --sidebar-foreground: 210 40% 98%;
-    --sidebar-primary: 45 100% 50%;
-    --sidebar-primary-foreground: 222 47% 6%;
-    --sidebar-accent: 210 50% 20%;
+    --sidebar-primary: 43 96% 54%;
+    --sidebar-primary-foreground: 220 52% 7%;
+    --sidebar-accent: 213 46% 21%;
     --sidebar-accent-foreground: 210 40% 98%;
-    --sidebar-border: 217 33% 20%;
-    --sidebar-ring: 45 100% 50%;
+    --sidebar-border: 215 32% 23%;
+    --sidebar-ring: 43 96% 54%;
+
+    --gradient-navy: linear-gradient(145deg, hsl(var(--background)) 0%, hsl(var(--navy)) 58%, hsl(var(--background)) 100%);
+    --gradient-card: linear-gradient(145deg, hsl(var(--surface-raised)) 0%, hsl(var(--card)) 100%);
+    --gradient-gold: linear-gradient(110deg, hsl(var(--gold)) 0%, hsl(var(--gold-light)) 100%);
+    --gradient-ocean: linear-gradient(110deg, hsl(var(--ocean)) 0%, hsl(var(--ocean-light)) 100%);
+    --shadow-card: 0 14px 34px -22px hsl(var(--background) / 0.9);
+    --shadow-gold: 0 10px 28px -12px hsl(var(--gold) / 0.42);
+    --shadow-ocean: 0 10px 28px -12px hsl(var(--ocean) / 0.38);
   }
 }
 
@@ -65,44 +81,52 @@
   body {
     @apply bg-background text-foreground font-sans antialiased;
     font-family: 'Inter', sans-serif;
+    font-size: 1rem;
+    line-height: 1.6;
+    letter-spacing: 0;
   }
 
   h1, h2, h3, h4, h5, h6 {
     font-family: 'Oswald', sans-serif;
+    color: hsl(var(--heading));
+    line-height: 1.15;
+    letter-spacing: 0;
   }
 }
 
 @layer utilities {
   .text-gradient-gold {
-    @apply bg-gradient-to-r from-[hsl(45,100%,50%)] via-[hsl(45,100%,60%)] to-[hsl(45,100%,50%)] bg-clip-text text-transparent;
+    background-image: var(--gradient-gold);
+    @apply bg-clip-text text-transparent;
   }
 
   .text-gradient-ocean {
-    @apply bg-gradient-to-r from-[hsl(199,89%,48%)] to-[hsl(199,89%,60%)] bg-clip-text text-transparent;
+    background-image: var(--gradient-ocean);
+    @apply bg-clip-text text-transparent;
   }
 
   .bg-gradient-navy {
-    @apply bg-gradient-to-br from-[hsl(222,47%,6%)] via-[hsl(210,50%,12%)] to-[hsl(222,47%,8%)];
+    background-image: var(--gradient-navy);
   }
 
   .bg-gradient-card {
-    @apply bg-gradient-to-br from-[hsl(222,47%,10%)] to-[hsl(222,47%,7%)];
+    background-image: var(--gradient-card);
   }
 
   .bg-gradient-gold {
-    @apply bg-gradient-to-r from-[hsl(45,100%,45%)] to-[hsl(45,100%,55%)];
+    background-image: var(--gradient-gold);
   }
 
   .bg-gradient-ocean {
-    @apply bg-gradient-to-r from-[hsl(199,89%,40%)] to-[hsl(199,89%,55%)];
+    background-image: var(--gradient-ocean);
   }
 
   .shadow-gold {
-    box-shadow: 0 4px 30px -5px hsl(45 100% 50% / 0.3);
+    box-shadow: var(--shadow-gold);
   }
 
   .shadow-ocean {
-    box-shadow: 0 4px 30px -5px hsl(199 89% 48% / 0.3);
+    box-shadow: var(--shadow-ocean);
   }
 
   .glow-gold {
@@ -147,26 +171,32 @@
 }
 
 ::-webkit-scrollbar-track {
-  background: hsl(222 47% 8%);
+  background: hsl(var(--surface-subtle));
 }
 
 ::-webkit-scrollbar-thumb {
-  background: hsl(45 100% 50% / 0.3);
+  background: hsl(var(--gold) / 0.35);
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: hsl(45 100% 50% / 0.5);
+  background: hsl(var(--gold) / 0.55);
 }
 
 /* Progress bar animation */
 .progress-bar {
-  background: linear-gradient(
-    90deg,
-    hsl(45 100% 50%) 0%,
-    hsl(45 100% 60%) 50%,
-    hsl(45 100% 50%) 100%
-  );
+  background: var(--gradient-gold);
   background-size: 200% 100%;
   animation: shimmer 2s linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }

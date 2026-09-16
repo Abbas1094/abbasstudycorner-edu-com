@@ -51,6 +51,13 @@ export default {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
+        surface: {
+          DEFAULT: "hsl(var(--surface))",
+          raised: "hsl(var(--surface-raised))",
+          subtle: "hsl(var(--surface-subtle))",
+        },
+        heading: "hsl(var(--heading))",
+        copy: "hsl(var(--body-copy))",
         navy: {
           dark: "hsl(var(--navy-dark))",
           DEFAULT: "hsl(var(--navy))",
@@ -64,8 +71,14 @@ export default {
           DEFAULT: "hsl(var(--ocean))",
           light: "hsl(var(--ocean-light))",
         },
-        success: "hsl(var(--success))",
-        warning: "hsl(var(--warning))",
+        success: {
+          DEFAULT: "hsl(var(--success))",
+          foreground: "hsl(var(--success-foreground))",
+        },
+        warning: {
+          DEFAULT: "hsl(var(--warning))",
+          foreground: "hsl(var(--warning-foreground))",
+        },
         sidebar: {
           DEFAULT: "hsl(var(--sidebar-background))",
           foreground: "hsl(var(--sidebar-foreground))",
@@ -81,6 +94,23 @@ export default {
         lg: "var(--radius)",
         md: "calc(var(--radius) - 2px)",
         sm: "calc(var(--radius) - 4px)",
+      },
+      boxShadow: {
+        card: "var(--shadow-card)",
+        gold: "var(--shadow-gold)",
+        ocean: "var(--shadow-ocean)",
+      },
+      fontSize: {
+        "display-xl": ["3.75rem", { lineHeight: "1.05", fontWeight: "700" }],
+        "display-lg": ["3rem", { lineHeight: "1.1", fontWeight: "700" }],
+        "display-md": ["2.25rem", { lineHeight: "1.15", fontWeight: "700" }],
+        "heading-lg": ["1.875rem", { lineHeight: "1.2", fontWeight: "700" }],
+        "heading-md": ["1.5rem", { lineHeight: "1.25", fontWeight: "600" }],
+        "heading-sm": ["1.25rem", { lineHeight: "1.3", fontWeight: "600" }],
+        "body-lg": ["1.125rem", { lineHeight: "1.65" }],
+        body: ["1rem", { lineHeight: "1.6" }],
+        "body-sm": ["0.875rem", { lineHeight: "1.55" }],
+        caption: ["0.75rem", { lineHeight: "1.45" }],
       },
       keyframes: {
         "accordion-down": {
