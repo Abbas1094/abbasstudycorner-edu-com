@@ -143,7 +143,7 @@ const Index = () => {
                   title="Academic Studies"
                   subtitle="Class 9 - 12"
                   description="Complete preparation for board exams with pairing schemes, chapter notes, MCQs and resources"
-                  gradient="bg-gradient-to-r from-emerald-600 to-teal-700"
+                  accent="gold"
                   onClick={() => setScreen("academic")}
                 />
                 <MainSectionCard
@@ -151,7 +151,7 @@ const Index = () => {
                   title="Armed Forces"
                   subtitle="Navy, Air Force, PAF Inter Base & Army"
                   description="Comprehensive test preparation for Pakistan Navy and Air Force initial tests"
-                  gradient="bg-gradient-to-r from-[hsl(210,50%,25%)] to-[hsl(210,50%,40%)]"
+                  accent="ocean"
                   onClick={() => setScreen("armed-forces")}
                 />
               </div>
