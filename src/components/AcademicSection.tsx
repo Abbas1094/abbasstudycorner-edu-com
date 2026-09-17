@@ -56,8 +56,8 @@ const AcademicSection = ({ onBack }: AcademicSectionProps) => {
       <header className="sticky top-0 z-50 bg-background/80 backdrop-blur-lg border-b border-border">
         <div className="container py-4 flex items-center justify-between">
           <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-full bg-gradient-to-r from-emerald-500 to-teal-600 flex items-center justify-center shadow-lg">
-              <BookOpen className="w-6 h-6 text-white" />
+            <div className="w-10 h-10 rounded-full bg-gradient-gold shadow-gold flex items-center justify-center">
+              <BookOpen className="w-6 h-6 text-primary-foreground" />
             </div>
             <div>
               <h1 className="font-display text-xl font-bold text-foreground">Academic Studies</h1>
@@ -164,18 +164,18 @@ const AcademicSection = ({ onBack }: AcademicSectionProps) => {
                 whileHover={{ scale: 1.01 }}
                 whileTap={{ scale: 0.98 }}
                 onClick={() => setScreen("grand-quiz")}
-                className="w-full mb-4 p-4 rounded-2xl bg-gradient-to-r from-amber-500 via-yellow-500 to-amber-400 text-white font-semibold shadow-lg flex items-center justify-between group"
+                className="w-full mb-4 p-4 rounded-2xl bg-gradient-gold text-primary-foreground font-semibold shadow-gold flex items-center justify-between group"
               >
                 <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-xl bg-white/20 flex items-center justify-center flex-shrink-0">
-                    <Zap className="w-5 h-5 text-white" />
+                  <div className="w-10 h-10 rounded-xl bg-primary-foreground/15 flex items-center justify-center flex-shrink-0">
+                    <Zap className="w-5 h-5 text-primary-foreground" />
                   </div>
                   <div className="text-left">
                     <p className="font-display text-base font-bold">Grand Quiz MCQs</p>
-                    <p className="text-xs text-white/80 font-normal">Board Pattern · 15–20 Random Questions</p>
+                    <p className="text-xs text-primary-foreground/75 font-normal">Board Pattern · 15–20 Random Questions</p>
                   </div>
                 </div>
-                <ChevronRight className="w-5 h-5 text-white group-hover:translate-x-1 transition-transform" />
+                <ChevronRight className="w-5 h-5 text-primary-foreground group-hover:translate-x-1 transition-transform" />
               </motion.button>
 
               {/* ── Most Repeated MCQs Button (Red) ── */}
@@ -193,18 +193,18 @@ const AcademicSection = ({ onBack }: AcademicSectionProps) => {
                       setScreen("most-repeated");
                     }
                   }}
-                  className="w-full mb-4 p-4 rounded-2xl bg-gradient-to-r from-red-600 via-red-500 to-rose-500 text-white font-semibold shadow-lg flex items-center justify-between group"
+                  className="w-full mb-4 p-4 rounded-2xl bg-destructive/90 text-destructive-foreground font-semibold shadow-card flex items-center justify-between group"
                 >
                   <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 rounded-xl bg-white/20 flex items-center justify-center flex-shrink-0">
-                      <Trophy className="w-5 h-5 text-white" />
+                    <div className="w-10 h-10 rounded-xl bg-destructive-foreground/15 flex items-center justify-center flex-shrink-0">
+                      <Trophy className="w-5 h-5 text-destructive-foreground" />
                     </div>
                     <div className="text-left">
                       <p className="font-display text-base font-bold">🔴 Most Repeated MCQs</p>
-                      <p className="text-xs text-white/80 font-normal">30 Top Questions from Past Papers</p>
+                      <p className="text-xs text-destructive-foreground/80 font-normal">30 Top Questions from Past Papers</p>
                     </div>
                   </div>
-                  <ChevronRight className="w-5 h-5 text-white group-hover:translate-x-1 transition-transform" />
+                  <ChevronRight className="w-5 h-5 text-destructive-foreground group-hover:translate-x-1 transition-transform" />
                 </motion.button>
               )}
 
@@ -216,18 +216,18 @@ const AcademicSection = ({ onBack }: AcademicSectionProps) => {
                 whileHover={{ scale: 1.01 }}
                 whileTap={{ scale: 0.98 }}
                 onClick={() => setScreen("custom-practice")}
-                className="w-full mb-4 p-4 rounded-2xl bg-gradient-to-r from-indigo-600 via-blue-600 to-cyan-500 text-white font-semibold shadow-lg flex items-center justify-between group"
+                className="w-full mb-4 p-4 rounded-2xl bg-gradient-ocean text-foreground font-semibold shadow-ocean flex items-center justify-between group"
               >
                 <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-xl bg-white/20 flex items-center justify-center flex-shrink-0">
-                    <Settings2 className="w-5 h-5 text-white" />
+                  <div className="w-10 h-10 rounded-xl bg-foreground/15 flex items-center justify-center flex-shrink-0">
+                    <Settings2 className="w-5 h-5 text-foreground" />
                   </div>
                   <div className="text-left">
                     <p className="font-display text-base font-bold">🎯 Custom Practice</p>
-                    <p className="text-xs text-white/80 font-normal">Pick chapters & question count</p>
+                    <p className="text-xs text-foreground/80 font-normal">Pick chapters & question count</p>
                   </div>
                 </div>
-                <ChevronRight className="w-5 h-5 text-white group-hover:translate-x-1 transition-transform" />
+                <ChevronRight className="w-5 h-5 text-foreground group-hover:translate-x-1 transition-transform" />
               </motion.button>
 
               <div className="space-y-4">
@@ -282,7 +282,7 @@ const AcademicSection = ({ onBack }: AcademicSectionProps) => {
                             className="w-full flex items-center justify-between p-3 rounded-xl bg-background/50 hover:bg-background transition-colors text-left group"
                           >
                             <div className="flex items-center gap-2 min-w-0">
-                              {completed && <CheckCircle2 className="w-4 h-4 text-emerald-400 flex-shrink-0" />}
+                              {completed && <CheckCircle2 className="w-4 h-4 text-success flex-shrink-0" />}
                               <span className="text-foreground group-hover:text-primary transition-colors truncate">
                                 Ch {i + 1}: {chapter.name}
                               </span>
@@ -314,7 +314,7 @@ const AcademicSection = ({ onBack }: AcademicSectionProps) => {
                               {hasMCQs ? `Practice MCQs (${chapter.mcqs!.length})` : "MCQs Coming Soon"}
                             </span>
                             {completed && (
-                              <Trophy className="w-3.5 h-3.5 text-amber-400" />
+                              <Trophy className="w-3.5 h-3.5 text-primary" />
                             )}
                           </button>
 
@@ -325,7 +325,7 @@ const AcademicSection = ({ onBack }: AcademicSectionProps) => {
                                 setSelectedChapter(chapter);
                                 setScreen("outside-mcqs");
                               }}
-                              className="w-full flex items-center justify-between p-2.5 pl-8 rounded-lg text-left text-sm transition-colors bg-amber-500/10 hover:bg-amber-500/20 text-amber-600 dark:text-amber-400"
+                              className="w-full flex items-center justify-between p-2.5 pl-8 rounded-lg text-left text-sm transition-colors bg-amber-500/10 hover:bg-amber-500/20 text-amber-300"
                             >
                               <span className="flex items-center gap-2">
                                 <FileText className="w-3.5 h-3.5" />
@@ -472,7 +472,7 @@ const AcademicSection = ({ onBack }: AcademicSectionProps) => {
                 {selectedChapter.outsideExerciseMCQs && selectedChapter.outsideExerciseMCQs.length > 0 && (
                   <button
                     onClick={() => setScreen("outside-mcqs")}
-                    className="w-full bg-gradient-to-r from-amber-500 to-amber-600 text-white p-4 rounded-xl font-semibold shadow-lg flex items-center justify-center gap-2"
+                    className="w-full bg-amber-500/15 border border-amber-500/40 text-amber-300 p-4 rounded-xl font-semibold shadow-card hover:bg-amber-500/25 transition-colors flex items-center justify-center gap-2"
                   >
                     <FileText className="w-5 h-5" />
                     📝 Outside Exercise MCQs ({selectedChapter.outsideExerciseMCQs.length} Questions)
