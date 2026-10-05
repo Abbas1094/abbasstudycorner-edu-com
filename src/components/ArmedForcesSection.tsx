@@ -405,14 +405,14 @@ const ArmedForcesSection = ({ onBack }: ArmedForcesSectionProps) => {
                     className="w-full p-5 rounded-2xl bg-gradient-gold shadow-gold text-left"
                   >
                     <div className="flex items-center gap-4">
-                      <div className="w-14 h-14 rounded-xl bg-white/20 flex items-center justify-center">
-                        <ClipboardCheck className="w-8 h-8 text-white" />
+                      <div className="w-14 h-14 rounded-xl bg-primary-foreground/15 flex items-center justify-center">
+                        <ClipboardCheck className="w-8 h-8 text-primary-foreground" />
                       </div>
                       <div className="flex-1">
-                        <h3 className="font-display text-xl font-bold text-white">🎯 Real Time Full Mock Exam</h3>
-                        <p className="text-sm text-white/80">Complete test simulation with timer • All trades supported</p>
+                        <h3 className="font-display text-xl font-bold text-primary-foreground">🎯 Real Time Full Mock Exam</h3>
+                        <p className="text-sm text-primary-foreground/80">Complete test simulation with timer • All trades supported</p>
                       </div>
-                      <ChevronRight className="w-6 h-6 text-white" />
+                      <ChevronRight className="w-6 h-6 text-primary-foreground" />
                     </div>
                   </motion.button>
 
@@ -423,14 +423,14 @@ const ArmedForcesSection = ({ onBack }: ArmedForcesSectionProps) => {
                     className="w-full p-5 rounded-2xl bg-gradient-ocean shadow-ocean text-left mt-3"
                   >
                     <div className="flex items-center gap-4">
-                      <div className="w-14 h-14 rounded-xl bg-white/20 flex items-center justify-center">
-                        <Target className="w-8 h-8 text-white" />
+                      <div className="w-14 h-14 rounded-xl bg-foreground/20 flex items-center justify-center">
+                        <Target className="w-8 h-8 text-foreground" />
                       </div>
                       <div className="flex-1">
-                        <h3 className="font-display text-xl font-bold text-white">📝 Custom Subject Practice</h3>
-                        <p className="text-sm text-white/80">Practice specific subjects • No fail blocking</p>
+                        <h3 className="font-display text-xl font-bold text-foreground">📝 Custom Subject Practice</h3>
+                        <p className="text-sm text-foreground/85">Practice specific subjects • No fail blocking</p>
                       </div>
-                      <ChevronRight className="w-6 h-6 text-white" />
+                      <ChevronRight className="w-6 h-6 text-foreground" />
                     </div>
                   </motion.button>
                 </motion.div>
@@ -446,14 +446,14 @@ const ArmedForcesSection = ({ onBack }: ArmedForcesSectionProps) => {
                     className="w-full p-5 rounded-2xl bg-gradient-gold shadow-gold text-left"
                   >
                     <div className="flex items-center gap-4">
-                      <div className="w-14 h-14 rounded-xl bg-white/20 flex items-center justify-center">
-                        <ClipboardCheck className="w-8 h-8 text-white" />
+                      <div className="w-14 h-14 rounded-xl bg-primary-foreground/15 flex items-center justify-center">
+                        <ClipboardCheck className="w-8 h-8 text-primary-foreground" />
                       </div>
                       <div className="flex-1">
-                        <h3 className="font-display text-xl font-bold text-white">🎯 Full Mock Exam</h3>
-                        <p className="text-sm text-white/80">Trade-wise simulation • GDP, CAE, AE, AD, LOG</p>
+                        <h3 className="font-display text-xl font-bold text-primary-foreground">🎯 Full Mock Exam</h3>
+                        <p className="text-sm text-primary-foreground/80">Trade-wise simulation • GDP, CAE, AE, AD, LOG</p>
                       </div>
-                      <ChevronRight className="w-6 h-6 text-white" />
+                      <ChevronRight className="w-6 h-6 text-primary-foreground" />
                     </div>
                   </motion.button>
                 </motion.div>
@@ -469,14 +469,14 @@ const ArmedForcesSection = ({ onBack }: ArmedForcesSectionProps) => {
                     className="w-full p-5 rounded-2xl bg-gradient-gold shadow-gold text-left"
                   >
                     <div className="flex items-center gap-4">
-                      <div className="w-14 h-14 rounded-xl bg-white/20 flex items-center justify-center">
-                        <ClipboardCheck className="w-8 h-8 text-white" />
+                      <div className="w-14 h-14 rounded-xl bg-primary-foreground/15 flex items-center justify-center">
+                        <ClipboardCheck className="w-8 h-8 text-primary-foreground" />
                       </div>
                       <div className="flex-1">
-                        <h3 className="font-display text-xl font-bold text-white">🎯 Full Mock Exam</h3>
-                        <p className="text-sm text-white/80">Course-wise simulation • PMA, TCC, DSSC, IC, LCC</p>
+                        <h3 className="font-display text-xl font-bold text-primary-foreground">🎯 Full Mock Exam</h3>
+                        <p className="text-sm text-primary-foreground/80">Course-wise simulation • PMA, TCC, DSSC, IC, LCC</p>
                       </div>
-                      <ChevronRight className="w-6 h-6 text-white" />
+                      <ChevronRight className="w-6 h-6 text-primary-foreground" />
                     </div>
                   </motion.button>
                 </motion.div>
