@@ -339,7 +339,7 @@ const ArmedForcesSection = ({ onBack }: ArmedForcesSectionProps) => {
                   icon={Anchor}
                   title="Pakistan Navy"
                   subtitle="Complete Test Preparation"
-                  gradient="bg-gradient-to-r from-[hsl(210,50%,20%)] to-[hsl(210,50%,35%)]"
+                  gradient="bg-gradient-ocean"
                   onClick={() => {
                     setSelectedForce("navy");
                     setScreen("subjects");
@@ -350,7 +350,7 @@ const ArmedForcesSection = ({ onBack }: ArmedForcesSectionProps) => {
                   icon={Plane}
                   title="Pakistan Air Force"
                   subtitle="Airmen Level • Complete Test Preparation"
-                  gradient="bg-gradient-to-r from-sky-600 to-blue-700"
+                  gradient="bg-gradient-ocean"
                   onClick={() => {
                     setSelectedForce("airforce");
                     setScreen("subjects");
@@ -361,7 +361,7 @@ const ArmedForcesSection = ({ onBack }: ArmedForcesSectionProps) => {
                   icon={Award}
                   title="PAF Inter Base (GDP, CAE, AE, AD, LOG)"
                   subtitle="Commissioned Level • Officer Selection"
-                  gradient="bg-gradient-to-r from-indigo-600 to-blue-800"
+                  gradient="bg-gradient-ocean"
                   onClick={() => {
                     setSelectedForce("paf-interbase");
                     setScreen("subjects");
@@ -372,7 +372,7 @@ const ArmedForcesSection = ({ onBack }: ArmedForcesSectionProps) => {
                   icon={Shield}
                   title="Pakistan Army (PMA)"
                   subtitle="PMA Long Course, TCC, DSSC, IC, LCC"
-                  gradient="bg-gradient-to-r from-green-700 to-emerald-900"
+                  gradient="bg-gradient-gold"
                   onClick={() => {
                     setSelectedForce("pak-army");
                     setScreen("subjects");
