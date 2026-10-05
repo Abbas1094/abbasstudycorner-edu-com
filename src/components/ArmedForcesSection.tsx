@@ -287,12 +287,12 @@ const ArmedForcesSection = ({ onBack }: ArmedForcesSectionProps) => {
               selectedForce === "navy" 
                 ? "bg-gradient-gold" 
                 : selectedForce === "airforce" 
-                  ? "bg-gradient-to-r from-sky-500 to-blue-600"
+                  ? "bg-gradient-ocean"
                   : selectedForce === "paf-interbase"
-                    ? "bg-gradient-to-r from-indigo-500 to-blue-700"
+                    ? "bg-gradient-ocean"
                     : selectedForce === "pak-army"
-                      ? "bg-gradient-to-r from-green-600 to-emerald-800"
-                      : "bg-gradient-to-r from-green-600 to-emerald-700"
+                      ? "bg-gradient-gold"
+                      : "bg-gradient-gold"
             }`}>
               {selectedForce === "navy" ? (
                 <Anchor className="w-6 h-6 text-primary-foreground" />
@@ -402,7 +402,7 @@ const ArmedForcesSection = ({ onBack }: ArmedForcesSectionProps) => {
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
                     onClick={() => setShowTradeModal(true)}
-                    className="w-full p-5 rounded-2xl bg-gradient-to-r from-emerald-500 to-teal-600 shadow-lg text-left"
+                    className="w-full p-5 rounded-2xl bg-gradient-gold shadow-gold text-left"
                   >
                     <div className="flex items-center gap-4">
                       <div className="w-14 h-14 rounded-xl bg-white/20 flex items-center justify-center">
@@ -420,7 +420,7 @@ const ArmedForcesSection = ({ onBack }: ArmedForcesSectionProps) => {
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
                     onClick={() => setShowCustomPracticeModal(true)}
-                    className="w-full p-5 rounded-2xl bg-gradient-to-r from-violet-500 to-purple-600 shadow-lg text-left mt-3"
+                    className="w-full p-5 rounded-2xl bg-gradient-ocean shadow-ocean text-left mt-3"
                   >
                     <div className="flex items-center gap-4">
                       <div className="w-14 h-14 rounded-xl bg-white/20 flex items-center justify-center">
@@ -443,7 +443,7 @@ const ArmedForcesSection = ({ onBack }: ArmedForcesSectionProps) => {
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
                     onClick={() => setShowInterBaseTradeModal(true)}
-                    className="w-full p-5 rounded-2xl bg-gradient-to-r from-indigo-500 to-blue-700 shadow-lg text-left"
+                    className="w-full p-5 rounded-2xl bg-gradient-gold shadow-gold text-left"
                   >
                     <div className="flex items-center gap-4">
                       <div className="w-14 h-14 rounded-xl bg-white/20 flex items-center justify-center">
@@ -466,7 +466,7 @@ const ArmedForcesSection = ({ onBack }: ArmedForcesSectionProps) => {
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
                     onClick={() => setShowArmyCourseModal(true)}
-                    className="w-full p-5 rounded-2xl bg-gradient-to-r from-green-600 to-emerald-800 shadow-lg text-left"
+                    className="w-full p-5 rounded-2xl bg-gradient-gold shadow-gold text-left"
                   >
                     <div className="flex items-center gap-4">
                       <div className="w-14 h-14 rounded-xl bg-white/20 flex items-center justify-center">
