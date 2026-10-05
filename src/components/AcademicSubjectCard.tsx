@@ -18,16 +18,16 @@ const AcademicSubjectCard = ({ name, icon, chapterCount, onClick, delay = 0, com
     whileHover={{ scale: 1.01 }}
     whileTap={{ scale: 0.99 }}
     onClick={onClick}
-    className="w-full bg-card p-4 rounded-xl border border-border hover:border-primary/50 transition-all text-left group"
+    className="w-full bg-gradient-card p-4 rounded-xl border border-border shadow-card hover:border-primary/50 hover:shadow-gold transition-all text-left group"
   >
     <div className="flex items-center gap-4">
       <span className="text-3xl">{icon}</span>
       <div className="flex-1 min-w-0">
-        <h4 className="font-semibold text-foreground group-hover:text-primary transition-colors">{name}</h4>
+        <h4 className="font-semibold text-heading group-hover:text-primary transition-colors">{name}</h4>
         <p className="text-sm text-muted-foreground">
           {chapterCount} Chapters
           {completedChapters > 0 && (
-            <span className="inline-flex items-center gap-1 ml-2 text-emerald-400">
+            <span className="inline-flex items-center gap-1 ml-2 text-success">
               <CheckCircle2 className="w-3 h-3" />
               {completedChapters}/{chapterCount}
             </span>

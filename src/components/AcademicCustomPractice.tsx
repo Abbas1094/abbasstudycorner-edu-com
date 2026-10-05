@@ -109,13 +109,13 @@ const AcademicCustomPractice = ({ subject, classId, onBack }: AcademicCustomPrac
           onClick={() => setIncludeOutside(!includeOutside)}
           className={`w-full mb-4 p-4 rounded-2xl border-2 flex items-center justify-between transition-all ${
             includeOutside
-              ? "bg-amber-500/15 border-amber-500/50"
+              ? "bg-warning/15 border-warning/50"
               : "bg-card border-border"
           }`}
         >
           <div className="flex items-center gap-3">
             <div className={`w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0 ${
-              includeOutside ? "bg-amber-500/20" : "bg-muted"
+              includeOutside ? "bg-warning/20" : "bg-muted"
             }`}>
               <span className="text-lg">📝</span>
             </div>
@@ -125,7 +125,7 @@ const AcademicCustomPractice = ({ subject, classId, onBack }: AcademicCustomPrac
             </div>
           </div>
           {includeOutside ? (
-            <ToggleRight className="w-8 h-8 text-amber-500 flex-shrink-0" />
+            <ToggleRight className="w-8 h-8 text-warning flex-shrink-0" />
           ) : (
             <ToggleLeft className="w-8 h-8 text-muted-foreground flex-shrink-0" />
           )}
@@ -172,7 +172,7 @@ const AcademicCustomPractice = ({ subject, classId, onBack }: AcademicCustomPrac
                 <span className="text-xs text-muted-foreground flex-shrink-0">
                   {displayCount} Qs
                   {includeOutside && outsideCount > 0 && (
-                    <span className="text-amber-500 ml-1">(+{outsideCount})</span>
+                    <span className="text-warning ml-1">(+{outsideCount})</span>
                   )}
                 </span>
               </button>
@@ -234,7 +234,7 @@ const AcademicCustomPractice = ({ subject, classId, onBack }: AcademicCustomPrac
           animate={{ opacity: 1, y: 0 }}
           whileTap={{ scale: 0.97 }}
           onClick={() => setStarted(true)}
-          className="w-full bg-gradient-to-r from-primary to-primary/80 text-primary-foreground p-4 rounded-xl font-semibold shadow-lg flex items-center justify-center gap-2"
+          className="w-full bg-gradient-gold text-primary-foreground p-4 rounded-xl font-semibold shadow-gold flex items-center justify-center gap-2"
         >
           <Shuffle className="w-5 h-5" />
           Start Custom Practice ({questionCount === "all" ? totalAvailable : Math.min(questionCount, totalAvailable)} Qs)
