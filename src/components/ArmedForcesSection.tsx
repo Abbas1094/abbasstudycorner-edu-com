@@ -287,12 +287,12 @@ const ArmedForcesSection = ({ onBack }: ArmedForcesSectionProps) => {
               selectedForce === "navy" 
                 ? "bg-gradient-gold" 
                 : selectedForce === "airforce" 
-                  ? "bg-gradient-to-r from-sky-500 to-blue-600"
+                  ? "bg-gradient-ocean"
                   : selectedForce === "paf-interbase"
-                    ? "bg-gradient-to-r from-indigo-500 to-blue-700"
+                    ? "bg-gradient-ocean"
                     : selectedForce === "pak-army"
-                      ? "bg-gradient-to-r from-green-600 to-emerald-800"
-                      : "bg-gradient-to-r from-green-600 to-emerald-700"
+                      ? "bg-gradient-gold"
+                      : "bg-gradient-gold"
             }`}>
               {selectedForce === "navy" ? (
                 <Anchor className="w-6 h-6 text-primary-foreground" />
@@ -339,7 +339,7 @@ const ArmedForcesSection = ({ onBack }: ArmedForcesSectionProps) => {
                   icon={Anchor}
                   title="Pakistan Navy"
                   subtitle="Complete Test Preparation"
-                  gradient="bg-gradient-to-r from-[hsl(210,50%,20%)] to-[hsl(210,50%,35%)]"
+                  gradient="bg-gradient-ocean"
                   onClick={() => {
                     setSelectedForce("navy");
                     setScreen("subjects");
@@ -350,7 +350,7 @@ const ArmedForcesSection = ({ onBack }: ArmedForcesSectionProps) => {
                   icon={Plane}
                   title="Pakistan Air Force"
                   subtitle="Airmen Level • Complete Test Preparation"
-                  gradient="bg-gradient-to-r from-sky-600 to-blue-700"
+                  gradient="bg-gradient-ocean"
                   onClick={() => {
                     setSelectedForce("airforce");
                     setScreen("subjects");
@@ -361,7 +361,7 @@ const ArmedForcesSection = ({ onBack }: ArmedForcesSectionProps) => {
                   icon={Award}
                   title="PAF Inter Base (GDP, CAE, AE, AD, LOG)"
                   subtitle="Commissioned Level • Officer Selection"
-                  gradient="bg-gradient-to-r from-indigo-600 to-blue-800"
+                  gradient="bg-gradient-ocean"
                   onClick={() => {
                     setSelectedForce("paf-interbase");
                     setScreen("subjects");
@@ -372,7 +372,7 @@ const ArmedForcesSection = ({ onBack }: ArmedForcesSectionProps) => {
                   icon={Shield}
                   title="Pakistan Army (PMA)"
                   subtitle="PMA Long Course, TCC, DSSC, IC, LCC"
-                  gradient="bg-gradient-to-r from-green-700 to-emerald-900"
+                  gradient="bg-gradient-gold"
                   onClick={() => {
                     setSelectedForce("pak-army");
                     setScreen("subjects");
@@ -402,17 +402,17 @@ const ArmedForcesSection = ({ onBack }: ArmedForcesSectionProps) => {
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
                     onClick={() => setShowTradeModal(true)}
-                    className="w-full p-5 rounded-2xl bg-gradient-to-r from-emerald-500 to-teal-600 shadow-lg text-left"
+                    className="w-full p-5 rounded-2xl bg-gradient-gold shadow-gold text-left"
                   >
                     <div className="flex items-center gap-4">
-                      <div className="w-14 h-14 rounded-xl bg-white/20 flex items-center justify-center">
-                        <ClipboardCheck className="w-8 h-8 text-white" />
+                      <div className="w-14 h-14 rounded-xl bg-primary-foreground/15 flex items-center justify-center">
+                        <ClipboardCheck className="w-8 h-8 text-primary-foreground" />
                       </div>
                       <div className="flex-1">
-                        <h3 className="font-display text-xl font-bold text-white">🎯 Real Time Full Mock Exam</h3>
-                        <p className="text-sm text-white/80">Complete test simulation with timer • All trades supported</p>
+                        <h3 className="font-display text-xl font-bold text-primary-foreground">🎯 Real Time Full Mock Exam</h3>
+                        <p className="text-sm text-primary-foreground/80">Complete test simulation with timer • All trades supported</p>
                       </div>
-                      <ChevronRight className="w-6 h-6 text-white" />
+                      <ChevronRight className="w-6 h-6 text-primary-foreground" />
                     </div>
                   </motion.button>
 
@@ -420,17 +420,17 @@ const ArmedForcesSection = ({ onBack }: ArmedForcesSectionProps) => {
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
                     onClick={() => setShowCustomPracticeModal(true)}
-                    className="w-full p-5 rounded-2xl bg-gradient-to-r from-violet-500 to-purple-600 shadow-lg text-left mt-3"
+                    className="w-full p-5 rounded-2xl bg-gradient-ocean shadow-ocean text-left mt-3"
                   >
                     <div className="flex items-center gap-4">
-                      <div className="w-14 h-14 rounded-xl bg-white/20 flex items-center justify-center">
-                        <Target className="w-8 h-8 text-white" />
+                      <div className="w-14 h-14 rounded-xl bg-foreground/20 flex items-center justify-center">
+                        <Target className="w-8 h-8 text-foreground" />
                       </div>
                       <div className="flex-1">
-                        <h3 className="font-display text-xl font-bold text-white">📝 Custom Subject Practice</h3>
-                        <p className="text-sm text-white/80">Practice specific subjects • No fail blocking</p>
+                        <h3 className="font-display text-xl font-bold text-foreground">📝 Custom Subject Practice</h3>
+                        <p className="text-sm text-foreground/85">Practice specific subjects • No fail blocking</p>
                       </div>
-                      <ChevronRight className="w-6 h-6 text-white" />
+                      <ChevronRight className="w-6 h-6 text-foreground" />
                     </div>
                   </motion.button>
                 </motion.div>
@@ -443,17 +443,17 @@ const ArmedForcesSection = ({ onBack }: ArmedForcesSectionProps) => {
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
                     onClick={() => setShowInterBaseTradeModal(true)}
-                    className="w-full p-5 rounded-2xl bg-gradient-to-r from-indigo-500 to-blue-700 shadow-lg text-left"
+                    className="w-full p-5 rounded-2xl bg-gradient-gold shadow-gold text-left"
                   >
                     <div className="flex items-center gap-4">
-                      <div className="w-14 h-14 rounded-xl bg-white/20 flex items-center justify-center">
-                        <ClipboardCheck className="w-8 h-8 text-white" />
+                      <div className="w-14 h-14 rounded-xl bg-primary-foreground/15 flex items-center justify-center">
+                        <ClipboardCheck className="w-8 h-8 text-primary-foreground" />
                       </div>
                       <div className="flex-1">
-                        <h3 className="font-display text-xl font-bold text-white">🎯 Full Mock Exam</h3>
-                        <p className="text-sm text-white/80">Trade-wise simulation • GDP, CAE, AE, AD, LOG</p>
+                        <h3 className="font-display text-xl font-bold text-primary-foreground">🎯 Full Mock Exam</h3>
+                        <p className="text-sm text-primary-foreground/80">Trade-wise simulation • GDP, CAE, AE, AD, LOG</p>
                       </div>
-                      <ChevronRight className="w-6 h-6 text-white" />
+                      <ChevronRight className="w-6 h-6 text-primary-foreground" />
                     </div>
                   </motion.button>
                 </motion.div>
@@ -466,17 +466,17 @@ const ArmedForcesSection = ({ onBack }: ArmedForcesSectionProps) => {
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
                     onClick={() => setShowArmyCourseModal(true)}
-                    className="w-full p-5 rounded-2xl bg-gradient-to-r from-green-600 to-emerald-800 shadow-lg text-left"
+                    className="w-full p-5 rounded-2xl bg-gradient-gold shadow-gold text-left"
                   >
                     <div className="flex items-center gap-4">
-                      <div className="w-14 h-14 rounded-xl bg-white/20 flex items-center justify-center">
-                        <ClipboardCheck className="w-8 h-8 text-white" />
+                      <div className="w-14 h-14 rounded-xl bg-primary-foreground/15 flex items-center justify-center">
+                        <ClipboardCheck className="w-8 h-8 text-primary-foreground" />
                       </div>
                       <div className="flex-1">
-                        <h3 className="font-display text-xl font-bold text-white">🎯 Full Mock Exam</h3>
-                        <p className="text-sm text-white/80">Course-wise simulation • PMA, TCC, DSSC, IC, LCC</p>
+                        <h3 className="font-display text-xl font-bold text-primary-foreground">🎯 Full Mock Exam</h3>
+                        <p className="text-sm text-primary-foreground/80">Course-wise simulation • PMA, TCC, DSSC, IC, LCC</p>
                       </div>
-                      <ChevronRight className="w-6 h-6 text-white" />
+                      <ChevronRight className="w-6 h-6 text-primary-foreground" />
                     </div>
                   </motion.button>
                 </motion.div>
