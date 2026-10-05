@@ -69,7 +69,7 @@ const CustomPracticeModal = ({ isOpen, onClose, onStart }: CustomPracticeModalPr
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
-        className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm p-4"
+        className="fixed inset-0 z-50 flex items-center justify-center bg-background/80 backdrop-blur-sm backdrop-blur-sm p-4"
         onClick={onClose}
       >
         <motion.div
@@ -82,7 +82,7 @@ const CustomPracticeModal = ({ isOpen, onClose, onStart }: CustomPracticeModalPr
           {/* Header */}
           <div className="flex items-center justify-between mb-6">
             <div>
-              <h2 className="font-display text-xl font-bold text-foreground">Custom Practice</h2>
+              <h2 className="font-display text-xl font-bold text-heading">Custom Practice</h2>
               <p className="text-sm text-muted-foreground">Select subjects to practice</p>
             </div>
             <button

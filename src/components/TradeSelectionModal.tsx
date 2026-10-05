@@ -71,19 +71,19 @@ const TradeSelectionModal = ({ isOpen, onClose, onSelectTrade }: TradeSelectionM
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
-        className="fixed inset-0 z-50 bg-black/70 flex items-center justify-center p-4"
+        className="fixed inset-0 z-50 bg-background/80 backdrop-blur-sm flex items-center justify-center p-4"
         onClick={onClose}
       >
         <motion.div
           initial={{ scale: 0.9, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
           exit={{ scale: 0.9, opacity: 0 }}
-          className="bg-card rounded-2xl p-6 max-w-md w-full max-h-[85vh] overflow-y-auto border border-border"
+          className="bg-gradient-card shadow-card rounded-2xl p-6 max-w-md w-full max-h-[85vh] overflow-y-auto border border-border"
           onClick={e => e.stopPropagation()}
         >
           <div className="flex items-center justify-between mb-6">
             <div>
-              <h3 className="font-display text-xl font-bold text-foreground">Select Your Trade</h3>
+              <h3 className="font-display text-xl font-bold text-heading">Select Your Trade</h3>
               <p className="text-sm text-muted-foreground">Choose your exam pattern</p>
             </div>
             <button 
@@ -107,8 +107,8 @@ const TradeSelectionModal = ({ isOpen, onClose, onSelectTrade }: TradeSelectionM
                   className="w-full p-4 rounded-xl border border-border bg-background hover:border-primary/50 hover:bg-primary/5 transition-all text-left group"
                 >
                   <div className="flex items-start gap-4">
-                    <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-sky-500 to-blue-600 flex items-center justify-center flex-shrink-0">
-                      <Icon className="w-6 h-6 text-white" />
+                    <div className="w-12 h-12 rounded-xl bg-gradient-ocean shadow-ocean flex items-center justify-center flex-shrink-0">
+                      <Icon className="w-6 h-6 text-foreground" aria-hidden="true" />
                     </div>
                     <div className="flex-1">
                       <h4 className="font-semibold text-foreground group-hover:text-primary transition-colors">
