@@ -187,8 +187,8 @@ const MissingNumberQuiz = ({ mcqs, title = 'Missing Number', onBack }: MissingNu
 
               let borderClass = 'border-border hover:border-primary/50';
               if (showResult) {
-                if (isCorrect) borderClass = 'border-green-500 bg-green-500/10';
-                else if (isSelected && !isCorrect) borderClass = 'border-red-500 bg-red-500/10';
+                if (isCorrect) borderClass = 'border-success bg-success/10';
+                else if (isSelected && !isCorrect) borderClass = 'border-destructive bg-destructive/10';
               } else if (isSelected) {
                 borderClass = 'border-primary';
               }
@@ -204,8 +204,8 @@ const MissingNumberQuiz = ({ mcqs, title = 'Missing Number', onBack }: MissingNu
                 >
                   <span className="text-sm font-medium text-muted-foreground">{optionLabels[displayIdx]}.</span>
                   <span className="text-lg font-bold text-foreground">{currentQuestion.options[origIdx]}</span>
-                  {showResult && isCorrect && <CheckCircle className="absolute top-1 right-1 w-5 h-5 text-green-500" />}
-                  {showResult && isSelected && !isCorrect && <XCircle className="absolute top-1 right-1 w-5 h-5 text-red-500" />}
+                  {showResult && isCorrect && <CheckCircle className="absolute top-1 right-1 w-5 h-5 text-success" />}
+                  {showResult && isSelected && !isCorrect && <XCircle className="absolute top-1 right-1 w-5 h-5 text-destructive" />}
                 </button>
               );
             })}
