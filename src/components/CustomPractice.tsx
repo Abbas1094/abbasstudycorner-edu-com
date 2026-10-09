@@ -305,7 +305,7 @@ const CustomPractice = ({ subjects, hideTimer: initialHideTimer, onBack }: Custo
                         >
                           <div className="flex items-center gap-2">
                             <span className={`w-6 h-6 rounded text-xs flex items-center justify-center font-medium ${
-                              isCorrect ? "bg-success text-white" : isUserAnswer ? "bg-destructive text-white" : "bg-muted"
+                              isCorrect ? "bg-success text-success-foreground" : isUserAnswer ? "bg-destructive text-destructive-foreground" : "bg-muted"
                             }`}>
                               {String.fromCharCode(65 + optIdx)}
                             </span>
@@ -350,10 +350,10 @@ const CustomPractice = ({ subjects, hideTimer: initialHideTimer, onBack }: Custo
           <div className="text-center mb-8">
             <div className={`w-28 h-28 rounded-full mx-auto mb-4 flex items-center justify-center shadow-lg ${
               overallPercentage >= 50 
-                ? "bg-gradient-to-br from-emerald-500 to-green-600" 
-                : "bg-gradient-to-br from-amber-500 to-orange-600"
+                ? "bg-success text-success-foreground" 
+                : "bg-warning text-warning-foreground"
             }`}>
-              <Trophy className="w-14 h-14 text-white" />
+              <Trophy className="w-14 h-14" />
             </div>
             <h2 className="font-display text-3xl font-bold text-foreground mb-2">{overallPercentage}%</h2>
             <p className="text-muted-foreground">
@@ -510,7 +510,7 @@ const CustomPractice = ({ subjects, hideTimer: initialHideTimer, onBack }: Custo
                   onClick={handleFlag}
                   className={`p-2 rounded-lg transition-colors ${
                     flagged.has(questionKey) 
-                      ? "bg-amber-500/20 text-amber-500" 
+                      ? "bg-warning/20 text-warning" 
                       : "bg-muted text-muted-foreground hover:text-foreground"
                   }`}
                 >
@@ -591,7 +591,7 @@ const CustomPractice = ({ subjects, hideTimer: initialHideTimer, onBack }: Custo
                       : isAnswered 
                         ? "bg-success/20 text-success border border-success/30" 
                         : isFlagged 
-                          ? "bg-amber-500/20 text-amber-500 border border-amber-500/30"
+                          ? "bg-warning/20 text-warning border border-warning/30"
                           : "bg-muted text-muted-foreground hover:bg-muted/80"
                   }`}
                 >
@@ -625,7 +625,7 @@ const CustomPractice = ({ subjects, hideTimer: initialHideTimer, onBack }: Custo
           ) : (
             <button
               onClick={handleSectionSubmit}
-              className="flex-1 bg-success text-white p-3 rounded-xl font-semibold flex items-center justify-center gap-2"
+              className="flex-1 bg-success text-success-foreground p-3 rounded-xl font-semibold flex items-center justify-center gap-2"
             >
               {currentSectionIndex < sections.length - 1 ? `Submit & Continue` : "Finish Practice"}
               <CheckCircle2 className="w-5 h-5" />
