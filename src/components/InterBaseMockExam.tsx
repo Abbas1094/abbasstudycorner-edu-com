@@ -278,8 +278,8 @@ const InterBaseMockExam = ({ trade, onBack }: InterBaseMockExamProps) => {
         </header>
         <main className="container py-8 pb-20">
           <div className="text-center mb-8">
-            <div className="w-28 h-28 rounded-full mx-auto mb-4 flex items-center justify-center shadow-lg bg-gradient-to-br from-red-500 to-rose-600">
-              <XCircle className="w-14 h-14 text-white" />
+            <div className="w-28 h-28 rounded-full mx-auto mb-4 flex items-center justify-center shadow-lg bg-destructive">
+              <XCircle className="w-14 h-14 text-destructive-foreground" />
             </div>
             <h2 className="font-display text-3xl font-bold text-foreground mb-2">NOT RECOMMENDED</h2>
             <p className="text-muted-foreground mb-4">You did not pass the {failedResult.name} section</p>
@@ -334,8 +334,8 @@ const InterBaseMockExam = ({ trade, onBack }: InterBaseMockExamProps) => {
         </header>
         <main className="container py-6 pb-20">
           <div className="text-center mb-8">
-            <div className="w-28 h-28 rounded-full mx-auto mb-4 flex items-center justify-center shadow-lg bg-gradient-to-br from-emerald-500 to-green-600">
-              <Trophy className="w-14 h-14 text-white" />
+            <div className="w-28 h-28 rounded-full mx-auto mb-4 flex items-center justify-center shadow-lg bg-success">
+              <Trophy className="w-14 h-14 text-success-foreground" />
             </div>
             <h2 className="font-display text-3xl font-bold text-foreground mb-2">QUALIFIED ✓</h2>
             <p className="text-lg font-semibold text-foreground">{overallPercentage}%</p>
@@ -376,10 +376,10 @@ const InterBaseMockExam = ({ trade, onBack }: InterBaseMockExamProps) => {
   // Pass modal
   if (showPassModal && currentSectionIndex < sections.length - 1) {
     return (
-      <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm p-4">
+      <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="fixed inset-0 z-50 flex items-center justify-center bg-background/80 backdrop-blur-sm p-4">
         <motion.div initial={{ scale: 0.8, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} transition={{ type: "spring", duration: 0.5 }} className="bg-card border border-border rounded-2xl p-8 max-w-md w-full text-center shadow-2xl">
-          <div className="w-20 h-20 rounded-full bg-gradient-to-br from-emerald-500 to-green-600 mx-auto mb-4 flex items-center justify-center">
-            <Sparkles className="w-10 h-10 text-white" />
+          <div className="w-20 h-20 rounded-full bg-success mx-auto mb-4 flex items-center justify-center">
+            <Sparkles className="w-10 h-10 text-success-foreground" />
           </div>
           <h2 className="font-display text-2xl font-bold text-foreground mb-2">Congratulations!</h2>
           <p className="text-success font-semibold mb-1">You passed {currentSection.name}!</p>
@@ -430,7 +430,7 @@ const InterBaseMockExam = ({ trade, onBack }: InterBaseMockExamProps) => {
                       : answers[`${currentSectionIndex}-${i}`] !== undefined
                         ? "bg-success"
                         : flagged.has(`${currentSectionIndex}-${i}`)
-                          ? "bg-amber-500"
+                          ? "bg-warning"
                           : "bg-muted"
                   }`}
                 />
@@ -493,8 +493,8 @@ const InterBaseMockExam = ({ trade, onBack }: InterBaseMockExamProps) => {
           <button onClick={handlePrev} disabled={currentQuestionIndex === 0} className="p-3 rounded-xl border border-border bg-card disabled:opacity-30">
             <ChevronLeft className="w-5 h-5 text-foreground" />
           </button>
-          <button onClick={handleFlag} className={`p-3 rounded-xl border ${flagged.has(questionKey) ? "border-amber-500 bg-amber-500/10" : "border-border bg-card"}`}>
-            <Flag className={`w-5 h-5 ${flagged.has(questionKey) ? "text-amber-500" : "text-muted-foreground"}`} />
+          <button onClick={handleFlag} className={`p-3 rounded-xl border ${flagged.has(questionKey) ? "border-warning bg-warning/10" : "border-border bg-card"}`}>
+            <Flag className={`w-5 h-5 ${flagged.has(questionKey) ? "text-warning" : "text-muted-foreground"}`} />
           </button>
           {currentQuestionIndex === currentSection.questions.length - 1 ? (
             <button onClick={handleSectionSubmit} className="px-6 py-3 bg-gradient-gold text-primary-foreground rounded-xl font-semibold shadow-gold flex items-center gap-2">

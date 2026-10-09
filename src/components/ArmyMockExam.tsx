@@ -301,8 +301,8 @@ const ArmyMockExam = ({ course, onBack }: ArmyMockExamProps) => {
         </header>
         <main className="container py-8 pb-20">
           <div className="text-center mb-8">
-            <div className="w-28 h-28 rounded-full mx-auto mb-4 flex items-center justify-center shadow-lg bg-gradient-to-br from-red-500 to-rose-600">
-              <XCircle className="w-14 h-14 text-white" />
+            <div className="w-28 h-28 rounded-full mx-auto mb-4 flex items-center justify-center shadow-lg bg-destructive">
+              <XCircle className="w-14 h-14 text-destructive-foreground" />
             </div>
             <h2 className="font-display text-3xl font-bold text-foreground mb-2">NOT RECOMMENDED</h2>
             <p className="text-muted-foreground mb-4">You did not pass the {failedResult.name} section</p>
@@ -357,8 +357,8 @@ const ArmyMockExam = ({ course, onBack }: ArmyMockExamProps) => {
         </header>
         <main className="container py-6 pb-20">
           <div className="text-center mb-8">
-            <div className="w-28 h-28 rounded-full mx-auto mb-4 flex items-center justify-center shadow-lg bg-gradient-to-br from-emerald-500 to-green-600">
-              <Trophy className="w-14 h-14 text-white" />
+            <div className="w-28 h-28 rounded-full mx-auto mb-4 flex items-center justify-center shadow-lg bg-success">
+              <Trophy className="w-14 h-14 text-success-foreground" />
             </div>
             <h2 className="font-display text-3xl font-bold text-foreground mb-2">QUALIFIED ✓</h2>
             <p className="text-lg font-semibold text-foreground">{overallPercentage}%</p>
@@ -399,10 +399,10 @@ const ArmyMockExam = ({ course, onBack }: ArmyMockExamProps) => {
   // Pass modal
   if (showPassModal && currentSectionIndex < sections.length - 1) {
     return (
-      <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm p-4">
+      <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="fixed inset-0 z-50 flex items-center justify-center bg-background/80 backdrop-blur-sm p-4">
         <motion.div initial={{ scale: 0.8, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} transition={{ type: "spring", duration: 0.5 }} className="bg-card border border-border rounded-2xl p-8 max-w-md w-full text-center shadow-2xl">
-          <div className="w-20 h-20 rounded-full bg-gradient-to-br from-emerald-500 to-green-600 mx-auto mb-4 flex items-center justify-center">
-            <Sparkles className="w-10 h-10 text-white" />
+          <div className="w-20 h-20 rounded-full bg-success mx-auto mb-4 flex items-center justify-center">
+            <Sparkles className="w-10 h-10 text-success-foreground" />
           </div>
           <h2 className="font-display text-2xl font-bold text-foreground mb-2">Congratulations!</h2>
           <p className="text-success font-semibold mb-1">You passed {currentSection.name}!</p>
@@ -443,7 +443,7 @@ const ArmyMockExam = ({ course, onBack }: ArmyMockExamProps) => {
               Q {currentQuestionIndex + 1} of {currentSection.questions.length}
             </span>
             <div className="flex items-center gap-2">
-              <button onClick={handleFlag} className={`p-1.5 rounded-lg transition-colors ${flagged.has(questionKey) ? "bg-amber-500/20 text-amber-500" : "text-muted-foreground hover:text-foreground"}`}>
+              <button onClick={handleFlag} className={`p-1.5 rounded-lg transition-colors ${flagged.has(questionKey) ? "bg-warning/20 text-warning" : "text-muted-foreground hover:text-foreground"}`}>
                 <Flag className="w-4 h-4" />
               </button>
             </div>
