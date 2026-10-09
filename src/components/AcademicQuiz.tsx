@@ -180,10 +180,10 @@ const AcademicQuiz = ({
         <div className="text-center mb-8">
           <div
             className={`w-28 h-28 rounded-full mx-auto mb-4 flex items-center justify-center shadow-lg ${
-              passed ? "bg-gradient-to-br from-emerald-500 to-teal-600" : "bg-gradient-to-br from-red-500 to-rose-600"
+              passed ? "bg-success text-success-foreground" : "bg-destructive text-destructive-foreground"
             }`}
           >
-            <span className="text-3xl font-bold text-white">{percentage}%</span>
+            <span className="text-3xl font-bold">{percentage}%</span>
           </div>
 
           <h2 className="font-display text-2xl font-bold text-foreground mb-1">
@@ -192,7 +192,7 @@ const AcademicQuiz = ({
           <p className="text-muted-foreground text-sm mb-1">{chapterName}</p>
 
           {passed && (
-            <div className="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-emerald-500/20 text-emerald-400 text-sm font-medium mt-2">
+            <div className="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-success/20 text-success text-sm font-medium mt-2">
               <Trophy className="w-4 h-4" />
               Chapter Completed
             </div>

@@ -133,10 +133,10 @@ const GrandQuizEngine = ({ subject, classId, onBack }: GrandQuizEngineProps) => 
       percentage >= 60 ? "Good" :
       percentage >= 40 ? "Pass" : "Needs Work";
     const gradeColor =
-      percentage >= 80 ? "from-emerald-500 to-teal-600" :
-      percentage >= 60 ? "from-blue-500 to-cyan-600" :
-      percentage >= 40 ? "from-amber-500 to-yellow-600" :
-      "from-red-500 to-rose-600";
+      percentage >= 80 ? "bg-success text-success-foreground" :
+      percentage >= 60 ? "bg-gradient-ocean text-foreground" :
+      percentage >= 40 ? "bg-gradient-gold text-primary-foreground" :
+      "bg-destructive text-destructive-foreground";
 
     return (
       <motion.div initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} className="py-4">
@@ -150,9 +150,9 @@ const GrandQuizEngine = ({ subject, classId, onBack }: GrandQuizEngineProps) => 
 
         {/* Score Circle */}
         <div className="text-center mb-8">
-          <div className={`w-32 h-32 rounded-full mx-auto mb-4 flex flex-col items-center justify-center shadow-xl bg-gradient-to-br ${gradeColor}`}>
-            <span className="text-3xl font-bold text-white">{percentage}%</span>
-            <span className="text-xs text-white/80 font-medium">{grade}</span>
+          <div className={`w-32 h-32 rounded-full mx-auto mb-4 flex flex-col items-center justify-center shadow-xl ${gradeColor}`}>
+            <span className="text-3xl font-bold">{percentage}%</span>
+            <span className="text-xs opacity-80 font-medium">{grade}</span>
           </div>
           <h2 className="font-display text-2xl font-bold text-foreground mb-1">
             {passed ? "🎉 Well Done!" : "📚 Keep Practicing!"}
