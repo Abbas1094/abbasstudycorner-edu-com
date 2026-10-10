@@ -18,7 +18,7 @@ const SubjectCard = ({ icon: Icon, title, subtitle, color, onClick }: SubjectCar
   >
     <div className="flex items-center gap-4">
       <div className={`w-14 h-14 rounded-xl bg-gradient-to-br ${color} flex items-center justify-center flex-shrink-0`}>
-        <Icon className="w-7 h-7 text-foreground" aria-hidden="true" />
+        <Icon className={`w-7 h-7 ${color.includes("gold") ? "text-primary-foreground" : "text-foreground"}`} aria-hidden="true" />
       </div>
       <div className="flex-1">
         <h3 className="font-display text-xl font-bold text-heading">{title}</h3>

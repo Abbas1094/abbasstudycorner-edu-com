@@ -14,11 +14,11 @@ interface SubjectConfig {
 }
 
 const SUBJECTS: SubjectConfig[] = [
-  { id: "intelligence", name: "Intelligence", icon: Brain, questionCount: 100, timeLimit: 40, color: "from-amber-500 to-orange-600" },
-  { id: "english", name: "English", icon: BookOpen, questionCount: 50, timeLimit: 30, color: "from-indigo-500 to-violet-600" },
-  { id: "physics", name: "Physics", icon: Atom, questionCount: 40, timeLimit: 30, color: "from-blue-500 to-cyan-600" },
-  { id: "math", name: "Mathematics", icon: Calculator, questionCount: 40, timeLimit: 30, color: "from-purple-500 to-pink-600" },
-  { id: "biology", name: "Biology", icon: Leaf, questionCount: 40, timeLimit: 30, color: "from-green-500 to-emerald-600" },
+  { id: "intelligence", name: "Intelligence", icon: Brain, questionCount: 100, timeLimit: 40, color: "from-gold to-gold-light" },
+  { id: "english", name: "English", icon: BookOpen, questionCount: 50, timeLimit: 30, color: "from-warning to-warning/70" },
+  { id: "physics", name: "Physics", icon: Atom, questionCount: 40, timeLimit: 30, color: "from-ocean to-ocean-light" },
+  { id: "math", name: "Mathematics", icon: Calculator, questionCount: 40, timeLimit: 30, color: "from-success to-success/70" },
+  { id: "biology", name: "Biology", icon: Leaf, questionCount: 40, timeLimit: 30, color: "from-success to-success/70" },
 ];
 
 interface CustomPracticeModalProps {
@@ -69,7 +69,7 @@ const CustomPracticeModal = ({ isOpen, onClose, onStart }: CustomPracticeModalPr
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
-        className="fixed inset-0 z-50 flex items-center justify-center bg-background/80 backdrop-blur-sm backdrop-blur-sm p-4"
+        className="fixed inset-0 z-50 flex items-center justify-center bg-background/80 backdrop-blur-sm p-4"
         onClick={onClose}
       >
         <motion.div
@@ -111,7 +111,7 @@ const CustomPracticeModal = ({ isOpen, onClose, onStart }: CustomPracticeModalPr
                 >
                   <div className="flex items-center gap-3">
                     <div className={`w-10 h-10 rounded-lg bg-gradient-to-br ${subject.color} flex items-center justify-center`}>
-                      <Icon className="w-5 h-5 text-white" />
+                      <Icon className={`w-5 h-5 ${subject.color.includes("gold") ? "text-primary-foreground" : "text-foreground"}`} />
                     </div>
                     <div className="flex-1">
                       <h3 className="font-semibold text-foreground">{subject.name}</h3>
