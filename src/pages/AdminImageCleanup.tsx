@@ -197,24 +197,24 @@ const AdminImageCleanup = () => {
                 className="w-full h-full object-cover"
               />
               
-              <div className="absolute top-1 left-1 bg-black/70 px-2 py-0.5 rounded text-xs text-white">
+              <div className="absolute top-1 left-1 bg-background/80 px-2 py-0.5 rounded text-xs text-foreground">
                 Q{image.questionNumber}
               </div>
               
               <div className="absolute top-1 right-1">
                 {image.status === 'success' && (
                   <div className="bg-success rounded-full p-1">
-                    <Check className="w-3 h-3 text-white" />
+                    <Check className="w-3 h-3 text-foreground" />
                   </div>
                 )}
                 {image.status === 'error' && (
                   <div className="bg-destructive rounded-full p-1" title={image.error}>
-                    <X className="w-3 h-3 text-white" />
+                    <X className="w-3 h-3 text-foreground" />
                   </div>
                 )}
                 {image.status === 'processing' && (
                   <div className="bg-primary rounded-full p-1">
-                    <Loader2 className="w-3 h-3 text-white animate-spin" />
+                    <Loader2 className="w-3 h-3 text-foreground animate-spin" />
                   </div>
                 )}
               </div>
@@ -222,9 +222,9 @@ const AdminImageCleanup = () => {
               {image.status === 'success' && image.cleanedBase64 && (
                 <button
                   onClick={() => downloadImage(image.cleanedBase64!, image.questionNumber)}
-                  className="absolute bottom-1 right-1 bg-black/70 rounded p-1 hover:bg-black/90"
+                  className="absolute bottom-1 right-1 bg-background/80 rounded p-1 hover:bg-background"
                 >
-                  <Download className="w-3 h-3 text-white" />
+                  <Download className="w-3 h-3 text-foreground" />
                 </button>
               )}
             </div>

@@ -490,56 +490,56 @@ const ArmedForcesSection = ({ onBack }: ArmedForcesSectionProps) => {
                       icon={MessageSquare} 
                       title="Verbal Intelligence" 
                       subtitle="10 Chapters • ~84-90 MCQs per test" 
-                      color="from-amber-500 to-orange-600" 
+                      color="from-gold to-gold-light" 
                       onClick={() => { setSelectedSubject("verbal-intelligence"); setScreen("subject-menu"); }} 
                     />
                     <SubjectCard 
                       icon={Eye} 
                       title="Non-Verbal Intelligence" 
                       subtitle="8 Chapters • ~64 MCQs per test" 
-                      color="from-rose-500 to-pink-600" 
+                      color="from-ocean to-ocean-light" 
                       onClick={() => { setSelectedSubject("nonverbal-intelligence"); setScreen("subject-menu"); }} 
                     />
                     <SubjectCard 
                       icon={BookOpen} 
                       title="English" 
                       subtitle="10 Chapters • Academic MCQs" 
-                      color="from-indigo-500 to-violet-600" 
+                      color="from-warning to-warning/70" 
                       onClick={() => { setSelectedSubject("english"); setScreen("subject-menu"); }} 
                     />
                     <SubjectCard 
                       icon={Calculator} 
                       title="Mathematics" 
                       subtitle="10 Chapters • All Courses" 
-                      color="from-purple-500 to-pink-600" 
+                      color="from-success to-success/70" 
                       onClick={() => { setSelectedSubject("math"); setScreen("subject-menu"); }} 
                     />
                     <SubjectCard 
                       icon={ScrollText} 
                       title="Pak Studies" 
                       subtitle="8 Chapters • Pakistan History & Geography" 
-                      color="from-green-500 to-emerald-600" 
+                      color="from-success to-success/70" 
                       onClick={() => { setSelectedSubject("pak-studies"); setScreen("subject-menu"); }} 
                     />
                     <SubjectCard 
                       icon={Moon} 
                       title="Islamiat" 
                       subtitle="8 Chapters • Islamic Knowledge" 
-                      color="from-teal-500 to-cyan-600" 
+                      color="from-ocean to-ocean-light" 
                       onClick={() => { setSelectedSubject("islamiat"); setScreen("subject-menu"); }} 
                     />
                     <SubjectCard 
                       icon={Globe} 
                       title="GK & Current Affairs" 
                       subtitle="8 Chapters • 40% of Academic Test" 
-                      color="from-rose-500 to-red-600" 
+                      color="from-warning to-warning/70" 
                       onClick={() => { setSelectedSubject("gk"); setScreen("subject-menu"); }} 
                     />
                     <SubjectCard 
                       icon={Atom} 
                       title="Physics (TCC)" 
                       subtitle="12 Chapters • FSc Level • TCC Only" 
-                      color="from-blue-500 to-cyan-600" 
+                      color="from-ocean to-ocean-light" 
                       onClick={() => { setSelectedSubject("physics"); setScreen("subject-menu"); }} 
                     />
                   </>
@@ -552,35 +552,35 @@ const ArmedForcesSection = ({ onBack }: ArmedForcesSectionProps) => {
                       icon={MessageSquare} 
                       title="Verbal Intelligence" 
                       subtitle="10 Chapters • ~84 MCQs per test" 
-                      color="from-amber-500 to-orange-600" 
+                      color="from-gold to-gold-light" 
                       onClick={() => { setSelectedSubject("verbal-intelligence"); setScreen("subject-menu"); }} 
                     />
                     <SubjectCard 
                       icon={Eye} 
                       title="Non-Verbal Intelligence" 
                       subtitle="8 Chapters • ~64 MCQs per test" 
-                      color="from-rose-500 to-pink-600" 
+                      color="from-ocean to-ocean-light" 
                       onClick={() => { setSelectedSubject("nonverbal-intelligence"); setScreen("subject-menu"); }} 
                     />
                     <SubjectCard 
                       icon={BookOpen} 
                       title="English" 
                       subtitle="10 Chapters • 50-75 MCQs" 
-                      color="from-indigo-500 to-violet-600" 
+                      color="from-warning to-warning/70" 
                       onClick={() => { setSelectedSubject("english"); setScreen("subject-menu"); }} 
                     />
                     <SubjectCard 
                       icon={Atom} 
                       title="Physics" 
                       subtitle="14 Chapters • FSc Part 1 & 2" 
-                      color="from-blue-500 to-cyan-600" 
+                      color="from-ocean to-ocean-light" 
                       onClick={() => { setSelectedSubject("physics"); setScreen("subject-menu"); }} 
                     />
                     <SubjectCard 
                       icon={Calculator} 
                       title="Mathematics (CAE)" 
                       subtitle="12 Chapters • FSc Level • Eliminator" 
-                      color="from-purple-500 to-pink-600" 
+                      color="from-success to-success/70" 
                       onClick={() => { setSelectedSubject("math"); setScreen("subject-menu"); }} 
                     />
                   </>
@@ -593,7 +593,7 @@ const ArmedForcesSection = ({ onBack }: ArmedForcesSectionProps) => {
                       icon={Brain} 
                       title="Intelligence" 
                       subtitle={selectedForce === "navy" ? "10 Chapters • 250+ MCQs" : "10 Chapters • 250+ MCQs"} 
-                      color="from-amber-500 to-orange-600" 
+                      color="from-gold to-gold-light" 
                       onClick={() => { setSelectedSubject("intelligence"); setScreen("subject-menu"); }} 
                     />
                     {selectedForce === "airforce" && (
@@ -601,7 +601,7 @@ const ArmedForcesSection = ({ onBack }: ArmedForcesSectionProps) => {
                         icon={Eye} 
                         title="Non-Verbal Intelligence" 
                         subtitle="5 Chapters • 50 SVG Pattern MCQs" 
-                        color="from-rose-500 to-pink-600" 
+                        color="from-ocean to-ocean-light" 
                         onClick={() => { setSelectedSubject("nonverbal-intelligence"); setScreen("subject-menu"); }} 
                       />
                     )}
@@ -609,7 +609,7 @@ const ArmedForcesSection = ({ onBack }: ArmedForcesSectionProps) => {
                       icon={Globe} 
                       title="General Knowledge" 
                       subtitle={selectedForce === "navy" ? "7 Chapters • 175+ MCQs" : "7 Chapters • 175+ MCQs"}
-                      color="from-rose-500 to-red-600" 
+                      color="from-warning to-warning/70" 
                       onClick={() => { setSelectedSubject("gk"); setScreen("subject-menu"); }} 
                     />
                     {selectedForce === "navy" && (
@@ -617,7 +617,7 @@ const ArmedForcesSection = ({ onBack }: ArmedForcesSectionProps) => {
                         icon={Beaker} 
                         title="Chemistry" 
                         subtitle="10 Chapters • 300+ MCQs" 
-                        color="from-emerald-500 to-teal-600" 
+                        color="from-success to-success/70" 
                         onClick={() => { setSelectedSubject("chemistry"); setScreen("subject-menu"); }} 
                       />
                     )}
@@ -625,14 +625,14 @@ const ArmedForcesSection = ({ onBack }: ArmedForcesSectionProps) => {
                       icon={Atom} 
                       title="Physics" 
                       subtitle={selectedForce === "navy" ? "10 Chapters • 250+ MCQs" : "10 Chapters • 300 MCQs"} 
-                      color="from-blue-500 to-cyan-600" 
+                      color="from-ocean to-ocean-light" 
                       onClick={() => { setSelectedSubject("physics"); setScreen("subject-menu"); }} 
                     />
                     <SubjectCard 
                       icon={Calculator} 
                       title="Mathematics" 
                       subtitle={selectedForce === "navy" ? "10 Chapters • 250+ MCQs" : "15 Chapters • 450 MCQs"} 
-                      color="from-purple-500 to-pink-600" 
+                      color="from-success to-success/70" 
                       onClick={() => { setSelectedSubject("math"); setScreen("subject-menu"); }} 
                     />
                     {selectedForce === "airforce" && (
@@ -640,7 +640,7 @@ const ArmedForcesSection = ({ onBack }: ArmedForcesSectionProps) => {
                         icon={BookOpen} 
                         title="English" 
                         subtitle="12 Chapters • 360 MCQs" 
-                        color="from-indigo-500 to-violet-600" 
+                        color="from-warning to-warning/70" 
                         onClick={() => { setSelectedSubject("english"); setScreen("subject-menu"); }} 
                       />
                     )}
@@ -649,7 +649,7 @@ const ArmedForcesSection = ({ onBack }: ArmedForcesSectionProps) => {
                         icon={Leaf} 
                         title="Biology" 
                         subtitle="8 Chapters • 200 MCQs" 
-                        color="from-green-500 to-emerald-600" 
+                        color="from-success to-success/70" 
                         onClick={() => { setSelectedSubject("biology"); setScreen("subject-menu"); }} 
                       />
                     )}
