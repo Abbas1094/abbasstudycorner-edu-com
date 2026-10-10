@@ -297,13 +297,13 @@ const ArmedForcesSection = ({ onBack }: ArmedForcesSectionProps) => {
               {selectedForce === "navy" ? (
                 <Anchor className="w-6 h-6 text-primary-foreground" />
               ) : selectedForce === "airforce" ? (
-                <Plane className="w-6 h-6 text-white" />
+                <Plane className="w-6 h-6 text-foreground" />
               ) : selectedForce === "paf-interbase" ? (
-                <Award className="w-6 h-6 text-white" />
+                <Award className="w-6 h-6 text-foreground" />
               ) : selectedForce === "pak-army" ? (
-                <Shield className="w-6 h-6 text-white" />
+                <Shield className="w-6 h-6 text-primary-foreground" />
               ) : (
-                <BookOpen className="w-6 h-6 text-white" />
+                <BookOpen className="w-6 h-6 text-primary-foreground" />
               )}
             </div>
             <div>
@@ -726,16 +726,16 @@ const ArmedForcesSection = ({ onBack }: ArmedForcesSectionProps) => {
                     whileHover={{ scale: 1.02 }} 
                     whileTap={{ scale: 0.98 }} 
                     onClick={() => setScreen("tough")} 
-                    className="bg-gradient-to-r from-red-500 to-orange-600 p-5 rounded-2xl shadow-lg cursor-pointer"
+                    className="bg-destructive p-5 rounded-2xl shadow-lg cursor-pointer"
                   >
                     <div className="flex items-center justify-between">
                       <div>
-                        <h3 className="font-display text-lg font-bold text-white flex items-center gap-2">
+                        <h3 className="font-display text-lg font-bold text-destructive-foreground flex items-center gap-2">
                           <Flame className="w-5 h-5" /> Tough Section
                         </h3>
-                        <p className="text-sm text-white/80">Challenging questions for advanced preparation</p>
+                        <p className="text-sm text-destructive-foreground/80">Challenging questions for advanced preparation</p>
                       </div>
-                      <ChevronRight className="w-6 h-6 text-white" />
+                      <ChevronRight className="w-6 h-6 text-destructive-foreground" />
                     </div>
                   </motion.div>
                 </div>

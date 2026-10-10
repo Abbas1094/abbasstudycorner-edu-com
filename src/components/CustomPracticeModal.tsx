@@ -111,7 +111,7 @@ const CustomPracticeModal = ({ isOpen, onClose, onStart }: CustomPracticeModalPr
                 >
                   <div className="flex items-center gap-3">
                     <div className={`w-10 h-10 rounded-lg bg-gradient-to-br ${subject.color} flex items-center justify-center`}>
-                      <Icon className="w-5 h-5 text-white" />
+                      <Icon className={`w-5 h-5 ${subject.color.includes("gold") ? "text-primary-foreground" : "text-foreground"}`} />
                     </div>
                     <div className="flex-1">
                       <h3 className="font-semibold text-foreground">{subject.name}</h3>
